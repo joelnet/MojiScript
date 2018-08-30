@@ -359,3 +359,43 @@ const main = pipe(
 
 main(1)
 ```
+
+Recursion with a conditional exit.
+
+```javascript
+import log from 'joelscript/console/log';
+import not from 'joelscript/decorators/not';
+import ifElse from 'joelscript/ifElse';
+import pipe from 'joelscript/pipe';
+import wait from 'joelscript/threading/wait';
+import Nothing from 'joelscript/types/Nothing';
+
+// decrease :: Number -> Number
+const decrease = a => a - 1
+
+// isPositive :: Number -> Boolean
+const isPositive = a => a > 0
+
+// isNotPositive :: Number -> Boolean
+const isNotPositive = not(isPositive)
+
+// ifNotPositive :: ??
+const ifNotPositive = ifElse(isNotPositive)
+
+// pauseDecreaseThen :: Function -> Number -> *
+const pauseDecreaseThen => func => pipe(
+  wait(1000),
+  decrease,
+  func
+)
+
+const main = pipe(
+  log,
+  ifNotPositive(
+    Nothing,
+    pauseDecreaseThen(main)
+  )
+)
+
+main(10)
+```
