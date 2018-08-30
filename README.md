@@ -383,18 +383,13 @@ const isNotPositive = not(isPositive)
 // ifNotPositive :: Function -> Function -> Any
 const ifNotPositive = ifElse(isNotPositive)
 
-// pauseDecrease :: Number -> Any
-const pauseDecrease => pipe(
-  wait(1000),
-  decrease
-)
-
 const main = pipe(
   log,
   ifNotPositive(
     Nothing,
     pipe(
-      pauseDecrease,
+      wait(1000),
+      decrease,
       main
     )
   )
