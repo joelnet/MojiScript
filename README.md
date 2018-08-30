@@ -24,6 +24,7 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 - [Conditionals](#conditionals)
 - [Morphisms](#morphisms)
 - [Map / Filter / Reduce](#map---filter---reduce)
+- [Recursion](#recursion)
 
 ## Variables
 
