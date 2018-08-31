@@ -465,7 +465,7 @@ const main = limit => pipe(
   )(
     after(fizzBuzz)(
       increase,
-      main
+      main(limit)
     )
   )
 )
