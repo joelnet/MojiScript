@@ -1,6 +1,8 @@
 # JoelScript
 
-JoelScript is an experimental language designed to run within a JavaScript VM. Because of the severely opinionated coding style differences, it is best to not think of this as JavaScript. You will have to learn this in the same way you would have to learn any new language.
+JoelScript is an experimental language designed to run within a JavaScript VM allowing full access to JavaScript modules, such as NPM and all tooling already available to JavaScript.
+
+Because of the severely opinionated coding style differences, it is best to not think of this as JavaScript. You will have to learn this in the same way you would have to learn any new language.
 
 JoelScript's designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, and Category Theory.
 
