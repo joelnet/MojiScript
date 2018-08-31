@@ -317,11 +317,11 @@ import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
 // getTempInfo :: Number -> String
-const getTempInfo = cond(
+const getTempInfo = cond([
   [temp => temp === 0, 'water freezes at 0°C'],
   [temp => temp === 100, 'water boils at 100°C'],
   [temp => true, temp => `nothing special happens at ${temp}°C`]
-)
+])
 
 const main = pipe(
   getTempInfo,
