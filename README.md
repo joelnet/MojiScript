@@ -243,12 +243,13 @@ Example 1: if/else conditional
 
 ```javascript
 import pipe from 'joelscript/pipe'
+import ifElse from 'joelscript/ifElse'
 
 // isEven :: Number -> Boolean
 const isEven = a => a % 2 == 0
 
 // yesOrNo :: Boolean -> String
-const yesOrNo = a => a ? 'YES' : 'NO'
+const yesOrNo = ifElse('YES', 'NO')
 
 const main = pipe(
   isEven,
