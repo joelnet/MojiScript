@@ -28,13 +28,19 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 
 ## Variables
 
-Variables are constant and also mutable. A variable can be a value (Number, String, Object), an Expression, or a Pipe.
+Variables are constant.
 
 ```javascript
 // constant
 const path = './data'
 
-// constant
+path = './hello'
+//=> Error("Path is read-only")
+```
+
+Variables are also mutable.
+
+```javascript
 const state = {
   // mutable
   count: 0
@@ -44,6 +50,8 @@ const main = pipe(
   obj => obj.count = 1
 )(state)
 ```
+
+A variable can be a value (Number, String, Object), an Expression, or a Pipe.
 
 ## Objects
 
