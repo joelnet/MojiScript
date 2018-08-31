@@ -51,7 +51,7 @@ const state = {
 const main = pipe(
   obj => Object.assign(obj, { count: 1 }),
   log
-)(state)
+)
 
 run(main(state), log)
 //=> state({ count: 1 })
