@@ -28,6 +28,22 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 - [Map / Filter / Reduce](#map---filter---reduce)
 - [Recursion](#recursion)
 
+## Hello World
+
+```javascript
+import log from 'joelscript/console/log'
+import error from 'joelscript/console/error'
+import pipe from 'joelscript/core/pipe'
+import run from 'joelscript/core/run'
+
+const main = pipe(
+  'Hello World',
+  log
+)
+
+run(main)(error)
+```
+
 ## Variables
 
 Variables are constant.
@@ -96,7 +112,7 @@ Compound expressions combine multiple expressions. The last expression will retu
 
 ```javascript
 const increase = a => (
-  console.log('increase', a),
+  log('increase', a),
   a + 1
 )
 ```
