@@ -112,7 +112,7 @@ Compound expressions combine multiple expressions. The last expression will retu
 
 ```javascript
 const increase = a => (
-  log('increase', a),
+  log(['increase', a]),
   a + 1
 )
 ```
