@@ -132,14 +132,16 @@ A Pipe should be viewed as a stream of data, that performs Morphisms (or transfo
 import pipe from 'joelscript/pipe'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
+import error from 'joelscript/console/error'
 
 const main = pipe(
   a => a + 5,  // 4 + 5 => 9
   a => a * 2,  // 9 * 2 => 18
-  a => a + 100 // 18 + 100 => 118
+  a => a + 100 // 18 + 100 => 118,
+  log
 )
 
-run(main(4), log) //=> 118
+run(main(4), error) //=> 118
 ```
 
 ### Multiple arguments
@@ -194,6 +196,7 @@ Multiple Pipes can be Composed (combined) to create a new Pipe.
 ```javascript
 import pipe from 'joelscript/pipe'
 import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
 // increase :: Number -> Number
@@ -208,10 +211,11 @@ const double = pipe(
 
 const main = pipe(
   increase,
-  double
+  double,
+  log
 )
 
-run(main(4), log) //=> 10
+run(main(4), error) //=> 10
 ```
 
 ### Pipes are Asynchrnous
@@ -222,6 +226,7 @@ Pipes are Asynchronous. The elimination of synchronous statements greatly simpli
 import pipe from 'joelscript/pipe'
 import wait from 'joelscript/threading/wait'
 import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
 // increase :: Number -> Number
@@ -237,10 +242,11 @@ const double = pipe(
 const main = pipe(
   increase,
   wait(1000),
-  double
+  double,
+  log
 )
 
-run(main(4), log) //=> 10
+run(main(4), error) //=> 10
 ```
 
 Note: There are not any problems with synchronous or asynchronous code. Though there are complexities when you mix asynchronous code with synchronous code.
@@ -253,6 +259,7 @@ Example 1: if/else conditional
 import pipe from 'joelscript/pipe'
 import ifElse from 'joelscript/ifElse'
 import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
 // isEven :: Number -> Boolean
@@ -263,10 +270,11 @@ const yesOrNo = ifElse('YES', 'NO')
 
 const main = pipe(
   isEven,
-  yesOrNo
+  yesOrNo,
+  log
 )
 
-run(main(7), log) //=> 'NO'
+run(main(7), error) //=> 'NO'
 ```
 
 Example 2: switch case
@@ -275,6 +283,7 @@ Example 2: switch case
 import pipe from 'joelscript/pipe'
 import cond from 'joelscript/cond'
 import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
 // dayName :: Number -> String
@@ -290,9 +299,10 @@ const dayName = cond(
 
 const main = pipe(
   dayName,
+  log
 )
 
-run(main(5), log) //=> 'Friday'
+run(main(5), error) //=> 'Friday'
 ```
 
 Example 3: if/else/elseif
@@ -300,6 +310,9 @@ Example 3: if/else/elseif
 ```javascript
 import pipe from 'joelscript/pipe'
 import cond from 'joelscript/cond'
+import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
+import log from 'joelscript/console/log'
 
 // getTempInfo :: Number -> String
 const getTempInfo = cond(
@@ -310,9 +323,10 @@ const getTempInfo = cond(
 
 const main = pipe(
   getTempInfo,
+  log
 )
 
-run(main(100), log) //=> 'water boils at 100°C'
+run(main(100), error) //=> 'water boils at 100°C'
 ```
 
 ## Morphisms
@@ -346,6 +360,7 @@ import map from 'joelscript/map'
 import filter from 'joelscript/filter'
 import reduce from 'joelscript/reduce'
 import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
 // isOdd :: Number -> Boolean
@@ -361,10 +376,11 @@ const add = a => b => a + b
 const main = pipe(
   filter(isOdd), // [1, 2, 3] => [1, 3]
   map(double), // [1, 3] => [2, 6]
-  reduce(add), // [2, 6] => 8
+  reduce(add), // [2, 6] => 8,
+  log
 )
 
-run(main([1, 2, 3], log) // => 8
+run(main([1, 2, 3], error) // => 8
 ```
 
 ## Recursion
@@ -376,6 +392,7 @@ import pipe from 'joelscript/pipe'
 import log from 'joelscript/console/log'
 import wait from 'joelscript/threading/wait'
 import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
 // increase :: Number -> Number
@@ -388,7 +405,7 @@ const main = pipe(
   main
 )
 
-run(main(1), log)
+run(main(1), error)
 ```
 
 Recursion with a conditional exit.
@@ -401,6 +418,7 @@ import pipe from 'joelscript/pipe';
 import wait from 'joelscript/threading/wait';
 import Nothing from 'joelscript/types/Nothing';
 import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
 // decrease :: Number -> Number
@@ -427,5 +445,5 @@ const main = pipe(
   )
 )
 
-run(main(10), log)
+run(main(10), error)
 ```
