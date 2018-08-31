@@ -47,8 +47,10 @@ const state = {
 }
 
 const main = pipe(
-  obj => obj.count = 1
+  obj => Object.assign(obj, { count: 1 }),
+  log
 )(state)
+//=> state({ count: 1 })
 ```
 
 A variable can be a value (Number, String, Object), an Expression, or a Pipe.
