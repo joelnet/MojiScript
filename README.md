@@ -1,6 +1,6 @@
 # JoelScript
 
-JoelScript is an experimental language designed to run within a JavaScript VM. Because of the severely opinionated coding style differences, this should not be considered JavaScript.
+JoelScript is an experimental language designed to run within a JavaScript VM. Because of the severely opinionated coding style differences, it is best to not think of this as JavaScript. You will have to learn this in the same way you would have to learn any new language.
 
 JoelScript's designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, and Category Theory.
 
@@ -24,25 +24,36 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 - [Conditionals](#conditionals)
 - [Morphisms](#morphisms)
 - [Map / Filter / Reduce](#map---filter---reduce)
+- [Recursion](#recursion)
 
 ## Variables
 
-Variables are constant and also mutable. A variable can be a value (Number, String, Object), an Expression, or a Pipe.
+Variables are constant.
 
 ```javascript
 // constant
 const path = './data'
 
-// constant
+path = './hello'
+//=> Error("Path is read-only")
+```
+
+Variables are also mutable.
+
+```javascript
 const state = {
   // mutable
   count: 0
 }
 
 const main = pipe(
-  obj => obj.count = 1
+  obj => Object.assign(obj, { count: 1 }),
+  log
 )(state)
+//=> state({ count: 1 })
 ```
+
+A variable can be a value (Number, String, Object), an Expression, or a Pipe.
 
 ## Objects
 
@@ -358,4 +369,41 @@ const main = pipe(
 )
 
 main(1)
+```
+
+Recursion with a conditional exit.
+
+```javascript
+import log from 'joelscript/console/log';
+import not from 'joelscript/decorators/not';
+import ifElse from 'joelscript/ifElse';
+import pipe from 'joelscript/pipe';
+import wait from 'joelscript/threading/wait';
+import Nothing from 'joelscript/types/Nothing';
+
+// decrease :: Number -> Number
+const decrease = a => a - 1
+
+// isPositive :: Number -> Boolean
+const isPositive = a => a > 0
+
+// isNotPositive :: Number -> Boolean
+const isNotPositive = not(isPositive)
+
+// ifNotPositive :: Function -> Function -> Any
+const ifNotPositive = ifElse(isNotPositive)
+
+const main = pipe(
+  ifNotPositive(
+    Nothing,
+    pipe(
+      log,
+      wait(1000),
+      decrease,
+      main
+    )
+  )
+)
+
+main(10)
 ```
