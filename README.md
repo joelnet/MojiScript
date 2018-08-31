@@ -4,7 +4,7 @@ JoelScript is an experimental language designed to run within a JavaScript VM al
 
 Because of the severely opinionated coding style differences, it is best to not think of this as JavaScript. You will have to learn this in the same way you would have to learn any new language.
 
-JoelScript's designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, and Category Theory.
+JoelScript's designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, Category Theory, and Atomic Design.
 
 JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet) will use this.
 
