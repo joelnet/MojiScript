@@ -1,8 +1,8 @@
-# JoelScript
+# JoelScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg)
 
-JoelScript is an experimental language designed to run within a JavaScript VM. Because of the severely opinionated coding style differences, it is best to not think of this as JavaScript. You will have to learn this in the same way you would have to learn any new language.
+JoelScript is an experimental and opinionated language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that JoelScript language features can run in any JavaScript application and vice-versa.
 
-JoelScript's designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, and Category Theory.
+JoelScript's designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, Category Theory, and Atomic Design.
 
 JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet) will use this.
 
@@ -26,6 +26,21 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 - [Map / Filter / Reduce](#map---filter---reduce)
 - [Recursion](#recursion)
 
+## Hello World
+
+```javascript
+import log from 'joelscript/console/log'
+import pipe from 'joelscript/core/pipe'
+import run from 'joelscript/core/run'
+
+const main = pipe(
+  'Hello World',
+  log
+)
+
+run({ main })
+```
+
 ## Variables
 
 Variables are constant.
@@ -41,7 +56,7 @@ path = './hello'
 Variables are also mutable.
 
 ```javascript
-const state = {
+const options = {
   // mutable
   count: 0
 }
@@ -49,8 +64,10 @@ const state = {
 const main = pipe(
   obj => Object.assign(obj, { count: 1 }),
   log
-)(state)
-//=> state({ count: 1 })
+)
+
+run({ main, options })
+//=> options({ count: 1 })
 ```
 
 A variable can be a value (Number, String, Object), an Expression, or a Pipe.
@@ -92,7 +109,7 @@ Compound expressions combine multiple expressions. The last expression will retu
 
 ```javascript
 const increase = a => (
-  console.log('increase', a),
+  log(['increase', a]),
   a + 1
 )
 ```
@@ -128,14 +145,19 @@ A Pipe should be viewed as a stream of data, that performs Morphisms (or transfo
 
 ```javascript
 import pipe from 'joelscript/pipe'
+import run from 'joelscript/core/run'
+import log from 'joelscript/console/log'
+
+const options = 4
 
 const main = pipe(
   a => a + 5,  // 4 + 5 => 9
   a => a * 2,  // 9 * 2 => 18
-  a => a + 100 // 18 + 100 => 118
+  a => a + 100 // 18 + 100 => 118,
+  log
 )
 
-main(4) //=> 118
+run({ main, options }) //=> 118
 ```
 
 ### Multiple arguments
@@ -189,6 +211,10 @@ Multiple Pipes can be Composed (combined) to create a new Pipe.
 
 ```javascript
 import pipe from 'joelscript/pipe'
+import run from 'joelscript/core/run'
+import log from 'joelscript/console/log'
+
+const options = 4
 
 // increase :: Number -> Number
 const increase = pipe(
@@ -202,10 +228,11 @@ const double = pipe(
 
 const main = pipe(
   increase,
-  double
+  double,
+  log
 )
 
-main(4) //=> 10
+run({ main, options }) //=> 10
 ```
 
 ### Pipes are Asynchrnous
@@ -215,6 +242,10 @@ Pipes are Asynchronous. The elimination of synchronous statements greatly simpli
 ```javascript
 import pipe from 'joelscript/pipe'
 import wait from 'joelscript/threading/wait'
+import run from 'joelscript/core/run'
+import log from 'joelscript/console/log'
+
+const options = 4
 
 // increase :: Number -> Number
 const increase = pipe(
@@ -229,10 +260,11 @@ const double = pipe(
 const main = pipe(
   increase,
   wait(1000),
-  double
+  double,
+  log
 )
 
-main(4) //=> 10
+run({ main, options }) //=> 10
 ```
 
 Note: There are not any problems with synchronous or asynchronous code. Though there are complexities when you mix asynchronous code with synchronous code.
@@ -243,18 +275,25 @@ Example 1: if/else conditional
 
 ```javascript
 import pipe from 'joelscript/pipe'
+import ifElse from 'joelscript/ifElse'
+import run from 'joelscript/core/run'
+import log from 'joelscript/console/log'
+
+const options = 7
 
 // isEven :: Number -> Boolean
 const isEven = a => a % 2 == 0
 
 // yesOrNo :: Boolean -> String
-const yesOrNo = a => a ? 'YES' : 'NO'
+const yesOrNo = ifElse('YES', 'NO')
 
 const main = pipe(
   isEven,
-  yesOrNo
-)(7)
-//=> 'NO'
+  yesOrNo,
+  log
+)
+
+run({ main, options }) //=> 'NO'
 ```
 
 Example 2: switch case
@@ -262,6 +301,10 @@ Example 2: switch case
 ```javascript
 import pipe from 'joelscript/pipe'
 import cond from 'joelscript/cond'
+import run from 'joelscript/core/run'
+import log from 'joelscript/console/log'
+
+const options = 5
 
 // dayName :: Number -> String
 const dayName = cond(
@@ -276,8 +319,10 @@ const dayName = cond(
 
 const main = pipe(
   dayName,
-)(5)
-//=> 'Friday'
+  log
+)
+
+run({ main, options }) //=> 'Friday'
 ```
 
 Example 3: if/else/elseif
@@ -285,18 +330,25 @@ Example 3: if/else/elseif
 ```javascript
 import pipe from 'joelscript/pipe'
 import cond from 'joelscript/cond'
+import run from 'joelscript/core/run'
+import error from 'joelscript/console/error'
+import log from 'joelscript/console/log'
+
+const options = 100
 
 // getTempInfo :: Number -> String
-const getTempInfo = cond(
+const getTempInfo = cond([
   [temp => temp === 0, 'water freezes at 0°C'],
   [temp => temp === 100, 'water boils at 100°C'],
   [temp => true, temp => `nothing special happens at ${temp}°C`]
-)
+])
 
 const main = pipe(
   getTempInfo,
-)(100)
-//=> 'water boils at 100°C'
+  log
+)
+
+run({ main, options }) //=> 'water boils at 100°C'
 ```
 
 ## Morphisms
@@ -329,6 +381,10 @@ import pipe from 'joelscript/pipe'
 import map from 'joelscript/map'
 import filter from 'joelscript/filter'
 import reduce from 'joelscript/reduce'
+import run from 'joelscript/core/run'
+import log from 'joelscript/console/log'
+
+const options = [1, 2, 3]
 
 // isOdd :: Number -> Boolean
 const isOdd = a => a % 2 !== 0
@@ -343,10 +399,11 @@ const add = a => b => a + b
 const main = pipe(
   filter(isOdd), // [1, 2, 3] => [1, 3]
   map(double), // [1, 3] => [2, 6]
-  reduce(add), // [2, 6] => 8
+  reduce(add), // [2, 6] => 8,
+  log
 )
 
-main([1, 2, 3]) // => 8
+run({ main, options }) // => 8
 ```
 
 ## Recursion
@@ -357,6 +414,10 @@ Recursion is dead simple.
 import pipe from 'joelscript/pipe'
 import log from 'joelscript/console/log'
 import wait from 'joelscript/threading/wait'
+import run from 'joelscript/core/run'
+import log from 'joelscript/console/log'
+
+const options = 1
 
 // increase :: Number -> Number
 const increase = a => a + 1
@@ -368,42 +429,71 @@ const main = pipe(
   main
 )
 
-main(1)
+run({ main, options })
 ```
 
-Recursion with a conditional exit.
+FizzBuzz
 
 ```javascript
-import log from 'joelscript/console/log';
-import not from 'joelscript/decorators/not';
-import ifElse from 'joelscript/ifElse';
-import pipe from 'joelscript/pipe';
-import wait from 'joelscript/threading/wait';
-import Nothing from 'joelscript/types/Nothing';
+/* eslint-disable */
+import cond from 'joelscript/cond'
+import log from 'joelscript/console/log'
+import run from 'joelscript/core/run'
+import ifElse from 'joelscript/ifElse'
+import gte from 'joelscript/math/gte'
+import pipe from 'joelscript/pipe'
+import recursivePipe from 'joelscript/recursivePipe'
+import after from 'joelscript/threading/after'
+import Nothing from 'joelscript/types/Nothing'
+import allPass from 'ramda/src/allPass'
 
-// decrease :: Number -> Number
-const decrease = a => a - 1
+const dependencies = 100
+const options = 1
 
-// isPositive :: Number -> Boolean
-const isPositive = a => a > 0
+// getFizzInfo :: Number -> FizzInfo
+const getFizzInfo = value => ({
+  value,
+  fizz: value % 3 === 0,
+  buzz: value % 5 === 0
+})
 
-// isNotPositive :: Number -> Boolean
-const isNotPositive = not(isPositive)
+// isFizz :: FizzInfo -> Boolean
+const isFizz = ({ fizz }) => fizz
 
-// ifNotPositive :: Function -> Function -> Any
-const ifNotPositive = ifElse(isNotPositive)
+// isBuzz :: FizzInfo -> Boolean
+const isBuzz = ({ buzz }) => buzz
 
-const main = pipe(
-  ifNotPositive(
-    Nothing,
-    pipe(
-      log,
-      wait(1000),
-      decrease,
-      main
+// fizzInfoToStatus :: FizzInfo -> String | Number
+const fizzInfoToStatus = cond([
+  [allPass(isFizz, isBuzz), 'FizzBuzz'],
+  [isFizz, 'Fizz'],
+  [isBuzz, 'Buzz'],
+  [() => true, ({ value }) => value]
+])
+
+// fizzBuss :: Number -> String | Number
+const fizzBuzz = pipe(
+  getFizzInfo,
+  fizzInfoToStatus,
+  log
+)
+
+// increase :: Number -> Number
+const increase = a => a + 1
+
+// main :: Number -> Number -> [String | Number]
+const main = limit => recursivePipe(next =>
+  ifElse(gte(limit))(
+    Nothing
+  )(
+    after(fizzBuzz)(
+      pipe(
+        increase,
+        next
+      )
     )
   )
 )
 
-main(10)
+run({ main, dependencies, options })
 ```
