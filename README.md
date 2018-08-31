@@ -384,10 +384,10 @@ const isNotPositive = not(isPositive)
 const ifNotPositive = ifElse(isNotPositive)
 
 const main = pipe(
-  log,
   ifNotPositive(
     Nothing,
     pipe(
+      log,
       wait(1000),
       decrease,
       main
