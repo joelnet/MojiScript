@@ -413,7 +413,6 @@ run(main(1), error)
 FizzBuzz
 
 ```javascript
-/* eslint-disable */
 import cond from 'joelscript/cond'
 import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
