@@ -414,15 +414,16 @@ FizzBuzz
 
 ```javascript
 /* eslint-disable */
-import cond from 'joelscript/cond';
-import error from 'joelscript/console/error';
-import run from 'joelscript/core/run';
-import ifElse from 'joelscript/ifElse';
-import gte from 'joelscript/math/gte';
-import pipe from 'joelscript/pipe';
-import after from 'joelscript/threading/after';
-import Nothing from 'joelscript/types/Nothing';
-import allPass from 'ramda/src/allPass';
+import cond from 'joelscript/cond'
+import error from 'joelscript/console/error'
+import log from 'joelscript/console/log'
+import run from 'joelscript/core/run'
+import ifElse from 'joelscript/ifElse'
+import gte from 'joelscript/math/gte'
+import pipe from 'joelscript/pipe'
+import after from 'joelscript/threading/after'
+import Nothing from 'joelscript/types/Nothing'
+import allPass from 'ramda/src/allPass'
 
 const start = 1
 const limit = 100
@@ -451,15 +452,22 @@ const fizzInfoToStatus = cond([
 // fizzBuss :: Number -> String | Number
 const fizzBuzz = pipe(
   getFizzInfo,
-  fizzInfoToStatus
+  fizzInfoToStatus,
+  log
 )
+
+// increase :: Number -> Number
+const increase = a => a + 1
 
 // main :: Number -> Number -> [String | Number]
 const main = limit => pipe(
   ifElse(gte(limit))(
     Nothing
   )(
-    after(fizzBuzz)(main)
+    after(fizzBuzz)(
+      increase,
+      main
+    )
   )
 )
 
