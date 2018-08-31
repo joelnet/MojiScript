@@ -410,42 +410,58 @@ const main = pipe(
 run(main(1), error)
 ```
 
-Recursion with a conditional exit.
+FizzBuzz
 
 ```javascript
-import log from 'joelscript/console/log';
-import not from 'joelscript/decorators/not';
+/* eslint-disable */
+import cond from 'joelscript/cond';
+import error from 'joelscript/console/error';
+import run from 'joelscript/core/run';
 import ifElse from 'joelscript/ifElse';
+import gte from 'joelscript/math/gte';
 import pipe from 'joelscript/pipe';
-import wait from 'joelscript/threading/wait';
+import after from 'joelscript/threading/after';
 import Nothing from 'joelscript/types/Nothing';
-import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
-import log from 'joelscript/console/log'
+import allPass from 'ramda/src/allPass';
 
-// decrease :: Number -> Number
-const decrease = a => a - 1
+const start = 1
+const limit = 100
 
-// isPositive :: Number -> Boolean
-const isPositive = a => a > 0
+// getFizzInfo :: Number -> FizzInfo
+const getFizzInfo = value => ({
+  value,
+  fizz: value % 3 === 0,
+  buzz: value % 5 === 0
+})
 
-// isNotPositive :: Number -> Boolean
-const isNotPositive = not(isPositive)
+// isFizz :: FizzInfo -> Boolean
+const isFizz = ({ fizz }) => fizz
 
-// ifNotPositive :: Function -> Function -> Any
-const ifNotPositive = ifElse(isNotPositive)
+// isBuzz :: FizzInfo -> Boolean
+const isBuzz = ({ buzz }) => buzz
 
-const main = pipe(
-  ifNotPositive(
-    Nothing,
-    pipe(
-      log,
-      wait(1000),
-      decrease,
-      main
-    )
+// fizzInfoToStatus :: FizzInfo -> String | Number
+const fizzInfoToStatus = cond([
+  [allPass(isFizz, isBuzz), 'FizzBuzz'],
+  [isFizz, 'Fizz'],
+  [isBuzz, 'Buzz'],
+  [() => true, ({ value }) => value]
+])
+
+// fizzBuss :: Number -> String | Number
+const fizzBuzz = pipe(
+  getFizzInfo,
+  fizzInfoToStatus
+)
+
+// main :: Number -> Number -> [String | Number]
+const main = limit => pipe(
+  ifElse(gte(limit))(
+    Nothing
+  )(
+    after(fizzBuzz)(main)
   )
 )
 
-run(main(10), error)
+run(main(limit)(start), error)
 ```
