@@ -143,7 +143,7 @@ const main = pipe(
   log
 )
 
-run(main(4), error) //=> 118
+run(main(4))(error) //=> 118
 ```
 
 ### Multiple arguments
@@ -217,7 +217,7 @@ const main = pipe(
   log
 )
 
-run(main(4), error) //=> 10
+run(main(4))(error) //=> 10
 ```
 
 ### Pipes are Asynchrnous
@@ -248,7 +248,7 @@ const main = pipe(
   log
 )
 
-run(main(4), error) //=> 10
+run(main(4))(error) //=> 10
 ```
 
 Note: There are not any problems with synchronous or asynchronous code. Though there are complexities when you mix asynchronous code with synchronous code.
@@ -276,7 +276,7 @@ const main = pipe(
   log
 )
 
-run(main(7), error) //=> 'NO'
+run(main(7))(error) //=> 'NO'
 ```
 
 Example 2: switch case
@@ -304,7 +304,7 @@ const main = pipe(
   log
 )
 
-run(main(5), error) //=> 'Friday'
+run(main(5))(error) //=> 'Friday'
 ```
 
 Example 3: if/else/elseif
@@ -328,7 +328,7 @@ const main = pipe(
   log
 )
 
-run(main(100), error) //=> 'water boils at 100°C'
+run(main(100))(error) //=> 'water boils at 100°C'
 ```
 
 ## Morphisms
@@ -382,7 +382,7 @@ const main = pipe(
   log
 )
 
-run(main([1, 2, 3], error) // => 8
+run(main([1, 2, 3]))(error) // => 8
 ```
 
 ## Recursion
@@ -407,7 +407,7 @@ const main = pipe(
   main
 )
 
-run(main(1), error)
+run(main(1))(error)
 ```
 
 FizzBuzz
@@ -470,5 +470,5 @@ const main = limit => pipe(
   )
 )
 
-run(main(limit)(start), error)
+run(main(limit)(start))(error)
 ```
