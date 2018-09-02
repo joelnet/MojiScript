@@ -1,8 +1,6 @@
-# JoelScript
+# JoelScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg)
 
-JoelScript is an experimental language designed to run within a JavaScript VM allowing full access to JavaScript modules, such as NPM and all tooling already available to JavaScript.
-
-Because of the severely opinionated coding style differences, it is best to not think of this as JavaScript. You will have to learn this in the same way you would have to learn any new language.
+JoelScript is an experimental and opinionated language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that JoelScript language features can run in any JavaScript application and vice-versa.
 
 JoelScript's designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, Category Theory, and Atomic Design.
 
