@@ -30,7 +30,6 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 
 ```javascript
 import log from 'joelscript/console/log'
-import error from 'joelscript/console/error'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
@@ -39,7 +38,7 @@ const main = pipe(
   log
 )
 
-run(main)(error)
+run({ main })
 ```
 
 ## Variables
@@ -57,7 +56,7 @@ path = './hello'
 Variables are also mutable.
 
 ```javascript
-const state = {
+const options = {
   // mutable
   count: 0
 }
@@ -67,8 +66,8 @@ const main = pipe(
   log
 )
 
-run(main(state), log)
-//=> state({ count: 1 })
+run({ main, options })
+//=> options({ count: 1 })
 ```
 
 A variable can be a value (Number, String, Object), an Expression, or a Pipe.
@@ -148,7 +147,8 @@ A Pipe should be viewed as a stream of data, that performs Morphisms (or transfo
 import pipe from 'joelscript/pipe'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
-import error from 'joelscript/console/error'
+
+const options = 4
 
 const main = pipe(
   a => a + 5,  // 4 + 5 => 9
@@ -157,7 +157,7 @@ const main = pipe(
   log
 )
 
-run(main(4))(error) //=> 118
+run({ main, options }) //=> 118
 ```
 
 ### Multiple arguments
@@ -212,8 +212,9 @@ Multiple Pipes can be Composed (combined) to create a new Pipe.
 ```javascript
 import pipe from 'joelscript/pipe'
 import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+
+const options = 4
 
 // increase :: Number -> Number
 const increase = pipe(
@@ -231,7 +232,7 @@ const main = pipe(
   log
 )
 
-run(main(4))(error) //=> 10
+run({ main, options }) //=> 10
 ```
 
 ### Pipes are Asynchrnous
@@ -242,8 +243,9 @@ Pipes are Asynchronous. The elimination of synchronous statements greatly simpli
 import pipe from 'joelscript/pipe'
 import wait from 'joelscript/threading/wait'
 import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+
+const options = 4
 
 // increase :: Number -> Number
 const increase = pipe(
@@ -262,7 +264,7 @@ const main = pipe(
   log
 )
 
-run(main(4))(error) //=> 10
+run({ main, options }) //=> 10
 ```
 
 Note: There are not any problems with synchronous or asynchronous code. Though there are complexities when you mix asynchronous code with synchronous code.
@@ -275,8 +277,9 @@ Example 1: if/else conditional
 import pipe from 'joelscript/pipe'
 import ifElse from 'joelscript/ifElse'
 import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+
+const options = 7
 
 // isEven :: Number -> Boolean
 const isEven = a => a % 2 == 0
@@ -290,7 +293,7 @@ const main = pipe(
   log
 )
 
-run(main(7))(error) //=> 'NO'
+run({ main, options }) //=> 'NO'
 ```
 
 Example 2: switch case
@@ -299,8 +302,9 @@ Example 2: switch case
 import pipe from 'joelscript/pipe'
 import cond from 'joelscript/cond'
 import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+
+const options = 5
 
 // dayName :: Number -> String
 const dayName = cond(
@@ -318,7 +322,7 @@ const main = pipe(
   log
 )
 
-run(main(5))(error) //=> 'Friday'
+run({ main, options }) //=> 'Friday'
 ```
 
 Example 3: if/else/elseif
@@ -329,6 +333,8 @@ import cond from 'joelscript/cond'
 import run from 'joelscript/core/run'
 import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+
+const options = 100
 
 // getTempInfo :: Number -> String
 const getTempInfo = cond([
@@ -342,7 +348,7 @@ const main = pipe(
   log
 )
 
-run(main(100))(error) //=> 'water boils at 100°C'
+run({ main, options }) //=> 'water boils at 100°C'
 ```
 
 ## Morphisms
@@ -376,8 +382,9 @@ import map from 'joelscript/map'
 import filter from 'joelscript/filter'
 import reduce from 'joelscript/reduce'
 import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+
+const options = [1, 2, 3]
 
 // isOdd :: Number -> Boolean
 const isOdd = a => a % 2 !== 0
@@ -396,7 +403,7 @@ const main = pipe(
   log
 )
 
-run(main([1, 2, 3]))(error) // => 8
+run({ main, options }) // => 8
 ```
 
 ## Recursion
@@ -408,8 +415,9 @@ import pipe from 'joelscript/pipe'
 import log from 'joelscript/console/log'
 import wait from 'joelscript/threading/wait'
 import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+
+const options = 1
 
 // increase :: Number -> Number
 const increase = a => a + 1
@@ -421,25 +429,26 @@ const main = pipe(
   main
 )
 
-run(main(1))(error)
+run({ main, options })
 ```
 
 FizzBuzz
 
 ```javascript
+/* eslint-disable */
 import cond from 'joelscript/cond'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 import run from 'joelscript/core/run'
 import ifElse from 'joelscript/ifElse'
 import gte from 'joelscript/math/gte'
 import pipe from 'joelscript/pipe'
+import recursivePipe from 'joelscript/recursivePipe'
 import after from 'joelscript/threading/after'
 import Nothing from 'joelscript/types/Nothing'
 import allPass from 'ramda/src/allPass'
 
-const start = 1
-const limit = 100
+const dependencies = 100
+const options = 1
 
 // getFizzInfo :: Number -> FizzInfo
 const getFizzInfo = value => ({
@@ -473,18 +482,18 @@ const fizzBuzz = pipe(
 const increase = a => a + 1
 
 // main :: Number -> Number -> [String | Number]
-const main = limit => pipe(
+const main = limit => recursivePipe(next =>
   ifElse(gte(limit))(
     Nothing
   )(
     after(fizzBuzz)(
       pipe(
         increase,
-        main(limit)
+        next
       )
     )
   )
 )
 
-run(main(limit)(start))(error)
+run({ main, dependencies, options })
 ```
