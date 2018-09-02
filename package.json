@@ -1,0 +1,23 @@
+{
+  "name": "joelscript",
+  "version": "0.1.0",
+  "description": "JoelScript is an experimental and opinionated language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that JoelScript language features can run in any JavaScript application and vice-versa.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelnet/JoelScript.git"
+  },
+  "author": "Joel Thoms",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joelnet/JoelScript/issues"
+  },
+  "homepage": "https://github.com/joelnet/JoelScript#readme",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^23.5.0"
+  }
+}
