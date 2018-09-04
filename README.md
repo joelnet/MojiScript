@@ -425,8 +425,7 @@ const increase = a => a + 1
 const main = pipe(
   log,
   wait(1000),
-  increase,
-  main
+  x => main(x + 1)
 )
 
 run({ main, options })
@@ -487,10 +486,7 @@ const main = limit => recursivePipe(next =>
     Nothing
   )(
     after(fizzBuzz)(
-      pipe(
-        increase,
-        next
-      )
+      x => next(x + 1)
     )
   )
 )
