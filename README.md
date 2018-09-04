@@ -434,7 +434,6 @@ run({ main, options })
 FizzBuzz
 
 ```javascript
-/* eslint-disable */
 import cond from 'joelscript/cond'
 import log from 'joelscript/console/log'
 import run from 'joelscript/core/run'
@@ -446,7 +445,9 @@ import after from 'joelscript/threading/after'
 import Nothing from 'joelscript/types/Nothing'
 import allPass from 'ramda/src/allPass'
 
-const dependencies = 100
+const dependencies = {
+  limit: 100
+}
 const options = 1
 
 // getFizzInfo :: Number -> FizzInfo
@@ -481,7 +482,7 @@ const fizzBuzz = pipe(
 const increase = a => a + 1
 
 // main :: Number -> Number -> [String | Number]
-const main = limit => recursivePipe(next =>
+const main = ({ limit }) => recursivePipe(next =>
   ifElse(gte(limit))(
     Nothing
   )(
