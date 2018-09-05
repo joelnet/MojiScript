@@ -4,8 +4,8 @@ import run from 'joelscript/core/run'
 
 const options = 'Hello World'
 
-const main = pipe(
+const main = pipe([
   log
-)
+])
 
 run({ main, options })

@@ -1,0 +1,14 @@
+{
+  "name": "net-axios",
+  "version": "1.0.0",
+  "author": "Joel Thoms",
+  "license": "MIT",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node --experimental-modules --no-warnings index.mjs"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "joelscript": "file:../.."
+  }
+}
