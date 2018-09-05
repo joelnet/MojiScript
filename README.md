@@ -35,9 +35,9 @@ import run from 'joelscript/core/run'
 
 const options = 'Hello World'
 
-const main = pipe(
+const main = pipe([
   log
-)
+])
 
 run({ main, options })
 ```
@@ -62,10 +62,10 @@ const options = {
   count: 0
 }
 
-const main = pipe(
+const main = pipe([
   obj => Object.assign(obj, { count: 1 }),
   log
-)
+])
 
 run({ main, options })
 //=> options({ count: 1 })
@@ -133,9 +133,9 @@ Each pipe can contain multiple Pipes or Function Expressions. A Pipe will return
 import pipe from 'joelscript/core/pipe'
 
 // increase :: Number -> Number
-const increase = pipe(
+const increase = pipe([
   x => x + 1
-)
+])
 
 increase(1) //=> 2
 ```
@@ -151,7 +151,7 @@ import log from 'joelscript/console/log'
 
 const options = 4
 
-const main = pipe(
+const main = pipe([
   //         |
   //         | 4
   //         ▼ 
@@ -173,7 +173,7 @@ const main = pipe(
   //         |
   //         | 18
   //         ▼
-)
+])
 
 run({ main, options }) //=> 18
 ```
@@ -186,9 +186,9 @@ Multiple arguments can be simulated with currying and closures.
 import pipe from 'joelscript/core/pipe'
 
 // add :: Number -> Number -> Number
-const add = x => pipe(
+const add = x => pipe([
   y => x + y
-)
+])
 
 add(3)(2) //=> 7
 ```
@@ -198,9 +198,9 @@ add(3)(2) //=> 7
 ```javascript
 import pipe from 'joelscript/core/pipe'
 
-const add = pipe(
+const add = pipe([
   ({ x, y }) => x + y
-)
+])
 
 add({ x: 3, y: 4 }) //=> 7
 ```
@@ -213,9 +213,9 @@ Because Multiple Argument Pipes are curried, it is easy to create new functions 
 import pipe from 'joelscript/core/pipe'
 
 // add :: Number -> Number -> Number
-const add = x => pipe(
+const add = x => pipe([
   y => x + y
-)
+])
 
 // increase :: Number -> Number
 const increase = add(1)
@@ -235,25 +235,25 @@ import log from 'joelscript/console/log'
 const options = 4
 
 // increase :: Number -> Number
-const increase = pipe(
+const increase = pipe([
   x => x + 1
-)
+])
 
 // double :: Number -> Number
-const double = pipe(
+const double = pipe([
   x => x * 2
-)
+])
 
 // increaseThenDouble :: Number -> Number
-const increaseThenDouble = pipe(
+const increaseThenDouble = pipe([
   increase,
   double
-)
+])
 
-const main = pipe(
+const main = pipe([
   increaseThenDouble,
   log
-)
+])
 
 run({ main, options }) //=> 10
 ```
@@ -276,13 +276,13 @@ const increase = x => x + 1
 // double :: Number -> Number
 const double = x => x * 2
 
-const main = pipe(
+const main = pipe([
   log,
   sleep(1000),
   increase,
   double,
   log
-)
+])
 
 run({ main, options })
 //=> 4
@@ -314,11 +314,11 @@ const isTrue = x => x === true
 const yesOrNo = ifElse(isTrue)('YES')('NO')
 
 // main :: Number -> String
-const main = pipe(
+const main = pipe([
   isEven,
   yesOrNo,
   log
-)
+])
 
 run({ main, options }) //=> 'NO'
 ```
@@ -344,10 +344,10 @@ const dayName = cond([
   [6, 'Saturday']
 ])
 
-const main = pipe(
+const main = pipe([
   dayName,
   log
-)
+])
 
 run({ main, options }) //=> 'Friday'
 ```
@@ -370,10 +370,10 @@ const getTempInfo = cond([
   [true, temp => `nothing special happens at ${temp}°C`]
 ])
 
-const main = pipe(
+const main = pipe([
   getTempInfo,
   log
-)
+])
 
 run({ main, options }) //=> 'water boils at 100°C'
 ```
@@ -386,17 +386,17 @@ Here's a high level example of a Morphism that take an input as a `String` and r
 
 ```javascript
 // urlToJson :: Url -> Json
-const urlToJson = pipe(
+const urlToJson = pipe([
   urlToAjaxResponse,
   ajaxResponseToJson,
-)
+])
 
 // queryToCustomer :: Query -> Customer
-const queryToCustomer = pipe(
+const queryToCustomer = pipe([
   queryToUrl,
   urlToJson,
   jsonToCustomer
-)
+])
 ```
 
 ## Map / Filter / Reduce
@@ -423,12 +423,12 @@ const double = x => x * 2
 const add = x => y => x + y
 
 // main :: [Number] -> Number
-const main = pipe(
+const main = pipe([
   filter(isOdd), // [1, 2, 3] => [1, 3]
   map(double), // [1, 3] => [2, 6]
   reduce(add), // [2, 6] => 8,
   log
-)
+])
 
 run({ main, options }) // => 8
 ```
@@ -448,11 +448,11 @@ const options = 1
 // increase :: Number -> Number
 const increase = x => x + 1
 
-const main = pipe(
+const main = pipe([
   log,
   wait(1000),
   x => main(x + 1)
-)
+])
 
 run({ main, options })
 ```
@@ -498,11 +498,11 @@ const fizzInfoToStatus = cond([
 ])
 
 // fizzBuss :: Number -> String | Number
-const fizzBuzz = pipe(
+const fizzBuzz = pipe([
   getFizzInfo,
   fizzInfoToStatus,
   log
-)
+])
 
 // increase :: Number -> Number
 const increase = x => x + 1
