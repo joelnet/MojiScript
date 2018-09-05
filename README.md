@@ -415,15 +415,13 @@ const queryToCustomer = pipe([
 
 ## Map / Filter / Reduce
 
-`map`, `filter`, and `reduce` are your standard goto for any sort of array processing.
+`map`, `filter`, and `reduce` are your standard goto for any sort of array processing. For you will want to use the Sanctuary library.
 
 ```javascript
 import pipe from 'joelscript/core/pipe'
-import map from 'joelscript/map'
-import filter from 'joelscript/filter'
-import reduce from 'joelscript/reduce'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
+import S from 'sanctuary'
 
 const options = [1, 2, 3]
 
@@ -438,9 +436,9 @@ const add = x => y => x + y
 
 // main :: [Number] -> Number
 const main = pipe([
-  filter(isOdd), // [1, 2, 3] => [1, 3]
-  map(double), // [1, 3] => [2, 6]
-  reduce(add), // [2, 6] => 8,
+  S.filter(isOdd), // [1, 2, 3] => [1, 3]
+  S.map(double), // [1, 3] => [2, 6]
+  S.reduce(add)(0), // [2, 6] => 8,
   log
 ])
 
