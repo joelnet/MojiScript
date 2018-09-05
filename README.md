@@ -263,31 +263,31 @@ run({ main, options }) //=> 10
 Pipes are Asynchronous. The elimination of synchronous statements greatly simplifies the code. No need for `Promise`, `async`, or `await`!
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-import wait from 'joelscript/threading/wait'
-import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
+import pipe from 'joelscript/core/pipe'
+import run from 'joelscript/core/run'
+import sleep from 'joelscript/threading/sleep'
 
 const options = 4
 
 // increase :: Number -> Number
-const increase = pipe(
-  x => x + 1
-)
+const increase = x => x + 1
 
 // double :: Number -> Number
-const double = pipe(
-  x => x * 2
-)
+const double = x => x * 2
 
 const main = pipe(
+  log,
+  sleep(1000),
   increase,
-  wait(1000),
   double,
   log
 )
 
-run({ main, options }) //=> 10
+run({ main, options })
+//=> 4
+//=> (pause for 1 second)
+//=> 10
 ```
 
 Note: There are not any problems with synchronous or asynchronous code. Though there are complexities when you mix asynchronous code with synchronous code.
