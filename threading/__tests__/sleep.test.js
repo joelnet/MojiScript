@@ -13,7 +13,7 @@ describe('threading/sleep', () => {
     const start = new Date()
     return sleep(0)().then(() => {
       const end = new Date()
-      expect(end - start).toBeLessThan(20)
+      expect(end - start).toBeLessThan(100)
     })
   })
 
@@ -22,7 +22,7 @@ describe('threading/sleep', () => {
     const start = new Date()
     return sleep(100)().then(() => {
       const end = new Date()
-      expect(end - start).toBeGreaterThanOrEqual(100)
+      expect(end - start).toBeGreaterThanOrEqual(99)
     })
   })
 })
