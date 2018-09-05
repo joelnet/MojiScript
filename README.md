@@ -239,14 +239,19 @@ const increase = pipe(
   x => x + 1
 )
 
-// increase :: Number -> Number
+// double :: Number -> Number
 const double = pipe(
   x => x * 2
 )
 
-const main = pipe(
+// increaseThenDouble :: Number -> Number
+const increaseThenDouble = pipe(
   increase,
-  double,
+  double
+)
+
+const main = pipe(
+  increaseThenDouble,
   log
 )
 
