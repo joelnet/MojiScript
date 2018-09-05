@@ -1,0 +1,13 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "author": "Joel Thoms",
+  "license": "MIT",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node --experimental-modules --no-warnings index.mjs"
+  },
+  "dependencies": {
+    "joelscript": "file:../.."
+  }
+}
