@@ -327,14 +327,14 @@ Example 2: switch case
 
 ```javascript
 import pipe from 'joelscript/core/pipe'
-import cond from 'joelscript/cond'
+import cond from 'joelscript/core/cond'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
 
 const options = 5
 
 // dayName :: Number -> String
-const dayName = cond(
+const dayName = cond([
   [0, 'Sunday'],
   [1, 'Monday'],
   [2, 'Tuesday'],
@@ -342,7 +342,7 @@ const dayName = cond(
   [4, 'Thursday'],
   [5, 'Friday'],
   [6, 'Saturday']
-)
+])
 
 const main = pipe(
   dayName,
@@ -356,7 +356,7 @@ Example 3: if/else/elseif
 
 ```javascript
 import pipe from 'joelscript/core/pipe'
-import cond from 'joelscript/cond'
+import cond from 'joelscript/core/cond'
 import run from 'joelscript/core/run'
 import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
@@ -460,7 +460,7 @@ run({ main, options })
 FizzBuzz
 
 ```javascript
-import cond from 'joelscript/cond'
+import cond from 'joelscript/core/cond'
 import log from 'joelscript/console/log'
 import run from 'joelscript/core/run'
 import ifElse from 'joelscript/core/ifElse'
@@ -494,7 +494,7 @@ const fizzInfoToStatus = cond([
   [allPass(isFizz, isBuzz), 'FizzBuzz'],
   [isFizz, 'Fizz'],
   [isBuzz, 'Buzz'],
-  [() => true, ({ value }) => value]
+  [true, ({ value }) => value]
 ])
 
 // fizzBuss :: Number -> String | Number
