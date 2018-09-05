@@ -8,6 +8,9 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 
 ## Table of Contents
 
+- [Examples](#examples)
+  * [Hello World](#hello-world)
+  * [Other Examples](#other-examples)
 - [Variables](#variables)
 - [Objects](#objects)
 - [Expressions](#expressions)
@@ -26,7 +29,11 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 - [Map / Filter / Reduce](#map---filter---reduce)
 - [Recursion](#recursion)
 
-## Hello World
+## Examples
+
+### Hello World
+
+[examples/async-simple](view the source)
 
 ```javascript
 import log from 'joelscript/console/log'
@@ -41,6 +48,12 @@ const main = pipe([
 
 run({ main, options })
 ```
+
+### Other Examples
+
+- [examples/async-simple](Async Simple)
+- [examples/hello-world](Hello World)
+- [examples/ifElse-simple](ifElse Simple)
 
 ## Variables
 

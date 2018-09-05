@@ -1,6 +1,6 @@
-# JoelScript If/Else Simple
+# JoelScript IfElse Simple
 
-JoelScript If/Else Simple example.
+JoelScript IfElse Simple example.
 
 ## Install
 
