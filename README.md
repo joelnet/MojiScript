@@ -54,6 +54,7 @@ run({ main, options })
 - [Async Simple](examples/async-simple)
 - [Hello World](examples/hello-world)
 - [ifElse Simple](examples/ifElse-simple)
+- [Axios](examples/net-axios)
 
 ## Variables
 
