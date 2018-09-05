@@ -91,7 +91,7 @@ note: Objects may contain functions, but those functions will not have a referen
 Expressions can be compared to a synchronous function that takes 1 argument and returns 1 argument.
 
 ```javascript
-const increase = a => a + 1
+const increase = x => x + 1
 ```
 
 ### Multiple Arguments
@@ -99,7 +99,7 @@ const increase = a => a + 1
 Multiple arguments can be simulated with currying and closures.
 
 ```javascript
-const add = a => b => a + b
+const add = x => y => x + y
 add(3)(4) //=> 7
 ```
 
@@ -108,18 +108,18 @@ add(3)(4) //=> 7
 Compound expressions combine multiple expressions. The last expression will return the value of the Compound Expression.
 
 ```javascript
-const increase = a => (
-  log(['increase', a]),
-  a + 1
+const increase = x => (
+  log(['increase', x]),
+  x + 1
 )
 ```
 
 ### Named arguments
 
 ```javascript
-const add = ({ a, b }) => a + b
+const add = ({ x, y }) => x + y
 
-add({ a: 3, b: 4 }) //=> 7
+add({ x: 3, y: 4 }) //=> 7
 ```
 
 ## Pipes
@@ -129,11 +129,11 @@ Pipes can be compared to an asynchrnous function that takes 1 argument and retur
 Each pipe can contain multiple Pipes or Function Expressions. A Pipe will return the result of the final Pipe or Function Expression.
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 
 // increase :: Number -> Number
 const increase = pipe(
-  a => a + 1
+  x => x + 1
 )
 
 increase(1) //=> 2
@@ -144,7 +144,7 @@ increase(1) //=> 2
 A Pipe should be viewed as a stream of data, that performs Morphisms (or transformation between Categories) along each step.
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
 
@@ -155,19 +155,19 @@ const main = pipe(
   //         | 4
   //         ▼ 
   /*-------------------*/
-  /**/  a => a + 5,  /**/
+  /**/  x => x + 5,  /**/
   /*-------------------*/
   //         |
   //         | 9
   //         ▼
   /*-------------------*/
-  /**/  a => a * 2,  /**/
+  /**/  x => x * 2,  /**/
   /*-------------------*/
   //         |
   //         | 18
   //         ▼
   /*-------------------*/
-  /**/ a => a + 100, /**/
+  /**/ x => x + 100, /**/
   /*-------------------*/
   //         |
   //         | 118
@@ -188,11 +188,11 @@ run({ main, options }) //=> 118
 Multiple arguments can be simulated with currying and closures.
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 
 // add :: Number -> Number -> Number
-const add = a => pipe(
-  b => a + b
+const add = x => pipe(
+  y => x + y
 )
 
 add(3)(2) //=> 7
@@ -201,13 +201,13 @@ add(3)(2) //=> 7
 ### Named arguments
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 
 const add = pipe(
-  ({ a, b }) => a + b
+  ({ x, y }) => x + y
 )
 
-add({ a: 3, b: 4 }) //=> 7
+add({ x: 3, y: 4 }) //=> 7
 ```
 
 ### Partial Application
@@ -215,11 +215,11 @@ add({ a: 3, b: 4 }) //=> 7
 Because Multiple Argument Pipes are curried, it is easy to create new functions with Partial Application.
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 
 // add :: Number -> Number -> Number
-const add = a => pipe(
-  b => a + b
+const add = x => pipe(
+  y => x + y
 )
 
 // increase :: Number -> Number
@@ -233,7 +233,7 @@ increase(4) //=> 5
 Multiple Pipes can be Composed (combined) to create a new Pipe.
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
 
@@ -241,12 +241,12 @@ const options = 4
 
 // increase :: Number -> Number
 const increase = pipe(
-  a => a + 1
+  x => x + 1
 )
 
 // increase :: Number -> Number
 const double = pipe(
-  a => a * 2
+  x => x * 2
 )
 
 const main = pipe(
@@ -263,7 +263,7 @@ run({ main, options }) //=> 10
 Pipes are Asynchronous. The elimination of synchronous statements greatly simplifies the code. No need for `Promise`, `async`, or `await`!
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 import wait from 'joelscript/threading/wait'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
@@ -272,12 +272,12 @@ const options = 4
 
 // increase :: Number -> Number
 const increase = pipe(
-  a => a + 1
+  x => x + 1
 )
 
 // double :: Number -> Number
 const double = pipe(
-  a => a * 2
+  x => x * 2
 )
 
 const main = pipe(
@@ -297,8 +297,8 @@ Note: There are not any problems with synchronous or asynchronous code. Though t
 Example 1: if/else conditional
 
 ```javascript
-import pipe from 'joelscript/pipe'
-import ifElse from 'joelscript/ifElse'
+import pipe from 'joelscript/core/pipe'
+import ifElse from 'joelscript/core/ifElse'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
 
@@ -322,7 +322,7 @@ run({ main, options }) //=> 'NO'
 Example 2: switch case
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 import cond from 'joelscript/cond'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
@@ -351,7 +351,7 @@ run({ main, options }) //=> 'Friday'
 Example 3: if/else/elseif
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 import cond from 'joelscript/cond'
 import run from 'joelscript/core/run'
 import error from 'joelscript/console/error'
@@ -361,9 +361,9 @@ const options = 100
 
 // getTempInfo :: Number -> String
 const getTempInfo = cond([
-  [temp => temp === 0, 'water freezes at 0°C'],
-  [temp => temp === 100, 'water boils at 100°C'],
-  [temp => true, temp => `nothing special happens at ${temp}°C`]
+  [0, 'water freezes at 0°C'],
+  [100, 'water boils at 100°C'],
+  [true, temp => `nothing special happens at ${temp}°C`]
 ])
 
 const main = pipe(
@@ -400,7 +400,7 @@ const queryToCustomer = pipe(
 `map`, `filter`, and `reduce` are your standard goto for any sort of array processing.
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 import map from 'joelscript/map'
 import filter from 'joelscript/filter'
 import reduce from 'joelscript/reduce'
@@ -410,13 +410,13 @@ import log from 'joelscript/console/log'
 const options = [1, 2, 3]
 
 // isOdd :: Number -> Boolean
-const isOdd = a => a % 2 !== 0
+const isOdd = x => x % 2 !== 0
 
 // double :: Number -> Number
-const double = a => a * 2
+const double = x => x * 2
 
 // add :: Number -> Number -> Number
-const add = a => b => a + b
+const add = x => y => x + y
 
 // main :: [Number] -> Number
 const main = pipe(
@@ -434,7 +434,7 @@ run({ main, options }) // => 8
 Recursion is dead simple.
 
 ```javascript
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 import log from 'joelscript/console/log'
 import wait from 'joelscript/threading/wait'
 import run from 'joelscript/core/run'
@@ -443,7 +443,7 @@ import log from 'joelscript/console/log'
 const options = 1
 
 // increase :: Number -> Number
-const increase = a => a + 1
+const increase = x => x + 1
 
 const main = pipe(
   log,
@@ -460,9 +460,9 @@ FizzBuzz
 import cond from 'joelscript/cond'
 import log from 'joelscript/console/log'
 import run from 'joelscript/core/run'
-import ifElse from 'joelscript/ifElse'
+import ifElse from 'joelscript/core/ifElse'
 import gte from 'joelscript/math/gte'
-import pipe from 'joelscript/pipe'
+import pipe from 'joelscript/core/pipe'
 import recursivePipe from 'joelscript/recursivePipe'
 import after from 'joelscript/threading/after'
 import Nothing from 'joelscript/types/Nothing'
@@ -502,7 +502,7 @@ const fizzBuzz = pipe(
 )
 
 // increase :: Number -> Number
-const increase = a => a + 1
+const increase = x => x + 1
 
 // main :: Number -> Number -> [String | Number]
 const main = ({ limit }) => recursivePipe(next =>
