@@ -33,7 +33,7 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 
 ### Hello World
 
-[examples/async-simple](view the source)
+[./examples/async-simple](view the source)
 
 ```javascript
 import log from 'joelscript/console/log'
@@ -51,9 +51,9 @@ run({ main, options })
 
 ### Other Examples
 
-- [examples/async-simple](Async Simple)
-- [examples/hello-world](Hello World)
-- [examples/ifElse-simple](ifElse Simple)
+- [Async Simple](examples/async-simple)
+- [Hello World](examples/hello-world)
+- [ifElse Simple](examples/ifElse-simple)
 
 ## Variables
 
