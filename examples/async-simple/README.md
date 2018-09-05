@@ -24,7 +24,9 @@ npm start
 You should see the output
 
 ```
-Hello World
+4
+(pause for 1 second)
+10
 ```
 
 ## Code
@@ -51,5 +53,5 @@ const main = pipe(
   log
 )
 
-run({ main, options }) //=> 10
+run({ main, options })
 ```

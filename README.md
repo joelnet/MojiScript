@@ -297,19 +297,23 @@ Note: There are not any problems with synchronous or asynchronous code. Though t
 Example 1: if/else conditional
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-import ifElse from 'joelscript/core/ifElse'
-import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
+import ifElse from 'joelscript/core/ifElse'
+import pipe from 'joelscript/core/pipe'
+import run from 'joelscript/core/run'
 
 const options = 7
 
 // isEven :: Number -> Boolean
-const isEven = a => a % 2 == 0
+const isEven = x => x % 2 == 0
+
+// isTrue :: Boolean -> Boolean
+const isTrue = x => x === true
 
 // yesOrNo :: Boolean -> String
-const yesOrNo = ifElse('YES', 'NO')
+const yesOrNo = ifElse(isTrue)('YES')('NO')
 
+// main :: Number -> String
 const main = pipe(
   isEven,
   yesOrNo,
