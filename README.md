@@ -33,12 +33,13 @@ import log from 'joelscript/console/log'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
+const options = 'Hello World'
+
 const main = pipe(
-  'Hello World',
   log
 )
 
-run({ main })
+run({ main, options })
 ```
 
 ## Variables

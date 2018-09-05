@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "index.mjs",
   "scripts": {
-    "start": "node --experimental-modules index.mjs"
+    "start": "node --experimental-modules --no-warnings index.mjs"
   },
   "dependencies": {
     "joelscript": "file:../.."

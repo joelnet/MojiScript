@@ -1,13 +1,11 @@
-//const log = require('joelscript/src/console/log')
-import log from 'joelscript/src/console/log'
-// import pipe from 'joelscript/core/pipe'
-// import run from 'joelscript/core/run'
+import log from 'joelscript/console/log'
+import pipe from 'joelscript/core/pipe'
+import run from 'joelscript/core/run'
 
-// const main = pipe(
-//   'Hello World',
-//   log
-// )
+const options = 'Hello World'
 
-// run({ main })
+const main = pipe(
+  log
+)
 
-console.log({ log })
+run({ main, options })
