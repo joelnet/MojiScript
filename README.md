@@ -434,11 +434,10 @@ run({ main, options }) // => 8
 Recursion is dead simple.
 
 ```javascript
+import log from 'joelscript/console/log'
 import pipe from 'joelscript/core/pipe'
-import log from 'joelscript/console/log'
-import wait from 'joelscript/threading/wait'
 import run from 'joelscript/core/run'
-import log from 'joelscript/console/log'
+import wait from 'joelscript/threading/wait'
 
 const options = 1
 
