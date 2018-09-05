@@ -33,7 +33,7 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 
 ### Hello World
 
-[./examples/async-simple](view the source)
+[view the source](examples/async-simple)
 
 ```javascript
 import log from 'joelscript/console/log'

@@ -9,7 +9,7 @@ JoelScript IfElse Simple example.
 git clone https://github.com/joelnet/JoelScript.git
 
 # enter directory
-cd JoelScript/examples/if-else-simple
+cd JoelScript/examples/ifElse-simple
 
 # install dependencies
 npm ci

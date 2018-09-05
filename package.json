@@ -15,8 +15,14 @@
   "scripts": {
     "test": "jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sanctuary": "^0.15.0"
+  },
   "devDependencies": {
+    "axios": "^0.18.0",
     "jest": "^23.5.0"
+  },
+  "peerDependencies": {
+    "axios": "^0.18.0"
   }
 }

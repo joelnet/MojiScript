@@ -15,10 +15,10 @@ const isTrue = x => x === true
 const yesOrNo = ifElse(isTrue)('YES')('NO')
 
 // main :: Number -> String
-const main = pipe(
+const main = pipe([
   isEven,
   yesOrNo,
   log
-)
+])
 
 run({ main, options }) //=> 'NO'
