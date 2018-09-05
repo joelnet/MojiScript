@@ -1,6 +1,5 @@
 import pipe from 'joelscript/core/pipe'
-import join from 'joelscript/list/join'
-import map from 'joelscript/list/map'
+import S from 'sanctuary'
 import { peopleSearch } from './api'
 
 // getSearchFromOptions :: Options -> SearchString
@@ -22,9 +21,9 @@ const main = ({ axios, log2 }) => pipe([
   getSearchFromOptions,
   log2(prettyPrintSearching),
   peopleSearch(axios),
-  map(prettyFormatPerson),
+  S.map(prettyFormatPerson),
   log2(prettyResultCount),
-  log2(join('\n'))
+  log2(S.joinWith('\n'))
 ])
 
 export default main
