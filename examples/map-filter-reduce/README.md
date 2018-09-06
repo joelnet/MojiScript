@@ -29,6 +29,20 @@ You should see the output
 8
 ```
 
+## Unit Tests
+
+Basic test run
+
+```bash
+npm test
+```
+
+Tests with coverage
+
+```bash
+npm test -- --coverage
+```
+
 # Source
 
 [index.js](index.js)

@@ -1,15 +1,7 @@
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 import S from 'sanctuary'
-
-// isOdd :: Number -> Boolean
-const isOdd = x => x % 2 !== 0
-
-// double :: Number -> Number
-const double = x => x * 2
-
-// add :: Number -> Number -> Number
-const add = x => y => x + y
+import { isOdd, double, add } from './lib/math'
 
 // main :: Dependencies -> [Number] -> Number
 const main = ({ log }) =>  pipe([
