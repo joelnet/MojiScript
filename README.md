@@ -10,7 +10,7 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 
 - [Examples](#examples)
   * [Hello World](#hello-world)
-  * [Other Examples](#other-examples)
+  * [More Examples](#more-examples)
 - [Variables](#variables)
 - [Objects](#objects)
 - [Expressions](#expressions)
@@ -26,7 +26,7 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
   * [Pipes are Asynchrnous](#pipes-are-asynchrnous)
 - [Conditionals](#conditionals)
 - [Morphisms](#morphisms)
-- [Map / Filter / Reduce](#map---filter---reduce)
+- [Application Layout](#application-layout)
 - [Recursion](#recursion)
 
 ## Examples
@@ -49,11 +49,12 @@ const main = pipe([
 run({ main, options })
 ```
 
-### Other Examples
+### More Examples
 
 - [Async Simple](examples/async-simple)
 - [Hello World](examples/hello-world)
 - [ifElse Simple](examples/ifElse-simple)
+- [map/filter/reduce](examples/map-filter-reduce)
 - [Axios](examples/net-axios)
 
 ## Variables
@@ -413,39 +414,27 @@ const queryToCustomer = pipe([
 ])
 ```
 
-## Map / Filter / Reduce
+## Application Layout
 
-`map`, `filter`, and `reduce` are your standard goto for any sort of array processing.
-
-```javascript
-import pipe from 'joelscript/core/pipe'
-import map from 'joelscript/map'
-import filter from 'joelscript/filter'
-import reduce from 'joelscript/reduce'
-import run from 'joelscript/core/run'
-import log from 'joelscript/console/log'
-
-const options = [1, 2, 3]
-
-// isOdd :: Number -> Boolean
-const isOdd = x => x % 2 !== 0
-
-// double :: Number -> Number
-const double = x => x * 2
-
-// add :: Number -> Number -> Number
-const add = x => y => x + y
-
-// main :: [Number] -> Number
-const main = pipe([
-  filter(isOdd), // [1, 2, 3] => [1, 3]
-  map(double), // [1, 3] => [2, 6]
-  reduce(add), // [2, 6] => 8,
-  log
-])
-
-run({ main, options }) // => 8
 ```
+app/
+├── dist/
+└── src/
+    ├── __tests__/
+    │   └── main.test.js
+    ├── index.js
+    └── main.js
+```
+
+- `dist/` - Bundled or Babeled output folder.
+- `src/` - It is recommended to create an `src/` folder when your source requires transpiling with something like Webpack or Babel.
+- `__tests__/` - Testing is not optional. Keep tests close to your code.
+- `index.js` - Entrypoint to your application. This will load all dependencies as well as execute `main`. Can be excluded from tests.
+- `main.js` - Decoupling from dependecies and start allows for easy testing.
+
+## Unit Tests
+
+Check out the [map/filter/reduce example](examples/map-filter-reduce) for an example on how to write unit tests.
 
 ## Recursion
 

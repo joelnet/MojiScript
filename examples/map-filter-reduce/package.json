@@ -1,0 +1,39 @@
+{
+  "name": "map-filter-reduce",
+  "version": "1.0.0",
+  "author": "Joel Thoms",
+  "license": "MIT",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node --experimental-modules --no-warnings index.mjs",
+    "test": "jest"
+  },
+  "dependencies": {
+    "joelscript": "file:../..",
+    "sanctuary": "^0.15.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.5.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.?(m)js?(x)",
+      "**/?(*.)(spec|test).?(m)js?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "mjs"
+    ],
+    "transform": {
+      "^.+\\.m?js$": "babel-jest"
+      }
+    }
+}
