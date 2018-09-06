@@ -11,12 +11,12 @@ const increase = x => x + 1
 // double :: Number -> Number
 const double = x => x * 2
 
-const main = pipe([
+const main = pipe ([
   log,
-  sleep(1000),
+  sleep (1000),
   increase,
   double,
   log
 ])
 
-run({ main, options }) //=> 10
+run ({ main, options }) //=> 10

@@ -12,4 +12,4 @@ const options = {
   search: 'Skywalker'
 }
 
-run({ dependencies, options, main })
+run ({ dependencies, options, main })

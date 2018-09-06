@@ -12,10 +12,10 @@ const isEven = x => x % 2 == 0
 const isTrue = x => x === true
 
 // yesOrNo :: Boolean -> String
-const yesOrNo = ifElse(isTrue)('YES')('NO')
+const yesOrNo = ifElse (isTrue) ('YES') ('NO')
 
 // main :: Number -> String
-const main = pipe([
+const main = pipe ([
   isEven,
   yesOrNo,
   log
