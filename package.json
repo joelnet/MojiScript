@@ -15,9 +15,7 @@
   "scripts": {
     "test": "jest"
   },
-  "dependencies": {
-    "sanctuary": "^0.15.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "axios": "^0.18.0",
     "jest": "^23.5.0"
