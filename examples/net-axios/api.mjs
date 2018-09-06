@@ -10,7 +10,7 @@ const searchStringToParams = search => ({
 })
 
 // peopleSearch :: Axios -> String -> AxiosResponse
-export const peopleSearch = axios => pipe([
+export const peopleSearch = axios => pipe ([
   searchStringToParams,
-  axios.get(rootUrl),
+  axios.get (rootUrl),
 ])
