@@ -98,6 +98,11 @@ const yesIfEvenNoIfOdd = ifElse (x % 2 === 0) ('YES') ('NO')
 // GOOD
 const isEven = x => x % 2 == 0
 const yesIfEvenNoIfOdd = ifElse (isEven) ('YES') ('NO')
+
+// GOOD
+const isEven = x => x % 2 == 0
+const ifEven = ifElse (isEven)
+const yesIfEvenNoIfOdd = ifEven ('YES') ('NO')
 ```
 
 `ifElse` and the condition should be on the same line. Longer statements can be broken out into multiple lines. If it is long, consider breaking it down further.
