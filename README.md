@@ -42,11 +42,11 @@ import run from 'joelscript/core/run'
 
 const options = 'Hello World'
 
-const main = pipe([
+const main = pipe ([
   log
 ])
 
-run({ main, options })
+run ({ main, options })
 ```
 
 ### More Examples
@@ -69,7 +69,7 @@ path = './hello'
 //=> Error("Path is read-only")
 ```
 
-Variables are also mutable.
+Variables are also mutable. So be cautious.
 
 ```javascript
 const options = {
@@ -77,12 +77,12 @@ const options = {
   count: 0
 }
 
-const main = pipe([
+const main = pipe ([
   obj => Object.assign(obj, { count: 1 }),
   log
 ])
 
-run({ main, options })
+run ({ main, options })
 //=> options({ count: 1 })
 ```
 
@@ -112,30 +112,38 @@ const increase = x => x + 1
 
 ### Multiple Arguments
 
-Multiple arguments can be simulated with currying and closures.
+Multiple arguments can be simulated a couple different ways.
+
+**Currying and Closures**
 
 ```javascript
 const add = x => y => x + y
-add(3)(4) //=> 7
+add (3) (4) //=> 7
+```
+
+**Objects**
+
+```javascript
+const add = ({ x, y }) => x + y
+add ({ x: 3, y: 4 }) //=> 7
+```
+
+**Arrays**
+
+```javascript
+const add = ([x, y]) => x + y
+add ([3, 4]) //=> 7
 ```
 
 ### Compound Expressions
 
-Compound expressions combine multiple expressions. The last expression will return the value of the Compound Expression.
+Compound expressions combine multiple expressions. The last expression will return the value of the Compound Expression. This is typically done to handle side effects.
 
 ```javascript
-const increase = x => (
-  log(['increase', x]),
-  x + 1
+const tap = func => value => (
+  func(value),
+  value
 )
-```
-
-### Named arguments
-
-```javascript
-const add = ({ x, y }) => x + y
-
-add({ x: 3, y: 4 }) //=> 7
 ```
 
 ## Pipes
@@ -145,14 +153,12 @@ Pipes can be compared to an asynchrnous function that takes 1 argument and retur
 Each pipe can contain multiple Pipes or Function Expressions. A Pipe will return the result of the final Pipe or Function Expression.
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-
 // increase :: Number -> Number
-const increase = pipe([
+const increase = pipe ([
   x => x + 1
 ])
 
-increase(1) //=> 2
+increase (1) //=> 2
 ```
 
 ### Pipes are a stream of data
@@ -166,7 +172,7 @@ import log from 'joelscript/console/log'
 
 const options = 4
 
-const main = pipe([
+const main = pipe ([
   //         |
   //         | 4
   //         ▼ 
@@ -190,34 +196,42 @@ const main = pipe([
   //         ▼
 ])
 
-run({ main, options }) //=> 18
+run ({ main, options }) //=> 18
 ```
 
 ### Multiple arguments
 
-Multiple arguments can be simulated with currying and closures.
+Multiple arguments can be simulated a couple different ways.
+
+**Currying and Closures**
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-
 // add :: Number -> Number -> Number
-const add = x => pipe([
+const add = x => pipe ([
   y => x + y
 ])
 
-add(3)(2) //=> 7
+add (3) (2) //=> 7
 ```
 
-### Named arguments
+**Objects**
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-
-const add = pipe([
+const add = pipe ([
   ({ x, y }) => x + y
 ])
 
-add({ x: 3, y: 4 }) //=> 7
+add ({ x: 3, y: 4 }) //=> 7
+```
+
+**Arrays**
+
+```javascript
+const add = pipe ([
+  ([x, y]) => x + y
+])
+
+add ([3, 4]) //=> 7
 ```
 
 ### Partial Application
@@ -225,17 +239,15 @@ add({ x: 3, y: 4 }) //=> 7
 Because Multiple Argument Pipes are curried, it is easy to create new functions with Partial Application.
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-
 // add :: Number -> Number -> Number
-const add = x => pipe([
+const add = x => pipe ([
   y => x + y
 ])
 
 // increase :: Number -> Number
-const increase = add(1)
+const increase = add (1)
 
-increase(4) //=> 5
+increase (4) //=> 5
 ```
 
 ### Composing Pipes
@@ -250,27 +262,27 @@ import log from 'joelscript/console/log'
 const options = 4
 
 // increase :: Number -> Number
-const increase = pipe([
+const increase = pipe ([
   x => x + 1
 ])
 
 // double :: Number -> Number
-const double = pipe([
+const double = pipe ([
   x => x * 2
 ])
 
 // increaseThenDouble :: Number -> Number
-const increaseThenDouble = pipe([
+const increaseThenDouble = pipe ([
   increase,
   double
 ])
 
-const main = pipe([
+const main = pipe ([
   increaseThenDouble,
   log
 ])
 
-run({ main, options }) //=> 10
+run ({ main, options }) //=> 10
 ```
 
 ### Pipes are Asynchrnous
@@ -291,7 +303,7 @@ const increase = x => x + 1
 // double :: Number -> Number
 const double = x => x * 2
 
-const main = pipe([
+const main = pipe ([
   log,
   sleep(1000),
   increase,
@@ -299,7 +311,7 @@ const main = pipe([
   log
 ])
 
-run({ main, options })
+run ({ main, options })
 //=> 4
 //=> (pause for 1 second)
 //=> 10
@@ -326,16 +338,16 @@ const isEven = x => x % 2 == 0
 const isTrue = x => x === true
 
 // yesOrNo :: Boolean -> String
-const yesOrNo = ifElse(isTrue)('YES')('NO')
+const yesOrNo = ifElse (isTrue) ('YES') ('NO')
 
 // main :: Number -> String
-const main = pipe([
+const main = pipe ([
   isEven,
   yesOrNo,
   log
 ])
 
-run({ main, options }) //=> 'NO'
+run ({ main, options }) //=> 'NO'
 ```
 
 Example 2: switch case
@@ -349,7 +361,7 @@ import log from 'joelscript/console/log'
 const options = 5
 
 // dayName :: Number -> String
-const dayName = cond([
+const dayName = cond ([
   [0, 'Sunday'],
   [1, 'Monday'],
   [2, 'Tuesday'],
@@ -359,12 +371,12 @@ const dayName = cond([
   [6, 'Saturday']
 ])
 
-const main = pipe([
+const main = pipe ([
   dayName,
   log
 ])
 
-run({ main, options }) //=> 'Friday'
+run ({ main, options }) //=> 'Friday'
 ```
 
 Example 3: if/else/elseif
@@ -379,18 +391,18 @@ import log from 'joelscript/console/log'
 const options = 100
 
 // getTempInfo :: Number -> String
-const getTempInfo = cond([
+const getTempInfo = cond ([
   [0, 'water freezes at 0°C'],
   [100, 'water boils at 100°C'],
   [true, temp => `nothing special happens at ${temp}°C`]
 ])
 
-const main = pipe([
+const main = pipe ([
   getTempInfo,
   log
 ])
 
-run({ main, options }) //=> 'water boils at 100°C'
+run ({ main, options }) //=> 'water boils at 100°C'
 ```
 
 ## Morphisms
@@ -401,13 +413,13 @@ Here's a high level example of a Morphism that take an input as a `String` and r
 
 ```javascript
 // urlToJson :: Url -> Json
-const urlToJson = pipe([
+const urlToJson = pipe ([
   urlToAjaxResponse,
   ajaxResponseToJson,
 ])
 
 // queryToCustomer :: Query -> Customer
-const queryToCustomer = pipe([
+const queryToCustomer = pipe ([
   queryToUrl,
   urlToJson,
   jsonToCustomer
@@ -451,13 +463,13 @@ const options = 1
 // increase :: Number -> Number
 const increase = x => x + 1
 
-const main = pipe([
+const main = pipe ([
   log,
-  wait(1000),
-  x => main(x + 1)
+  wait (1000),
+  x => main (x + 1)
 ])
 
-run({ main, options })
+run ({ main, options })
 ```
 
 FizzBuzz
@@ -493,15 +505,15 @@ const isFizz = ({ fizz }) => fizz
 const isBuzz = ({ buzz }) => buzz
 
 // fizzInfoToStatus :: FizzInfo -> String | Number
-const fizzInfoToStatus = cond([
-  [allPass(isFizz, isBuzz), 'FizzBuzz'],
+const fizzInfoToStatus = cond ([
+  [allPass (isFizz, isBuzz), 'FizzBuzz'],
   [isFizz, 'Fizz'],
   [isBuzz, 'Buzz'],
   [true, ({ value }) => value]
 ])
 
 // fizzBuss :: Number -> String | Number
-const fizzBuzz = pipe([
+const fizzBuzz = pipe ([
   getFizzInfo,
   fizzInfoToStatus,
   log
@@ -512,14 +524,10 @@ const increase = x => x + 1
 
 // main :: Number -> Number -> [String | Number]
 const main = ({ limit }) => recursivePipe(next =>
-  ifElse(gte(limit))(
-    Nothing
-  )(
-    after(fizzBuzz)(
-      x => next(x + 1)
-    )
-  )
+  ifElse (gte (limit))
+    (Nothing)
+    (after (fizzBuzz) (x => next (x + 1)))
 )
 
-run({ main, dependencies, options })
+run ({ main, dependencies, options })
 ```
