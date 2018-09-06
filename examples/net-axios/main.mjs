@@ -6,24 +6,21 @@ import { peopleSearch } from './api'
 const getSearchFromOptions = ({ search }) => search
 
 // prettyPrintSearching :: SearchString -> String
-const prettyPrintSearching = search =>
-  `Searching for: "${search}"`
+const prettyPrintSearching = search => `Searching for: "${search}"`
 
 // prettyResultCount :: SearchResults -> String
-const prettyResultCount = ({ length }) =>
-  `${length} Results:`
+const prettyResultCount = ({ length }) => `${length} Results:`
 
 // prettyFormatPerson :: Person -> String
-const prettyFormatPerson = ({ name, gender }) =>
-  `- ${name} (${gender})`
+const prettyFormatPerson = ({ name, gender }) => `- ${name} (${gender})`
 
-const main = ({ axios, log2 }) => pipe([
+const main = ({ axios, log2 }) => pipe ([
   getSearchFromOptions,
-  log2(prettyPrintSearching),
-  peopleSearch(axios),
-  S.map(prettyFormatPerson),
-  log2(prettyResultCount),
-  log2(S.joinWith('\n'))
+  log2 (prettyPrintSearching),
+  peopleSearch (axios),
+  S.map (prettyFormatPerson),
+  log2 (prettyResultCount),
+  log2 (S.joinWith ('\n'))
 ])
 
 export default main

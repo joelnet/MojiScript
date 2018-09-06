@@ -7,4 +7,4 @@ const dependencies = {
 }
 const options = [1, 2, 3]
 
-run({ main, dependencies, options }) // => 8
+run ({ main, dependencies, options }) // => 8
