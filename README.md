@@ -11,22 +11,22 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 - [Examples](#examples)
   * [Hello World](#hello-world)
   * [More Examples](#more-examples)
+- [Style Guide](#style-guide)
 - [Variables](#variables)
 - [Objects](#objects)
 - [Expressions](#expressions)
   * [Multiple Arguments](#multiple-arguments)
   * [Compound Expressions](#compound-expressions)
-  * [Named arguments](#named-arguments)
 - [Pipes](#pipes)
   * [Pipes are a stream of data](#pipes-are-a-stream-of-data)
   * [Multiple arguments](#multiple-arguments)
-  * [Named arguments](#named-arguments-1)
   * [Partial Application](#partial-application)
   * [Composing Pipes](#composing-pipes)
   * [Pipes are Asynchrnous](#pipes-are-asynchrnous)
 - [Conditionals](#conditionals)
 - [Morphisms](#morphisms)
 - [Application Layout](#application-layout)
+- [Unit Tests](#unit-tests)
 - [Recursion](#recursion)
 
 ## Examples
@@ -56,6 +56,99 @@ run ({ main, options })
 - [ifElse Simple](examples/ifElse-simple)
 - [map/filter/reduce](examples/map-filter-reduce)
 - [Axios](examples/net-axios)
+
+## Style Guide
+
+All values must be declared with `const`.
+
+```javascript
+// BAD
+let value = {}
+
+// GOOD
+const value = {}
+```
+
+Variables should be named in lower camel case.
+
+```javascript
+// BAD
+const AddNumbers = x => y => x + y
+
+// GOOD
+const addNumbers = x => y => x + y
+```
+
+Expressions or Pipes and their arguments should be separated with a space. Arguments should be surrounded with parentheses.
+
+```javascript
+// BAD
+add (1) (2)
+
+// GOOD
+add (1) (2)
+```
+
+Following Atomic Design principles, code should be broken down into Atoms. This maximizes reusability, testability, composability, and readability.
+
+```javascript
+// BAD
+const yesIfEvenNoIfOdd = ifElse (x % 2 === 0) ('YES') ('NO')
+
+// GOOD
+const isEven = x => x % 2 == 0
+const yesIfEvenNoIfOdd = ifElse (isEven) ('YES') ('NO')
+```
+
+`ifElse` and the condition should be on the same line. Longer statements can be broken out into multiple lines. If it is long, consider breaking it down further.
+
+```javascript
+// BAD
+ifElse
+  (isTrue)
+  ('YES')
+  ('NO')
+
+// GOOD
+ifElse (isTrue) ('YES') ('NO')
+
+// GOOD
+ifElse (isTrue)
+  ('YES')
+  ('NO')
+```
+
+Pipes must be multi-line.
+
+```javascript
+// BAD
+const main = pipe ([ add ])
+
+// GOOD
+const main = pipe ([
+  add
+])
+```
+
+Arrays must have a space after the opening bracket and before the closing bracket.
+
+```javascript
+// BAD
+const array = [1, 2, 3]
+
+// GOOD
+const array = [ 1, 2, 3 ]
+```
+
+No semi-colons.
+
+```javascript
+// BAD
+const value = 888;
+
+// GOOD
+const value = 888
+```
 
 ## Variables
 
@@ -305,7 +398,7 @@ const double = x => x * 2
 
 const main = pipe ([
   log,
-  sleep(1000),
+  sleep (1000),
   increase,
   double,
   log
@@ -362,13 +455,13 @@ const options = 5
 
 // dayName :: Number -> String
 const dayName = cond ([
-  [0, 'Sunday'],
-  [1, 'Monday'],
-  [2, 'Tuesday'],
-  [3, 'Wednesday'],
-  [4, 'Thursday'],
-  [5, 'Friday'],
-  [6, 'Saturday']
+  [ 0, 'Sunday' ],
+  [ 1, 'Monday' ],
+  [ 2, 'Tuesday' ],
+  [ 3, 'Wednesday' ],
+  [ 4, 'Thursday' ],
+  [ 5, 'Friday' ],
+  [ 6, 'Saturday' ]
 ])
 
 const main = pipe ([
@@ -392,9 +485,9 @@ const options = 100
 
 // getTempInfo :: Number -> String
 const getTempInfo = cond ([
-  [0, 'water freezes at 0°C'],
-  [100, 'water boils at 100°C'],
-  [true, temp => `nothing special happens at ${temp}°C`]
+  [ 0, 'water freezes at 0°C' ],
+  [ 100, 'water boils at 100°C' ],
+  [ true, temp => `nothing special happens at ${temp}°C` ]
 ])
 
 const main = pipe ([
