@@ -43,6 +43,8 @@ Tests with coverage
 npm test -- --coverage
 ```
 
+Tests are written in JavaScript using Jest and should follow Jest best practices.
+
 # Source
 
 [index.js](index.js)

@@ -432,6 +432,10 @@ app/
 - `index.js` - Entrypoint to your application. This will load all dependencies as well as execute `main`. Can be excluded from tests.
 - `main.js` - Decoupling from dependecies and start allows for easy testing.
 
+## Unit Tests
+
+Check out the [map/filter/reduce example](examples/map-filter-reduce) for an example on how to write unit tests.
+
 ## Recursion
 
 Recursion is dead simple.
