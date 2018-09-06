@@ -83,7 +83,7 @@ Expressions or Pipes and their arguments should be separated with a space. Argum
 
 ```javascript
 // BAD
-add (1) (2)
+add(1)(2)
 
 // GOOD
 add (1) (2)
@@ -604,10 +604,10 @@ const isBuzz = ({ buzz }) => buzz
 
 // fizzInfoToStatus :: FizzInfo -> String | Number
 const fizzInfoToStatus = cond ([
-  [allPass (isFizz, isBuzz), 'FizzBuzz'],
-  [isFizz, 'Fizz'],
-  [isBuzz, 'Buzz'],
-  [true, ({ value }) => value]
+  [ allPass ([ isFizz, isBuzz ]), 'FizzBuzz' ],
+  [ isFizz, 'Fizz' ],
+  [ isBuzz, 'Buzz' ],
+  [ true, ({ value }) => value ]
 ])
 
 // fizzBuss :: Number -> String | Number
@@ -621,11 +621,11 @@ const fizzBuzz = pipe ([
 const increase = x => x + 1
 
 // main :: Number -> Number -> [String | Number]
-const main = ({ limit }) => recursivePipe(next =>
+const main = ({ limit }) => pipe ([
   ifElse (gte (limit))
     (Nothing)
-    (after (fizzBuzz) (x => next (x + 1)))
-)
+    (after (fizzBuzz) (x => main (x + 1)))
+])
 
 run ({ main, dependencies, options })
 ```
