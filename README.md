@@ -93,16 +93,20 @@ Following Atomic Design principles, code should be broken down into Atoms. This 
 
 ```javascript
 // BAD
-const yesIfEvenNoIfOdd = ifElse (x % 2 === 0) ('YES') ('NO')
+const getOrders = ifElse (({ length }) => length > 0) (x => `${x} orders`) ('No Orders')
 
 // GOOD
-const isEven = x => x % 2 == 0
-const yesIfEvenNoIfOdd = ifElse (isEven) ('YES') ('NO')
+const hasOrders = ({ length }) => length > 0
+const orderCountText = x => `${x} orders`
+const noOrderCountText = () => 'No Orders'
+const getOrders = ifElse (hasOrders) (orderCountText) (noOrderCountText)
 
 // GOOD
-const isEven = x => x % 2 == 0
-const ifEven = ifElse (isEven)
-const yesIfEvenNoIfOdd = ifEven ('YES') ('NO')
+const hasOrders = ({ length }) => length > 0
+const orderCountText = count => `${count} orders`
+const noOrderCountText = () => 'No Orders'
+const ifHasOrders = ifElse (hasOrders)
+const getOrders = ifHasOrders (orderCountText) (noOrderCountText)
 ```
 
 `ifElse` and the condition should be on the same line. Longer statements can be broken out into multiple lines. If it is long, consider breaking it down further.
