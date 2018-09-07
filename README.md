@@ -12,6 +12,7 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
   * [Hello World](#hello-world)
   * [More Examples](#more-examples)
 - [Style Guide](#style-guide)
+- [Complementary Libraries](#complementary-libraries)
 - [Variables](#variables)
 - [Objects](#objects)
 - [Expressions](#expressions)
@@ -28,7 +29,6 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 - [Application Layout](#application-layout)
 - [Unit Tests](#unit-tests)
 - [Recursion](#recursion)
-
 ## Examples
 
 ### Hello World
@@ -93,20 +93,20 @@ Following Atomic Design principles, code should be broken down into Atoms. This 
 
 ```javascript
 // BAD
-const getOrders = ifElse (({ length }) => length > 0) (x => `${x} orders`) ('No Orders')
+const getOrdersText = ifElse (({ length }) => length > 0) (x => `${x} orders`) ('No Orders')
 
 // GOOD
 const hasOrders = ({ length }) => length > 0
 const orderCountText = x => `${x} orders`
 const noOrderCountText = () => 'No Orders'
-const getOrders = ifElse (hasOrders) (orderCountText) (noOrderCountText)
+const getOrdersText = ifElse (hasOrders) (orderCountText) (noOrderCountText)
 
 // GOOD
 const hasOrders = ({ length }) => length > 0
 const orderCountText = count => `${count} orders`
 const noOrderCountText = () => 'No Orders'
 const ifHasOrders = ifElse (hasOrders)
-const getOrders = ifHasOrders (orderCountText) (noOrderCountText)
+const getOrdersText = ifHasOrders (orderCountText) (noOrderCountText)
 ```
 
 `ifElse` and the condition should be on the same line. Longer statements can be broken out into multiple lines. If it is long, consider breaking it down further.
@@ -158,6 +158,11 @@ const value = 888;
 // GOOD
 const value = 888
 ```
+
+## Complementary Libraries
+
+- [Sanctuary](https://github.com/sanctuary-js/sanctuary) - Recommended collection of useful functions.
+- [Ramda](https://ramdajs.com/) - Another recommended collection of useful functions.
 
 ## Variables
 
