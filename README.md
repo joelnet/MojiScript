@@ -163,6 +163,7 @@ const value = 888
 
 - [Sanctuary](https://github.com/sanctuary-js/sanctuary) - Recommended collection of useful functions.
 - [Ramda](https://ramdajs.com/) - Another recommended collection of useful functions.
+- [List](https://github.com/funkia/list) - 🐆 An immutable list with unmatched performance and a comprehensive functional API. (use `list/curried`)
 
 ## Variables
 
