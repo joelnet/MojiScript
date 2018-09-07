@@ -5,6 +5,6 @@ import main from './main'
 const dependencies = {
   log
 }
-const options = [ 1, 2, 3 ]
+const state = [ 1, 2, 3 ]
 
-run ({ main, dependencies, options }) // => 8
+run ({ dependencies, state, main }) // => 8

@@ -40,13 +40,13 @@ import log from 'joelscript/console/log'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
-const options = 'Hello World'
+const state = 'Hello World'
 
 const main = pipe ([
   log
 ])
 
-run ({ main, options })
+run ({ state, main })
 ```
 
 ### More Examples
@@ -174,18 +174,18 @@ path = './hello'
 Variables are also mutable. So be cautious.
 
 ```javascript
-const options = {
+const state = {
   // mutable
   count: 0
 }
 
 const main = pipe ([
-  obj => Object.assign(obj, { count: 1 }),
+  obj => Object.assign(obj, { count: 1, updated: true }),
   log
 ])
 
-run ({ main, options })
-//=> options({ count: 1 })
+run ({ state, main })
+//=> { count: 1, updated: true }
 ```
 
 A variable can be a value (Number, String, Object), an Expression, or a Pipe.
@@ -272,7 +272,7 @@ import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
 
-const options = 4
+const state = 4
 
 const main = pipe ([
   //         |
@@ -298,7 +298,7 @@ const main = pipe ([
   //         ▼
 ])
 
-run ({ main, options }) //=> 18
+run ({ state, main }) //=> 18
 ```
 
 ### Multiple arguments
@@ -361,7 +361,7 @@ import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
 
-const options = 4
+const state = 4
 
 // increase :: Number -> Number
 const increase = pipe ([
@@ -384,7 +384,7 @@ const main = pipe ([
   log
 ])
 
-run ({ main, options }) //=> 10
+run ({ state, main }) //=> 10
 ```
 
 ### Pipes are Asynchrnous
@@ -397,7 +397,7 @@ import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 import sleep from 'joelscript/threading/sleep'
 
-const options = 4
+const state = 4
 
 // increase :: Number -> Number
 const increase = x => x + 1
@@ -413,7 +413,7 @@ const main = pipe ([
   log
 ])
 
-run ({ main, options })
+run ({ state, main })
 //=> 4
 //=> (pause for 1 second)
 //=> 10
@@ -431,7 +431,7 @@ import ifElse from 'joelscript/core/ifElse'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
-const options = 7
+const state = 7
 
 // isEven :: Number -> Boolean
 const isEven = x => x % 2 == 0
@@ -449,7 +449,7 @@ const main = pipe ([
   log
 ])
 
-run ({ main, options }) //=> 'NO'
+run ({ state, main }) //=> 'NO'
 ```
 
 Example 2: switch case
@@ -460,7 +460,7 @@ import cond from 'joelscript/core/cond'
 import run from 'joelscript/core/run'
 import log from 'joelscript/console/log'
 
-const options = 5
+const state = 5
 
 // dayName :: Number -> String
 const dayName = cond ([
@@ -478,7 +478,7 @@ const main = pipe ([
   log
 ])
 
-run ({ main, options }) //=> 'Friday'
+run ({ state, main }) //=> 'Friday'
 ```
 
 Example 3: if/else/elseif
@@ -490,7 +490,7 @@ import run from 'joelscript/core/run'
 import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
 
-const options = 100
+const state = 100
 
 // getTempInfo :: Number -> String
 const getTempInfo = cond ([
@@ -504,7 +504,7 @@ const main = pipe ([
   log
 ])
 
-run ({ main, options }) //=> 'water boils at 100°C'
+run ({ state, main }) //=> 'water boils at 100°C'
 ```
 
 ## Morphisms
@@ -560,7 +560,7 @@ import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 import wait from 'joelscript/threading/wait'
 
-const options = 1
+const state = 1
 
 // increase :: Number -> Number
 const increase = x => x + 1
@@ -571,7 +571,7 @@ const main = pipe ([
   x => main (x + 1)
 ])
 
-run ({ main, options })
+run ({ state, main })
 ```
 
 FizzBuzz
@@ -591,7 +591,7 @@ import allPass from 'ramda/src/allPass'
 const dependencies = {
   limit: 100
 }
-const options = 1
+const state = 1
 
 // getFizzInfo :: Number -> FizzInfo
 const getFizzInfo = value => ({
@@ -631,5 +631,5 @@ const main = ({ limit }) => pipe ([
     (after (fizzBuzz) (x => main (x + 1)))
 ])
 
-run ({ main, dependencies, options })
+run ({ dependencies, state, main })
 ```

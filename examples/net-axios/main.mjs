@@ -2,8 +2,8 @@ import pipe from 'joelscript/core/pipe'
 import S from 'sanctuary'
 import { peopleSearch } from './api'
 
-// getSearchFromOptions :: Options -> SearchString
-const getSearchFromOptions = ({ search }) => search
+// getSearchFromState :: State -> SearchString
+const getSearchFromState = ({ search }) => search
 
 // prettyPrintSearching :: SearchString -> String
 const prettyPrintSearching = search => `Searching for: "${search}"`
@@ -15,7 +15,7 @@ const prettyResultCount = ({ length }) => `${length} Results:`
 const prettyFormatPerson = ({ name, gender }) => `- ${name} (${gender})`
 
 const main = ({ axios, log2 }) => pipe ([
-  getSearchFromOptions,
+  getSearchFromState,
   log2 (prettyPrintSearching),
   peopleSearch (axios),
   S.map (prettyFormatPerson),
