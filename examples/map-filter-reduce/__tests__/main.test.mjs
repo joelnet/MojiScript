@@ -11,16 +11,16 @@ describe('main.js', () => {
   test('main computes values', () => {
     expect.assertions(1)
     const expected = 8
-    const options = [1, 2, 3]
-    const actual = main(dependencies)(options)
+    const state = [1, 2, 3]
+    const actual = main(dependencies)(state)
     return expect(actual).resolves.toBe(expected)
   })
 
   test('main logs to console', async () => {
     expect.assertions(1)
     const expected = 8
-    const options = [1, 2, 3]
-    await main(dependencies)(options)
+    const state = [1, 2, 3]
+    await main(dependencies)(state)
     const actual = global.console.log.mock.calls[0][0]
     expect(actual).toBe(expected)
   })

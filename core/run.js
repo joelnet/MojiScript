@@ -1,8 +1,8 @@
 const error = require('../console/error')
 
-const run = ({ dependencies, options, main }) =>
+const run = ({ dependencies, state, main }) =>
   dependencies != null
-    ? run({ options, main: main(dependencies) })
-    : main(options || null).catch((dependencies || {}).error || error)
+    ? run({ state, main: main(dependencies) })
+    : main(state || null).catch((dependencies || {}).error || error)
 
 module.exports = run

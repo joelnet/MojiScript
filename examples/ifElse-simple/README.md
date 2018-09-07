@@ -35,7 +35,7 @@ import ifElse from 'joelscript/core/ifElse'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
-const options = 7
+const state = 7
 
 // isEven :: Number -> Boolean
 const isEven = x => x % 2 == 0
@@ -53,5 +53,5 @@ const main = pipe(
   log
 )
 
-run({ main, options }) //=> 'NO'
+run({ main, state }) //=> 'NO'
 ```

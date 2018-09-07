@@ -3,7 +3,7 @@ import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 import sleep from 'joelscript/threading/sleep'
 
-const options = 4
+const state = 4
 
 // increase :: Number -> Number
 const increase = x => x + 1
@@ -19,4 +19,4 @@ const main = pipe ([
   log
 ])
 
-run ({ main, options }) //=> 10
+run ({ state, main }) //=> 10

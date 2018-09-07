@@ -8,8 +8,8 @@ const dependencies = {
   log2
 }
 
-const options = {
+const state = {
   search: 'Skywalker'
 }
 
-run ({ dependencies, options, main })
+run ({ dependencies, state, main })
