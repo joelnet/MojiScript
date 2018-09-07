@@ -79,7 +79,7 @@ const AddNumbers = x => y => x + y
 const addNumbers = x => y => x + y
 ```
 
-Expressions or Pipes and their arguments should be separated with a space. Arguments should be surrounded with parentheses.
+Expressions or Pipes and their arguments should be separated with a space. Arguments should be surrounded with parentheses. Further discussed at [#438](https://github.com/sanctuary-js/sanctuary/issues/438).
 
 ```javascript
 // BAD
