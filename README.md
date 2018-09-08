@@ -53,7 +53,7 @@ run ({ state, main })
 
 - [Async Simple](examples/async-simple)
 - [Hello World](examples/hello-world)
-- [ifElse Simple](examples/ifElse-simple)
+- [Conditionals](examples/conditionals)
 - [map/filter/reduce](examples/map-filter-reduce)
 - [Axios](examples/net-axios)
 
@@ -97,13 +97,13 @@ const getOrdersText = ifElse (({ length }) => length > 0) (x => `${x} orders`) (
 
 // GOOD
 const hasOrders = ({ length }) => length > 0
-const orderCountText = x => `${x} orders`
+const orderCountText = ({ length }) => `${length} orders`
 const noOrderCountText = () => 'No Orders'
 const getOrdersText = ifElse (hasOrders) (orderCountText) (noOrderCountText)
 
 // GOOD
 const hasOrders = ({ length }) => length > 0
-const orderCountText = count => `${count} orders`
+const orderCountText = ({ length }) => `${length} orders`
 const noOrderCountText = () => 'No Orders'
 const ifHasOrders = ifElse (hasOrders)
 const getOrdersText = ifHasOrders (orderCountText) (noOrderCountText)

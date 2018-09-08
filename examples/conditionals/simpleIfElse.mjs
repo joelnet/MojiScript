@@ -3,6 +3,9 @@ import ifElse from 'joelscript/core/ifElse'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
+const dependencies = {
+  log
+}
 const state = 7
 
 // isEven :: Number -> Boolean
@@ -15,10 +18,10 @@ const isTrue = x => x === true
 const yesOrNo = ifElse (isTrue) ('YES') ('NO')
 
 // main :: Number -> String
-const main = pipe ([
+const main = ({ log }) => pipe ([
   isEven,
   yesOrNo,
   log
 ])
 
-run({ state, main }) //=> 'NO'
+run({ dependencies, state, main }) //=> 'NO'

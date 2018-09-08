@@ -1,0 +1,14 @@
+{
+  "name": "conditionals",
+  "version": "1.0.0",
+  "author": "Joel Thoms",
+  "license": "MIT",
+  "main": "index.mjs",
+  "scripts": {
+    "ifelse": "node --experimental-modules --no-warnings ifElse.mjs",
+    "simpleifelse": "node --experimental-modules --no-warnings simpleIfElse.mjs"
+  },
+  "dependencies": {
+    "joelscript": "file:../.."
+  }
+}
