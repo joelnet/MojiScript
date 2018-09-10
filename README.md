@@ -460,14 +460,16 @@ run({ dependencies, state, main }) //=> 'NO, 7 is not even.'
 Example 2: switch case
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
+import log2 from 'joelscript/console/log2'
 import cond from 'joelscript/core/cond'
+import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
-import log from 'joelscript/console/log'
 
-const state = 5
+const dependencies = {
+  log2
+}
+const state = new Date().getDay()
 
-// dayName :: Number -> String
 const dayName = cond ([
   [ 0, 'Sunday' ],
   [ 1, 'Monday' ],
@@ -478,23 +480,25 @@ const dayName = cond ([
   [ 6, 'Saturday' ]
 ])
 
-const main = pipe ([
+const main = ({ log2 }) => pipe ([
   dayName,
-  log
+  log2(day => `Today is ${day}.`)
 ])
 
-run ({ state, main }) //=> 'Friday'
+run({ dependencies, state, main }) //=> 'Friday'
 ```
 
 Example 3: if/else/elseif
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-import cond from 'joelscript/core/cond'
-import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+import cond from 'joelscript/core/cond'
+import pipe from 'joelscript/core/pipe'
+import run from 'joelscript/core/run'
 
+const dependencies = {
+  log
+}
 const state = 100
 
 // getTempInfo :: Number -> String
@@ -504,12 +508,12 @@ const getTempInfo = cond ([
   [ true, temp => `nothing special happens at ${temp}°C` ]
 ])
 
-const main = pipe ([
+const main = ({ log }) => pipe ([
   getTempInfo,
   log
 ])
 
-run ({ state, main }) //=> 'water boils at 100°C'
+run({ dependencies, state, main }) //=> 'water boils at 100°C'
 ```
 
 ## Morphisms

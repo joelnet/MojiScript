@@ -6,7 +6,8 @@
   "main": "index.mjs",
   "scripts": {
     "ifelse": "node --experimental-modules --no-warnings ifElse.mjs",
-    "simpleifelse": "node --experimental-modules --no-warnings simpleIfElse.mjs"
+    "cond": "node --experimental-modules --no-warnings cond.mjs",
+    "cond2": "node --experimental-modules --no-warnings cond2.mjs"
   },
   "dependencies": {
     "joelscript": "file:../.."
