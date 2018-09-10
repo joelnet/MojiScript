@@ -56,6 +56,7 @@ run ({ state, main })
 - [Conditionals](examples/conditionals)
 - [map/filter/reduce](examples/map-filter-reduce)
 - [Axios](examples/net-axios)
+- [FizzBuzz](examples/fizz-buzz)
 
 ## Style Guide
 
@@ -363,12 +364,6 @@ increase (4) //=> 5
 Multiple Pipes can be Composed (combined) to create a new Pipe.
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
-import log from 'joelscript/console/log'
-
-const state = 4
-
 // increase :: Number -> Number
 const increase = pipe ([
   x => x + 1
@@ -384,13 +379,6 @@ const increaseThenDouble = pipe ([
   increase,
   double
 ])
-
-const main = pipe ([
-  increaseThenDouble,
-  log
-])
-
-run ({ state, main }) //=> 10
 ```
 
 ### Pipes are Asynchrnous
@@ -581,64 +569,4 @@ const main = pipe ([
 ])
 
 run ({ state, main })
-```
-
-FizzBuzz
-
-```javascript
-import cond from 'joelscript/core/cond'
-import log from 'joelscript/console/log'
-import run from 'joelscript/core/run'
-import ifElse from 'joelscript/core/ifElse'
-import gte from 'joelscript/math/gte'
-import pipe from 'joelscript/core/pipe'
-import recursivePipe from 'joelscript/recursivePipe'
-import after from 'joelscript/threading/after'
-import Nothing from 'joelscript/types/Nothing'
-import allPass from 'ramda/src/allPass'
-
-const dependencies = {
-  limit: 100
-}
-const state = 1
-
-// getFizzInfo :: Number -> FizzInfo
-const getFizzInfo = value => ({
-  value,
-  fizz: value % 3 === 0,
-  buzz: value % 5 === 0
-})
-
-// isFizz :: FizzInfo -> Boolean
-const isFizz = ({ fizz }) => fizz
-
-// isBuzz :: FizzInfo -> Boolean
-const isBuzz = ({ buzz }) => buzz
-
-// fizzInfoToStatus :: FizzInfo -> String | Number
-const fizzInfoToStatus = cond ([
-  [ allPass ([ isFizz, isBuzz ]), 'FizzBuzz' ],
-  [ isFizz, 'Fizz' ],
-  [ isBuzz, 'Buzz' ],
-  [ true, ({ value }) => value ]
-])
-
-// fizzBuss :: Number -> String | Number
-const fizzBuzz = pipe ([
-  getFizzInfo,
-  fizzInfoToStatus,
-  log
-])
-
-// increase :: Number -> Number
-const increase = x => x + 1
-
-// main :: Number -> Number -> [String | Number]
-const main = ({ limit }) => pipe ([
-  ifElse (gte (limit))
-    (() => Nothing)
-    (after (fizzBuzz) (x => main (x + 1)))
-])
-
-run ({ dependencies, state, main })
 ```
