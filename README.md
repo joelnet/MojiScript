@@ -114,17 +114,17 @@ const getOrdersText = ifHasOrders (orderCountText) (noOrderCountText)
 ```javascript
 // BAD
 ifElse
-  (isTrue)
-  ('YES')
-  ('NO')
+  (lessThan0)
+  (Math.abs)
+  (Math.sqrt)
 
 // GOOD
-ifElse (isTrue) ('YES') ('NO')
+ifElse (lessThan0) (Math.abs) (Math.sqrt)
 
 // GOOD
-ifElse (isTrue)
-  ('YES')
-  ('NO')
+ifElse (lessThan0)
+  (Math.abs)
+  (Math.sqrt)
 ```
 
 Pipes must be multi-line.
@@ -437,38 +437,39 @@ import ifElse from 'joelscript/core/ifElse'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
+const dependencies = {
+  log
+}
 const state = 7
 
 // isEven :: Number -> Boolean
 const isEven = x => x % 2 == 0
 
-// isTrue :: Boolean -> Boolean
-const isTrue = x => x === true
-
 // yesOrNo :: Boolean -> String
-const yesOrNo = ifElse (isTrue) ('YES') ('NO')
+const yesIfEven = ifElse (isEven) (num => `Yes, ${num} is even.`) (num => `NO, ${num} is not even.`)
 
 // main :: Number -> String
-const main = pipe ([
-  isEven,
-  yesOrNo,
+const main = ({ log }) => pipe ([
+  yesIfEven,
   log
 ])
 
-run ({ state, main }) //=> 'NO'
+run({ dependencies, state, main }) //=> 'NO, 7 is not even.'
 ```
 
 Example 2: switch case
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
+import log2 from 'joelscript/console/log2'
 import cond from 'joelscript/core/cond'
+import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
-import log from 'joelscript/console/log'
 
-const state = 5
+const dependencies = {
+  log2
+}
+const state = new Date().getDay()
 
-// dayName :: Number -> String
 const dayName = cond ([
   [ 0, 'Sunday' ],
   [ 1, 'Monday' ],
@@ -479,23 +480,25 @@ const dayName = cond ([
   [ 6, 'Saturday' ]
 ])
 
-const main = pipe ([
+const main = ({ log2 }) => pipe ([
   dayName,
-  log
+  log2(day => `Today is ${day}.`)
 ])
 
-run ({ state, main }) //=> 'Friday'
+run({ dependencies, state, main }) //=> 'Friday'
 ```
 
 Example 3: if/else/elseif
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-import cond from 'joelscript/core/cond'
-import run from 'joelscript/core/run'
-import error from 'joelscript/console/error'
 import log from 'joelscript/console/log'
+import cond from 'joelscript/core/cond'
+import pipe from 'joelscript/core/pipe'
+import run from 'joelscript/core/run'
 
+const dependencies = {
+  log
+}
 const state = 100
 
 // getTempInfo :: Number -> String
@@ -505,12 +508,12 @@ const getTempInfo = cond ([
   [ true, temp => `nothing special happens at ${temp}°C` ]
 ])
 
-const main = pipe ([
+const main = ({ log }) => pipe ([
   getTempInfo,
   log
 ])
 
-run ({ state, main }) //=> 'water boils at 100°C'
+run({ dependencies, state, main }) //=> 'water boils at 100°C'
 ```
 
 ## Morphisms
@@ -633,7 +636,7 @@ const increase = x => x + 1
 // main :: Number -> Number -> [String | Number]
 const main = ({ limit }) => pipe ([
   ifElse (gte (limit))
-    (Nothing)
+    (() => Nothing)
     (after (fizzBuzz) (x => main (x + 1)))
 ])
 
