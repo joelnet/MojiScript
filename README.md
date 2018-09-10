@@ -363,12 +363,6 @@ increase (4) //=> 5
 Multiple Pipes can be Composed (combined) to create a new Pipe.
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
-import log from 'joelscript/console/log'
-
-const state = 4
-
 // increase :: Number -> Number
 const increase = pipe ([
   x => x + 1
@@ -384,13 +378,6 @@ const increaseThenDouble = pipe ([
   increase,
   double
 ])
-
-const main = pipe ([
-  increaseThenDouble,
-  log
-])
-
-run ({ state, main }) //=> 10
 ```
 
 ### Pipes are Asynchrnous
