@@ -114,17 +114,17 @@ const getOrdersText = ifHasOrders (orderCountText) (noOrderCountText)
 ```javascript
 // BAD
 ifElse
-  (isTrue)
-  ('YES')
-  ('NO')
+  (lessThan0)
+  (Math.abs)
+  (Math.sqrt)
 
 // GOOD
-ifElse (isTrue) ('YES') ('NO')
+ifElse (lessThan0) (Math.abs) (Math.sqrt)
 
 // GOOD
-ifElse (isTrue)
-  ('YES')
-  ('NO')
+ifElse (lessThan0)
+  (Math.abs)
+  (Math.sqrt)
 ```
 
 Pipes must be multi-line.
@@ -437,25 +437,24 @@ import ifElse from 'joelscript/core/ifElse'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
+const dependencies = {
+  log
+}
 const state = 7
 
 // isEven :: Number -> Boolean
 const isEven = x => x % 2 == 0
 
-// isTrue :: Boolean -> Boolean
-const isTrue = x => x === true
-
 // yesOrNo :: Boolean -> String
-const yesOrNo = ifElse (isTrue) ('YES') ('NO')
+const yesIfEven = ifElse (isEven) (num => `Yes, ${num} is even.`) (num => `NO, ${num} is not even.`)
 
 // main :: Number -> String
-const main = pipe ([
-  isEven,
-  yesOrNo,
+const main = ({ log }) => pipe ([
+  yesIfEven,
   log
 ])
 
-run ({ state, main }) //=> 'NO'
+run({ dependencies, state, main }) //=> 'NO, 7 is not even.'
 ```
 
 Example 2: switch case
@@ -633,7 +632,7 @@ const increase = x => x + 1
 // main :: Number -> Number -> [String | Number]
 const main = ({ limit }) => pipe ([
   ifElse (gte (limit))
-    (Nothing)
+    (() => Nothing)
     (after (fizzBuzz) (x => main (x + 1)))
 ])
 

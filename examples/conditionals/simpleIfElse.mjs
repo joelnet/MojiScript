@@ -11,16 +11,12 @@ const state = 7
 // isEven :: Number -> Boolean
 const isEven = x => x % 2 == 0
 
-// isTrue :: Boolean -> Boolean
-const isTrue = x => x === true
-
 // yesOrNo :: Boolean -> String
-const yesOrNo = ifElse (isTrue) ('YES') ('NO')
+const yesIfEven = ifElse (isEven) (num => `Yes, ${num} is even.`) (num => `NO, ${num} is not even.`)
 
 // main :: Number -> String
 const main = ({ log }) => pipe ([
-  isEven,
-  yesOrNo,
+  yesIfEven,
   log
 ])
 
