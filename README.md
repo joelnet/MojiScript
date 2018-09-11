@@ -25,10 +25,15 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
   * [Composing Pipes](#composing-pipes)
   * [Pipes are Asynchrnous](#pipes-are-asynchrnous)
 - [Conditionals](#conditionals)
+- [Error Handling](#error-handling)
+  * [Synchronous Error Handling](#synchronous-error-handling)
+  * [Asynchronous Error Handling](#asynchronous-error-handling)
+  * [Error Handling with Sanctuary](#error-handling-with-sanctuary)
 - [Morphisms](#morphisms)
 - [Application Layout](#application-layout)
 - [Unit Tests](#unit-tests)
 - [Recursion](#recursion)
+
 ## Examples
 
 ### Hello World
