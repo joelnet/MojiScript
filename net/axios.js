@@ -1,20 +1,13 @@
+const curry2 = require('../internal/curry2')
+const curry3 = require('../internal/curry3')
 const axios = require('axios')
 
-const STATUS_CODE = {
-  OK: 200
-}
-
-const parseResponse = response =>
-  response.status === STATUS_CODE.OK
-    ? Promise.resolve(response.data.results)
-    : Promise.reject(`${response.status}: ${response.statusText}`)
-
 module.exports = {
-  get: url => config => axios.get(url, config).then(parseResponse),
-  'delete': url => config => axios.delete(url, config),
-  head: url => config => axios.head(url, config),
-  options: url => config => axios.options(url, config),
-  post: url => data => config => axios.post(url, data, config),
-  put: url => data => config => axios.put(url, data, config),
-  patch: url => data => config => axios.put(url, data, config),
+  get: curry2(axios.get),
+  'delete': curry2(axios.delete),
+  head: curry2(axios.head),
+  options: curry2(axios.options),
+  post: curry3(axios.post),
+  put: curry3(axios.put),
+  patch: curry3(axios.put)
 }
