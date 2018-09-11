@@ -1,5 +1,5 @@
 import pipe from 'joelscript/core/pipe'
-import template from 'joelscript/strings/template'
+import template from 'joelscript/string/template'
 import S from 'sanctuary'
 import { peopleSearch } from './api'
 
