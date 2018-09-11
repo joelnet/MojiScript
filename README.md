@@ -511,6 +511,10 @@ run({ dependencies, state, main }) //=> 'water boils at 100°C'
 
 ## Error Handling
 
+```javascript
+import ifError from 'core/ifError'
+```
+
 ### Synchronous Error Handling
 
 ```javascript
