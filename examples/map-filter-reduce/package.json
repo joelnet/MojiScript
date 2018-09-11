@@ -34,6 +34,6 @@
     ],
     "transform": {
       "^.+\\.m?js$": "babel-jest"
-      }
     }
+  }
 }
