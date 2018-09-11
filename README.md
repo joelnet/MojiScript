@@ -99,7 +99,7 @@ Following Atomic Design principles, code should be broken down into Atoms. This 
 
 ```javascript
 // BAD
-const getOrdersText = ifElse (({ length }) => length > 0) (x => `${x} orders`) ('No Orders')
+const getOrdersText = ifElse (({ length }) => length > 0) (x => `${x} orders`) (() => 'No Orders')
 
 // GOOD
 const hasOrders = ({ length }) => length > 0
