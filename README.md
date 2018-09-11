@@ -453,13 +453,13 @@ run({ dependencies, state, main }) //=> 'NO, 7 is not even.'
 Example 2: switch case
 
 ```javascript
-import log2 from 'joelscript/console/log2'
+import logF from 'joelscript/console/logF'
 import cond from 'joelscript/core/cond'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
 
 const dependencies = {
-  log2
+  logF
 }
 const state = new Date().getDay()
 
@@ -473,9 +473,9 @@ const dayName = cond ([
   [ 6, 'Saturday' ]
 ])
 
-const main = ({ log2 }) => pipe ([
+const main = ({ logF }) => pipe ([
   dayName,
-  log2(day => `Today is ${day}.`)
+  logF(day => `Today is ${day}.`)
 ])
 
 run({ dependencies, state, main }) //=> 'Friday'

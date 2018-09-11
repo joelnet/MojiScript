@@ -1,11 +1,11 @@
-import log2 from 'joelscript/console/log2'
+import logF from 'joelscript/console/logF'
 import run from 'joelscript/core/run'
 import axios from 'joelscript/net/axios'
 import main from './main'
 
 const dependencies = {
   axios,
-  log2
+  logF
 }
 
 const state = {
