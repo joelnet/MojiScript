@@ -9,8 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "joelscript": "file:../..",
-    "sanctuary": "^0.15.0"
+    "joelscript": "file:../.."
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

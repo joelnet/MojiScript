@@ -1,12 +1,14 @@
 import pipe from 'joelscript/core/pipe'
-import S from 'sanctuary'
-import { isOdd, double, add } from './lib/math'
+import filter from 'joelscript/list/filter'
+import map from 'joelscript/list/map'
+import reduce from 'joelscript/list/reduce'
+import { add, double, isOdd } from './lib/math'
 
 // main :: Dependencies -> [Number] -> Number
 const main = ({ log }) =>  pipe ([
-  S.filter (isOdd),   // [1, 2, 3] => [1, 3]
-  S.map (double),     // [1, 3]    => [2, 6]
-  S.reduce (add) (0), // [2, 6]    => 8,
+  filter (isOdd),   // [1, 2, 3] => [1, 3]
+  map (double),     // [1, 3]    => [2, 6]
+  reduce (add) (0), // [2, 6]    => 8,
   log
 ])
 
