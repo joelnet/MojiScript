@@ -14,13 +14,13 @@ const prettyResultCount = ({ length }) => `${length} Results:`
 // prettyFormatPerson :: Person -> String
 const prettyFormatPerson = ({ name, gender }) => `- ${name} (${gender})`
 
-const main = ({ axios, log2 }) => pipe ([
+const main = ({ axios, logF }) => pipe ([
   getSearchFromState,
-  log2 (prettyPrintSearching),
+  logF (prettyPrintSearching),
   peopleSearch (axios),
   S.map (prettyFormatPerson),
-  log2 (prettyResultCount),
-  log2 (S.joinWith ('\n'))
+  logF (prettyResultCount),
+  logF (S.joinWith ('\n'))
 ])
 
 export default main
