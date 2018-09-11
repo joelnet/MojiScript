@@ -504,6 +504,39 @@ const main = ({ log }) => pipe ([
 run({ dependencies, state, main }) //=> 'water boils at 100°C'
 ```
 
+## Error Handling
+
+### Synchronous Error Handling
+
+```javascript
+const func = ifError (maybeThrowError) (err => ({ err })) (value => ({ value }))
+
+func ('fail') //=> { err: [Error: Oops!] }
+func (1) //=> { value: 1 }
+```
+
+### Asynchronous Error Handling
+
+Asynchronous error handling is no different than Synchronous error handling.
+
+```javascript
+const func = ifError (maybeThrowErrorAsync) (err => ({ err })) (value => ({ value }))
+
+func ('fail') //=> then { err: [Error: Oops!] }
+func (1) //=> then { value: 1 }
+```
+
+### Error Handling with Sanctuary
+
+Sanctuary makes error handling easy with the [Either type](https://github.com/sanctuary-js/sanctuary#either-type).
+
+```javascript
+const func = ifError (maybeThrowError) (S.Left) (S.Right)
+
+func ('fail') //=> Left (new Error ("Oops!"))
+func (1) //=> Right (1)
+```
+
 ## Morphisms
 
 Morphisms allow us to transform an object from one Cateogry to another. The power of Morphisms can be seen when they are combined to create more complex Morphisms.
