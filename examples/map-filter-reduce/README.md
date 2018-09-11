@@ -2,7 +2,7 @@
 
 JoelScript Map/Filter/Reduce example.
 
-In this example, `map`, `filter` and `reduce` are imported from [Sanctuary](https://github.com/sanctuary-js/sanctuary). You could also use [Ramda](https://ramdajs.com/) or [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) or any other library.
+You could also use `map`, `filter`, `reduce` from [Sanctuary](https://github.com/sanctuary-js/sanctuary) or [Ramda](https://ramdajs.com/) or [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) or any other library.
 
 ## Install
 
@@ -64,14 +64,16 @@ run ({ dependencies, state, main }) // => 8
 [main.js](main.js)
 ```javascript
 import pipe from 'joelscript/core/pipe'
-import S from 'sanctuary'
-import { isOdd, double, add } from './lib/math'
+import filter from 'joelscript/list/filter'
+import map from 'joelscript/list/map'
+import reduce from 'joelscript/list/reduce'
+import { add, double, isOdd } from './lib/math'
 
 // main :: Dependencies -> [Number] -> Number
 const main = ({ log }) =>  pipe ([
-  S.filter (isOdd),   // [1, 2, 3] => [1, 3]
-  S.map (double),     // [1, 3]    => [2, 6]
-  S.reduce (add) (0), // [2, 6]    => 8,
+  filter (isOdd),   // [1, 2, 3] => [1, 3]
+  map (double),     // [1, 3]    => [2, 6]
+  reduce (add) (0), // [2, 6]    => 8,
   log
 ])
 

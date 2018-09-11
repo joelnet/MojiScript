@@ -1,6 +1,6 @@
 const template = require('../template')
 
-describe('strings/template', () => {
+describe('string/template', () => {
   test('simple template', () => {
     const expected = 'YAY!'
     const func = template`${0}${1}${0}!`
