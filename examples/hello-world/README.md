@@ -36,9 +36,9 @@ import run from 'joelscript/core/run'
 
 const state = 'Hello World'
 
-const main = pipe(
+const main = pipe([
   log
-)
+])
 
-run({ main, state })
+run ({ main, state })
 ```
