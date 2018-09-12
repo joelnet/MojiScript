@@ -2,7 +2,7 @@
 
 MojiScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that MojiScript language features can run in any JavaScript application and vice-versa.
 
-MojiScript is designed is derived from Functional Programming concepts such as Currying, Partial Application, Function Composition, Category Theory, and Atomic Design.
+MojiScript's design is derived from Functional Programming concepts such as Currying, Partial Application, Function Composition, Category Theory, and Atomic Design.
 
 ## Table of Contents
 
