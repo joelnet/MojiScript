@@ -96,24 +96,36 @@ add(1)(2)
 add (1) (2)
 ```
 
+Prefer String Templates
+
+```javascript
+// BAD
+const func = x => `Value: ${x}`
+
+// GOOD
+const func = $`Value: ${0}`
+
+// BAD
+const func = ({ prop }) => `Prop: ${prop}`
+
+// GOOD
+const func = $`Value: ${'prop'}`
+```
+
 Following Atomic Design principles, code should be broken down into Atoms. This maximizes reusability, testability, composability, and readability.
 
 ```javascript
 // BAD
-const getOrdersText = ifElse (({ length }) => length > 0) (x => `${x} orders`) (() => 'No Orders')
+const getOrdersText = ifElse (({ length }) => length > 0) ($`${0} orders`) ($`No Orders`)
 
 // GOOD
 const hasOrders = ({ length }) => length > 0
-const orderCountText = ({ length }) => `${length} orders`
-const noOrderCountText = () => 'No Orders'
-const getOrdersText = ifElse (hasOrders) (orderCountText) (noOrderCountText)
+const getOrdersText = ifElse (hasOrders) ($`${0} orders`) ($`No Orders`)
 
 // GOOD
 const hasOrders = ({ length }) => length > 0
-const orderCountText = ({ length }) => `${length} orders`
-const noOrderCountText = () => 'No Orders'
 const ifHasOrders = ifElse (hasOrders)
-const getOrdersText = ifHasOrders (orderCountText) (noOrderCountText)
+const getOrdersText = ifHasOrders ($`${0} orders`) ($`No Orders`)
 ```
 
 `ifElse` and the condition should be on the same line. Longer statements can be broken out into multiple lines. If it is long, consider breaking it down further.
@@ -446,6 +458,7 @@ import log from 'joelscript/console/log'
 import ifElse from 'joelscript/core/ifElse'
 import pipe from 'joelscript/core/pipe'
 import run from 'joelscript/core/run'
+import $ from 'joelscript/string/template'
 
 const dependencies = {
   log
@@ -456,7 +469,7 @@ const state = 7
 const isEven = x => x % 2 == 0
 
 // yesOrNo :: Boolean -> String
-const yesIfEven = ifElse (isEven) (num => `Yes, ${num} is even.`) (num => `NO, ${num} is not even.`)
+const yesIfEven = ifElse (isEven) ($`Yes, ${0} is even.`) ($`NO, ${0} is not even.`)
 
 // main :: Number -> String
 const main = ({ log }) => pipe ([
@@ -515,7 +528,7 @@ const state = 100
 const getTempInfo = cond ([
   [ 0, 'water freezes at 0°C' ],
   [ 100, 'water boils at 100°C' ],
-  [ true, temp => `nothing special happens at ${temp}°C` ]
+  [ true, $`nothing special happens at ${0}°C` ]
 ])
 
 const main = ({ log }) => pipe ([
@@ -535,7 +548,9 @@ import ifError from 'joelscript/core/ifError'
 ### Synchronous Error Handling
 
 ```javascript
-const func = ifError (maybeThrowError) (err => ({ err })) (value => ({ value }))
+const fail = err => ({ err })
+const pass = value => ({ value })
+const func = ifError (maybeThrowError) (fail) (pass)
 
 func ('fail') //=> { err: [Error: Oops!] }
 func (1) //=> { value: 1 }
@@ -546,7 +561,7 @@ func (1) //=> { value: 1 }
 Asynchronous error handling is no different than Synchronous error handling.
 
 ```javascript
-const func = ifError (maybeThrowErrorAsync) (err => ({ err })) (value => ({ value }))
+const func = ifError (maybeThrowErrorAsync) (fail) (pass)
 
 func ('fail') //=> then { err: [Error: Oops!] }
 func (1) //=> then { value: 1 }
