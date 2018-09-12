@@ -13,12 +13,14 @@
   },
   "homepage": "https://github.com/joelnet/JoelScript#readme",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "patch-readme": "node --experimental-modules --no-warnings .lib/patch-readme/index.mjs"
   },
   "dependencies": {},
   "devDependencies": {
     "axios": "^0.18.0",
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "sanctuary": "^0.15.0"
   },
   "peerDependencies": {
     "axios": "^0.18.0"
