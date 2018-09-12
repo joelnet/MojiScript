@@ -1,6 +1,6 @@
 # JoelScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg)
 
-JoelScript is an Async First, experimental and opinionated language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that JoelScript language features can run in any JavaScript application and vice-versa.
+JoelScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that JoelScript language features can run in any JavaScript application and vice-versa.
 
 JoelScript is designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, Category Theory, and Atomic Design.
 
