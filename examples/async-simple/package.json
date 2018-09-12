@@ -8,6 +8,6 @@
     "start": "node --experimental-modules --no-warnings index.mjs"
   },
   "dependencies": {
-    "joelscript": "file:../.."
+    "mojiscript": "file:../.."
   }
 }

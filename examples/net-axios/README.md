@@ -1,15 +1,15 @@
-# JoelScript net/axios
+# MojiScript net/axios
 
-JoelScript net/axios example
+MojiScript net/axios example
 
 ## Install
 
 ```bash
 # clone repository
-git clone https://github.com/joelnet/JoelScript.git
+git clone https://github.com/joelnet/MojiScript.git
 
 # enter directory
-cd JoelScript/examples/net-axios
+cd MojiScript/examples/net-axios
 
 # install dependencies
 npm ci

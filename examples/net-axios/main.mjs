@@ -1,6 +1,6 @@
-import pipe from 'joelscript/core/pipe'
-import map from 'joelscript/list/map'
-import $ from 'joelscript/string/template'
+import pipe from 'mojiscript/core/pipe'
+import map from 'mojiscript/list/map'
+import $ from 'mojiscript/string/template'
 import join from 'ramda/src/join'
 import { peopleSearch } from './api'
 

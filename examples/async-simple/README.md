@@ -1,15 +1,15 @@
-# JoelScript Async Simple
+# MojiScript Async Simple
 
-JoelScript Async Simple example.
+MojiScript Async Simple example.
 
 ## Install
 
 ```bash
 # clone repository
-git clone https://github.com/joelnet/JoelScript.git
+git clone https://github.com/joelnet/MojiScript.git
 
 # enter directory
-cd JoelScript/examples/async-simple
+cd MojiScript/examples/async-simple
 
 # install dependencies
 npm ci
@@ -32,10 +32,10 @@ You should see the output
 ## Code
 
 ```javascript
-import log from 'joelscript/console/log'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
-import sleep from 'joelscript/threading/sleep'
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import sleep from 'mojiscript/threading/sleep'
 
 const state = 4
 

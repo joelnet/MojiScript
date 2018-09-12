@@ -1,2 +1,3 @@
-**/.vscode
+coverage/
+**/.vscode/
 **/node_modules/

@@ -1,4 +1,4 @@
-import pipe from 'joelscript/core/pipe'
+import pipe from 'mojiscript/core/pipe'
 
 const rootUrl = 'https://swapi.co/api/people/'
 

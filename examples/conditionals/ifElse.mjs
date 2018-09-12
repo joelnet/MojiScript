@@ -1,7 +1,8 @@
-import log from 'joelscript/console/log'
-import ifElse from 'joelscript/core/ifElse'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
+import log from 'mojiscript/console/log'
+import ifElse from 'mojiscript/core/ifElse'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import $ from 'mojiscript/string/template'
 
 const dependencies = {
   log
@@ -12,10 +13,10 @@ const state = [1, 2, 3]
 const hasOrders = ({ length }) => length > 0
 
 // orderCountText :: Array -> OrdersString
-const orderCountText = ({ length }) => `${length} orders`
+const orderCountText = $`${'length'} orders`
 
 // noOrderCountText :: * -> OrdersString
-const noOrderCountText = () => 'No Orders'
+const noOrderCountText = $`No Orders`
 
 // ifHasOrders :: Function -> Function
 const ifHasOrders = ifElse (hasOrders)

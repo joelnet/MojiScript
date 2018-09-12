@@ -1,15 +1,15 @@
-# JoelScript Fizz Buzz
+# MojiScript Fizz Buzz
 
-JoelScript Fizz Buzz
+MojiScript Fizz Buzz
 
 ## Install
 
 ```bash
 # clone repository
-git clone https://github.com/joelnet/JoelScript.git
+git clone https://github.com/joelnet/MojiScript.git
 
 # enter directory
-cd JoelScript/examples/fizz-buzz
+cd MojiScript/examples/fizz-buzz
 
 # install dependencies
 npm ci

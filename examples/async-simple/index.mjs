@@ -1,7 +1,7 @@
-import log from 'joelscript/console/log'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
-import sleep from 'joelscript/threading/sleep'
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import sleep from 'mojiscript/threading/sleep'
 
 const state = 4
 

@@ -1,10 +1,8 @@
-# JoelScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg)
+# MojiScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg)
 
-JoelScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that JoelScript language features can run in any JavaScript application and vice-versa.
+MojiScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that MojiScript language features can run in any JavaScript application and vice-versa.
 
-JoelScript is designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, Category Theory, and Atomic Design.
-
-JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet) will use this.
+MojiScript is designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, Category Theory, and Atomic Design.
 
 ## Table of Contents
 
@@ -42,9 +40,9 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 [view the source](examples/async-simple)
 
 ```javascript
-import log from 'joelscript/console/log'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
 
 const state = 'Hello World'
 
@@ -234,7 +232,7 @@ note: Objects may contain functions, but those functions will not have a referen
 String Templates make strings a joy to work with.
 
 ```javascript
-import $ from 'joelscript/string/template'
+import $ from 'mojiscript/string/template'
 
 const searchTemplate = $`Searching for: "${0}"`
 const nameTemplate = $`${'first'} ${'last'}`
@@ -309,9 +307,9 @@ increase (1) //=> 2
 A Pipe should be viewed as a stream of data, that performs Morphisms (or transformation between Categories) along each step.
 
 ```javascript
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
-import log from 'joelscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import log from 'mojiscript/console/log'
 
 const state = 4
 
@@ -420,10 +418,10 @@ const increaseThenDouble = pipe ([
 Pipes are Asynchronous. The elimination of synchronous statements greatly simplifies the code. No need for `Promise`, `async`, or `await`!
 
 ```javascript
-import log from 'joelscript/console/log'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
-import sleep from 'joelscript/threading/sleep'
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import sleep from 'mojiscript/threading/sleep'
 
 const state = 4
 
@@ -454,11 +452,11 @@ Note: There are not any problems with synchronous or asynchronous code. Though t
 Example 1: if/else conditional
 
 ```javascript
-import log from 'joelscript/console/log'
-import ifElse from 'joelscript/core/ifElse'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
-import $ from 'joelscript/string/template'
+import log from 'mojiscript/console/log'
+import ifElse from 'mojiscript/core/ifElse'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import $ from 'mojiscript/string/template'
 
 const dependencies = {
   log
@@ -483,10 +481,10 @@ run({ dependencies, state, main }) //=> 'NO, 7 is not even.'
 Example 2: switch case
 
 ```javascript
-import logF from 'joelscript/console/logF'
-import cond from 'joelscript/core/cond'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
+import logF from 'mojiscript/console/logF'
+import cond from 'mojiscript/core/cond'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
 
 const dependencies = {
   logF
@@ -514,10 +512,10 @@ run({ dependencies, state, main }) //=> 'Friday'
 Example 3: if/else/elseif
 
 ```javascript
-import log from 'joelscript/console/log'
-import cond from 'joelscript/core/cond'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
+import log from 'mojiscript/console/log'
+import cond from 'mojiscript/core/cond'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
 
 const dependencies = {
   log
@@ -542,7 +540,7 @@ run({ dependencies, state, main }) //=> 'water boils at 100°C'
 ## Error Handling
 
 ```javascript
-import ifError from 'joelscript/core/ifError'
+import ifError from 'mojiscript/core/ifError'
 ```
 
 ### Synchronous Error Handling
@@ -626,10 +624,10 @@ Check out the [map/filter/reduce example](examples/map-filter-reduce) for an exa
 Recursion is dead simple.
 
 ```javascript
-import log from 'joelscript/console/log'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
-import wait from 'joelscript/threading/wait'
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import wait from 'mojiscript/threading/wait'
 
 const state = 1
 
