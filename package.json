@@ -1,7 +1,7 @@
 {
   "name": "mojiscript",
-  "version": "0.1.0",
-  "description": "MojiScript is an experimental and opinionated language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that MojiScript language features can run in any JavaScript application and vice-versa.",
+  "version": "0.1.2",
+  "description": "MojiScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joelnet/MojiScript.git"

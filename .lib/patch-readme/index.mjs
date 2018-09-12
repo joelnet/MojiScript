@@ -4,7 +4,7 @@ import { readFileUtf8 } from './interop/fs'
 import main from './main'
 
 const dependencies = {
-  baseUrl: 'https://github.com/joelnet/MojiScript',
+  baseUrl: 'https://github.com/joelnet/MojiScript/tree/master',
   readFile: readFileUtf8,
   log
 }
