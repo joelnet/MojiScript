@@ -3,7 +3,7 @@ import pipe from '../../core/pipe'
 import replace from '../../string/replace'
 import fork from '../../threading/fork'
 
-const rxLink = /\[([^\]]*)]\(([^)]*)\)/gi
+const rxLink = /\[([^\]]*)]\(([^#][^)]*)\)/gi
 const rxExternalLink = /:\/\//
 
 const getInternalLinks = pipe ([
