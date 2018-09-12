@@ -1,6 +1,7 @@
 import pipe from 'joelscript/core/pipe'
-import template from 'joelscript/string/template'
-import S from 'sanctuary'
+import map from 'joelscript/list/map'
+import $ from 'joelscript/string/template'
+import join from 'ramda/src/join'
 import { peopleSearch } from './api'
 
 // getSearchFromState :: State -> SearchString
@@ -8,11 +9,11 @@ const getSearchFromState = ({ search }) => search
 
 const main = ({ axios, logF }) => pipe ([
   getSearchFromState,
-  logF (template `Searching for: "${0}"`),
+  logF ($`Searching for: "${0}"`),
   peopleSearch (axios),
-  S.map (template `- ${'name'} (${'gender'})`),
-  logF (template `${'length'} Results:`),
-  logF (S.joinWith ('\n'))
+  map ($`- ${'name'} (${'gender'})`),
+  logF ($`${'length'} Results:`),
+  logF (join ('\n'))
 ])
 
 export default main

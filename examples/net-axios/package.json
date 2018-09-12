@@ -10,6 +10,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "joelscript": "file:../..",
-    "sanctuary": "^0.15.0"
+    "ramda": "^0.25.0"
   }
 }
