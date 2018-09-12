@@ -291,7 +291,7 @@ const tap = func => value => (
 
 Pipes can be compared to an asynchrnous function that takes 1 argument and returns 1 argument.
 
-Each pipe can contain multiple Pipes or Function Expressions. A Pipe will return the result of the final Pipe or Function Expression.
+Each pipe can contain multiple Pipes or Expressions. A Pipe will return the result of the final Pipe or Expression.
 
 ```javascript
 // increase :: Number -> Number
