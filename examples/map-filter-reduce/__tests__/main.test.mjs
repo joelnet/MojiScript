@@ -1,4 +1,4 @@
-import log from 'joelscript/console/log'
+import log from 'mojiscript/console/log'
 import main from '../main'
 
 describe('main.js', () => {

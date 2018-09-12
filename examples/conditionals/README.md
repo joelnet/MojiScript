@@ -1,15 +1,15 @@
-# JoelScript IfElse Simple
+# MojiScript IfElse Simple
 
-JoelScript IfElse Simple example.
+MojiScript IfElse Simple example.
 
 ## Install
 
 ```bash
 # clone repository
-git clone https://github.com/joelnet/JoelScript.git
+git clone https://github.com/joelnet/MojiScript.git
 
 # enter directory
-cd JoelScript/examples/ifElse-simple
+cd MojiScript/examples/ifElse-simple
 
 # install dependencies
 npm ci
@@ -18,9 +18,12 @@ npm ci
 ## Run
 
 ```bash
-# run basic if/else conditional
-npm run simpleifelse
-
-# run if/else conditional
+# run if/else
 npm run ifelse
+
+# run conditional 1
+npm run cond
+
+# run conditional 2
+npm run cond2
 ```

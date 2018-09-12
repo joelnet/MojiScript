@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "joelscript": "file:../..",
+    "mojiscript": "file:../..",
     "ramda": "^0.25.0"
   }
 }

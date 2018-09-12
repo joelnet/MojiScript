@@ -1,8 +1,8 @@
-import after from 'joelscript/core/after'
-import cond from 'joelscript/core/cond'
-import pipe from 'joelscript/core/pipe'
-import pipeR from 'joelscript/core/pipeR'
-import when from 'joelscript/core/when'
+import after from 'mojiscript/core/after'
+import cond from 'mojiscript/core/cond'
+import pipe from 'mojiscript/core/pipe'
+import pipeR from 'mojiscript/core/pipeR'
+import when from 'mojiscript/core/when'
 import S from 'sanctuary'
 
 // getFizzInfo :: Number -> FizzInfo

@@ -1,15 +1,15 @@
-# JoelScript Hello World
+# MojiScript Hello World
 
-JoelScript Hello World example.
+MojiScript Hello World example.
 
 ## Install
 
 ```bash
 # clone repository
-git clone https://github.com/joelnet/JoelScript.git
+git clone https://github.com/joelnet/MojiScript.git
 
 # enter directory
-cd JoelScript/examples/hello-world
+cd MojiScript/examples/hello-world
 
 # install dependencies
 npm ci
@@ -30,9 +30,9 @@ Hello World
 ## Code
 
 ```javascript
-import log from 'joelscript/console/log'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
 
 const state = 'Hello World'
 

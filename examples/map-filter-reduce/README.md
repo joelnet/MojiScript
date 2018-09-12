@@ -1,6 +1,6 @@
-# JoelScript Map/Filter/Reduce
+# MojiScript Map/Filter/Reduce
 
-JoelScript Map/Filter/Reduce example.
+MojiScript Map/Filter/Reduce example.
 
 You could also use `map`, `filter`, `reduce` from [Sanctuary](https://github.com/sanctuary-js/sanctuary) or [Ramda](https://ramdajs.com/) or [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide) or any other library.
 
@@ -8,10 +8,10 @@ You could also use `map`, `filter`, `reduce` from [Sanctuary](https://github.com
 
 ```bash
 # clone repository
-git clone https://github.com/joelnet/JoelScript.git
+git clone https://github.com/joelnet/MojiScript.git
 
 # enter directory
-cd JoelScript/examples/map-filter-reduce
+cd MojiScript/examples/map-filter-reduce
 
 # install dependencies
 npm ci
@@ -49,8 +49,8 @@ Tests are written in JavaScript using Jest and should follow Jest best practices
 
 [index.js](index.js)
 ```javascript
-import log from 'joelscript/console/log'
-import run from 'joelscript/core/run'
+import log from 'mojiscript/console/log'
+import run from 'mojiscript/core/run'
 import main from './main'
 
 const dependencies = {
@@ -63,10 +63,10 @@ run ({ dependencies, state, main }) // => 8
 
 [main.js](main.js)
 ```javascript
-import pipe from 'joelscript/core/pipe'
-import filter from 'joelscript/list/filter'
-import map from 'joelscript/list/map'
-import reduce from 'joelscript/list/reduce'
+import pipe from 'mojiscript/core/pipe'
+import filter from 'mojiscript/list/filter'
+import map from 'mojiscript/list/map'
+import reduce from 'mojiscript/list/reduce'
 import { add, double, isOdd } from './lib/math'
 
 // main :: Dependencies -> [Number] -> Number

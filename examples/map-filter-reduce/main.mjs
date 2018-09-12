@@ -1,7 +1,7 @@
-import pipe from 'joelscript/core/pipe'
-import filter from 'joelscript/list/filter'
-import map from 'joelscript/list/map'
-import reduce from 'joelscript/list/reduce'
+import pipe from 'mojiscript/core/pipe'
+import filter from 'mojiscript/list/filter'
+import map from 'mojiscript/list/map'
+import reduce from 'mojiscript/list/reduce'
 import { add, double, isOdd } from './lib/math'
 
 // main :: Dependencies -> [Number] -> Number

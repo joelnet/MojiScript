@@ -1,7 +1,7 @@
-import logF from 'joelscript/console/logF'
-import cond from 'joelscript/core/cond'
-import pipe from 'joelscript/core/pipe'
-import run from 'joelscript/core/run'
+import logF from 'mojiscript/console/logF'
+import cond from 'mojiscript/core/cond'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
 
 const dependencies = {
   logF

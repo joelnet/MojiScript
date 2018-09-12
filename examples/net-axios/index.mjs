@@ -1,6 +1,6 @@
-import logF from 'joelscript/console/logF'
-import run from 'joelscript/core/run'
-import axios from 'joelscript/net/axios'
+import logF from 'mojiscript/console/logF'
+import run from 'mojiscript/core/run'
+import axios from 'mojiscript/net/axios'
 import main from './main'
 
 const dependencies = {
