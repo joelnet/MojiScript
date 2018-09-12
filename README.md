@@ -2,10 +2,11 @@
 
 MojiScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that MojiScript language features can run in any JavaScript application and vice-versa.
 
-MojiScript is designed is derived from Functional Programming concepts such as Curying, Partial Application, Function Composition, Category Theory, and Atomic Design.
+MojiScript is designed is derived from Functional Programming concepts such as Currying, Partial Application, Function Composition, Category Theory, and Atomic Design.
 
 ## Table of Contents
 
+- [Benefits](#benefits)
 - [Examples](#examples)
   * [Hello World](#hello-world)
   * [More Examples](#more-examples)
@@ -32,6 +33,14 @@ MojiScript is designed is derived from Functional Programming concepts such as C
 - [Application Layout](#application-layout)
 - [Unit Tests](#unit-tests)
 - [Recursion](#recursion)
+
+## Benefits
+
+- The Asynchronous-first design greatly simplifies writing and reasoning about Asynchronous code. Worry less about callbacks, promises, async, await, etc.
+- Atomic Design, function composition, and Pipes encourages maximum code re-use, testability and the ability to compose smaller functions into larger ones.
+- Compatibility with ECMAScript gives our applications full access to the JavaScript ecosystem. It also allows us to import elements from MojiScript into existing JavaScript applications.
+- A modular design allows for features to be imported on an as needed basis, keeping packages small. It also allows for elements like `map`, `filter`, `reduce` to be swapped out for 3rd party libraries, like Sanctuary or Ramda.
+- Plays well with functional libraries. Check out the [Complementary Libraries](#complementary-libraries) section for libraries that can benefit your MojiScript applications.
 
 ## Examples
 
@@ -107,7 +116,7 @@ const func = $`Value: ${0}`
 const func = ({ prop }) => `Prop: ${prop}`
 
 // GOOD
-const func = $`Value: ${'prop'}`
+const func = $`Prop: ${'prop'}`
 ```
 
 Following Atomic Design principles, code should be broken down into Atoms. This maximizes reusability, testability, composability, and readability.
@@ -119,6 +128,11 @@ const getOrdersText = ifElse (({ length }) => length > 0) ($`${0} orders`) ($`No
 // GOOD
 const hasOrders = ({ length }) => length > 0
 const getOrdersText = ifElse (hasOrders) ($`${0} orders`) ($`No Orders`)
+
+// GOOD
+const hasOrders = ({ length }) => length > 0
+const ifHasOrders = ifElse (hasOrders)
+const getOrdersText = ifHasOrders ($`${0} orders`) ($`No Orders`)
 
 // GOOD
 const hasOrders = ({ length }) => length > 0
