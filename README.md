@@ -15,6 +15,7 @@ JoelScript got it name because nobody but [@joelnet](https://twitter.com/joelnet
 - [Complementary Libraries](#complementary-libraries)
 - [Variables](#variables)
 - [Objects](#objects)
+- [String Templates](#string-templates)
 - [Expressions](#expressions)
   * [Multiple Arguments](#multiple-arguments)
   * [Compound Expressions](#compound-expressions)
@@ -215,6 +216,22 @@ const cat = {
 ```
 
 note: Objects may contain functions, but those functions will not have a reference to the object itself. Behavior and data should be decoupled.
+
+## String Templates
+
+String Templates make strings a joy to work with.
+
+```javascript
+import $ from 'joelscript/string/template'
+
+const searchTemplate = $`Searching for: "${0}"`
+const nameTemplate = $`${'first'} ${'last'}`
+
+searchTemplate ('Skywalker') //=> 'Searching for: "Skywalker"'
+nameTemplate ({ first: 'Luke', last: 'Skywalker' }) //=> 'Luke Skywalker'
+```
+
+Have a look at the [Axios Example](examples/net-axios) for more on how String Templates can improve your code.
 
 ## Expressions
 
