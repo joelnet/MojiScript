@@ -208,7 +208,7 @@ path = './hello'
 //=> Error("Path is read-only")
 ```
 
-Variables are also mutable. So be cautious.
+Objects declared with `const` are now also immutable!
 
 ```javascript
 const state = {
@@ -216,13 +216,8 @@ const state = {
   count: 0
 }
 
-const main = pipe ([
-  obj => Object.assign(obj, { count: 1, updated: true }),
-  log
-])
-
-run ({ state, main })
-//=> { count: 1, updated: true }
+state.count = 1
+//=> error  Unallowed reassignment  fp/no-mutation
 ```
 
 A variable can be a value (Number, String, Object), an Expression, or a Pipe.

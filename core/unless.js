@@ -1,5 +1,5 @@
-const ifElse = require('./ifElse')
-const I = require('../combinators/I')
+const ifElse = require ('./ifElse')
+const I = require ('../combinators/I')
 
 const unless = condition => ifElse (condition) (I)
 

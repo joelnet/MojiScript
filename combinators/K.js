@@ -1,3 +1,3 @@
-const K = x => y => x;
+const K = x => () => x
 
 module.exports = K

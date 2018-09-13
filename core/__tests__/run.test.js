@@ -2,7 +2,7 @@ const run = require('../run')
 
 describe('core/run', () => {
   test('runs main with no state', () => {
-    const expected = null
+    const expected = undefined
     const main = jest.fn().mockImplementation(() => Promise.resolve())
     run({ main })
     const actual = main.mock.calls[0][0]

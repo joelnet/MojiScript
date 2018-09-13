@@ -6,7 +6,7 @@ import run from 'mojiscript/core/run'
 const dependencies = {
   logF
 }
-const state = new Date().getDay()
+const state = new Date ().getDay ()
 
 const dayName = cond ([
   [ 0, 'Sunday' ],
