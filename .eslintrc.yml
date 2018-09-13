@@ -23,6 +23,9 @@ rules:
   semi:
     - error
     - never
+  comma-spacing:
+    - error
+    - { "before": false, "after": true }
   func-call-spacing:
     - error
     - always
