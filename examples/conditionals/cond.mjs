@@ -20,7 +20,7 @@ const dayName = cond ([
 
 const main = ({ logF }) => pipe ([
   dayName,
-  logF(day => `Today is ${day}.`)
+  logF (day => `Today is ${day}.`)
 ])
 
-run({ dependencies, state, main })
+run ({ dependencies, state, main })

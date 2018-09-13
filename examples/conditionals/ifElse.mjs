@@ -7,7 +7,7 @@ import $ from 'mojiscript/string/template'
 const dependencies = {
   log
 }
-const state = [1, 2, 3]
+const state = [ 1, 2, 3 ]
 
 // hasOrders :: Array -> Boolean
 const hasOrders = ({ length }) => length > 0
@@ -30,4 +30,4 @@ const main = ({ log }) => pipe ([
   log
 ])
 
-run({ dependencies, state, main }) //=> 'NO'
+run ({ dependencies, state, main }) //=> 'NO'

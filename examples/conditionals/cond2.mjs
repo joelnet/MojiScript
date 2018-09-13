@@ -21,4 +21,4 @@ const main = ({ log }) => pipe ([
   log
 ])
 
-run({ dependencies, state, main })
+run ({ dependencies, state, main })
