@@ -48,7 +48,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 Install `mojiscript` and `eslint` packages.
 
 ```javascript
-npm install -P mojiscript eslint eslint-plugin-fp
+npm install -P mojiscript eslint eslint-plugin-fp eslint-watch
 ```
 
 Download eslint configuration files.
@@ -58,12 +58,13 @@ curl -o .eslintignore https://raw.githubusercontent.com/joelnet/MojiScript/maste
 curl -o .eslintignore https://raw.githubusercontent.com/joelnet/MojiScript/master/.eslintrc.yml
 ```
 
-Add a `build` step to `package.json`.
+Add a `build` and `watch` step to `package.json`.
 
 ```javascript
 {
   "scripts": {
-    "build": "eslint . --ext .js,.mjs"
+    "build": "eslint . --ext .js,.mjs",
+    "watch": "esw -w --fix"
   }
 }
 ```
@@ -72,6 +73,12 @@ Run the `build` script.
 
 ```bash
 npm run build
+```
+
+During development you can auto-fix and format on save with the `watch` script.
+
+```bash
+npm run watch
 ```
 
 ## Examples
