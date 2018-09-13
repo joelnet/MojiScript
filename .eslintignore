@@ -1,2 +1,5 @@
+__tests__/
 coverage/
+interop/
 *.test.js
+*.test.mjs

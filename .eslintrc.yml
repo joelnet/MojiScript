@@ -27,5 +27,25 @@ rules:
     - { "allowNewlines": true }
   no-unexpected-multiline:
     - off
+  array-bracket-spacing:
+    - error
+    - always
+  arrow-body-style:
+    - error
+    - never
+  prefer-arrow-callback:
+    - error
+    - { allowNamedFunctions: false, allowUnboundThis: false }
+  no-var:
+    - error
+  prefer-const:
+    - error
+  prefer-template:
+    - error
+  comma-dangle:
+    - error
+    - never
+  no-ternary:
+    - error
 overrides:
   files: [".mjs"]
