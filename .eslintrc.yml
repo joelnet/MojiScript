@@ -30,6 +30,9 @@ rules:
     - error
     - always
     - { "allowNewlines": true }
+  no-multiple-empty-lines:
+    - error
+    - { "max": 1 }
   no-unexpected-multiline:
     - off
   array-bracket-spacing:
