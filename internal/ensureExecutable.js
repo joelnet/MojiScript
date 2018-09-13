@@ -1,9 +1,9 @@
-const K = require('../combinators/K')
-const is = require('../types/is')
+const K = require ('../combinators/K')
+const is = require ('../types/is')
 
-const isFunction = is(Function)
+const isFunction = is (Function)
 
 const ensureExecutable = x =>
-  isFunction (x) ? x : K(x)
+  isFunction (x) ? x : K (x)
 
 module.exports = ensureExecutable

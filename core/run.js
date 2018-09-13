@@ -1,4 +1,4 @@
-const error = require('../console/error')
+const error = require ('../console/error')
 
 const run = ({ dependencies, state, main }) =>
   dependencies != null

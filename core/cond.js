@@ -1,5 +1,5 @@
-const maybeExec = require('../internal/maybeExec')
-const is = require('../types/is')
+const maybeExec = require ('../internal/maybeExec')
+const is = require ('../types/is')
 
 const isFunction = is (Function)
 

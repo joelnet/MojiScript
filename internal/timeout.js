@@ -1,4 +1,4 @@
-const curry2 = require('./curry2')
+const curry2 = require ('./curry2')
 
 const timeout = curry2 (setTimeout)
 
