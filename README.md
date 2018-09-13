@@ -7,7 +7,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 ## Table of Contents
 
 - [Benefits](#benefits)
-- [Install & Build](#install---build)
+- [Install & Build](#install-and-build)
 - [Examples](#examples)
   * [Hello World](#hello-world)
   * [More Examples](#more-examples)
@@ -43,12 +43,13 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 - A modular design allows for features to be imported on an as needed basis, keeping packages small. It also allows for elements like `map`, `filter`, `reduce` to be swapped out for 3rd party libraries, like Sanctuary or Ramda.
 - Plays well with functional libraries. Check out the [Complementary Libraries](#complementary-libraries) section for libraries that can benefit your MojiScript applications.
 
-## Install & Build
+## Install and Build
 
 Install `mojiscript` and `eslint` packages.
 
 ```javascript
-npm install -P mojiscript eslint eslint-plugin-fp eslint-watch
+npm install -P mojiscript
+npm install -D mojiscript eslint eslint-plugin-fp eslint-watch
 ```
 
 Download eslint configuration files.
