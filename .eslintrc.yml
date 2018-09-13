@@ -4,10 +4,12 @@ env:
   es6: true
   node: true
   jest: true
-extends: 'eslint:recommended'
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
+plugins:
+  - fp
+extends: 'plugin:fp/recommended'
 rules:
   indent:
     - off
@@ -47,5 +49,10 @@ rules:
     - never
   no-ternary:
     - error
+  fp/no-mutation:
+    - error
+    - { commonjs: true }
+  fp/no-unused-expression:
+    - off
 overrides:
   files: [".mjs"]
