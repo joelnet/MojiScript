@@ -16,13 +16,15 @@
     "build": "npm run validate",
     "test": "jest",
     "validate": "eslint . --ext .js,.mjs",
-    "patch-readme": "node --experimental-modules --no-warnings .lib/patch-readme/index.mjs"
+    "patch-readme": "node --experimental-modules --no-warnings .lib/patch-readme/index.mjs",
+    "watch": "esw -w --fix --ext .js,.mjs"
   },
   "dependencies": {},
   "devDependencies": {
     "axios": "^0.18.0",
     "eslint": "^5.5.0",
     "eslint-plugin-fp": "^2.3.0",
+    "eslint-watch": "^4.0.2",
     "jest": "^23.5.0",
     "sanctuary": "^0.15.0"
   },
