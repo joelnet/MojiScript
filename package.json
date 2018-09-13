@@ -16,7 +16,7 @@
     "build": "npm run validate",
     "test": "jest",
     "validate": "eslint . --ext .js,.mjs",
-    "patch-readme": "node --experimental-modules --no-warnings .lib/patch-readme/index.mjs",
+    "patch-readme": "node --experimental-modules --no-warnings bin/patch-readme/index.mjs",
     "watch": "esw -w --fix --ext .js,.mjs"
   },
   "dependencies": {},
