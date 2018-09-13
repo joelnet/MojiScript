@@ -49,14 +49,14 @@ Install `mojiscript` and `eslint` packages.
 
 ```javascript
 npm install -P mojiscript
-npm install -D mojiscript eslint eslint-plugin-fp eslint-watch
+npm install -D eslint eslint-plugin-fp eslint-watch
 ```
 
 Download eslint configuration files.
 
 ```bash
 curl -o .eslintignore https://raw.githubusercontent.com/joelnet/MojiScript/master/.eslintignore
-curl -o .eslintignore https://raw.githubusercontent.com/joelnet/MojiScript/master/.eslintrc.yml
+curl -o .eslintrc.yml https://raw.githubusercontent.com/joelnet/MojiScript/master/.eslintrc.yml
 ```
 
 Add a `build` and `watch` step to `package.json`.
@@ -65,7 +65,7 @@ Add a `build` and `watch` step to `package.json`.
 {
   "scripts": {
     "build": "eslint . --ext .js,.mjs",
-    "watch": "esw -w --fix"
+    "watch": "esw -w --fix --ext .js,.mjs"
   }
 }
 ```
