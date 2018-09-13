@@ -8,6 +8,6 @@ const dependencies = {
   readFile: readFileUtf8,
   log
 }
-const state = `${process.cwd()}/README.md`
+const state = `${process.cwd ()}/README.md`
 
-run({ dependencies, state, main })
+run ({ dependencies, state, main })
