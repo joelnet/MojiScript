@@ -1,4 +1,5 @@
 import pipe from 'mojiscript/core/pipe'
+import ifElse from 'mojiscript/core/ifElse'
 
 const rootUrl = 'https://swapi.co/api/people/'
 
@@ -6,10 +7,11 @@ const STATUS_CODE = {
   OK: 200
 }
 
-const parseResponse = response =>
-  response.status === STATUS_CODE.OK
-    ? Promise.resolve(response.data.results)
-    : Promise.reject(`${response.status}: ${response.statusText}`)
+const responseIsOk = ({ status }) => status === STATUS_CODE.OK
+const resolveResponse = ({ data }) => Promise.resolve (data.results)
+const rejectResponse = ({ status, statusText }) => Promise.reject (`${status}: ${statusText}`)
+
+const parseResponse = ifElse (responseIsOk) (resolveResponse) (rejectResponse)
 
 // searchStringToParams :: String -> AxiosOptions
 const searchStringToParams = search => ({
