@@ -1,6 +1,6 @@
-const timeout = require('../internal/timeout')
+const timeout = require ('../internal/timeout')
 
-const sleep = milliseconds => value => new Promise(resolve =>
+const sleep = milliseconds => value => new Promise (resolve =>
   timeout (() => resolve (value)) (milliseconds)
 )
 

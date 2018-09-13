@@ -1,5 +1,6 @@
-const tap = require('../utils/tap')
+/* eslint-disable no-console */
+const tap = require ('../utils/tap')
 
-const error = tap(x => console.error (x))
+const error = tap (x => console.error (x))
 
 module.exports = error

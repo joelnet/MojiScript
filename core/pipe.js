@@ -1,4 +1,4 @@
-const ensureExecutable = require('../internal/ensureExecutable')
+const ensureExecutable = require ('../internal/ensureExecutable')
 
 const pipe = (xs = []) => value => xs.reduce (
   (acc, x) => acc.then (ensureExecutable (x)),
