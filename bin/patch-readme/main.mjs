@@ -1,11 +1,15 @@
 import pipe from '../../core/pipe'
-import fork from '../../threading/fork'
 import { getInternalLinks, prependAllLinks } from './markdown'
+import W from '../../combinators/W'
+
+const prependLinksInReadme = baseUrl => W (readme => pipe ([
+  getInternalLinks,
+  prependAllLinks (baseUrl) (readme)
+]))
 
 const main = ({ log, readFile, baseUrl }) => pipe ([
   readFile,
-  fork ([ getInternalLinks ]),
-  ([ readme, links ]) => prependAllLinks (baseUrl) (readme) (links),
+  prependLinksInReadme (baseUrl),
   log
 ])
 
