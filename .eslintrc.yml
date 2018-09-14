@@ -55,6 +55,12 @@ rules:
     - never
   no-ternary:
     - error
+  function-paren-newline:
+    - error
+    - consistent
+  array-bracket-newline:
+    - error
+    - consistent
   fp/no-mutation:
     - error
     - { commonjs: true }
