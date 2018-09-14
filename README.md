@@ -86,7 +86,7 @@ npm run watch
 
 ### Hello World
 
-[view the source](examples/async-simple)
+[view the source](https://github.com/joelnet/MojiScript/tree/master/examples/async-simple)
 
 ```javascript
 import log from 'mojiscript/console/log'
@@ -104,12 +104,12 @@ run ({ state, main })
 
 ### More Examples
 
-- [Async Simple](examples/async-simple)
-- [Hello World](examples/hello-world)
-- [Conditionals](examples/conditionals)
-- [map/filter/reduce](examples/map-filter-reduce)
-- [Axios](examples/net-axios)
-- [FizzBuzz](examples/fizz-buzz)
+- [Async Simple](https://github.com/joelnet/MojiScript/tree/master/examples/async-simple)
+- [Hello World](https://github.com/joelnet/MojiScript/tree/master/examples/hello-world)
+- [Conditionals](https://github.com/joelnet/MojiScript/tree/master/examples/conditionals)
+- [map/filter/reduce](https://github.com/joelnet/MojiScript/tree/master/examples/map-filter-reduce)
+- [Axios](https://github.com/joelnet/MojiScript/tree/master/examples/net-axios)
+- [FizzBuzz](https://github.com/joelnet/MojiScript/tree/master/examples/fizz-buzz)
 
 ## Style Guide
 
@@ -290,7 +290,7 @@ searchTemplate ('Skywalker') //=> 'Searching for: "Skywalker"'
 nameTemplate ({ first: 'Luke', last: 'Skywalker' }) //=> 'Luke Skywalker'
 ```
 
-Have a look at the [Axios Example](examples/net-axios) for more on how String Templates can improve your code.
+Have a look at the [Axios Example](https://github.com/joelnet/MojiScript/tree/master/examples/net-axios) for more on how String Templates can improve your code.
 
 ## Expressions
 
@@ -666,7 +666,7 @@ app/
 
 ## Unit Tests
 
-Check out the [map/filter/reduce example](examples/map-filter-reduce) for an example on how to write unit tests.
+Check out the [map/filter/reduce example](https://github.com/joelnet/MojiScript/tree/master/examples/map-filter-reduce) for an example on how to write unit tests.
 
 ## Recursion
 
@@ -691,3 +691,4 @@ const main = pipe ([
 
 run ({ state, main })
 ```
+

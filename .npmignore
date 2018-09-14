@@ -4,3 +4,5 @@ coverage/
 examples/
 **/__tests__/
 **/node_modules/
+.eslintignore
+.eslintrc.yml
