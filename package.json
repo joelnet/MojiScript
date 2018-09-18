@@ -24,6 +24,7 @@
     "axios": "^0.18.0",
     "eslint": "^5.5.0",
     "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-prefer-arrow": "^1.1.2",
     "eslint-watch": "^4.0.2",
     "jest": "^23.5.0",
     "sanctuary": "^0.15.0"
