@@ -12,7 +12,7 @@ export const getAllLinks = pipe ([
 
 export const getInternalLinks = pipe ([
   getAllLinks,
-  S.filter (([ text, link ]) => !S.test (rxExternalLink) (link))
+  S.filter (([ , link ]) => !S.test (rxExternalLink) (link))
 ])
 
 export const prependLink = baseUrl => document => ([ text, link ]) =>
