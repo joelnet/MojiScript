@@ -11,8 +11,8 @@ plugins:
   - fp
 extends: 'plugin:fp/recommended'
 rules:
-  indent:
-    - off
+  indent-legacy:
+    - error
     - 2
   linebreak-style:
     - error
@@ -30,22 +30,26 @@ rules:
     - error
     - always
     - { "allowNewlines": true }
+  no-multi-spaces: [error, { ignoreEOLComments: true }]
+  no-dupe-keys: error
   no-multiple-empty-lines:
     - error
     - { "max": 1 }
   no-unexpected-multiline:
     - off
-  array-bracket-spacing:
-    - error
-    - always
+  no-labels: error
+  no-unused-vars: [ error,  { "after-used" } ]
+  eqeqeq: [ error, always, { "null": "ignore" } ]
   arrow-body-style:
     - error
     - never
+  arrow-spacing: error
   prefer-arrow-callback:
     - error
     - { allowNamedFunctions: false, allowUnboundThis: false }
   no-var:
     - error
+  object-curly-spacing: [ error, always ]
   prefer-const:
     - error
   prefer-template:
@@ -61,6 +65,11 @@ rules:
   array-bracket-newline:
     - error
     - consistent
+  array-bracket-spacing:
+    - error
+    - always
+  array-element-newline: [error, consistent]
+  eol-last: [error, always]
   fp/no-mutation:
     - error
     - { commonjs: true }
