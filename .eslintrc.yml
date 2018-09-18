@@ -9,6 +9,7 @@ parserOptions:
   sourceType: module
 plugins:
   - fp
+  - prefer-arrow
 extends: 'plugin:fp/recommended'
 rules:
   indent-legacy:
@@ -54,6 +55,7 @@ rules:
     - error
   prefer-template:
     - error
+  prefer-arrow/prefer-arrow-functions: error
   comma-dangle:
     - error
     - never
