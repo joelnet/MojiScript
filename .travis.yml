@@ -33,14 +33,15 @@ jobs:
       node_js:
         - "10.3.0"
       script:
-        - mkdir -p ~/.shh
-        - echo $SSH_PRIVATE_KEY > ~/.ssh/mojiscript_rsa
-        - eval `ssh-agent -s`
-        - chmod 600 ~/.ssh/mojiscript_rsa
-        - ssh-add ~/.ssh/mojiscript_rsa
+        - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" > ~/.netrc
+        # - mkdir -p ~/.shh
+        # - echo $SSH_PRIVATE_KEY > ~/.ssh/mojiscript_rsa
+        # - eval `ssh-agent -s`
+        # - chmod 600 ~/.ssh/mojiscript_rsa
+        # - ssh-add ~/.ssh/mojiscript_rsa
 
         - npm version patch -m "Version %s [skip ci]"
-        - git push --tags git@github.com:joelnet/MojiScript.git develop
+        - git push --tags
 
 # deploy:
 #   on:
