@@ -6,6 +6,10 @@ cache:
   directories:
     - node_modules
 
+addons:
+  ssh_known_hosts:
+    - github.com
+
 stages:
   - build
   - test
@@ -30,8 +34,7 @@ jobs:
         - "10.3.0"
       script:
         - eval `ssh-agent -s`
-        - ssh-add <(echo "$SSH_PRIVATE_KEY") 
-        - ssh-keyscan github.com >> ~/.ssh/known_hosts
+        - echo $SSH_PRIVATE_KEY | ssh-add -
         - git version patch -m "Version %s [skip ci]"
         - git push --tags
 
