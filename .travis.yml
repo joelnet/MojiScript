@@ -31,5 +31,3 @@ jobs:
         - echo -e "machine github.com\n  login $CI_USER\n  password $CI_USER_PASSWORD" > ~/.netrc
         - npm version patch -m "Version %s [skip ci]"
         - git push --tags
-
-# end of file
