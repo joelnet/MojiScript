@@ -31,6 +31,7 @@ jobs:
         - echo -e "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
         - echo -e "machine github.com\n  login $CI_USER\n  password $CI_USER_PASSWORD" > ~/.netrc
         - npm version patch -m "Version %s [skip ci]"
+        - git push
         - git push --tags
 
         - npm run patch-readme --silent > NEW-README.md
