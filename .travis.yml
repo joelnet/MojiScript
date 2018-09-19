@@ -30,7 +30,7 @@ jobs:
         - "10.3.0"
       script:
         - eval `ssh-agent -s`
-        - ssh-add - <<< "${SSH_PRIVATE_KEY}"
+        - ssh-add <(echo "$SSH_PRIVATE_KEY") 
         - ssh-keyscan github.com >> ~/.ssh/known_hosts
         - git version patch -m "Version %s [skip ci]"
         - git push --tags
