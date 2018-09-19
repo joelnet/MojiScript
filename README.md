@@ -104,11 +104,11 @@ run ({ state, main })
 
 ### More Examples
 
+- [Star Wars Console](examples/star-wars-console) - Check this out!
 - [Async Simple](examples/async-simple)
 - [Hello World](examples/hello-world)
 - [Conditionals](examples/conditionals)
 - [map/filter/reduce](examples/map-filter-reduce)
-- [Axios](examples/net-axios)
 - [FizzBuzz](examples/fizz-buzz)
 
 ## Style Guide
