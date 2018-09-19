@@ -11,24 +11,24 @@ addons:
     - github.com
 
 stages:
-  - build
-  - test
+#  - build
+#  - test
   - deploy
 ##    if: branch = master
 
 jobs:
   include:
-    - stage: build
-      node_js:
-        - "10.3.0"
-      script:
-        - npm ci
-        - npm run build
-    - stage: test
-      node_js:
-        - "10.3.0"
-      script:
-        - npm run test
+    # - stage: build
+    #   node_js:
+    #     - "10.3.0"
+    #   script:
+    #     - npm ci
+    #     - npm run build
+    # - stage: test
+    #   node_js:
+    #     - "10.3.0"
+    #   script:
+    #     - npm run test
     - stage: deploy
       node_js:
         - "10.3.0"
@@ -36,7 +36,7 @@ jobs:
         - mkdir -p ~/.shh
         - eval `ssh-agent -s`
         - echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
-        - git version patch -m "Version %s [skip ci]"
+        - npm version patch -m "Version %s [skip ci]"
         - git push --tags
 
 # deploy:
