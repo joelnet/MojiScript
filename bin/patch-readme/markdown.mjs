@@ -4,6 +4,7 @@ import replace from '../../string/replace'
 
 const rxLink = /\[([^\]]*)]\(([^#][^)]*)\)/gi
 const rxExternalLink = /:\/\//
+const isInternalLink = ([ , link ]) => !S.test (rxExternalLink) (link)
 
 export const getAllLinks = pipe ([
   S.matchAll (rxLink),
@@ -12,7 +13,7 @@ export const getAllLinks = pipe ([
 
 export const getInternalLinks = pipe ([
   getAllLinks,
-  S.filter (([ , link ]) => !S.test (rxExternalLink) (link))
+  S.filter (isInternalLink)
 ])
 
 export const prependLink = baseUrl => document => ([ text, link ]) =>
