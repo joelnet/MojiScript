@@ -1,11 +1,10 @@
 language: node_js
 node_js:
   - "10.3.0"
-install:
-  - npm ci
-# script:
-#   - npm run build
-#   - npm run test
+
+cache:
+  directories:
+    - node_modules
 
 stages:
   - build
@@ -19,6 +18,7 @@ jobs:
       node_js:
         - "10.3.0"
       script:
+        - npm ci
         - npm run build
     - stage: test
       node_js:
