@@ -13,9 +13,8 @@
   },
   "homepage": "https://github.com/joelnet/MojiScript#readme",
   "scripts": {
-    "build": "npm run validate",
+    "build": "eslint . --ext .js,.mjs",
     "test": "jest",
-    "validate": "eslint . --ext .js,.mjs",
     "patch-readme": "node --experimental-modules --no-warnings bin/patch-readme/index.mjs",
     "watch": "esw -w --fix --ext .js,.mjs"
   },
