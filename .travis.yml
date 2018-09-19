@@ -36,8 +36,9 @@ jobs:
         - mkdir -p ~/.shh
         - eval `ssh-agent -s`
         - echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
+
         - npm version patch -m "Version %s [skip ci]"
-        - git push --tags
+        - git push --tags git@github.com:joelnet/MojiScript.git develop
 
 # deploy:
 #   on:
