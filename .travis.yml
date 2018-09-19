@@ -33,7 +33,7 @@ jobs:
       node_js:
         - "10.3.0"
       script:
-        - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" > ~/.netrc
+        - echo -e "machine github.com\n  login $CI_USER\n  password $CI_USER_PASSWORD" > ~/.netrc
         # - mkdir -p ~/.shh
         # - echo $SSH_PRIVATE_KEY > ~/.ssh/mojiscript_rsa
         # - eval `ssh-agent -s`
