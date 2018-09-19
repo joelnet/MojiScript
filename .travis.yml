@@ -34,10 +34,10 @@ jobs:
         - "10.3.0"
       script:
         - mkdir -p ~/.shh
-        - echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
-        - chmod 600 ~/.ssh/id_rsa
+        - echo $SSH_PRIVATE_KEY > ~/.ssh/mojiscript_rsa
         - eval `ssh-agent -s`
-        - ssh-add
+        - chmod 600 ~/.ssh/mojiscript_rsa
+        - ssh-add ~/.ssh/mojiscript_rsa
 
         - npm version patch -m "Version %s [skip ci]"
         - git push --tags git@github.com:joelnet/MojiScript.git develop
