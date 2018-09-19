@@ -2,16 +2,43 @@ language: node_js
 node_js:
   - "10.3.0"
 install:
-  - npm install
-script:
-  - npm run build
-  - npm run test
+  - npm ci
+# script:
+#   - npm run build
+#   - npm run test
 
-deploy:
-  on:
-    branch: master
-  script:
-    - ssh-add - <<< "${SSH_PRIVATE_KEY}"
-    - ssh-keyscan github.com >> ~/.ssh/known_hosts
-    - git version patch -m "Version %s [skip ci]"
-    - git push --tags
+stages:
+  - build
+  - test
+  - deploy
+    if: branch = master
+
+jobs:
+  include:
+    - stage: build
+      node_js:
+        - "10.3.0"
+      script:
+        - npm run build
+    - stage: test
+      node_js:
+        - "10.3.0"
+      script:
+        - npm run test
+    - stage: test
+      node_js:
+        - "10.3.0"
+      script:
+        - ssh-add - <<< "${SSH_PRIVATE_KEY}"
+        - ssh-keyscan github.com >> ~/.ssh/known_hosts
+        - git version patch -m "Version %s [skip ci]"
+        - git push --tags
+
+# deploy:
+#   on:
+#     branch: master
+#   script:
+#     - ssh-add - <<< "${SSH_PRIVATE_KEY}"
+#     - ssh-keyscan github.com >> ~/.ssh/known_hosts
+#     - git version patch -m "Version %s [skip ci]"
+#     - git push --tags
