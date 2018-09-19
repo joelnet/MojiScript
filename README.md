@@ -1,4 +1,4 @@
-# MojiScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg)
+# MojiScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg) [![build status](https://travis-ci.org/joelnet/MojiScript.svg?branch=master)](https://travis-ci.org/joelnet/MojiScript)
 
 MojiScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that MojiScript language features can run in any JavaScript application and vice-versa.
 
@@ -104,11 +104,11 @@ run ({ state, main })
 
 ### More Examples
 
+- [Star Wars Console](examples/star-wars-console) - Check this out!
 - [Async Simple](examples/async-simple)
 - [Hello World](examples/hello-world)
 - [Conditionals](examples/conditionals)
 - [map/filter/reduce](examples/map-filter-reduce)
-- [Axios](examples/net-axios)
 - [FizzBuzz](examples/fizz-buzz)
 
 ## Style Guide

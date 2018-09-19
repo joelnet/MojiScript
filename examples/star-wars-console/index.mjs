@@ -1,15 +1,13 @@
-import logF from 'mojiscript/console/logF'
+import log from 'mojiscript/console/log'
 import run from 'mojiscript/core/run'
 import axios from 'mojiscript/net/axios'
+import { askQuestion } from './interop/readline'
 import main from './main'
 
 const dependencies = {
+  askQuestion,
   axios,
-  logF
+  log
 }
 
-const state = {
-  search: 'Skywalker'
-}
-
-run ({ dependencies, state, main })
+run ({ dependencies, main })
