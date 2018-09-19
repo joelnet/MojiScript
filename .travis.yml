@@ -37,6 +37,7 @@ jobs:
         - echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
         - chmod 600 ~/.ssh/id_rsa
         - eval `ssh-agent -s`
+        - echo $SSH_PRIVATE_KEY | ssh-add /dev/stdin
         #- ssh-add ~/.ssh/id_rsa
 
         - npm version patch -m "Version %s [skip ci]"
