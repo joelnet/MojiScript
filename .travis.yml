@@ -1,16 +1,15 @@
 language: node_js
 node_js:
   - "10.3.0"
-install:
-  - npm ci
-# script:
-#   - npm run build
-#   - npm run test
+
+addons:
+  ssh_known_hosts:
+    - github.com
 
 stages:
   - build
   - test
-  - deploy
+  - name: deploy
     if: branch = master
 
 jobs:
@@ -29,16 +28,8 @@ jobs:
       node_js:
         - "10.3.0"
       script:
-        - ssh-add - <<< "${SSH_PRIVATE_KEY}"
-        - ssh-keyscan github.com >> ~/.ssh/known_hosts
-        - git version patch -m "Version %s [skip ci]"
+        - echo -e "machine github.com\n  login $CI_USER\n  password $CI_USER_PASSWORD" > ~/.netrc
+        - npm version patch -m "Version %s [skip ci]"
         - git push --tags
 
-# deploy:
-#   on:
-#     branch: master
-#   script:
-#     - ssh-add - <<< "${SSH_PRIVATE_KEY}"
-#     - ssh-keyscan github.com >> ~/.ssh/known_hosts
-#     - git version patch -m "Version %s [skip ci]"
-#     - git push --tags
+# end of file
