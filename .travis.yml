@@ -10,7 +10,7 @@ stages:
   - build
   - test
   - name: deploy
-    if: branch = master
+    if: (NOT type IN (pull_request)) AND (branch = master)
 
 jobs:
   include:
@@ -24,9 +24,8 @@ jobs:
         - "10.3.0"
       script:
         - npm run test
-
-deploy:
-  provider: script
-  script: ./travis/deploy.sh
-  on:
-    branch: master
+    - stage: deploy
+      node_js:
+        - "10.3.0"
+      script:
+        - ./travis/deploy.sh
