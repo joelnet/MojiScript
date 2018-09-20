@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 const ensureExecutable = require ('../internal/ensureExecutable')
 
 const pipeR = func => value => func (pipeR (func)).reduce (
