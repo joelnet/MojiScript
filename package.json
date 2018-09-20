@@ -15,12 +15,14 @@
   "scripts": {
     "build": "eslint . --ext .js,.mjs",
     "test": "jest",
+    "test:coverage": "jest --colors --coverage --coverageReporters=text-lcov | coveralls",
     "patch-readme": "node --experimental-modules --no-warnings bin/patch-readme/index.mjs",
     "watch": "esw -w --fix --ext .js,.mjs"
   },
   "dependencies": {},
   "devDependencies": {
     "axios": "^0.18.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.5.0",
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-prefer-arrow": "^1.1.2",
@@ -30,5 +32,10 @@
   },
   "peerDependencies": {
     "axios": "^0.18.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx,mjs}"
+    ]
   }
 }
