@@ -1,4 +1,4 @@
-# MojiScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg) [![build status](https://travis-ci.org/joelnet/MojiScript.svg?branch=master)](https://travis-ci.org/joelnet/MojiScript)
+# MojiScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg) [![build status](https://travis-ci.org/joelnet/MojiScript.svg?branch=master)](https://travis-ci.org/joelnet/MojiScript) [![Coverage Status](https://coveralls.io/repos/github/joelnet/MojiScript/badge.svg?branch=master)](https://coveralls.io/github/joelnet/MojiScript?branch=master)
 
 MojiScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that MojiScript language features can run in any JavaScript application and vice-versa.
 
