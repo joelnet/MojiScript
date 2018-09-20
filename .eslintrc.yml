@@ -40,6 +40,7 @@ rules:
     - off
   no-labels: error
   no-unused-vars: [ error,  { "after-used" } ]
+  max-params: [ error, 1 ]
   eqeqeq: [ error, always, { "null": "ignore" } ]
   arrow-body-style:
     - error
