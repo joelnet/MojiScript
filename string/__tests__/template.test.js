@@ -6,6 +6,13 @@ describe('string/template', () => {
     { foo: 'Sunshine' }
   ]
 
+  test('no args template', () => {
+    const expected = '!'
+    const func = $`${0}!`
+    const actual = func()
+    expect(actual).toBe(expected)
+  })
+
   test('simple template', () => {
     const expected = 'YAY!'
     const func = $`${0}${1}${0}!`
