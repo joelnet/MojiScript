@@ -23,7 +23,7 @@ jobs:
       node_js:
         - "10.3.0"
       script:
-        - npm run test
+        - npm run test:coverage
     - stage: deploy
       node_js:
         - "10.3.0"
