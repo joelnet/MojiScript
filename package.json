@@ -1,7 +1,7 @@
 {
   "name": "mojiscript",
   "version": "0.1.15",
-  "description": "MojiScript is an Async First, experimental, opinionated, and functional language designed to have 100% compatibility with EcmaScript.",
+  "description": "MojiScript is an Async First, opinionated, and functional language designed to have 100% compatibility with JavaScript engines.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joelnet/MojiScript.git"
