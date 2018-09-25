@@ -1,4 +1,5 @@
-const error = require ('../console/error')
+/* eslint-disable */
+const error = require('../console/error')
 
 const run = ({ dependencies, state, main }) =>
   dependencies != null // eslint-disable-line no-ternary

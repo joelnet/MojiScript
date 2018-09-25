@@ -1,5 +1,6 @@
-const K = require ('../combinators/K')
-const is = require ('../types/is')
+/* eslint-disable */
+const K = require('../combinators/K')
+const is = require('../types/is')
 
 const isFunction = is (Function)
 
