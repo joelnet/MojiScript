@@ -1,5 +1,6 @@
-const ifElse = require ('./ifElse')
-const I = require ('../combinators/I')
+/* eslint-disable */
+const ifElse = require('./ifElse')
+const I = require('../combinators/I')
 
 const unless = condition => ifElse (condition) (I)
 
