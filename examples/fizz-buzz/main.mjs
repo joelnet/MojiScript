@@ -1,8 +1,7 @@
-import after from 'mojiscript/core/after'
 import cond from 'mojiscript/core/cond'
 import pipe from 'mojiscript/core/pipe'
-import pipeR from 'mojiscript/core/pipeR'
-import when from 'mojiscript/core/when'
+import map from 'mojiscript/list/map'
+import range from 'mojiscript/list/range'
 import S from 'sanctuary'
 
 // getFizzInfo :: Number -> FizzInfo
@@ -33,9 +32,8 @@ const fizzBuzz = log => pipe ([
   log
 ])
 
-const main = ({ last, log }) => pipeR (next => [
-  when (n => n <= last)
-    (after (fizzBuzz (log)) (x => next (x + 1)))
+const main = ({ last, log }) => pipe ([
+  map (fizzBuzz (log)) (range (1) (last + 1))
 ])
 
 export default main

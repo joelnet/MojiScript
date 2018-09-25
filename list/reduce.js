@@ -1,16 +1,20 @@
 /* eslint-disable */
 const isThenable = require('../internal/isThenable')
-const serialReduce = require('../internal/serialReduce')
+const iterableSerialReduce = require('../internal/iterableSerialReduce')
 
-const reduce = func => initial => list => {
+const reduce = func => initial => iterable => {
   let acc = initial
-  for (let i = 0; i < list.length; i++) {
-    acc = func(acc)(list[i])
+  const iterator = iterable[Symbol.iterator]()
+  var { value, done } = iterator.next()
+
+  while (!done) {
+    acc = func(acc)(value)
     if (isThenable(acc)) {
-      return serialReduce((a, b) => func(a)(b), acc, list, i + 1, acc)
+      return iterableSerialReduce((a, b) => func(a)(b), null, iterator, acc)
     }
+    var { value, done } = iterator.next()
   }
-//  Array.prototype.reduce.call (list, (acc, val) => func (acc) (val), initial)
+
   return acc
 }
 
