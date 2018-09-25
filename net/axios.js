@@ -1,6 +1,7 @@
-const curry2 = require ('../internal/curry2')
-const curry3 = require ('../internal/curry3')
-const axios = require ('axios')
+/* eslint-disable */
+const curry2 = require('../internal/curry2')
+const curry3 = require('../internal/curry3')
+const axios = require('axios')
 
 module.exports = {
   get: curry2 (axios.get),
