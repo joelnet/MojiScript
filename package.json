@@ -15,7 +15,8 @@
   "scripts": {
     "build": "eslint . --ext .js,.mjs",
     "test": "jest",
-    "test:coverage": "jest --colors --coverage --coverageReporters=text-lcov | coveralls",
+    "test:coverage": "jest --colors --coverage",
+    "test:coveralls": "npm run test:coverage -- --coverageReporters=text-lcov | coveralls",
     "patch-readme": "node --experimental-modules --no-warnings bin/patch-readme/index.mjs",
     "watch": "esw -w --fix --ext .js,.mjs"
   },
@@ -35,7 +36,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "**/*.{js,jsx,mjs}"
+      "**/*.{js,jsx,mjs}",
+      "!coverage/**"
     ]
   }
 }
