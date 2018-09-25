@@ -1,6 +1,6 @@
 /* eslint-disable */
 const isThenable = require('../internal/isThenable')
-const serialReduce = require('../internal/serialReduce')
+const iterableSerialReduce = require('../internal/iterableSerialReduce')
 
 const asyncFilterReducer = func => (acc, x) => {
   const result = func(x)
@@ -11,15 +11,20 @@ const asyncFilterReducer = func => (acc, x) => {
 
 const filter = func => iterable => {
   const values = []
-  for (let i = 0; i < iterable.length; i++) {
-    const x = iterable[i]
-    const result = func(x)
+  const iterator = iterable[Symbol.iterator]()
+  var { value, done } = iterator.next()
+
+  while (!done) {
+    const result = func(value)
     if (isThenable(result)) {
-      return serialReduce(asyncFilterReducer(func), [], values.concat(iterable), i + 1, result.then(() => [ x ]))
-    } else if (result) {
-      values.push(x)
+      return iterableSerialReduce(asyncFilterReducer(func), null, iterator, result.then(() => [ value ]))
     }
+    if (result) {
+      values.push(value)
+    }
+    var { value, done } = iterator.next()
   }
+
   return values
 }
 
