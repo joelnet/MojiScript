@@ -17,7 +17,7 @@ const filter = func => iterable => {
   while (!done) {
     const result = func(value)
     if (isThenable(result)) {
-      return iterableSerialReduce(asyncFilterReducer(func), null, iterator, result.then(() => [ value ]))
+      return iterableSerialReduce(asyncFilterReducer(func), null, iterator, result.then(test => values.concat(test ? value : [])))
     }
     if (result) {
       values.push(value)

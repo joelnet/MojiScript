@@ -18,7 +18,7 @@ const map = func => iterable => {
     const result = func(value)
 
     if (isThenable(result)) {
-      return iterableSerialReduce(asyncMapReducer(func), null, iterator, result.then(v => [ v ]))
+      return iterableSerialReduce(asyncMapReducer(func), null, iterator, result.then(x => values.concat(x)))
     }
 
     values.push(result)
