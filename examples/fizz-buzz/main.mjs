@@ -32,8 +32,9 @@ const fizzBuzz = log => pipe ([
   log
 ])
 
-const main = ({ last, log }) => pipe ([
-  map (fizzBuzz (log)) (range (1) (last + 1))
+const main = ({ log }) => pipe ([
+  ({ start, end }) => range (start) (end + 1),
+  map (fizzBuzz (log))
 ])
 
 export default main
