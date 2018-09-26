@@ -1,11 +1,11 @@
 import W from 'mojiscript/combinators/W'
 import ifElse from 'mojiscript/core/ifElse'
 import pipe from 'mojiscript/core/pipe'
+import join from 'mojiscript/list/join'
 import map from 'mojiscript/list/map'
 import prepend from 'mojiscript/string/prepend'
 import $ from 'mojiscript/string/template'
 import isEmpty from 'ramda/src/isEmpty'
-import join from 'ramda/src/join'
 import { peopleSearch } from './api'
 
 const showNoSearch = $`No search was performed.`

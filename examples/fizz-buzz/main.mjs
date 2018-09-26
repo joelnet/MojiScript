@@ -2,7 +2,7 @@ import cond from 'mojiscript/core/cond'
 import pipe from 'mojiscript/core/pipe'
 import map from 'mojiscript/list/map'
 import range from 'mojiscript/list/range'
-import S from 'sanctuary'
+import allPass from 'mojiscript/logic/allPass'
 
 // getFizzInfo :: Number -> FizzInfo
 const getFizzInfo = value => ({
@@ -19,22 +19,22 @@ const isBuzz = ({ buzz }) => buzz
 
 // fizzInfoToStatus :: FizzInfo -> String | Number
 const fizzInfoToStatus = cond ([
-  [ S.allPass ([ isFizz, isBuzz ]), 'FizzBuzz' ],
+  [ allPass ([ isFizz, isBuzz ]), 'FizzBuzz' ],
   [ isFizz, 'Fizz' ],
   [ isBuzz, 'Buzz' ],
   [ () => true, ({ value }) => value ]
 ])
 
 // fizzBuss :: Number -> String | Number
-const fizzBuzz = log => pipe ([
+const fizzBuzz = pipe ([
   getFizzInfo,
-  fizzInfoToStatus,
-  log
+  fizzInfoToStatus
 ])
 
 const main = ({ log }) => pipe ([
   ({ start, end }) => range (start) (end + 1),
-  map (fizzBuzz (log))
+  map (fizzBuzz),
+  map (log)
 ])
 
 export default main
