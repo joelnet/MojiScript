@@ -8,7 +8,6 @@
     "start": "node --experimental-modules --no-warnings index.mjs"
   },
   "dependencies": {
-    "mojiscript": "file:../..",
-    "sanctuary": "^0.15.0"
+    "mojiscript": "file:../.."
   }
 }
