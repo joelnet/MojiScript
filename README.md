@@ -396,7 +396,7 @@ const add = x => pipe ([
   y => x + y
 ])
 
-add (3) (2) //=> 7
+add (3) (4) //=> 7
 ```
 
 **Objects**
@@ -560,6 +560,7 @@ import log from 'mojiscript/console/log'
 import cond from 'mojiscript/core/cond'
 import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
+import $ from 'mojiscript/string/template'
 
 const dependencies = {
   log
@@ -622,7 +623,7 @@ func (1) //=> Right (1)
 
 ## Morphisms
 
-Morphisms allow us to transform an object from one Cateogry to another. The power of Morphisms can be seen when they are combined to create more complex Morphisms.
+Morphisms allow us to transform an object from one Category to another. The power of Morphisms can be seen when they are combined to create more complex Morphisms.
 
 Here's a high level example of a Morphism that take an input as a `String` and returns data from an API endpoint.
 
@@ -671,7 +672,7 @@ Recursion is dead simple.
 import log from 'mojiscript/console/log'
 import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
-import wait from 'mojiscript/threading/wait'
+import wait from 'mojiscript/threading/sleep'
 
 const state = 1
 
