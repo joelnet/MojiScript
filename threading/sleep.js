@@ -1,8 +1,6 @@
 /* eslint-disable */
-const timeout = require('../internal/timeout')
-
 const sleep = milliseconds => value => new Promise (
-  resolve => timeout (() => resolve (value)) (milliseconds)
+  resolve => setTimeout(() => resolve(value), milliseconds)
 )
 
 module.exports = sleep
