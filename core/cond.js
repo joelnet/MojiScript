@@ -8,8 +8,8 @@ const isPass = (test, value) =>
   isFunction (test) ? test (value) : test === value // eslint-disable-line no-ternary
 
 const cond = xs => value => { // eslint-disable-line arrow-body-style
-  for (let i = 0; i < xs.length; i++) {
-    const [ test, result ] = xs[i]
+  for (const x of xs) {
+    const [ test, result ] = x
 
     if (isPass (test, value)) {
       return maybeExec (result) (value)
