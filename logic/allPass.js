@@ -1,6 +1,6 @@
 /* eslint-disable */
 const allPass = list => x => {
-  for (let test of list) {
+  for (const test of list) {
     if (!test(x)) {
       return false
     }
