@@ -682,7 +682,8 @@ const increase = x => x + 1
 const main = pipe ([
   log,
   wait (1000),
-  x => main (x + 1)
+  increase,
+  x => main (x)
 ])
 
 run ({ state, main })
