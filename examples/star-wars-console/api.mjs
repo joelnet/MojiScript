@@ -1,5 +1,5 @@
 import pipe from 'mojiscript/core/pipe'
-import ifElse from 'mojiscript/core/ifElse'
+import ifElse from 'mojiscript/logic/ifElse'
 
 const rootUrl = 'https://swapi.co/api/people/'
 

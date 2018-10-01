@@ -497,7 +497,7 @@ Example 1: if/else conditional
 
 ```javascript
 import log from 'mojiscript/console/log'
-import ifElse from 'mojiscript/core/ifElse'
+import ifElse from 'mojiscript/logic/ifElse'
 import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
 import $ from 'mojiscript/string/template'
@@ -526,7 +526,7 @@ Example 2: switch case
 
 ```javascript
 import logF from 'mojiscript/console/logF'
-import cond from 'mojiscript/core/cond'
+import cond from 'mojiscript/logic/cond'
 import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
 
@@ -557,7 +557,7 @@ Example 3: if/else/elseif
 
 ```javascript
 import log from 'mojiscript/console/log'
-import cond from 'mojiscript/core/cond'
+import cond from 'mojiscript/logic/cond'
 import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
 import $ from 'mojiscript/string/template'
@@ -571,7 +571,7 @@ const state = 100
 const getTempInfo = cond ([
   [ 0, 'water freezes at 0°C' ],
   [ 100, 'water boils at 100°C' ],
-  [ true, $`nothing special happens at ${0}°C` ]
+  [ () => true, $`nothing special happens at ${0}°C` ]
 ])
 
 const main = ({ log }) => pipe ([
@@ -585,7 +585,7 @@ run({ dependencies, state, main }) //=> 'water boils at 100°C'
 ## Error Handling
 
 ```javascript
-import ifError from 'mojiscript/core/ifError'
+import ifError from 'mojiscript/logic/ifError'
 ```
 
 ### Synchronous Error Handling
