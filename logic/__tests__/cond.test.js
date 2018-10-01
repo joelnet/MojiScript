@@ -1,6 +1,6 @@
 const cond = require('../cond')
 
-describe('core/cond', () => {
+describe('logic/cond', () => {
   const c = cond([
     [null, 'null'],
     [undefined, 'undefined'],
