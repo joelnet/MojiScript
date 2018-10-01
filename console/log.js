@@ -1,5 +1,5 @@
 /* eslint-disable */
-const tap = require('../utils/tap')
+const tap = require('../function/tap')
 
 const log = tap (x => console.log (x))
 

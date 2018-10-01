@@ -1,6 +1,6 @@
 const when = require('../when')
 
-describe('core/when', () => {
+describe('logic/when', () => {
   const isOdd = num => num % 2 !== 0
   const isEven = num => num % 2 === 0
   const double = num => num * 2
