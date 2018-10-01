@@ -1,6 +1,6 @@
 const ifElse = require('../ifElse')
 
-describe('core/ifElse', () => {
+describe('logic/ifElse', () => {
   test('true returns executes true branch', () => {
     const expected = 888
     const actual = ifElse(x => true)(x => x + 1)(666)(887)

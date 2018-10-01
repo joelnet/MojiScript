@@ -1,6 +1,6 @@
 const curry = require('../curry')
 
-describe('utils/curry', () => {
+describe('function/curry', () => {
   function add() {
     return Array.from(arguments).reduce((a, b) => a + b)
   }

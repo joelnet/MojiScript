@@ -1,6 +1,6 @@
 import W from 'mojiscript/combinators/W'
 import pipe from 'mojiscript/core/pipe'
-import tap from 'mojiscript/utils/tap'
+import tap from 'mojiscript/function/tap'
 import readline_ from 'readline'
 
 export const createInterface = ({

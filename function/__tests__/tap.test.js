@@ -1,6 +1,6 @@
 const tap = require('../tap')
 
-describe('utils/tap', () => {
+describe('function/tap', () => {
   test('returns original argument', () => {
     const func = () => 666
     const tapped = tap(func)
