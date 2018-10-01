@@ -1,8 +1,8 @@
-import cond from 'mojiscript/core/cond'
 import pipe from 'mojiscript/core/pipe'
 import map from 'mojiscript/list/map'
 import range from 'mojiscript/list/range'
 import allPass from 'mojiscript/logic/allPass'
+import cond from 'mojiscript/logic/cond'
 
 // getFizzInfo :: Number -> FizzInfo
 const getFizzInfo = value => ({
