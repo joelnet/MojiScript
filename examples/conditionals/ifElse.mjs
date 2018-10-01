@@ -1,7 +1,7 @@
 import log from 'mojiscript/console/log'
-import ifElse from 'mojiscript/core/ifElse'
 import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
+import ifElse from 'mojiscript/logic/ifElse'
 import $ from 'mojiscript/string/template'
 
 const dependencies = {

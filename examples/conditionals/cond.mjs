@@ -1,7 +1,7 @@
 import logF from 'mojiscript/console/logF'
-import cond from 'mojiscript/core/cond'
 import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
+import cond from 'mojiscript/logic/cond'
 
 const dependencies = {
   logF
