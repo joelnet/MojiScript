@@ -4,7 +4,7 @@
 
 ## core
 
-### into (prop) (func) (value)
+### into :: String -> Function -> Any
 
 Executes `func(value)` and injects the return value into the `prop` of `value`.
 
@@ -48,7 +48,7 @@ run ({ state, main })
 
 Returns the input `Object` with the addition of `prop` attached set to the return value of `func(value)`.
 
-### pipe (funcs) (value)
+### pipe :: [Function] -> Any -> Any
 
 Pipe is an asynchronous function composer.
 
@@ -78,7 +78,7 @@ run ({ main })
 
 Returns the result of the last function in the `pipe`.
 
-### pipeR (funcs) (value)
+### pipeR :: [Function] -> Any -> Any
 
 documentation needed.
 
@@ -154,92 +154,92 @@ Returns the result of the last function in the `pipe`.
 
 ## function
 
-### apply (func) (value)
+### apply :: Function -> Any -> Any
 
 documentation needed.
 
-### curry (number) (func)
+### curry :: Number -> Function -> Function
 
 documentation needed.
 
-### tap (func) (value)
+### tap :: Function -> Value -> Value
 
 documentation needed.
 
 ## list
 
-### filter (func) (iterable)
+### filter :: Function -> Iterable -> Array
 
 documentation needed.
 
-### map (func) (iterable)
+### map :: Function -> Iterable -> Array
 
 documentation needed.
 
-### range (start) (end)
+### range :: Number -> Number -> Iterable
 
 documentation needed.
 
-### reduce (func) (initial) (iterable)
+### reduce :: Function -> Any -> Iterable
 
 documentation needed.
 
 ## logic
 
-### allPass (funcs) (value)
+### allPass :: [Function] -> Any -> Boolean
 
 documentation needed.
 
-### anyPass (funcs) (value)
+### anyPass :: [Function] -> Any -> Boolean
 
 documentation needed.
 
-### cond (Array) (value)
+### cond :: Array -> Any -> Any
 
 documentation needed.
 
-### ifElse (condition) (onTrue) (onFalse) (value)
+### ifElse :: Function -> Function -> Function -> Any -> Any
 
 documentation needed.
 
-### ifError (func) (onError) (onSuccess) (value)
+### ifError :: Function -> Function -> Function -> Any -> Any
 
 documentation needed.
 
-### unless (condition) (func) (value)
+### unless :: Function -> Function -> Any -> Any
 
 documentation needed.
 
-### when (func) (func) (value)
+### when :: Function -> Function -> Any -> Any
 
 documentation needed.
 
 ## string
 
-### append (post) (pre)
+### append :: String -> String -> String
 
 documentation needed.
 
-### prepend (pre) (post)
+### prepend :: String -> String -> String
 
 documentation needed.
 
-### replace (what) (replacement) (value)
+### replace :: String -> String -> String -> String
 
 documentation needed.
 
-### template
+### template :: ? -> Function
 
 documentation needed.
 
 ## threading
 
-### sleep (milliseconds) (value)
+### sleep :: Number -> Any -> Any
 
 documentation needed.
 
 ## types
 
-### is (Object)
+### is :: Any -> Any -> Boolean
 
 documentation needed.
