@@ -33,7 +33,7 @@ const main = pipe ([
 ])
 
 run ({ state, main })
-// => { value: 5, isEven: false, isTrue: true }
+// => { value: 5, isEven: false, isOdd: true }
 ```
 
 ##### Parameters
@@ -150,7 +150,7 @@ run ({ dependencies, state, main })
 
 ##### Returns
 
-Returns the result of the last function in the `pipe`.
+Returns a `Promise` (need more details).
 
 ## function
 
@@ -186,7 +186,7 @@ const main = pipe ([
   getUser,
   
   // the axios response is ignored and the user is returned.
-  tap(user => axios.post ('https://reqres.in/api/users') (user) (null)),
+  tap (user => axios.post ('https://reqres.in/api/users') (user) (null)),
 
   log
 ])
