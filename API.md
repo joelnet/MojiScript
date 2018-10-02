@@ -4,7 +4,7 @@
 
 ## core
 
-### into :: String -> Function -> Any
+### core/into :: String -> Function -> Any
 
 Executes `func(value)` and injects the return value into the `prop` of `value`.
 
@@ -48,7 +48,7 @@ run ({ state, main })
 
 Returns the input `Object` with the addition of `prop` attached set to the return value of `func(value)`.
 
-### pipe :: [Function] -> Any -> Any
+### core/pipe :: [Function] -> Any -> Any
 
 Pipe is an asynchronous function composer.
 
@@ -78,11 +78,11 @@ run ({ main })
 
 Returns the result of the last function in the `pipe`.
 
-### pipeR :: [Function] -> Any -> Any
+### core/pipeR :: [Function] -> Any -> Any
 
 documentation needed.
 
-### run (options)
+### core/run :: Any -> Any
 
 Main entrypoint into your application. Runs your `main` pipe.
 
@@ -154,7 +154,7 @@ Returns the result of the last function in the `pipe`.
 
 ## function
 
-### curry :: Number -> Function -> Function
+### function/curry :: Number -> Function -> Function
 
 Returns a curried equivalent of the provided function, with the specified arity. This function is provided for JavaScript interop and should rarely be needed inside of MojiScript files.
 
@@ -166,7 +166,7 @@ const readFileSync = curry (2) (fs.readFileSync)
 const data = readFileSync ('file.txt') ('utf8')
 ```
 
-### tap :: Function -> Value -> Value
+### function/tap :: Function -> Value -> Value
 
 Runs the given function with the supplied object, then returns the object. `tap` is typically used when performing side-effects.
 
@@ -197,78 +197,78 @@ run ({ main })
 
 ## list
 
-### filter :: Function -> Iterable -> Array
+### list/filter :: Function -> Iterable -> Array
 
 documentation needed.
 
-### map :: Function -> Iterable -> Array
+### list/map :: Function -> Iterable -> Array
 
 documentation needed.
 
-### range :: Number -> Number -> Iterable
+### list/range :: Number -> Number -> Iterable
 
 documentation needed.
 
-### reduce :: Function -> Any -> Iterable
+### list/reduce :: Function -> Any -> Iterable
 
 documentation needed.
 
 ## logic
 
-### allPass :: [Function] -> Any -> Boolean
+### logic/allPass :: [Function] -> Any -> Boolean
 
 documentation needed.
 
-### anyPass :: [Function] -> Any -> Boolean
+### logic/anyPass :: [Function] -> Any -> Boolean
 
 documentation needed.
 
-### cond :: Array -> Any -> Any
+### logic/cond :: Array -> Any -> Any
 
 documentation needed.
 
-### ifElse :: Function -> Function -> Function -> Any -> Any
+### logic/ifElse :: Function -> Function -> Function -> Any -> Any
 
 documentation needed.
 
-### ifError :: Function -> Function -> Function -> Any -> Any
+### logic/ifError :: Function -> Function -> Function -> Any -> Any
 
 documentation needed.
 
-### unless :: Function -> Function -> Any -> Any
+### logic/unless :: Function -> Function -> Any -> Any
 
 documentation needed.
 
-### when :: Function -> Function -> Any -> Any
+### logic/when :: Function -> Function -> Any -> Any
 
 documentation needed.
 
 ## string
 
-### append :: String -> String -> String
+### string/append :: String -> String -> String
 
 documentation needed.
 
-### prepend :: String -> String -> String
+### string/prepend :: String -> String -> String
 
 documentation needed.
 
-### replace :: String -> String -> String -> String
+### string/replace :: String -> String -> String -> String
 
 documentation needed.
 
-### template :: ? -> Function
+### strinbg/template :: ? -> Function
 
 documentation needed.
 
 ## threading
 
-### sleep :: Number -> Any -> Any
+### threading/sleep :: Number -> Any -> Any
 
 documentation needed.
 
-## types
+## type
 
-### is :: Any -> Any -> Boolean
+### type/is :: Any -> Any -> Boolean
 
 documentation needed.
