@@ -38,9 +38,9 @@ run ({ state, main })
 
 ##### Parameters
 
-| Name | Type | Description |  |
-| ---- | ---- | ----------- | -------- |
-| prop | `String` | Property to set in `value`.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| prop | `String` | Property to set in `value`. |
 | func | `Function(a -> b)`  | A `Function` that takes `value` and returns the computed result |
 | value | `Object` | `Object` passed to `func` and `prop` is set into. |
 
@@ -69,8 +69,8 @@ run ({ main })
 
 ##### Parameters
 
-| Name | Type | Description |  |
-| ---- | ---- | ----------- | -------- |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 | funcs | `[Function(a -> b)]`  | A `Function` that takes `value` and returns the computed result |
 | value | `Object` | `Object` passed to `func` and `prop` is set into. |
 
@@ -141,8 +141,8 @@ run ({ dependencies, state, main })
 
 ##### Parameters
 
-| Name | Type | Description |  |
-| ---- | ---- | ----------- | -------- |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
 | options | `Object`  | run options. |
 | options.dependencies | `Object`  | Collection of dependencies. |
 | options.state | `Any`  | Parameter to send to `pipe`. |
@@ -153,10 +153,6 @@ run ({ dependencies, state, main })
 Returns the result of the last function in the `pipe`.
 
 ## function
-
-### call :: Function -> Any -> Any
-
-documentation needed.
 
 ### curry :: Number -> Function -> Function
 
