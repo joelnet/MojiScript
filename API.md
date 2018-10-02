@@ -154,7 +154,7 @@ Returns the result of the last function in the `pipe`.
 
 ## function
 
-### apply :: Function -> Any -> Any
+### call :: Function -> Any -> Any
 
 documentation needed.
 
