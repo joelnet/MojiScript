@@ -156,11 +156,44 @@ Returns the result of the last function in the `pipe`.
 
 ### curry :: Number -> Function -> Function
 
-documentation needed.
+Returns a curried equivalent of the provided function, with the specified arity. This function is provided for JavaScript interop and should rarely be needed inside of MojiScript files.
+
+```javascript
+import fs from 'fs'
+
+const readFileSync = curry (2) (fs.readFileSync)
+
+const data = readFileSync ('file.txt') ('utf8')
+```
 
 ### tap :: Function -> Value -> Value
 
-documentation needed.
+Runs the given function with the supplied object, then returns the object. `tap` is typically used when performing side-effects.
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import tap from 'mojiscript/function/tap'
+import axios from 'mojiscript/net/axios'
+
+const getUser = () => ({
+  name: "paul rudd",
+  movies: ["I Love You Man", "Role Models"]
+})
+
+const main = pipe ([
+  getUser,
+  
+  // the axios response is ignored and the user is returned.
+  tap(user => axios.post ('https://reqres.in/api/users') (user) (null)),
+
+  log
+])
+
+run ({ main })
+//=> { name: "paul rudd", movies: ["I Love You Man", "Role Models"] }
+```
 
 ## list
 
