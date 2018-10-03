@@ -28,6 +28,7 @@
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-prefer-arrow": "^1.1.2",
     "eslint-watch": "^4.0.2",
+    "husky": "^1.1.0",
     "jest": "^23.5.0",
     "sanctuary": "^0.15.0"
   },
@@ -38,6 +39,20 @@
     "collectCoverageFrom": [
       "**/*.{js,jsx,mjs}",
       "!coverage/**"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test:coverage",
+      "pre-push": "npm run test:coverage"
+    }
   }
 }
