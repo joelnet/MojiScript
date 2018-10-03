@@ -150,7 +150,7 @@ run ({ dependencies, state, main })
 
 ##### Returns
 
-Returns a `Promise` (need more details).
+Returns a `Promise` containing the results of `main`.
 
 ## function
 
@@ -195,80 +195,150 @@ run ({ main })
 //=> { name: "paul rudd", movies: ["I Love You Man", "Role Models"] }
 ```
 
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| function | `Function`  | Function to execute |
+| value | `Object`  | Input object for function and return value of the `tap`. |
+
+##### Parameters
+
+Returns the object originally given as an input.
+
 ## list
 
 ### list/filter :: Function -> Iterable -> Array
 
-documentation needed.
+Takes a predicate and an `Iterable` and returns an `Array` of the same type containing the members of the given filterable which satisfy the given predicate.
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import filter from 'mojiscript/list/filter'
+
+const isEven = num => num % 2 === 0
+
+const main = pipe ([
+  [ 1, 2, 3, 4, 5 ],
+  filter (isEven),
+  log
+])
+
+run ({ main })
+//=> [ 2, 4 ]
+```
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| predicate | `Function`  | Function takes and input and returns a `Boolean` |
+| iterable | `Iterable`  | `Iterable` to apply the predicate to. |
+
+##### Parameters
+
+Returns an `Array` filtered by the `predicate`.
 
 ### list/map :: Function -> Iterable -> Array
 
-documentation needed.
+Takes a function and an `Iterable` and returns an `Array` with the function applied to each value in the `Iterable`.
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import map from 'mojiscript/list/map'
+
+const double = num => num * 2
+
+const main = pipe ([
+  [ 1, 2, 3 ],
+  map (double),
+  log
+])
+
+run ({ main })
+//=> [ 2, 4, 6 ]
+```
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| function | `Function`  | Function to apply to each item in the `Iterable`. |
+| iterable | `Iterable`  | `Iterable` to apply the function to. |
+
+##### Parameters
+
+Returns an `Array` with the function applied to each value in the `Iterable`.
 
 ### list/range :: Number -> Number -> Iterable
 
-documentation needed.
+Creates an `Iterable` from `start` up to but not including the `end`.
 
 ### list/reduce :: Function -> Any -> Iterable
 
-documentation needed.
+Returns a single item by iterating through the list, successively calling the iterator function and passing it an accumulator value and the current value from the array, and then passing the result to the next call.
+
 
 ## logic
 
 ### logic/allPass :: [Function] -> Any -> Boolean
 
-documentation needed.
+Takes a list of `predicates` and returns `true` if all `predicates` are `true`.
 
 ### logic/anyPass :: [Function] -> Any -> Boolean
 
-documentation needed.
+Takes a list of `predicates` and returns `true` if one `predicates` is `true`.
 
 ### logic/cond :: Array -> Any -> Any
 
-documentation needed.
+Encapsulates `if/else/elseif` logic.
 
 ### logic/ifElse :: Function -> Function -> Function -> Any -> Any
 
-documentation needed.
+Encapsulates `if/else` logic.
 
 ### logic/ifError :: Function -> Function -> Function -> Any -> Any
 
-documentation needed.
+Error handler executes `onError` if an error occurs, otherwise `onSuccess` is executed.
 
 ### logic/unless :: Function -> Function -> Any -> Any
 
-documentation needed.
+Executes the function unless the `predicate` is `true`.
 
 ### logic/when :: Function -> Function -> Any -> Any
 
-documentation needed.
+Executes the function when the `predicate` is `true`.
 
 ## string
 
 ### string/append :: String -> String -> String
 
-documentation needed.
+Concatinates two `String`s.
 
 ### string/prepend :: String -> String -> String
 
-documentation needed.
+Prepends a `String` to another `String`.
 
 ### string/replace :: String -> String -> String -> String
 
-documentation needed.
+Replaces a `String` with a `String` in another `String`.
 
-### strinbg/template :: ? -> Function
+### strinbg/template :: Template -> Function -> String
 
-documentation needed.
+Creates a template function that returns a `String`.
 
 ## threading
 
 ### threading/sleep :: Number -> Any -> Any
 
-documentation needed.
+`sleep` the application for a given number of `milliseconds`.
 
 ## type
 
 ### type/is :: Any -> Any -> Boolean
 
-documentation needed.
+Checks the type of an `Object`.
