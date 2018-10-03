@@ -2,10 +2,19 @@ import pipe from 'mojiscript/core/pipe'
 import tap from 'mojiscript/function/tap'
 import $ from 'mojiscript/string/template'
 
-const defaultRoute = () => res => res.send ('Hello World')
-const startExpress = express => ({ port }) => express.listen (port)
-const setupRoutes = express => pipe ([
-  () => express.get ('/') (defaultRoute)
+// selectors
+const getPort = ({ port }) => port
+
+// routes
+const defaultRoute = () => ({ send }) => send ('Hello World')
+
+// express
+const setupRoutes = ({ get }) => pipe ([
+  () => get ('/') (defaultRoute)
+])
+const startExpress = ({ listen }) => pipe ([
+  getPort,
+  listen
 ])
 
 const main = ({ express, logF }) => pipe ([
