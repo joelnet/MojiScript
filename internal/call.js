@@ -1,9 +1,9 @@
 /* eslint-disable */
 const isThenable = require('../internal/isThenable')
 
-const apply = func => value =>
+const call = func => value =>
   isThenable (value)
     ? value.then (func)
     : func (value)
 
-module.exports = apply
+module.exports = call

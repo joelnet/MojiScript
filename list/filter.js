@@ -9,15 +9,15 @@ const asyncFilterReducer = func => (acc, x) => {
     : (result && acc.push(x), acc)
 }
 
-const filter = func => iterable => {
+const filter = predicate => iterable => {
   const values = []
   const iterator = iterable[Symbol.iterator]()
   var { value, done } = iterator.next()
 
   while (!done) {
-    const result = func(value)
+    const result = predicate(value)
     if (isThenable(result)) {
-      return iterableSerialReduce(asyncFilterReducer(func), null, iterator, result.then(test => values.concat(test ? value : [])))
+      return iterableSerialReduce(asyncFilterReducer(predicate), null, iterator, result.then(test => values.concat(test ? value : [])))
     }
     if (result) {
       values.push(value)

@@ -1,6 +1,6 @@
-const apply = require('../apply')
+const apply = require('../call')
 
-describe('function/apply', () => {
+describe('function/call', () => {
   const increase = num => num + 1
 
   test('sync', () => {

@@ -1,7 +1,7 @@
 /* eslint-disable */
-const allPass = list => x => {
-  for (const test of list) {
-    if (!test(x)) {
+const allPass = predicates => value => {
+  for (const predicate of predicates) {
+    if (!predicate(value)) {
       return false
     }
   }

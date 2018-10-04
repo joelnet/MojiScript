@@ -12,6 +12,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 - [Examples](#examples)
   * [Hello World](#hello-world)
   * [More Examples](#more-examples)
+- [API](API.md)
 - [Style Guide](#style-guide)
 - [Complementary Libraries](#complementary-libraries)
 - [Variables](#variables)
