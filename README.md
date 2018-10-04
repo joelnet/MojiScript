@@ -12,6 +12,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 - [Examples](#examples)
   * [Hello World](#hello-world)
   * [More Examples](#more-examples)
+- [API](API.md)
 - [Style Guide](#style-guide)
 - [Complementary Libraries](#complementary-libraries)
 - [Variables](#variables)
@@ -674,14 +675,10 @@ import wait from 'mojiscript/threading/sleep'
 
 const state = 1
 
-// increase :: Number -> Number
-const increase = x => x + 1
-
 const main = pipe ([
   log,
   wait (1000),
-  increase,
-  x => main (x)
+  x => main (x + 1)
 ])
 
 run ({ state, main })
