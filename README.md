@@ -674,14 +674,10 @@ import wait from 'mojiscript/threading/sleep'
 
 const state = 1
 
-// increase :: Number -> Number
-const increase = x => x + 1
-
 const main = pipe ([
   log,
   wait (1000),
-  increase,
-  x => main (x)
+  x => main (x + 1)
 ])
 
 run ({ state, main })
