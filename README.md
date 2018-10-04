@@ -6,6 +6,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 
 ## Table of Contents
 
+- [Philosophy](#philosophy)
 - [Benefits](#benefits)
 - [Install & Build](#install-and-build)
 - [Examples](#examples)
@@ -35,12 +36,18 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 - [Unit Tests](#unit-tests)
 - [Recursion](#recursion)
 
+## Philosophy
+
+The MojiScript philosphy is to provide a functional-style application framework, making asynchronous tasks intuitive and easy.
+
+MojiScript is heavily opinionated and prevents code considered to be async-unfriendly like `for` loops and statement blocks.
+
 ## Benefits
 
 - The Asynchronous-first design greatly simplifies writing and reasoning about Asynchronous code. Worry less about callbacks, promises, async, await, etc.
 - Atomic Design, function composition, and Pipes encourages maximum code re-use, testability and the ability to compose smaller functions into larger ones.
 - Compatibility with ECMAScript gives our applications full access to the JavaScript ecosystem. It also allows us to import elements from MojiScript into existing JavaScript applications.
-- A modular design allows for features to be imported on an as needed basis, keeping packages small. It also allows for elements like `map`, `filter`, `reduce` to be swapped out for 3rd party libraries, like Sanctuary or Ramda.
+- A modular design allows for features to be imported on an as needed basis, keeping packages small.
 - Plays well with functional libraries. Check out the [Complementary Libraries](#complementary-libraries) section for libraries that can benefit your MojiScript applications.
 
 ## Install and Build
