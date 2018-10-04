@@ -51,8 +51,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test:coverage",
-      "pre-push": "npm run test:coverage"
+      "pre-commit": "npm run build && npm run test:coverage",
+      "pre-push": "npm run build && npm run test:coverage"
     }
   }
 }
