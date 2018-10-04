@@ -788,7 +788,7 @@ Prepended `String`.
 
 `replace :: String -> String -> String -> String`
 
-Replaces a `String` within a `String` in another `String`.
+Replaces all instances of `pattern` with a  `replacement` in a `string`.
 
 ```javascript
 import log from 'mojiscript/console/log'
@@ -796,7 +796,7 @@ import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
 import replace from 'mojiscript/string/replace'
 
-const state = 'JavaScript'
+const state = 'JavaScript JavaScript JavaScript!'
 
 const main = pipe ([
   replace ('Java') ('Moji'),
@@ -804,7 +804,7 @@ const main = pipe ([
 ])
 
 run ({ state, main })
-// => "MojiScript"
+// => "MojiScript MojiScript MojiScript!"
 ```
 
 ##### Parameters
