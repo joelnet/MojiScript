@@ -1,4 +1,4 @@
-const after = funcA => funcB => x =>
-  Promise.resolve (funcA (x)).then (() => funcB (x))
+const after = first => last => value =>
+  Promise.resolve (first (value)).then (() => last (value))
 
 module.exports = after

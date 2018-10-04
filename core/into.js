@@ -1,7 +1,7 @@
 // into :: String -> Function -> * -> *
-const into = key => func => value =>
+const into = prop => func => value =>
   Promise.resolve (value)
     .then (func)
-    .then (result => Object.assign ({}, value, { [key]: result }))
+    .then (result => Object.assign ({}, value, { [prop]: result }))
 
 module.exports = into

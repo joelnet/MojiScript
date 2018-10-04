@@ -6,8 +6,9 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 
 ## Table of Contents
 
+- [Philosophy](#philosophy)
 - [Benefits](#benefits)
-- [Install & Build](#install-and-build)
+- [Quickstart](#quickstart)
 - [Examples](#examples)
   * [Hello World](#hello-world)
   * [More Examples](#more-examples)
@@ -35,48 +36,44 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 - [Unit Tests](#unit-tests)
 - [Recursion](#recursion)
 
+## Philosophy
+
+The MojiScript philosphy is to provide a functional-style application framework, making asynchronous tasks intuitive and easy.
+
+MojiScript is heavily opinionated and prevents code considered to be async-unfriendly like `for` loops and statement blocks.
+
 ## Benefits
 
 - The Asynchronous-first design greatly simplifies writing and reasoning about Asynchronous code. Worry less about callbacks, promises, async, await, etc.
 - Atomic Design, function composition, and Pipes encourages maximum code re-use, testability and the ability to compose smaller functions into larger ones.
 - Compatibility with ECMAScript gives our applications full access to the JavaScript ecosystem. It also allows us to import elements from MojiScript into existing JavaScript applications.
-- A modular design allows for features to be imported on an as needed basis, keeping packages small. It also allows for elements like `map`, `filter`, `reduce` to be swapped out for 3rd party libraries, like Sanctuary or Ramda.
+- A modular design allows for features to be imported on an as needed basis, keeping packages small.
 - Plays well with functional libraries. Check out the [Complementary Libraries](#complementary-libraries) section for libraries that can benefit your MojiScript applications.
 
-## Install and Build
+## Quickstart
 
-Install `mojiscript` and `eslint` packages.
-
-```javascript
-npm install -P mojiscript
-npm install -D eslint eslint-plugin-fp eslint-watch
-```
-
-Download eslint configuration files.
+Clone the starter app.
 
 ```bash
-curl -o .eslintignore https://raw.githubusercontent.com/joelnet/MojiScript/master/.eslintignore
-curl -o .eslintrc.yml https://raw.githubusercontent.com/joelnet/MojiScript/master/.eslintrc.yml
+git clone https://github.com/joelnet/mojiscript-starter-app.git
+cd mojiscript-starter-app
 ```
 
-Add a `build` and `watch` step to `package.json`.
-
-```javascript
-{
-  "scripts": {
-    "build": "eslint . --ext .js,.mjs",
-    "watch": "esw -w --fix --ext .js,.mjs"
-  }
-}
-```
-
-Run the `build` script.
+Install, build, and run
 
 ```bash
+npm ci
 npm run build
+npm start
 ```
 
-During development you can auto-fix and format on save with the `watch` script.
+If everything works, you should see:
+
+```
+Hello World
+```
+
+If your editor does not format on save, you can run the following command:
 
 ```bash
 npm run watch
@@ -105,6 +102,7 @@ run ({ state, main })
 ### More Examples
 
 - [Star Wars Console](examples/star-wars-console) - Check this out!
+- [Express Hello World](examples/express-hello-world) - Express "Hello World" web server.
 - [Async Simple](examples/async-simple)
 - [Hello World](examples/hello-world)
 - [Conditionals](examples/conditionals)
