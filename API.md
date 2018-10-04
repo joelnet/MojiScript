@@ -652,7 +652,7 @@ import is from 'mojiscript/types/is'
 const state = 1
 
 const isString = is (String)
-const toString = x => Array.prototype.String x.toString ()
+const toString = x => x.toString ()
 
 const main = pipe ([
   unless (isString) (toString),
@@ -736,7 +736,7 @@ const main = pipe ([
 ])
 
 run ({ state, main })
-// => "Moji"
+// => "MojiScript"
 ```
 
 ##### Parameters
@@ -770,25 +770,25 @@ const main = pipe ([
 ])
 
 run ({ state, main })
-// => "Moji"
+// => "MojiScript"
 ```
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pre | `String`  | `String` to be appended to. |
-| post | `String`  | `String` to append to other `String` |
+| pre | `String`  | `String` to be prepend to. |
+| post | `String`  | `String` to prepend to other `String` |
 
 ##### Returns
 
-Appended `String`.
+Prepended `String`.
 
 ### replace
 
 `replace :: String -> String -> String -> String`
 
-Replaces a `String` within a `String` in another `String`.
+Replaces all instances of `pattern` with a  `replacement` in a `string`.
 
 ```javascript
 import log from 'mojiscript/console/log'
@@ -796,7 +796,7 @@ import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
 import replace from 'mojiscript/string/replace'
 
-const state = 'MojiScript'
+const state = 'JavaScript JavaScript JavaScript!'
 
 const main = pipe ([
   replace ('Java') ('Moji'),
@@ -804,7 +804,7 @@ const main = pipe ([
 ])
 
 run ({ state, main })
-// => "MojiScript"
+// => "MojiScript MojiScript MojiScript!"
 ```
 
 ##### Parameters
@@ -847,7 +847,7 @@ run ({ state, main })
 
 ##### Returns
 
-Replaced `String`.
+Formatted string.
 
 ## threading
 
@@ -934,4 +934,4 @@ run ({ main })
 
 ##### Returns
 
-Returns the `value` at the end of the sleep.
+Returns `true` when the `value` is of the same type as the `Object` or `false` when it is not.
