@@ -1,5 +1,5 @@
 /* eslint-disable */
-const isThenable = require('../internal/isThenable')
+const isThenable = require('../_internal/isThenable')
 
 const ifError = func => onError => onSuccess => value => {
   try {
