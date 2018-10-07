@@ -1,6 +1,6 @@
 /* eslint-disable */
-const isThenable = require('../internal/isThenable')
-const iterableSerialReduce = require('../internal/iterableSerialReduce')
+const isThenable = require('../_internal/isThenable')
+const iterableSerialReduce = require('../_internal/iterableSerialReduce')
 
 const reduce = func => initial => iterable => {
   let acc = initial
