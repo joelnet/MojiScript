@@ -1,10 +1,10 @@
 /* eslint-disable */
-const isThenable = require('../internal/isThenable')
-const iterableSerialReduce = require('../internal/iterableSerialReduce')
-const call = require('../internal/call')
+const isThenable = require('../_internal/isThenable')
+const iterableSerialReduce = require('../_internal/iterableSerialReduce')
+const call = require('../_internal/call')
 
 const asyncMapReducer = func => (acc, x) =>
-  call (val => (acc.push(val), acc)) (func (x)) 
+  call (val => (acc.push(val), acc)) (func (x))
 
 const map = func => iterable => {
   const values = []

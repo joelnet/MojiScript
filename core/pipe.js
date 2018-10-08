@@ -1,5 +1,5 @@
 /* eslint-disable */
-const ensureExecutable = require('../internal/ensureExecutable')
+const ensureExecutable = require('../_internal/ensureExecutable')
 
 const pipe = (funcs = []) => value => funcs.reduce (
   (acc, func) => acc.then (ensureExecutable (func)),
