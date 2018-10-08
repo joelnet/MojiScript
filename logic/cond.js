@@ -1,5 +1,5 @@
 /* eslint-disable */
-const maybeExec = require('../internal/maybeExec')
+const maybeExec = require('../_internal/maybeExec')
 const is = require('../type/is')
 
 const isFunction = is (Function)

@@ -507,7 +507,7 @@ const dependencies = {
 const state = 7
 
 // isEven :: Number -> Boolean
-const isEven = x => x % 2 == 0
+const isEven = x => x % 2 === 0
 
 // yesOrNo :: Boolean -> String
 const yesIfEven = ifElse (isEven) ($`Yes, ${0} is even.`) ($`NO, ${0} is not even.`)
