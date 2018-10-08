@@ -1,6 +1,6 @@
-# MojiScript Express Hello World
+# MojiScript Express Static File Server
 
-App demonstrates how to interop with JavaScript libraries in a MojiScript application. In this case, we are interoping with `express` to create a simple web server that listens on port 3000.
+App demonstrates how to interop with JavaScript libraries in a MojiScript application. In this case, we are interoping with `express` to create a simple web server that listens on port 3000 and serves static files in the public directory.
 
 ## Install
 
@@ -9,7 +9,7 @@ App demonstrates how to interop with JavaScript libraries in a MojiScript applic
 git clone https://github.com/joelnet/MojiScript.git
 
 # enter directory
-cd MojiScript/examples/express-hello-world
+cd MojiScript/examples/express-static-files
 
 # install dependencies
 npm ci
@@ -26,6 +26,8 @@ You should see the output
 ```
 Listening on port 3000.
 ```
+
+Open http://localhost:3000 in your web browser.
 
 ## Code
 
