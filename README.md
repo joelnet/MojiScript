@@ -104,6 +104,7 @@ run ({ state, main })
 
 - [Star Wars Console](examples/star-wars-console) - Check this out!
 - [Express Hello World](examples/express-hello-world) - Express "Hello World" web server.
+- [Express Static File Server](examples/express-static-files) - Express static file server.
 - [Async Simple](examples/async-simple)
 - [Hello World](examples/hello-world)
 - [Conditionals](examples/conditionals)
