@@ -10,7 +10,6 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 - [Benefits](#benefits)
 - [Quickstart](#quickstart)
 - Examples
-  * [Hello World](#hello-world)
   * [Star Wars Console](examples/star-wars-console) - Check this out!
   * [Express Hello World](examples/express-hello-world) - Express "Hello World" web server.
   * [Express Static File Server](examples/express-static-files) - Express static file server.
