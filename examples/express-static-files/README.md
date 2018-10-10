@@ -35,4 +35,4 @@ Open http://localhost:3000 in your web browser.
 
 [main.mjs](main.mjs) - Entrypoint of application.
 
-[interop/express.mjs](interop/express.mjs) - `express` JavaScript iterop.
+[interop/express.mjs](interop/express.mjs) - `express` JavaScript interop.
