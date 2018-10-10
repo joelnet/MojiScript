@@ -9,9 +9,15 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 - [Philosophy](#philosophy)
 - [Benefits](#benefits)
 - [Quickstart](#quickstart)
-- [Examples](#examples)
-  * [Hello World](#hello-world)
-  * [More Examples](#more-examples)
+- Examples
+  * [Star Wars Console](examples/star-wars-console) - Check this out!
+  * [Express Hello World](examples/express-hello-world) - Express "Hello World" web server.
+  * [Express Static File Server](examples/express-static-files) - Express static file server.
+  * [Async Simple](examples/async-simple)
+  * [Hello World](examples/hello-world)
+  * [Conditionals](examples/conditionals)
+  * [map/filter/reduce](examples/map-filter-reduce)
+  * [FizzBuzz](examples/fizz-buzz)
 - [API](API.md)
 - [Style Guide](#style-guide)
 - [Complementary Libraries](#complementary-libraries)
@@ -79,37 +85,6 @@ If your editor does not format on save, you can run the following command:
 ```bash
 npm run watch
 ```
-
-## Examples
-
-### Hello World
-
-[view the source](examples/async-simple)
-
-```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
-
-const state = 'Hello World'
-
-const main = pipe ([
-  log
-])
-
-run ({ state, main })
-```
-
-### More Examples
-
-- [Star Wars Console](examples/star-wars-console) - Check this out!
-- [Express Hello World](examples/express-hello-world) - Express "Hello World" web server.
-- [Express Static File Server](examples/express-static-files) - Express static file server.
-- [Async Simple](examples/async-simple)
-- [Hello World](examples/hello-world)
-- [Conditionals](examples/conditionals)
-- [map/filter/reduce](examples/map-filter-reduce)
-- [FizzBuzz](examples/fizz-buzz)
 
 ## Style Guide
 
