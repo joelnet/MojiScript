@@ -26,7 +26,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
   * [Multiple arguments](#multiple-arguments)
   * [Partial Application](#partial-application)
   * [Composing Pipes](#composing-pipes)
-  * [Pipes are Asynchrnous](#pipes-are-asynchrnous)
+  * [Pipes are Asynchronous](#pipes-are-asynchronous)
 - [Conditionals](#conditionals)
 - [Error Handling](#error-handling)
   * [Synchronous Error Handling](#synchronous-error-handling)
@@ -39,7 +39,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 
 ## Philosophy
 
-The MojiScript philosphy is to provide a functional-style application framework, making asynchronous tasks intuitive and easy.
+The MojiScript philosophy is to provide a functional-style application framework, making asynchronous tasks intuitive and easy.
 
 MojiScript is heavily opinionated and prevents code considered to be async-unfriendly like `for` loops and statement blocks.
 
@@ -333,7 +333,7 @@ const tap = func => value => (
 
 ## Pipes
 
-Pipes can be compared to an asynchrnous function that takes 1 argument and returns 1 argument.
+Pipes can be compared to an asynchronous function that takes 1 argument and returns 1 argument.
 
 Each pipe can contain multiple Pipes or Expressions. A Pipe will return the result of the final Pipe or Expression.
 
@@ -360,7 +360,7 @@ const state = 4
 const main = pipe ([
   //         |
   //         | 4
-  //         ▼ 
+  //         ▼
   /*-------------------*/
   /**/  x => x + 5,  /**/
   /*-------------------*/
@@ -457,7 +457,7 @@ const increaseThenDouble = pipe ([
 ])
 ```
 
-### Pipes are Asynchrnous
+### Pipes are Asynchronous
 
 Pipes are Asynchronous. The elimination of synchronous statements greatly simplifies the code. No need for `Promise`, `async`, or `await`!
 

@@ -33,4 +33,4 @@ Listening on port 3000.
 
 [main.mjs](main.mjs) - Entrypoint of application.
 
-[interop/express.mjs](interop/express.mjs) - `express` JavaScript iterop.
+[interop/express.mjs](interop/express.mjs) - `express` JavaScript interop.
