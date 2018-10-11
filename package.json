@@ -18,10 +18,14 @@
     "test:coverage": "jest --colors --coverage",
     "test:coveralls": "npm run test:coverage -- --coverageReporters=text-lcov | coveralls",
     "patch-readme": "node --experimental-modules --no-warnings bin/patch-readme/index.mjs",
-    "watch": "esw -w --fix --ext .js,.mjs"
+    "watch": "esw -w --fix --ext .js,.mjs",
+    "contributors:add": "all-contributors add",
+    "contributors:check": "all-contributors check",
+    "contributors:generate": "all-contributors generate"
   },
   "dependencies": {},
   "devDependencies": {
+    "all-contributors-cli": "^5.4.0",
     "axios": "^0.18.0",
     "coveralls": "^3.0.2",
     "eslint": "^5.5.0",
