@@ -18,6 +18,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
   * [Conditionals](examples/conditionals)
   * [map/filter/reduce](examples/map-filter-reduce)
   * [FizzBuzz](examples/fizz-buzz)
+  * [Recursion](examples/recursion)
 - [API](API.md)
 - [Style Guide](#style-guide)
 - [Complementary Libraries](#complementary-libraries)
