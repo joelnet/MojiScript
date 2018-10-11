@@ -666,7 +666,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/742630?v=4" width="100px;"/><br /><sub><b>joelnet</b></sub>](https://github.com/joelnet)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=joelnet "Code") | [<img src="https://avatars1.githubusercontent.com/u/1798830?v=4" width="100px;"/><br /><sub><b>Luiz Paulo "Bills"</b></sub>](https://www.luizpb.com/en/)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=luizbills "Code") | [<img src="https://avatars0.githubusercontent.com/u/9016793?v=4" width="100px;"/><br /><sub><b>Raphael Miedl</b></sub>](https://raphaeladdile.com/)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=RaphaelAddile "Code") |
+| [<img src="https://avatars3.githubusercontent.com/u/742630?v=4" width="100px;"/><br /><sub><b>joelnet</b></sub>](https://github.com/joelnet)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=joelnet "Code") | [<img src="https://avatars1.githubusercontent.com/u/1798830?v=4" width="100px;"/><br /><sub><b>Luiz Paulo "Bills"</b></sub>](https://www.luizpb.com/en/)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=luizbills "Code") | [<img src="https://avatars0.githubusercontent.com/u/9016793?v=4" width="100px;"/><br /><sub><b>Raphael Miedl</b></sub>](https://raphaeladdile.com/)<br />[📖](https://github.com/joelnet/MojiScript/commits?author=RaphaelAddile "Documentation") |
 | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
