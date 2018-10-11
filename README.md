@@ -1,5 +1,5 @@
 # MojiScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg) [![build status](https://travis-ci.org/joelnet/MojiScript.svg?branch=master)](https://travis-ci.org/joelnet/MojiScript) [![Coverage Status](https://coveralls.io/repos/github/joelnet/MojiScript/badge.svg?branch=master)](https://coveralls.io/github/joelnet/MojiScript?branch=master)
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 MojiScript is an Async First, opinionated, and functional language designed to have 100% compatibility with JavaScript engines. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that MojiScript language features can run in any JavaScript application and vice-versa.
 
@@ -692,8 +692,8 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/742630?v=4" width="100px;"/><br /><sub><b>joelnet</b></sub>](https://github.com/joelnet)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=joelnet "Code") |
-| :---: |
+| [<img src="https://avatars3.githubusercontent.com/u/742630?v=4" width="100px;"/><br /><sub><b>joelnet</b></sub>](https://github.com/joelnet)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=joelnet "Code") | [<img src="https://avatars1.githubusercontent.com/u/1798830?v=4" width="100px;"/><br /><sub><b>Luiz Paulo "Bills"</b></sub>](https://www.luizpb.com/en/)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=luizbills "Code") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
