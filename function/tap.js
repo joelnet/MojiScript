@@ -1,7 +1,9 @@
 /* eslint-disable */
-const S = require('../combinators/S')
-const K = require('../combinators/K')
+const isThenable = require('../_internal/isThenable')
 
-const tap = S (K)
+const tap = func => value => {
+  const result = func(value)
+  return isThenable(result) ? result.then(() => value) : value
+}
 
 module.exports = tap
