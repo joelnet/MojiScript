@@ -1,6 +1,6 @@
-# MojiScript Hello World
+# MojiScript Recursion
 
-MojiScript Hello World example.
+MojiScript Recursion example.
 
 ## Install
 
@@ -9,7 +9,7 @@ MojiScript Hello World example.
 git clone https://github.com/joelnet/MojiScript.git
 
 # enter directory
-cd MojiScript/examples/hello-world
+cd MojiScript/examples/recursion
 
 # install dependencies
 npm ci
@@ -24,7 +24,7 @@ npm start
 You should see the output
 
 ```
-Hello World
+Recursion
 ```
 
 ## Code
@@ -34,7 +34,7 @@ import log from 'mojiscript/console/log'
 import pipe from 'mojiscript/core/pipe'
 import run from 'mojiscript/core/run'
 
-const state = 'Hello World'
+const state = 'Recursion'
 
 const main = pipe([
   log
