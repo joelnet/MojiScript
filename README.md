@@ -9,9 +9,15 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 - [Philosophy](#philosophy)
 - [Benefits](#benefits)
 - [Quickstart](#quickstart)
-- [Examples](#examples)
-  * [Hello World](#hello-world)
-  * [More Examples](#more-examples)
+- Examples
+  * [Star Wars Console](examples/star-wars-console) - Check this out!
+  * [Express Hello World](examples/express-hello-world) - Express "Hello World" web server.
+  * [Express Static File Server](examples/express-static-files) - Express static file server.
+  * [Async Simple](examples/async-simple)
+  * [Hello World](examples/hello-world)
+  * [Conditionals](examples/conditionals)
+  * [map/filter/reduce](examples/map-filter-reduce)
+  * [FizzBuzz](examples/fizz-buzz)
 - [API](API.md)
 - [Style Guide](#style-guide)
 - [Complementary Libraries](#complementary-libraries)
@@ -79,37 +85,6 @@ If your editor does not format on save, you can run the following command:
 ```bash
 npm run watch
 ```
-
-## Examples
-
-### Hello World
-
-[view the source](examples/async-simple)
-
-```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
-
-const state = 'Hello World'
-
-const main = pipe ([
-  log
-])
-
-run ({ state, main })
-```
-
-### More Examples
-
-- [Star Wars Console](examples/star-wars-console) - Check this out!
-- [Express Hello World](examples/express-hello-world) - Express "Hello World" web server.
-- [Express Static File Server](examples/express-static-files) - Express static file server.
-- [Async Simple](examples/async-simple)
-- [Hello World](examples/hello-world)
-- [Conditionals](examples/conditionals)
-- [map/filter/reduce](examples/map-filter-reduce)
-- [FizzBuzz](examples/fizz-buzz)
 
 ## Style Guide
 
@@ -691,7 +666,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/742630?v=4" width="100px;"/><br /><sub><b>joelnet</b></sub>](https://github.com/joelnet)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=joelnet "Code") | [<img src="https://avatars1.githubusercontent.com/u/1798830?v=4" width="100px;"/><br /><sub><b>Luiz Paulo "Bills"</b></sub>](https://www.luizpb.com/en/)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=luizbills "Code") | [<img src="https://avatars0.githubusercontent.com/u/9016793?v=4" width="100px;"/><br /><sub><b>Raphael Miedl</b></sub>](https://raphaeladdile.com/)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=RaphaelAddile "Code") |
+| [<img src="https://avatars3.githubusercontent.com/u/742630?v=4" width="100px;"/><br /><sub><b>joelnet</b></sub>](https://github.com/joelnet)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=joelnet "Code") [📖](https://github.com/joelnet/MojiScript/commits?author=joelnet "Documentation") | [<img src="https://avatars1.githubusercontent.com/u/1798830?v=4" width="100px;"/><br /><sub><b>Luiz Paulo "Bills"</b></sub>](https://www.luizpb.com/en/)<br />[💻](https://github.com/joelnet/MojiScript/commits?author=luizbills "Code") [📖](https://github.com/joelnet/MojiScript/commits?author=luizbills "Documentation") | [<img src="https://avatars0.githubusercontent.com/u/9016793?v=4" width="100px;"/><br /><sub><b>Raphael Miedl</b></sub>](https://raphaeladdile.com/)<br />[📖](https://github.com/joelnet/MojiScript/commits?author=RaphaelAddile "Documentation") |
 | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 

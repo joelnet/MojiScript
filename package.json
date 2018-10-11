@@ -20,6 +20,7 @@
     "patch-readme": "node --experimental-modules --no-warnings bin/patch-readme/index.mjs",
     "watch": "esw -w --fix --ext .js,.mjs",
     "contributors:add": "all-contributors add",
+    "contributors:check": "all-contributors check",
     "contributors:generate": "all-contributors generate"
   },
   "dependencies": {},

@@ -15,7 +15,7 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/742630?v=4",
       "profile": "https://github.com/joelnet",
       "contributions": [
-        "code"
+        "code", "doc"
       ]
     },
     {
@@ -24,7 +24,7 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/1798830?v=4",
       "profile": "https://www.luizpb.com/en/",
       "contributions": [
-        "code"
+        "code", "doc"
       ]
     },
     {
@@ -33,7 +33,7 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/9016793?v=4",
       "profile": "https://raphaeladdile.com/",
       "contributions": [
-        "code"
+        "doc"
       ]
     }
   ]
