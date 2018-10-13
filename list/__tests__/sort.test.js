@@ -2,7 +2,7 @@ const sort = require("../sort")
 const range = require("../range")
 
 describe("list/sort", () => {
-  const descending  = a => b => b - a
+  const descending = a => b => b - a
   const ascending = a => b => a - b
   function* iterator() {
     yield 5
