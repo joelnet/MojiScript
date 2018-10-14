@@ -1,4 +1,5 @@
 const reduceWhile = require("../reduce-while")
+const range = require("../range")
 
 describe("list/reduce-while", () => {
   const add = x => y => x + y
@@ -47,6 +48,13 @@ describe("list/reduce-while", () => {
     expect.assertions(1)
     const expected = 3
     const actual = reduceWhile (predicate) (asyncAdd) (0) (iterator())
+    return expect(actual).resolves.toBe(expected)
+  })
+
+  test('async infinity', () => {
+    expect.assertions(1)
+    const expected = 3
+    const actual = reduceWhile (predicate) (asyncAdd) (0) (range (0) (Infinity))
     return expect(actual).resolves.toBe(expected)
   })
 })

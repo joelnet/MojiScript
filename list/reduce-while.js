@@ -1,6 +1,6 @@
 /* eslint-disable */
 const isThenable = require('../_internal/isThenable')
-const iterableSerialReduce = require('../_internal/iterableSerialReduce')
+const iterableSerialReduceWhile = require('../_internal/iterableSerialReduceWhile')
 
 const reduceWhile = predicate => func => initial => iterable => {
   let acc = initial
@@ -10,8 +10,7 @@ const reduceWhile = predicate => func => initial => iterable => {
   while (!done && predicate(acc)(value)) {
     acc = func(acc)(value)
     if (isThenable(acc)) {
-      const iterableFunc = (a) => (b) => predicate (a) (b) ? func (a) (b) : a
-      return iterableSerialReduce((a, b) => iterableFunc (a) (b), null, iterator, acc)
+      return iterableSerialReduceWhile(predicate, (a, b) => func (a) (b), null, iterator, acc)
     }
     var { value, done } = iterator.next()
   }
