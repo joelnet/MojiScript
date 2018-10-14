@@ -421,7 +421,6 @@ The predicate will be
 
 `predicate :: Any -> Any -> Boolean`
 
-
 ```javascript
 import log from 'mojiscript/console/log'
 import pipe from 'mojiscript/core/pipe'
@@ -433,7 +432,7 @@ const add = x => y => x + y
 const predicate = acc => x => acc <= 2
 
 const main = pipe ([
-  range (1) (4),    //=> [ 1, 2, 3 ]
+  range (1) (Infinity),    //=> [ 1, 2, 3 ]
   reduceWhile (predicate) (add) (0), //=> 3
   log
 ])

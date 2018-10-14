@@ -3,7 +3,7 @@ const iterableSerialReduceWhile = async (predicate, func, initial, iterable, pro
     const iterator = iterable[Symbol.iterator]()
     const { value, done } = iterator.next()
     const currentAcc = await promise
-    return done || !predicate (currentAcc) (value)
+    return done || (predicate && !predicate (currentAcc) (value))
       ? promise
       : promise.then(() =>
           iterableSerialReduceWhile(
