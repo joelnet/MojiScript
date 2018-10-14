@@ -18,6 +18,7 @@
   * [range](#range)
   * [reduce](#reduce)
   * [reduceWhile](#reduceWhile)
+  * [sort](#sort)
 - [logic](#logic)
   * [allPass](#allpass)
   * [anyPass](#anypass)
@@ -420,6 +421,7 @@ The predicate will be
 
 `predicate :: Any -> Any -> Boolean`
 
+
 ```javascript
 import log from 'mojiscript/console/log'
 import pipe from 'mojiscript/core/pipe'
@@ -439,6 +441,42 @@ const main = pipe ([
 run ({ main })
 //=> 3
 ```
+
+### sort
+
+`sort :: Function -> Iterable -> Array`
+
+Takes a function and an `Iterable` and returns an `Array` with values sorted based on the function return value.
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import sort from 'mojiscript/list/sort'
+
+const asc = (a, b) => a < b ? -1 : 1
+
+const main = pipe ([
+  [ 1, 4, 3, 5, 2 ],
+  sort (asc),
+  log
+])
+
+run ({ main })
+//=> [ 1, 2, 3, 4, 5 ]
+```
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| function | `Function`  | Function to apply to each item in the `Iterable`. |
+| iterable | `Iterable`  | `Iterable` to apply the function to. |
+
+##### Returns
+
+Returns an `Array` with the function applied to each value in the `Iterable`.
+
 
 ## logic
 

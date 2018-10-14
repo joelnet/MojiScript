@@ -66,6 +66,24 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "Corned",
+      "name": "Corned",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/11276111?v=4",
+      "profile": "https://github.com/Corned",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "christangga",
+      "name": "Christ Angga Saputra",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5859096?v=4",
+      "profile": "https://github.com/christangga",
+      "contributions": [
+        "doc"
+      ]
     }
   ]
 }
