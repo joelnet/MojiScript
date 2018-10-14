@@ -17,6 +17,7 @@
   * [map](#map)
   * [range](#range)
   * [reduce](#reduce)
+  * [reduceWhile](#reduceWhile)
   * [sort](#sort)
 - [logic](#logic)
   * [allPass](#allpass)
@@ -410,6 +411,37 @@ run ({ main })
 //=> 6
 ```
 
+### reduceWhile
+
+`reduceWhile :: Predicate -> Function -> Any -> Iterable`
+
+Returns a single item by iterating through the list, successively calling the iterator function and passing it an accumulator value and the current value from the array, and then passing the result to the next call. For each iteration, check the predicate function. If the predicate is true, run the current iteration. If false, return the current accumulator.
+
+The predicate will be
+
+`predicate :: Any -> Any -> Boolean`
+
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import range from 'mojiscript/list/range'
+import reduceWhile from 'mojiscript/list/reduceWhile'
+
+const add = x => y => x + y
+const predicate = acc => x => acc <= 2
+
+const main = pipe ([
+  range (1) (4),    //=> [ 1, 2, 3 ]
+  reduceWhile (predicate) (add) (0), //=> 3
+  log
+])
+
+run ({ main })
+//=> 3
+```
+
 ### sort
 
 `sort :: Function -> Iterable -> Array`
@@ -444,6 +476,7 @@ run ({ main })
 ##### Returns
 
 Returns an `Array` with the function applied to each value in the `Iterable`.
+
 
 ## logic
 
