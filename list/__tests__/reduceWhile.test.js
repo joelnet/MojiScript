@@ -1,7 +1,7 @@
-const reduceWhile = require("../reduce-while")
+const reduceWhile = require("../reduceWhile")
 const range = require("../range")
 
-describe("list/reduce-while", () => {
+describe("list/reduceWhile", () => {
   const add = x => y => x + y
   const predicate = acc => x => acc <= 2
   const asyncAdd = x => y => Promise.resolve(x).then(add(y))
