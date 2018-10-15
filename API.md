@@ -14,11 +14,13 @@
   * [tap](#tap)
 - [list](#list)
   * [filter](#filter)
+  * [head](#head)
   * [map](#map)
   * [range](#range)
   * [reduce](#reduce)
   * [reduceWhile](#reduceWhile)
   * [sort](#sort)
+  * [tail](#tail)
 - [logic](#logic)
   * [allPass](#allpass)
   * [anyPass](#anypass)
@@ -318,6 +320,38 @@ run ({ main })
 
 Returns an `Array` filtered by the `predicate`.
 
+### head
+
+`head :: Iterable -> Any`
+
+Takes an `Iterable` and returns the head of the `Iterable`.
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import head from 'mojiscript/list/head'
+
+const main = pipe ([
+  [ 1, 2, 3 ],
+  head,
+  log
+])
+
+run ({ main })
+//=> 1
+```
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| iterable | `Iterable`  | `Iterable` to get the first value from. |
+
+##### Returns
+
+Returns the head of `Iterable`
+
 ### map
 
 `map :: Function -> Iterable -> Array`
@@ -475,6 +509,38 @@ run ({ main })
 ##### Returns
 
 Returns an `Array` with the function applied to each value in the `Iterable`.
+
+### tail
+
+`tail :: Iterable -> Array`
+
+Takes an `Iterable` and the tail of the `Iterable` as an `Array`.
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import tail from 'mojiscript/list/tail'
+
+const main = pipe ([
+  [ 1, 2, 3 ],
+  tail,
+  log
+])
+
+run ({ main })
+//=> [2, 3]
+```
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| iterable | `Iterable`  | `Iterable` to get the tail from. |
+
+##### Returns
+
+Returns the tail of `Iterable`
 
 
 ## logic

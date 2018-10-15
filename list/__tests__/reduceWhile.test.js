@@ -2,10 +2,13 @@ const reduceWhile = require("../reduceWhile")
 const range = require("../range")
 
 describe("list/reduceWhile", () => {
+  const isEven = num => num % 2 === 0
   const add = x => y => x + y
   const predicate = acc => x => acc <= 2
   const asyncAdd = x => y => Promise.resolve(x).then(add(y))
   const largePredicate = acc => x => acc <= 6
+  const asyncWhenEvenAdd = x => y => isEven(y) ? asyncAdd(x)(y) : add(x)(y)
+
   function* iterator() {
     yield 1
     yield 2
@@ -55,6 +58,20 @@ describe("list/reduceWhile", () => {
     expect.assertions(1)
     const expected = 3
     const actual = reduceWhile (predicate) (asyncAdd) (0) (range (0) (Infinity))
+    return expect(actual).resolves.toBe(expected)
+  })
+
+  test('async iterable mixed', () => {
+    expect.assertions(1)
+    const expected = 3
+    const actual = reduceWhile (predicate) (asyncWhenEvenAdd) (0) ([1, 2, 3])
+    return expect(actual).resolves.toBe(expected)
+  })
+
+  test('async iterable mixed', () => {
+    expect.assertions(1)
+    const expected = 3
+    const actual = reduceWhile (predicate) (asyncWhenEvenAdd) (0) (range (0) (4))
     return expect(actual).resolves.toBe(expected)
   })
 })
