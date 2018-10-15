@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 const error = require('../console/error')
 
 const run = ({ dependencies, state, main }) =>

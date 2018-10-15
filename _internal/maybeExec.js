@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 const is = require('../type/is')
 
 const isFunction = is (Function)

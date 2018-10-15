@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 const anyPass = predicates => value => {
   for (const predicate of predicates) {
     if (predicate(value)) {

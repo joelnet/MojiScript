@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 const isThenable = require('../_internal/isThenable')
 
 /*

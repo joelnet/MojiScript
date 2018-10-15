@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 const curry2 = require('../_internal/curry2')
 const curry3 = require('../_internal/curry3')
 const curry4 = require('../_internal/curry4')

@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 /*
  * code adapted from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 */

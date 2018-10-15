@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 const escapeRegExp = require('../_internal/escapeRegExp')
 
 const replace = pattern => replacement => string =>

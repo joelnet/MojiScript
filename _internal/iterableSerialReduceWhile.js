@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 const iterableSerialReduceWhile = async (predicate, func, initial, iterable, promise = Promise.resolve(initial)) => {
     const iterator = iterable[Symbol.iterator]()
     const { value, done } = iterator.next()
