@@ -7,7 +7,7 @@ const reduceWhile = predicate => func => initial => iterable => {
   const iterator = iterable[Symbol.iterator]()
   var { value, done } = iterator.next()
 
-  while (!done && predicate(acc)(value)) {
+  while (!done && (!predicate || predicate(acc)(value))) {
     acc = func(acc)(value)
     if (isThenable(acc)) {
       return iterableSerialReduceWhile(predicate, (a, b) => func (a) (b), null, iterator, acc)
