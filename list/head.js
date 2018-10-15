@@ -1,6 +1,8 @@
 /* eslint-disable */
+const is = require('../type/is')
+
 const head = iterable => {
-  if (iterable instanceof Array) {
+  if (is (Array) (iterable)) {
     return iterable[0]
   } else if (iterable && iterable.next) {
     return iterable.next().value
