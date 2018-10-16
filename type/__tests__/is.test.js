@@ -1,4 +1,5 @@
 const is = require('../is')
+const Identity = require('../Identity')
 
 describe('types/is', () => {
   describe('Boolean', () => {
@@ -149,6 +150,39 @@ describe('types/is', () => {
     test('null', () => {
       const expected = false
       const actual = isPromise(null)
+      expect(actual).toBe(expected)
+    })
+  })
+
+  describe('Identity', () => {
+    test('Identity', () => {
+      const expected = true
+      const identity = Identity(888)
+      const actual = is(Identity)(identity)
+      expect(actual).toBe(expected)
+    })
+
+    test('null is false', () => {
+      const expected = false
+      const actual = is(Identity)(null)
+      expect(actual).toBe(expected)
+    })
+
+    test('undefined is false', () => {
+      const expected = false
+      const actual = is(Identity)(undefined)
+      expect(actual).toBe(expected)
+    })
+
+    test('{} is false', () => {
+      const expected = false
+      const actual = is(Identity)({})
+      expect(actual).toBe(expected)
+    })
+
+    test('function is false', () => {
+      const expected = false
+      const actual = is(Identity)(() => {})
       expect(actual).toBe(expected)
     })
   })
