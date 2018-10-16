@@ -3,11 +3,11 @@ import run from 'mojiscript/core/run'
 import main from './main'
 
 const dependencies = {
-  log,
+  log
 }
 const state = {
   start: 1,
-  end: 100,
+  end: 100
 }
 
-run({ dependencies, state, main })
+run ({ dependencies, state, main })

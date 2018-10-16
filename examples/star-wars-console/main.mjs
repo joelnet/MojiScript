@@ -10,23 +10,23 @@ import { peopleSearch } from './api'
 
 const showNoSearch = $`No search was performed.`
 const showNoResults = search => () => `0 Results for "${search}".`
-const showResults = W(({ length }) => pipe([
-  map($`- ${'name'} (${'gender'})`),
-  join('\n'),
-  prepend(`${length} results:\n`),
+const showResults = W (({ length }) => pipe ([
+  map ($`- ${'name'} (${'gender'})`),
+  join ('\n'),
+  prepend (`${length} results:\n`)
 ]))
 
-const ifEmpty = ifElse(isEmpty)
+const ifEmpty = ifElse (isEmpty)
 
-const searchForPerson = axios => W(search => pipe([
-  peopleSearch(axios),
-  ifEmpty(showNoResults(search))(showResults),
+const searchForPerson = axios => W (search => pipe ([
+  peopleSearch (axios),
+  ifEmpty (showNoResults (search)) (showResults)
 ]))
 
-const main = ({ axios, askQuestion, log }) => pipe([
-  askQuestion('Search for Star Wars Character: '),
-  ifEmpty(showNoSearch)(searchForPerson(axios)),
-  log,
+const main = ({ axios, askQuestion, log }) => pipe ([
+  askQuestion ('Search for Star Wars Character: '),
+  ifEmpty (showNoSearch) (searchForPerson (axios)),
+  log
 ])
 
 export default main

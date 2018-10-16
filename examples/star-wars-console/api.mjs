@@ -4,25 +4,25 @@ import ifElse from 'mojiscript/logic/ifElse'
 const rootUrl = 'https://swapi.co/api/people/'
 
 const STATUS_CODE = {
-  OK: 200,
+  OK: 200
 }
 
 const responseIsOk = ({ status }) => status === STATUS_CODE.OK
-const resolveResponse = ({ data }) => Promise.resolve(data.results)
-const rejectResponse = ({ status, statusText }) => Promise.reject(`${status}: ${statusText}`)
+const resolveResponse = ({ data }) => Promise.resolve (data.results)
+const rejectResponse = ({ status, statusText }) => Promise.reject (`${status}: ${statusText}`)
 
-const parseResponse = ifElse(responseIsOk)(resolveResponse)(rejectResponse)
+const parseResponse = ifElse (responseIsOk) (resolveResponse) (rejectResponse)
 
 // searchStringToParams :: String -> AxiosOptions
 const searchStringToParams = search => ({
   params: {
-    search,
-  },
+    search
+  }
 })
 
 // peopleSearch :: Axios -> String -> AxiosResponse
-export const peopleSearch = axios => pipe([
+export const peopleSearch = axios => pipe ([
   searchStringToParams,
-  axios.get(rootUrl),
-  parseResponse,
+  axios.get (rootUrl),
+  parseResponse
 ])

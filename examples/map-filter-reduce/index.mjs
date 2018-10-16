@@ -3,8 +3,8 @@ import run from 'mojiscript/core/run'
 import main from './main'
 
 const dependencies = {
-  log,
+  log
 }
 const state = [ 1, 2, 3 ]
 
-run({ dependencies, state, main }) // => 8
+run ({ dependencies, state, main }) // => 8

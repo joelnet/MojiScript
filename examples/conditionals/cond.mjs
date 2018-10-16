@@ -4,23 +4,23 @@ import run from 'mojiscript/core/run'
 import cond from 'mojiscript/logic/cond'
 
 const dependencies = {
-  logF,
+  logF
 }
-const state = new Date().getDay()
+const state = new Date ().getDay ()
 
-const dayName = cond([
+const dayName = cond ([
   [ 0, 'Sunday' ],
   [ 1, 'Monday' ],
   [ 2, 'Tuesday' ],
   [ 3, 'Wednesday' ],
   [ 4, 'Thursday' ],
   [ 5, 'Friday' ],
-  [ 6, 'Saturday' ],
+  [ 6, 'Saturday' ]
 ])
 
-const main = ({ logF }) => pipe([
+const main = ({ logF }) => pipe ([
   dayName,
-  logF(day => `Today is ${day}.`),
+  logF (day => `Today is ${day}.`)
 ])
 
-run({ dependencies, state, main })
+run ({ dependencies, state, main })

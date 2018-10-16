@@ -4,12 +4,12 @@ import express from './interop/express'
 import main from './main'
 
 const dependencies = {
-  express: express(),
-  logF,
+  express: express (),
+  logF
 }
 
 const state = {
-  port: 3000,
+  port: 3000
 }
 
-run({ dependencies, state, main })
+run ({ dependencies, state, main })

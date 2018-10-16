@@ -6,21 +6,21 @@ import $ from 'mojiscript/string/template'
 const getPort = ({ port }) => port
 
 // routes
-const defaultRoute = () => ({ send }) => send('Hello World')
+const defaultRoute = () => ({ send }) => send ('Hello World')
 
 // express
-const setupRoutes = ({ get }) => pipe([
-  () => get('/')(defaultRoute),
+const setupRoutes = ({ get }) => pipe ([
+  () => get ('/') (defaultRoute)
 ])
-const startExpress = ({ listen }) => pipe([
+const startExpress = ({ listen }) => pipe ([
   getPort,
-  listen,
+  listen
 ])
 
-const main = ({ express, logF }) => pipe([
-  tap(setupRoutes(express)),
-  tap(startExpress(express)),
-  logF($`Listening on port ${'port'}.`),
+const main = ({ express, logF }) => pipe ([
+  tap (setupRoutes (express)),
+  tap (startExpress (express)),
+  logF ($`Listening on port ${'port'}.`)
 ])
 
 export default main
