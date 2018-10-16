@@ -5,7 +5,7 @@ import ifElse from 'mojiscript/logic/ifElse'
 import $ from 'mojiscript/string/template'
 
 const dependencies = {
-  log
+  log,
 }
 const state = [ 1, 2, 3 ]
 
@@ -19,15 +19,15 @@ const orderCountText = $`${'length'} orders`
 const noOrderCountText = $`No Orders`
 
 // ifHasOrders :: Function -> Function
-const ifHasOrders = ifElse (hasOrders)
+const ifHasOrders = ifElse(hasOrders)
 
 // getOrdersText :: (a -> b) -> (a -> b) -> OrdersString
-const getOrdersText = ifHasOrders (orderCountText) (noOrderCountText)
+const getOrdersText = ifHasOrders(orderCountText)(noOrderCountText)
 
 // main :: Number -> String
-const main = ({ log }) => pipe ([
+const main = ({ log }) => pipe([
   getOrdersText,
-  log
+  log,
 ])
 
-run ({ dependencies, state, main }) //=> 'NO'
+run({ dependencies, state, main }) //= > 'NO'

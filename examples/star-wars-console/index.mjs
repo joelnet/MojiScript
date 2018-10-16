@@ -7,7 +7,7 @@ import main from './main'
 const dependencies = {
   askQuestion,
   axios,
-  log
+  log,
 }
 
-run ({ dependencies, main })
+run({ dependencies, main })

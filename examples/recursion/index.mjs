@@ -5,10 +5,10 @@ import wait from 'mojiscript/threading/sleep'
 
 const state = 1
 
-const main = pipe ([
+const main = pipe([
   log,
-  wait (1000),
-  x => main (x + 1)
+  wait(1000),
+  x => main(x + 1),
 ])
 
-run ({ state, main })
+run({ state, main })

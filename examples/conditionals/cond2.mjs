@@ -5,20 +5,20 @@ import cond from 'mojiscript/logic/cond'
 import $ from 'mojiscript/string/template'
 
 const dependencies = {
-  log
+  log,
 }
 const state = 100
 
 // getTempInfo :: Number -> String
-const getTempInfo = cond ([
+const getTempInfo = cond([
   [ 0, 'water freezes at 0°C' ],
   [ 100, 'water boils at 100°C' ],
-  [ () => true, $`nothing special happens at ${0}°C` ]
+  [ () => true, $`nothing special happens at ${0}°C` ],
 ])
 
-const main = ({ log }) => pipe ([
+const main = ({ log }) => pipe([
   getTempInfo,
-  log
+  log,
 ])
 
-run ({ dependencies, state, main })
+run({ dependencies, state, main })
