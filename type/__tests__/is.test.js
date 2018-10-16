@@ -2,6 +2,7 @@ const is = require('../is')
 const Identity = require('../Identity')
 const Nothing = require('../Nothing')
 const Just = require('../Just')
+const Maybe = require('../Maybe')
 
 describe('types/is', () => {
   describe('Boolean', () => {
@@ -251,6 +252,14 @@ describe('types/is', () => {
     test('function is false', () => {
       const expected = false
       const actual = is(Just)(() => {})
+      expect(actual).toBe(expected)
+    })
+  })
+
+  describe('Maybe', () => {
+    test('Just is Maybe', () => {
+      const expected = true
+      const actual = is(Maybe)(Just(888))
       expect(actual).toBe(expected)
     })
   })
