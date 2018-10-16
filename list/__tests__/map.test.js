@@ -52,4 +52,13 @@ describe('list/map', () => {
     const actual = map(asyncWhenOddDouble)(iterator())
     return expect(actual).resolves.toMatchObject(expected)
   })
+
+  test('map does not cache', () => {
+    expect.assertions(1)
+    const expected = [ 2, 4 ]
+    const mapDouble = map(double)
+    mapDouble([ 1, 2 ])
+    const actual = mapDouble([ 1, 2 ])
+    expect(actual).toEqual(expected)
+  })
 })
