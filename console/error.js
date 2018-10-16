@@ -1,6 +1,6 @@
 
 const tap = require('../function/tap')
 
-const error = tap (x => console.error (x))
+const error = tap(x => console.error(x))
 
 module.exports = error

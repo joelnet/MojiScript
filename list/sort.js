@@ -1,6 +1,4 @@
 
-const sort = func => iterable => {
-  return [...iterable].sort((a, b) => func (a) (b))
-}
+const sort = func => iterable => [ ...iterable ].sort((a, b) => func(a)(b))
 
 module.exports = sort
