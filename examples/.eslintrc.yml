@@ -1,6 +1,0 @@
-extends: ../.eslintrc.yml
-rules:
-  import/no-unresolved: off
-  prefer-promise-reject-errors: warn
-  import/prefer-default-export: warn
-  no-shadow: warn
