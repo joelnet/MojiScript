@@ -1,4 +1,3 @@
-
 const K = require('../combinators/K')
 const is = require('../type/is')
 

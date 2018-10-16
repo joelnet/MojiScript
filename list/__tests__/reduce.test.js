@@ -9,14 +9,14 @@ describe('list/reduce', () => {
 
   test('sync array', () => {
     const expected = 6
-    const actual = reduce(add)(0)([1, 2, 3])
+    const actual = reduce(add)(0)([ 1, 2, 3 ])
     expect(actual).toBe(expected)
   })
 
   test('async array', () => {
     expect.assertions(1)
     const expected = 6
-    const actual = reduce(asyncAdd)(0)([1, 2, 3])
+    const actual = reduce(asyncAdd)(0)([ 1, 2, 3 ])
     return expect(actual).resolves.toBe(expected)
   })
 
@@ -36,14 +36,14 @@ describe('list/reduce', () => {
   test('async array mixed', () => {
     expect.assertions(1)
     const expected = 6
-    const actual = reduce(asyncWhenEvenAdd)(0)([1, 2, 3])
+    const actual = reduce(asyncWhenEvenAdd)(0)([ 1, 2, 3 ])
     return expect(actual).resolves.toBe(expected)
   })
 
   test('async iterable mixed', () => {
     expect.assertions(1)
     const expected = 6
-    const actual = reduce(asyncWhenEvenAdd)(0)([1, 2, 3])
+    const actual = reduce(asyncWhenEvenAdd)(0)([ 1, 2, 3 ])
     return expect(actual).resolves.toBe(expected)
   })
 

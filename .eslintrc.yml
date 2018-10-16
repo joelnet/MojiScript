@@ -2,6 +2,7 @@
 env:
   es6: true
   node: true
+  jest: true
   browser: false
 extends: airbnb-base
 parserOptions:
@@ -19,14 +20,22 @@ rules:
   semi:
   - error
   - never
+  comma-dangle:
+  - error
+  - never
   prefer-template: error
+  prefer-promise-reject-errors: off
   array-bracket-spacing:
   - error
   - always
   camelcase: warn
+  no-confusing-arrow: off
   no-useless-escape: warn
-  no-nested-ternary: warn
-  no-sequences: warn
-  no-plusplus: warn
+  no-nested-ternary: off
+  no-sequences: off
+  no-plusplus: off
+  no-shadow: off
+  implicit-arrow-linebreak: off
   import/no-extraneous-dependencies: warn
+  import/prefer-default-export: off
   max-len: warn

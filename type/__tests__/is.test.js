@@ -28,10 +28,10 @@ describe('types/is', () => {
 
     test('function', () => {
       const expected = true
-      const actual = isFunction(function() {})
+      const actual = isFunction(() => {})
       expect(actual).toBe(expected)
     })
-  
+
     test('arrow function', () => {
       const expected = true
       const actual = isFunction(() => {})
@@ -62,7 +62,7 @@ describe('types/is', () => {
 
     test('new Object', () => {
       const expected = true
-      const actual = isObject(new Object())
+      const actual = isObject(new Object()) // eslint-disable-line no-new-object
       expect(actual).toBe(expected)
     })
 
@@ -100,7 +100,7 @@ describe('types/is', () => {
 
     test('Array', () => {
       const expected = true
-      const actual = isArray([1, 2, 3])
+      const actual = isArray([ 1, 2, 3 ])
       expect(actual).toBe(expected)
     })
 
@@ -112,7 +112,7 @@ describe('types/is', () => {
 
     test('new Array', () => {
       const expected = true
-      const actual = isArray(new Array())
+      const actual = isArray(new Array()) // eslint-disable-line no-array-constructor
       expect(actual).toBe(expected)
     })
 

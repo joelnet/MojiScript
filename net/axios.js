@@ -8,5 +8,5 @@ module.exports = {
   options: url => options => axios.options(url, options),
   post: url => data => options => axios.post(url, data, options),
   put: url => data => options => axios.put(url, data, options),
-  patch: url => data => options => axios.patch(url, data, options),
+  patch: url => data => options => axios.patch(url, data, options)
 }

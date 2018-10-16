@@ -6,14 +6,14 @@ describe('console/error', () => {
 
   test('calls console.error', () => {
     const expected = 888
-    error (expected)
+    error(expected)
     const actual = global.console.error.mock.calls[0][0]
     expect(actual).toBe(expected)
   })
 
   test('returns original value', () => {
     const expected = 888
-    const actual = error (expected)
+    const actual = error(expected)
     expect(actual).toBe(expected)
   })
 })

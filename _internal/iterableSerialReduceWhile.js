@@ -1,4 +1,3 @@
-
 const iterableSerialReduceWhile = async (
   predicate,
   func,

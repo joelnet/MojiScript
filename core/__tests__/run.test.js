@@ -30,7 +30,9 @@ describe('core/run', () => {
     expect.assertions(1)
     const expected = 888
     const dependencies = expected
-    const main = jest.fn().mockImplementation(d => jest.fn().mockImplementation(s => Promise.resolve()))
+    const main = jest.fn().mockImplementation(
+      () => jest.fn().mockImplementation(() => Promise.resolve()),
+    )
     run({ dependencies, main })
     const actual = main.mock.calls[0][0]
     return expect(actual).toBe(expected)
@@ -54,7 +56,7 @@ describe('core/run', () => {
     const state = expected
     const dependencies = 8
     const main = jest.fn().mockImplementation(s => Promise.resolve(s))
-    const deps = jest.fn().mockImplementation(d => main)
+    const deps = jest.fn().mockImplementation(() => main)
     const actual = run({ dependencies, state, main: deps })
     return expect(actual).resolves.toBe(expected)
   })

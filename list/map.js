@@ -1,4 +1,3 @@
-
 const call = require('../_internal/call')
 const reduceWhile = require('./reduceWhile')
 
