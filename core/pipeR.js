@@ -1,9 +1,8 @@
-
-const ensureExecutable = require('../_internal/ensureExecutable')
+const maybeExec = require('../_internal/maybeExec')
 
 const pipeR = func => value => func(pipeR(func)).reduce(
-  (acc, x) => acc.then(ensureExecutable(x)),
-  Promise.resolve(value),
+  (acc, func) => acc.then(maybeExec(func)),
+  Promise.resolve(value)
 )
 
 module.exports = pipeR
