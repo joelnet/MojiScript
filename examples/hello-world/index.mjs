@@ -4,8 +4,8 @@ import run from 'mojiscript/core/run'
 
 const state = 'Hello World'
 
-const main = pipe ([
-  log
+const main = pipe([
+  log,
 ])
 
-run ({ state, main })
+run({ state, main })

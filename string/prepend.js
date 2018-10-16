@@ -1,4 +1,3 @@
-const prepend = pre => post =>
-  `${pre}${post}`
+const prepend = pre => post => `${pre}${post}`
 
 module.exports = prepend

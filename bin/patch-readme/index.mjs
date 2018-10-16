@@ -6,8 +6,8 @@ import main from './main'
 const dependencies = {
   baseUrl: 'https://github.com/joelnet/MojiScript/tree/master',
   readFile: readFileUtf8,
-  log
+  log,
 }
-const state = `${process.cwd ()}/README.md`
+const state = `${process.cwd()}/README.md`
 
-run ({ dependencies, state, main })
+run({ dependencies, state, main })
