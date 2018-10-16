@@ -12,13 +12,13 @@ describe('logic/allPass', () => {
 
   test('fail returns false', () => {
     const expected = false
-    const actual = allPass([isEven, isLessThan10])(7)
+    const actual = allPass([ isEven, isLessThan10 ])(7)
     expect(actual).toBe(expected)
   })
 
   test('success returns true', () => {
     const expected = true
-    const actual = allPass([isEven, isLessThan10])(8)
+    const actual = allPass([ isEven, isLessThan10 ])(8)
     expect(actual).toBe(expected)
   })
 })

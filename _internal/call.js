@@ -1,4 +1,3 @@
-/* eslint-disable */
 const isThenable = require('../_internal/isThenable')
 
 /*
@@ -6,8 +5,8 @@ const isThenable = require('../_internal/isThenable')
  */
 // call :: Function -> Any -> Any | Promise<Any>
 const call = func => value =>
-  isThenable (value)
-    ? value.then (func)
-    : func (value)
+  isThenable(value)
+    ? value.then(func)
+    : func(value)
 
 module.exports = call

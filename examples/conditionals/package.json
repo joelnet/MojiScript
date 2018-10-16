@@ -5,11 +5,20 @@
   "license": "MIT",
   "main": "index.mjs",
   "scripts": {
+    "build": "eslint . --ext .js,.mjs",
     "ifelse": "node --experimental-modules --no-warnings ifElse.mjs",
     "cond": "node --experimental-modules --no-warnings cond.mjs",
     "cond2": "node --experimental-modules --no-warnings cond2.mjs"
   },
   "dependencies": {
     "mojiscript": "file:../.."
+  },
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-config-mojiscript": "1.2.0",
+    "eslint-plugin-better": "0.1.5",
+    "eslint-plugin-fp": "2.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prefer-arrow": "1.1.3"
   }
 }

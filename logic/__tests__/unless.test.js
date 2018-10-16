@@ -7,13 +7,13 @@ describe('logic/unless', () => {
 
   test('match calls function', () => {
     const expected = 888
-    const actual = unless (isOdd) (double) (444)
+    const actual = unless(isOdd)(double)(444)
     expect(actual).toBe(expected)
   })
 
   test('no match returns value', () => {
     const expected = 888
-    const actual = unless (isEven) (double) (expected)
+    const actual = unless(isEven)(double)(expected)
     expect(actual).toBe(expected)
   })
 })

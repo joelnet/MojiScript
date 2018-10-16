@@ -6,7 +6,7 @@ describe('core/after', () => {
     const expected = 888
     const f = jest.fn()
     const g = jest.fn()
-    await after (f) (g) (expected)
+    await after(f)(g)(expected)
     const actual = f.mock.calls[0][0]
     expect(actual).toBe(expected)
   })
@@ -16,7 +16,7 @@ describe('core/after', () => {
     const expected = 888
     const f = jest.fn()
     const g = jest.fn()
-    await after (f) (g) (expected)
+    await after(f)(g)(expected)
     const actual = g.mock.calls[0][0]
     expect(actual).toBe(expected)
   })
@@ -26,7 +26,7 @@ describe('core/after', () => {
     const expected = 888
     const f = jest.fn()
     const g = x => x * 2
-    const actual = after (f) (g) (444)
+    const actual = after(f)(g)(444)
     expect(actual).resolves.toBe(expected)
   })
 })

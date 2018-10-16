@@ -2,11 +2,11 @@ const cond = require('../cond')
 
 describe('logic/cond', () => {
   const c = cond([
-    [null, 'null'],
-    [undefined, 'undefined'],
-    ['abc', 'ABC'],
-    [x => x === '123', 'ONE TWO THREE'],
-    [x => x[0] === 'h', x => x.toUpperCase()],
+    [ null, 'null' ],
+    [ undefined, 'undefined' ],
+    [ 'abc', 'ABC' ],
+    [ x => x === '123', 'ONE TWO THREE' ],
+    [ x => x[0] === 'h', x => x.toUpperCase() ]
   ])
 
   test('test with null returns value', () => {

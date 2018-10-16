@@ -1,9 +1,8 @@
 const curry = require('../curry')
 
 describe('function/curry', () => {
-  function add() {
-    return Array.from(arguments).reduce((a, b) => a + b)
-  }
+  const add = (...args) =>
+    args.reduce((a, b) => a + b)
 
   test('curry1 throws', () => {
     const actual = () => curry(1)(add)

@@ -30,4 +30,4 @@ const main = ({ log }) => pipe ([
   log
 ])
 
-run ({ dependencies, state, main }) //=> 'NO'
+run ({ dependencies, state, main }) //= > 'NO'

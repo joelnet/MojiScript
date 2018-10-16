@@ -1,5 +1,4 @@
-/* eslint-disable */
-const join = separator => list =>
-  Array.prototype.join.call(list, separator)
+
+const join = separator => list => Array.prototype.join.call(list, separator)
 
 module.exports = join

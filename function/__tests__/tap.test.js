@@ -21,7 +21,7 @@ describe('function/tap', () => {
     const func = jest.fn()
     const tapped = tap(func)
     const expected = 888
-    
+
     tapped(expected)
     const actual = func.mock.calls[0][0]
 
