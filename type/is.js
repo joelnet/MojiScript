@@ -6,8 +6,8 @@ const isFunction = value => typeof value === 'function'
 const testSymbol = ctor => typeof ctor === 'function' && typeof ctor['@@type'] === 'symbol'
 const isSymbol = (ctor, value) => value != null && ctor['@@type'] === value['@@type']
 
-const testMaybe = ctor => typeof ctor === 'object' && ctor['@@type'] === require('./Maybe')['@@type']
-const isMaybe = value => value != null && [require('./Just')['@@type'], require('./Nothing')['@@type']].indexOf(value['@@type']) > -1
+const testMaybe = ctor => typeof ctor === 'object' && typeof ctor['@@type'].toString === 'function' && ctor['@@type'].toString() === 'Symbol(mojiscript/type/Maybe)'
+const isMaybe = value => value != null && typeof value['@@type'].toString && ['Symbol(mojiscript/type/Just)', 'Symbol(mojiscript/type/Nothing)'].indexOf(value['@@type'].toString()) > -1
 
 const testType = (ctor) => typeof ctor === 'object' && typeof ctor['@@type'] === 'symbol'
 const isType = (ctor, value) => value != null && ctor['@@type'] === value['@@type']
