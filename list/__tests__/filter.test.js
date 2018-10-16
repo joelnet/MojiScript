@@ -50,4 +50,13 @@ describe('list/filter', () => {
     const actual = filter(asyncWhenIsOdd)(iterator())
     return expect(actual).resolves.toMatchObject(expected)
   })
+
+  test('filter does not cache', () => {
+    expect.assertions(1)
+    const expected = [ 1, 3 ]
+    const filterOdd = filter(isOdd)
+    filterOdd([ 1, 2, 3 ])
+    const actual = filterOdd([ 1, 2, 3 ])
+    expect(actual).toEqual(expected)
+  })
 })
