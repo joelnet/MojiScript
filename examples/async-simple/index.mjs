@@ -19,4 +19,4 @@ const main = pipe ([
   log
 ])
 
-run ({ state, main }) //=> 10
+run ({ state, main }) //= > 10

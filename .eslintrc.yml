@@ -1,1 +1,41 @@
-extends: 'mojiscript'
+
+env:
+  es6: true
+  node: true
+  jest: true
+  browser: false
+extends: airbnb-base
+parserOptions:
+  ecmaVersion: 2017
+rules:
+  indent:
+  - error
+  - 2
+  linebreak-style:
+  - error
+  - unix
+  quotes:
+  - error
+  - single
+  semi:
+  - error
+  - never
+  comma-dangle:
+  - error
+  - never
+  prefer-template: error
+  prefer-promise-reject-errors: off
+  array-bracket-spacing:
+  - error
+  - always
+  camelcase: warn
+  no-confusing-arrow: off
+  no-useless-escape: warn
+  no-nested-ternary: off
+  no-sequences: off
+  no-plusplus: off
+  no-shadow: off
+  implicit-arrow-linebreak: off
+  import/no-extraneous-dependencies: warn
+  import/prefer-default-export: off
+  max-len: warn

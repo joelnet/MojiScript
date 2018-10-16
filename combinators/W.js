@@ -1,3 +1,3 @@
-const W = f => x => f (x) (x)
+const W = f => x => f(x)(x)
 
 module.exports = W

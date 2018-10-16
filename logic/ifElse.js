@@ -1,4 +1,4 @@
 const ifElse = condition => onTrue => onFalse => value =>
-  (condition (value) ? onTrue : onFalse) (value) // eslint-disable-line no-ternary
+  (condition(value) ? onTrue : onFalse)(value)
 
 module.exports = ifElse
