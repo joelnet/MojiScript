@@ -33,10 +33,17 @@ describe('type/Just', () => {
     expect(actual).toBe(expected)
   })
 
-  test('toString', () => {
+  test('Just(888).toString', () => {
     expect.assertions(1)
     const expected = 'Just (888)'
     const actual = Just(888).toString()
+    expect(actual).toBe(expected)
+  })
+
+  test('Just(abc).toString', () => {
+    expect.assertions(1)
+    const expected = 'Just ("abc")'
+    const actual = Just('abc').toString()
     expect(actual).toBe(expected)
   })
 
