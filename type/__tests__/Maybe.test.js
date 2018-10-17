@@ -5,24 +5,31 @@ const Nothing = require('../Nothing')
 
 describe('Maybe', () => {
   describe('fromMaybe', () => {
-    test('Nothing is null', () => {
+    test('Nothing returns null', () => {
       expect.assertions(1)
       const expected = null
-      const actual = fromMaybe(Nothing)
+      const actual = fromMaybe(expected)(Nothing)
+      expect(actual).toBe(expected)
+    })
+
+    test('Nothing returns 0', () => {
+      expect.assertions(1)
+      const expected = 0
+      const actual = fromMaybe(expected)(Nothing)
       expect(actual).toBe(expected)
     })
 
     test('Just returns value', () => {
       expect.assertions(1)
       const expected = 888
-      const actual = fromMaybe(Just(888))
+      const actual = fromMaybe(null)(Just(888))
       expect(actual).toBe(expected)
     })
 
     test('Unsupported returns null', () => {
       expect.assertions(1)
       const expected = null
-      const actual = fromMaybe({})
+      const actual = fromMaybe(null)({})
       expect(actual).toBe(expected)
     })
   })
