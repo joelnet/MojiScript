@@ -1047,9 +1047,13 @@ const main = pipe ([
   () => log (is (Array) ([])),
   () => log (is (String) ('')),
   () => log (is (Number) (1)),
+  () => log (is (Set) (new Set())),
+  () => log (is (Map) (new Map())),
 ])
 
 run ({ main })
+// => true
+// => true
 // => true
 // => true
 // => true

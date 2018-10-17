@@ -1,8 +1,12 @@
 .lib/
 **/.vscode/
+bin/
 coverage/
 examples/
 **/__tests__/
 **/node_modules/
+.all-contributorsrc
+.editorconfig
 .eslintignore
 .eslintrc.yml
+.travis.yml

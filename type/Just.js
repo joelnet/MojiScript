@@ -1,5 +1,5 @@
 function Just(value) {
-  const toString = () => `Just (${value})`
+  const toString = () => `Just (${JSON.stringify(value)})`
   const map = func => Just(func(value))
 
   return Object.freeze({
