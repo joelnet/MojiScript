@@ -229,4 +229,74 @@ describe('types/is', () => {
       expect(actual).toBe(expected)
     })
   })
+
+  describe('Set', () => {
+    const isSet = is(Set)
+
+    it('Set', () => {
+      const expected = true
+      const actual = isSet(new Set([ 1, 2 ]))
+      expect(actual).toBe(expected)
+    })
+
+    it('Empty set', () => {
+      const expected = true
+      const actual = isSet(new Set())
+      expect(actual).toBe(expected)
+    })
+
+    it('Array is false', () => {
+      const expected = false
+      const actual = isSet([])
+      expect(actual).toBe(expected)
+    })
+
+    it('null is false', () => {
+      const expected = false
+      const actual = isSet(null)
+      expect(actual).toBe(expected)
+    })
+
+    it('undefined', () => {
+      const expected = false
+      const actual = isSet(undefined)
+      expect(actual).toBe(expected)
+    })
+  })
+
+  describe('Map', () => {
+    const isMap = is(Map)
+
+    it('Map', () => {
+      const expected = true
+      const actual = isMap(new Map([
+        [ 'one', 1 ]
+      ]))
+      expect(actual).toBe(expected)
+    })
+
+    it('Empty map', () => {
+      const expected = true
+      const actual = isMap(new Map())
+      expect(actual).toBe(expected)
+    })
+
+    it('Object is false', () => {
+      const expected = false
+      const actual = isMap({})
+      expect(actual).toBe(expected)
+    })
+
+    it('null is false', () => {
+      const expected = false
+      const actual = isMap(null)
+      expect(actual).toBe(expected)
+    })
+
+    it('undefined is false', () => {
+      const expected = false
+      const actual = isMap(undefined)
+      expect(actual).toBe(expected)
+    })
+  })
 })
