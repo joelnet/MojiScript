@@ -20,16 +20,16 @@ describe('type/Nothing', () => {
   test('map', () => {
     expect.assertions(1)
     const expected = Nothing
-    const identity = Nothing
-    const actual = identity.map(x => x * 2)
+    const nothing = Nothing
+    const actual = nothing.map(x => x * 2)
     expect(actual).toBe(expected)
   })
 
   test('fantasy-land/map', () => {
     expect.assertions(1)
     const expected = Nothing
-    const identity = Nothing
-    const actual = identity['fantasy-land/map'](x => x * 2)
+    const nothing = Nothing
+    const actual = nothing['fantasy-land/map'](x => x * 2)
     expect(actual).toBe(expected)
   })
 
