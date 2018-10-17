@@ -1,4 +1,6 @@
 const map = require('../map')
+const Just = require('../../type/Just')
+const Nothing = require('../../type/Nothing')
 
 describe('list/map', () => {
   const isOdd = num => num % 2 !== 0
@@ -60,5 +62,33 @@ describe('list/map', () => {
     mapDouble([ 1, 2 ])
     const actual = mapDouble([ 1, 2 ])
     expect(actual).toEqual(expected)
+  })
+
+  test('Just', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = map(double)(Just(444)).value
+    expect(actual).toBe(expected)
+  })
+
+  test('functor', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = map(double)({ map: func => func(444) })
+    expect(actual).toBe(expected)
+  })
+
+  test('Nothing', () => {
+    expect.assertions(1)
+    const expected = Nothing
+    const actual = map(double)(expected)
+    expect(actual).toBe(expected)
+  })
+
+  test('unmappable', () => {
+    expect.assertions(1)
+    const expected = TypeError('Object is not mappable.')
+    const actual = () => map(double)(() => {})
+    expect(actual).toThrowError(expected)
   })
 })
