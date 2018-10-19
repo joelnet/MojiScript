@@ -15,6 +15,15 @@ describe('list/reduceWhile', () => {
     yield 3
   }
 
+  const asyncIterator = () => ({
+    [Symbol.asyncIterator]: () => {
+      let i = 1
+      return {
+        next: () => Promise.resolve({ value: i++, done: i > 4 })
+      }
+    }
+  })
+
   test('sync array', () => {
     const expected = 3
     const actual = reduceWhile(predicate)(add)(0)([ 1, 2, 3 ])
@@ -72,6 +81,34 @@ describe('list/reduceWhile', () => {
     expect.assertions(1)
     const expected = 3
     const actual = reduceWhile(predicate)(asyncWhenEvenAdd)(0)(range(0)(4))
+    return expect(actual).resolves.toBe(expected)
+  })
+
+  test('async iterator predicate', () => {
+    expect.assertions(1)
+    const expected = 3
+    const actual = reduceWhile(predicate)(add)(0)(asyncIterator())
+    return expect(actual).resolves.toBe(expected)
+  })
+
+  test('async iterator', () => {
+    expect.assertions(1)
+    const expected = 6
+    const actual = reduceWhile(null)(add)(0)(asyncIterator())
+    return expect(actual).resolves.toBe(expected)
+  })
+
+  test('async iterator predicate async reduce', () => {
+    expect.assertions(1)
+    const expected = 3
+    const actual = reduceWhile(predicate)(asyncAdd)(0)(asyncIterator())
+    return expect(actual).resolves.toBe(expected)
+  })
+
+  test('async iterator async reduce', () => {
+    expect.assertions(1)
+    const expected = 6
+    const actual = reduceWhile(null)(asyncAdd)(0)(asyncIterator())
     return expect(actual).resolves.toBe(expected)
   })
 })
