@@ -223,9 +223,46 @@ describe('types/is', () => {
   })
 
   describe('Maybe', () => {
+    test('Maybe', () => {
+      const expected = true
+      const maybe = Maybe
+      const actual = is(Maybe)(maybe)
+      expect(actual).toBe(expected)
+    })
+
     test('Just is Maybe', () => {
       const expected = true
       const actual = is(Maybe)(Just(888))
+      expect(actual).toBe(expected)
+    })
+
+    test('Nothing is Maybe', () => {
+      const expected = true
+      const actual = is(Maybe)(Nothing)
+      expect(actual).toBe(expected)
+    })
+
+    test('null is false', () => {
+      const expected = false
+      const actual = is(Maybe)(null)
+      expect(actual).toBe(expected)
+    })
+
+    test('undefined is false', () => {
+      const expected = false
+      const actual = is(Maybe)(undefined)
+      expect(actual).toBe(expected)
+    })
+
+    test('{} is false', () => {
+      const expected = false
+      const actual = is(Maybe)({})
+      expect(actual).toBe(expected)
+    })
+
+    test('function is false', () => {
+      const expected = false
+      const actual = is(Maybe)(() => {})
       expect(actual).toBe(expected)
     })
   })
