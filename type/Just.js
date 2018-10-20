@@ -1,3 +1,5 @@
+const { typeJust } = require('./_allTypes')
+
 function Just(value) {
   const toString = () => `Just (${JSON.stringify(value)})`
   const map = func => Just(func(value))
@@ -12,6 +14,6 @@ function Just(value) {
   })
 }
 
-Just['@@type'] = Symbol('mojiscript/type/Just')
+Just['@@type'] = typeJust
 
 module.exports = Just
