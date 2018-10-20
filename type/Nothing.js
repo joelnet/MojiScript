@@ -1,8 +1,9 @@
-const type = Symbol('mojiscript/type/Nothing')
+const { typeNothing } = require('./_allTypes')
+
 const toString = () => 'Nothing'
 
 const Nothing = Object.freeze({
-  '@@type': type,
+  '@@type': typeNothing,
   map: () => Nothing,
   'fantasy-land/map': () => Nothing,
   toString,
