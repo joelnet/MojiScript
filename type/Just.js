@@ -1,17 +1,31 @@
 const { typeJust } = require('./_allTypes')
 
-function Just(value) {
-  const toString = () => `Just (${JSON.stringify(value)})`
-  const map = func => Just(func(value))
+const Just = value => Object.create(
+  prototype, // eslint-disable-line
+  {
+    value: {
+      value,
+      writable: false,
+      configurable: false
+    }
+  }
+)
 
-  return Object.freeze({
-    '@@type': Just['@@type'],
-    value,
-    map,
-    'fantasy-land/map': map,
-    toString,
-    inspect: toString
-  })
+function toString() {
+  return `Just (${JSON.stringify(this.value)})`
+}
+
+function map(func) {
+  return Just(func(this.value))
+}
+
+const prototype = {
+  '@@type': typeJust,
+  map,
+  'fantasy-land/map': map,
+  toString,
+  inspect: toString,
+  toJSON() { return this.value }
 }
 
 Just['@@type'] = typeJust
