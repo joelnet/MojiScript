@@ -47,6 +47,20 @@ describe('type/Just', () => {
     expect(actual).toBe(expected)
   })
 
+  test('inspect', () => {
+    expect.assertions(1)
+    const expected = 'Just ("abc")'
+    const actual = Just('abc').inspect()
+    expect(actual).toEqual(expected)
+  })
+
+  test('toJSON', () => {
+    expect.assertions(1)
+    const expected = '"abc"'
+    const actual = JSON.stringify(Just('abc'))
+    expect(actual).toEqual(expected)
+  })
+
   test('@@type', () => {
     expect.assertions(1)
     const expected = Just['@@type']

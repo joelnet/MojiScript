@@ -8,7 +8,7 @@ const asyncMapReducer = func => acc => x => call(val => (acc.push(val), acc))(fu
 // map :: Function -> Mapable -> Array
 const map = func => mapable =>
   isIterable(mapable) ? reduceWhile (null) (asyncMapReducer (func)) ([]) (mapable) // eslint-disable-line
-  : isFunctor(mapable) ? (mapable['fantasy-land/map'] || mapable['map'])(func) // eslint-disable-line
+  : isFunctor(mapable) ? (mapable['fantasy-land/map'] || mapable['map']).call(mapable, func) // eslint-disable-line
   : (() => { throw new TypeError('Object is not mappable.') })() // eslint-disable-line
 
 module.exports = map
