@@ -1,13 +1,21 @@
 const { typeNothing } = require('./_allTypes')
 
-const toString = () => 'Nothing'
-
-const Nothing = Object.freeze({
-  '@@type': typeNothing,
-  map: () => Nothing,
-  'fantasy-land/map': () => Nothing,
-  toString,
-  inspect: toString
-})
+const Nothing = Object.freeze(Object.create(
+  {
+    '@@type': typeNothing,
+    toString: () => 'Nothing',
+    inspect: () => 'Nothing',
+    map: () => Nothing,
+    'fantasy-land/map': () => Nothing,
+    toJSON: () => null
+  },
+  {
+    value: {
+      value: null,
+      writable: false,
+      configurable: false
+    }
+  }
+))
 
 module.exports = Nothing
