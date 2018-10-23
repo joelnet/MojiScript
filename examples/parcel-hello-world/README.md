@@ -12,13 +12,13 @@ git clone https://github.com/joelnet/MojiScript.git
 cd MojiScript/examples/parcel-hello-world
 
 # install dependencies
-npm install -g parcel-bundler
+npm ci
 ```
 
 ## Run
 
 ```bash
-parcel index.html
+npm run start
 ```
 
 Go to [http://localhost:1234/](http://localhost:1234/)
@@ -30,19 +30,47 @@ Hello World
 
 ## Code
 
+### index.js
+
+The id of the app is set as the `state`. `document` is also passed in as a dependency.
+
 ```javascript
-document.getElementById('message').innerText = "Hello World!";
+import run from 'mojiscript/core/run'
+import main from './main'
+
+const state = 'app'
+
+const dependencies = {
+  document: global.document
+}
+
+run ({ dependencies, state, main })
 ```
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Parcel Demo 01</title>
-</head>
-<body>
-    <div id="message"></div>
-    <script src="./app.js"></script>
-</body>
-</html>
+### main.js
+
+`main`, receives the id of the app from `index` and executes `getElementById` first. Then it sets the text to `'Hello World!'`.
+
+```javascript
+import pipe from 'mojiscript/core/pipe'
+import { setInnerText, getElementById } from './interop/dom.js'
+
+const main = ({ document }) => pipe ([
+  getElementById (document),
+  setInnerText ('Hello World!')
+])
+
+export default main
+```
+
+### interop/dom.js
+
+Basic DOM interactions are compartmentalized off into an interop directory. This is where MojiScript can interact with classic JavaScript.
+
+```javascript
+export const setInnerText = text => element =>
+  element.innerText = text
+
+export const getElementById = document => id =>
+  document.getElementById(id)
 ```
