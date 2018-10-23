@@ -21,6 +21,7 @@ npm install -g parcel-bundler
 parcel index.html
 ```
 
+Go to [http://localhost:1234/](http://localhost:1234/)
 You should see the output
 
 ```
