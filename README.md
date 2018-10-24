@@ -1,4 +1,4 @@
-# MojiScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg) [![build status](https://travis-ci.org/joelnet/MojiScript.svg?branch=master)](https://travis-ci.org/joelnet/MojiScript) [![Coverage Status](https://coveralls.io/repos/github/joelnet/MojiScript/badge.svg?branch=master&v=1)](https://coveralls.io/github/joelnet/MojiScript?branch=master) [![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors)
+# MojiScript ![project:experimental](https://img.shields.io/badge/project-experimental-orange.svg) [![build status](https://travis-ci.org/joelnet/MojiScript.svg?branch=master)](https://travis-ci.org/joelnet/MojiScript) [![Coverage Status](https://coveralls.io/repos/github/joelnet/MojiScript/badge.svg?branch=master&v=1)](https://coveralls.io/github/joelnet/MojiScript?branch=master) ![project:experimental](https://img.shields.io/badge/tests-244-green.svg) [![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors)
 
 ![MojiScript logo](https://raw.githubusercontent.com/joelnet/MojiScript/master/media/MS_logo_64.png)
 
