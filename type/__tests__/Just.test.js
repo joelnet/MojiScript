@@ -35,14 +35,14 @@ describe('type/Just', () => {
 
   test('Just(888).toString', () => {
     expect.assertions(1)
-    const expected = 'Just (888)'
+    const expected = '888'
     const actual = Just(888).toString()
     expect(actual).toBe(expected)
   })
 
   test('Just(abc).toString', () => {
     expect.assertions(1)
-    const expected = 'Just ("abc")'
+    const expected = 'abc'
     const actual = Just('abc').toString()
     expect(actual).toBe(expected)
   })
@@ -65,6 +65,27 @@ describe('type/Just', () => {
     expect.assertions(1)
     const expected = Just['@@type']
     const actual = Just(888)['@@type']
+    expect(actual).toBe(expected)
+  })
+
+  test('cast to string', () => {
+    expect.assertions(1)
+    const expected = 'a'
+    const actual = `${Just('a')}`
+    expect(actual).toBe(expected)
+  })
+
+  test('append strings', () => {
+    expect.assertions(1)
+    const expected = 'ab'
+    const actual = Just('a') + Just('b')
+    expect(actual).toBe(expected)
+  })
+
+  test('Number(Just()) returns number', () => {
+    expect.assertions(1)
+    const expected = 3
+    const actual = Number(Just(3))
     expect(actual).toBe(expected)
   })
 })

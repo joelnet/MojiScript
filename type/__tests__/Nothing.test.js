@@ -28,7 +28,7 @@ describe('type/Nothing', () => {
 
   test('toString', () => {
     expect.assertions(1)
-    const expected = 'Nothing'
+    const expected = ''
     const actual = Nothing.toString()
     expect(actual).toBe(expected)
   })
@@ -59,5 +59,12 @@ describe('type/Nothing', () => {
     const expected = []
     const actual = Object.keys(Nothing)
     expect(actual).toEqual(expected)
+  })
+
+  test('Number(Nothing) returns 0', () => {
+    expect.assertions(1)
+    const expected = 0
+    const actual = Number(Nothing)
+    expect(actual).toBe(expected)
   })
 })

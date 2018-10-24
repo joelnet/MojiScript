@@ -11,10 +11,6 @@ const Just = value => Object.create(
   }
 )
 
-function toString() {
-  return `Just (${JSON.stringify(this.value)})`
-}
-
 function map(func) {
   return Just(func(this.value))
 }
@@ -23,8 +19,8 @@ const prototype = {
   '@@type': typeJust,
   map,
   'fantasy-land/map': map,
-  toString,
-  inspect: toString,
+  toString() { return this.value.toString() },
+  inspect() { return `Just (${JSON.stringify(this.value)})` },
   toJSON() { return this.value }
 }
 

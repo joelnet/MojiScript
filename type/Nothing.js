@@ -3,7 +3,7 @@ const { typeNothing } = require('./_allTypes')
 const Nothing = Object.freeze(Object.create(
   {
     '@@type': typeNothing,
-    toString: () => 'Nothing',
+    toString: () => '',
     inspect: () => 'Nothing',
     map: () => Nothing,
     'fantasy-land/map': () => Nothing,
