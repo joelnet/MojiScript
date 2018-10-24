@@ -6,6 +6,8 @@ MojiScript is an Async First, opinionated, and functional language designed to h
 
 MojiScript's design is derived from Functional Programming concepts such as Currying, Partial Application, Function Composition, Category Theory, and Atomic Design.
 
+**NEW: Join the discussion in the [MojiScript Discord chat](https://discord.gg/Gg7ptD5)!**
+
 ## Table of Contents
 
 - [Philosophy](#philosophy)
