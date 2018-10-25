@@ -48,10 +48,25 @@ describe('type/Just', () => {
     expect(actual).toBe(expected)
   })
 
-  test('inspect', () => {
+  test('Just(abc).inspect', () => {
     expect.assertions(1)
     const expected = 'Just ("abc")'
     const actual = Just('abc').inspect()
+    expect(actual).toEqual(expected)
+  })
+
+  test('Just(function()).inspect', () => {
+    expect.assertions(1)
+    const expected = 'Just (function ())'
+    const actual = Just(() => {}).inspect()
+    expect(actual).toEqual(expected)
+  })
+
+  test('Just(add()).inspect', () => {
+    expect.assertions(1)
+    const add = () => {}
+    const expected = 'Just (function add())'
+    const actual = Just(add).inspect()
     expect(actual).toEqual(expected)
   })
 

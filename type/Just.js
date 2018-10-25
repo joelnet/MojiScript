@@ -29,7 +29,7 @@ const prototype = {
   'fantasy-land/ap': ap,
   'fantasy-land/map': map,
   toString() { return this.value.toString() },
-  inspect() { return `Just (${JSON.stringify(this.value)})` },
+  inspect() { return `Just (${typeof this.value === 'function' ? `function ${this.value.name}()` : JSON.stringify(this.value)})` },
   toJSON() { return this.value }
 }
 
