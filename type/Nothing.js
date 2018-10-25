@@ -5,6 +5,7 @@ const Nothing = Object.freeze(Object.create(
     '@@type': typeNothing,
     toString: () => '',
     inspect: () => 'Nothing',
+    ap: () => Nothing,
     map: () => Nothing,
     'fantasy-land/map': () => Nothing,
     toJSON: () => null
@@ -13,6 +14,7 @@ const Nothing = Object.freeze(Object.create(
     value: {
       value: null,
       writable: false,
+      enumerable: true,
       configurable: false
     }
   }
