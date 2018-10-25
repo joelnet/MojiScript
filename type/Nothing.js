@@ -1,5 +1,10 @@
 const { typeNothing } = require('./_allTypes')
 
+function leftMap(func) {
+  const value = func()
+  return value
+}
+
 const Nothing = Object.freeze(Object.create(
   {
     '@@type': typeNothing,
@@ -21,10 +26,5 @@ const Nothing = Object.freeze(Object.create(
     }
   }
 ))
-
-function leftMap(func) {
-  const value = func()
-  return value
-}
 
 module.exports = Nothing
