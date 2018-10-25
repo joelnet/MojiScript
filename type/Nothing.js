@@ -7,6 +7,8 @@ const Nothing = Object.freeze(Object.create(
     inspect: () => 'Nothing',
     ap: () => Nothing,
     map: () => Nothing,
+    leftMap,
+    flatMap: () => Nothing,
     'fantasy-land/map': () => Nothing,
     toJSON: () => null
   },
@@ -19,5 +21,10 @@ const Nothing = Object.freeze(Object.create(
     }
   }
 ))
+
+function leftMap(func) {
+  const value = func()
+  return value
+}
 
 module.exports = Nothing

@@ -26,6 +26,30 @@ describe('type/Just', () => {
     expect(actual).toBe(expected)
   })
 
+  test('flatMap With String', () => {
+    expect.assertions(1)
+    const expected = "ABC"
+    const just = Just('abc')
+    const actual = just.flatMap(s => typeof s === 'string' ? Just (s.toUpperCase()) : Nothing).toString()
+    expect(actual).toBe(expected)
+  })
+
+  test('flatMap With Number', () => {
+    expect.assertions(1)
+    const expected = Nothing
+    const just = Just(123)
+    const actual = just.flatMap(s => typeof s === 'string' ? Just (s.toUpperCase()) : Nothing)
+    expect(actual).toBe(expected)
+  })
+
+  test('leftMap', () => {
+    expect.assertions(1)
+    const expected = "abc"
+    const just = Just('abc')
+    const actual = just.leftMap(s => typeof s === 'string' ? Just (s.toUpperCase()) : Nothing).toString()
+    expect(actual).toBe(expected)
+  })
+
   test('fantasy-land/map', () => {
     expect.assertions(1)
     const expected = 888
