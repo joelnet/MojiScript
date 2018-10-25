@@ -1,4 +1,5 @@
 const { typeJust } = require('./_allTypes')
+const Nothing = require('./Nothing')
 
 const Just = value => Object.create(
   prototype, // eslint-disable-line
@@ -13,7 +14,8 @@ const Just = value => Object.create(
 )
 
 function map(func) {
-  return Just(func(this.value))
+  const value = func(this.value)
+  return value === undefined ? Nothing : Just(value)
 }
 
 function ap(just) {
