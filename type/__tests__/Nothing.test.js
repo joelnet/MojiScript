@@ -54,9 +54,9 @@ describe('type/Nothing', () => {
     expect(actual).toBe(expected)
   })
 
-  test('has no keys', () => {
+  test('has value key', () => {
     expect.assertions(1)
-    const expected = []
+    const expected = [ 'value' ]
     const actual = Object.keys(Nothing)
     expect(actual).toEqual(expected)
   })
