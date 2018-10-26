@@ -1,4 +1,5 @@
 const Nothing = require('../Nothing')
+const Just = require('../Just')
 
 describe('type/Nothing', () => {
   test('is immutable', () => {
@@ -15,6 +16,30 @@ describe('type/Nothing', () => {
     const expected = Nothing
     const nothing = Nothing
     const actual = nothing.map(x => x * 2)
+    expect(actual).toBe(expected)
+  })
+
+  test('flatMap', () => {
+    expect.assertions(1)
+    const expected = Nothing
+    const nothing = Nothing
+    const actual = nothing.flatMap(() => 666)
+    expect(actual).toBe(expected)
+  })
+
+  test('leftMap with String', () => {
+    expect.assertions(1)
+    const expected = 'Just ("ABC")'
+    const nothing = Nothing
+    const actual = nothing.leftMap(() => Just('ABC')).inspect()
+    expect(actual).toBe(expected)
+  })
+
+  test('leftMap with Nothing', () => {
+    expect.assertions(1)
+    const expected = Nothing
+    const nothing = Nothing
+    const actual = nothing.leftMap(() => Nothing)
     expect(actual).toBe(expected)
   })
 

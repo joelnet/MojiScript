@@ -21,16 +21,49 @@ describe('type/Just', () => {
   test('map', () => {
     expect.assertions(1)
     const expected = 888
-    const just = Just(444)
-    const actual = just.map(x => x * 2).value
+    const actual = Just(444).map(x => x * 2).value
+    expect(actual).toBe(expected)
+  })
+
+  test('flatMap With String', () => {
+    expect.assertions(1)
+    const expected = 'Just ("ABC")'
+    const actual = Just('abc').flatMap(s => typeof s === 'string' ? Just(s.toUpperCase()) : Nothing).inspect()
+    expect(actual).toBe(expected)
+  })
+
+  test('flatMap With Number', () => {
+    expect.assertions(1)
+    const expected = Nothing
+    const actual = Just(123).flatMap(s => typeof s === 'string' ? Just(s.toUpperCase()) : Nothing)
+    expect(actual).toBe(expected)
+  })
+
+  test('flatMap returns value', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = Just(123).flatMap(() => 888)
+    expect(actual).toBe(expected)
+  })
+
+  test('flatMap returns undefined', () => {
+    expect.assertions(1)
+    const expected = undefined
+    const actual = Just(123).flatMap(() => undefined)
+    expect(actual).toBe(expected)
+  })
+
+  test('leftMap', () => {
+    expect.assertions(1)
+    const expected = 'Just ("abc")'
+    const actual = Just('abc').leftMap(s => typeof s === 'string' ? Just(s.toUpperCase()) : Nothing).inspect()
     expect(actual).toBe(expected)
   })
 
   test('fantasy-land/map', () => {
     expect.assertions(1)
     const expected = 888
-    const just = Just(444)
-    const actual = just['fantasy-land/map'](x => x * 2).value
+    const actual = Just(444)['fantasy-land/map'](x => x * 2).value
     expect(actual).toBe(expected)
   })
 
