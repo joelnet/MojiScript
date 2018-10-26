@@ -139,6 +139,25 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "jdiehl",
+      "name": "Jonathan Diehl",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1334574?v=4",
+      "profile": "https://github.com/jdiehl",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "thanhcng",
+      "name": "Thanh Nguyen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/43359149?v=4",
+      "profile": "https://thanhnguyen105337150.wordpress.com/",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ]
 }
