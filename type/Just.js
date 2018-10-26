@@ -1,4 +1,8 @@
+const is = require('./is')
+const Nothing = require('./Nothing')
 const { typeJust } = require('./_allTypes')
+
+const isFunction = is(Function)
 
 const Just = value => Object.create(
   prototype, // eslint-disable-line
@@ -13,7 +17,8 @@ const Just = value => Object.create(
 )
 
 function map(func) {
-  return Just(func(this.value))
+  const value = func(this.value)
+  return value === undefined ? Nothing : Just(value)
 }
 
 function ap(just) {
@@ -27,7 +32,7 @@ const prototype = {
   'fantasy-land/ap': ap,
   'fantasy-land/map': map,
   toString() { return this.value.toString() },
-  inspect() { return `Just (${JSON.stringify(this.value)})` },
+  inspect() { return `Just (${isFunction(this.value) ? `function ${this.value.name}()` : JSON.stringify(this.value)})` },
   toJSON() { return this.value }
 }
 

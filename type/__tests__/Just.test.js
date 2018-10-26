@@ -1,4 +1,5 @@
 const Just = require('../Just')
+const Nothing = require('../Nothing')
 
 describe('type/Just', () => {
   test('value prop is set to value', () => {
@@ -47,10 +48,25 @@ describe('type/Just', () => {
     expect(actual).toBe(expected)
   })
 
-  test('inspect', () => {
+  test('Just(abc).inspect', () => {
     expect.assertions(1)
     const expected = 'Just ("abc")'
     const actual = Just('abc').inspect()
+    expect(actual).toEqual(expected)
+  })
+
+  test('Just(function()).inspect', () => {
+    expect.assertions(1)
+    const expected = 'Just (function ())'
+    const actual = Just(() => {}).inspect()
+    expect(actual).toEqual(expected)
+  })
+
+  test('Just(add()).inspect', () => {
+    expect.assertions(1)
+    const add = () => {}
+    const expected = 'Just (function add())'
+    const actual = Just(add).inspect()
     expect(actual).toEqual(expected)
   })
 
@@ -86,6 +102,13 @@ describe('type/Just', () => {
     expect.assertions(1)
     const expected = 3
     const actual = Number(Just(3))
+    expect(actual).toBe(expected)
+  })
+
+  test('when map returns undefined return Nothing', () => {
+    expect.assertions(1)
+    const expected = Nothing
+    const actual = Just(666).map(() => undefined)
     expect(actual).toBe(expected)
   })
 })
