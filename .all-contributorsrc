@@ -148,6 +148,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "thanhcng",
+      "name": "Thanh Nguyen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/43359149?v=4",
+      "profile": "https://thanhnguyen105337150.wordpress.com/",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ]
 }
