@@ -22,8 +22,7 @@ function map(func) {
 }
 
 function flatMap(func) {
-  const value = func(this.value)
-  return value === undefined ? Nothing : value
+  return func(this.value)
 }
 
 function leftMap() {

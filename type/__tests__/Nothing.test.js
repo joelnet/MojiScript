@@ -23,7 +23,7 @@ describe('type/Nothing', () => {
     expect.assertions(1)
     const expected = Nothing
     const nothing = Nothing
-    const actual = nothing.flatMap(s => typeof s === 'string' ? Just(s.toUpperCase()) : Nothing)
+    const actual = nothing.flatMap(() => 666)
     expect(actual).toBe(expected)
   })
 
