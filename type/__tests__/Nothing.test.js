@@ -23,15 +23,15 @@ describe('type/Nothing', () => {
     expect.assertions(1)
     const expected = Nothing
     const nothing = Nothing
-    const actual = nothing.flatMap(s => typeof s === 'string' ? Just (s.toUpperCase()) : Nothing)
+    const actual = nothing.flatMap(s => typeof s === 'string' ? Just(s.toUpperCase()) : Nothing)
     expect(actual).toBe(expected)
   })
 
   test('leftMap with String', () => {
     expect.assertions(1)
-    const expected = "ABC"
+    const expected = 'Just ("ABC")'
     const nothing = Nothing
-    const actual = nothing.leftMap(() => Just ('ABC')).toString()
+    const actual = nothing.leftMap(() => Just('ABC')).inspect()
     expect(actual).toBe(expected)
   })
 

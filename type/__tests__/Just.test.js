@@ -28,9 +28,9 @@ describe('type/Just', () => {
 
   test('flatMap With String', () => {
     expect.assertions(1)
-    const expected = "ABC"
+    const expected = 'Just ("ABC")'
     const just = Just('abc')
-    const actual = just.flatMap(s => typeof s === 'string' ? Just (s.toUpperCase()) : Nothing).toString()
+    const actual = just.flatMap(s => typeof s === 'string' ? Just(s.toUpperCase()) : Nothing).inspect()
     expect(actual).toBe(expected)
   })
 
@@ -38,15 +38,15 @@ describe('type/Just', () => {
     expect.assertions(1)
     const expected = Nothing
     const just = Just(123)
-    const actual = just.flatMap(s => typeof s === 'string' ? Just (s.toUpperCase()) : Nothing)
+    const actual = just.flatMap(s => typeof s === 'string' ? Just(s.toUpperCase()) : Nothing)
     expect(actual).toBe(expected)
   })
 
   test('leftMap', () => {
     expect.assertions(1)
-    const expected = "abc"
+    const expected = 'Just ("abc")'
     const just = Just('abc')
-    const actual = just.leftMap(s => typeof s === 'string' ? Just (s.toUpperCase()) : Nothing).toString()
+    const actual = just.leftMap(s => typeof s === 'string' ? Just(s.toUpperCase()) : Nothing).inspect()
     expect(actual).toBe(expected)
   })
 
