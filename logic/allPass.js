@@ -1,7 +1,5 @@
-
-const allPass = predicates => (value) => {
-  // eslint-disable-next-line no-restricted-syntax
-  for (const predicate of predicates) {
+const allPass = predicates => value => {
+  for (const predicate of predicates) { // eslint-disable-line no-restricted-syntax
     if (!predicate(value)) {
       return false
     }

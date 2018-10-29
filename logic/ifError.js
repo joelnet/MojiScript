@@ -1,7 +1,7 @@
 
 const isThenable = require('../_internal/isThenable')
 
-const ifError = func => onError => onSuccess => (value) => {
+const ifError = func => onError => onSuccess => value => {
   try {
     const result = func(value)
     return isThenable(result)

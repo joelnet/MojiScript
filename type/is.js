@@ -1,4 +1,3 @@
-/* eslint-disable  */
 const { typeJust, typeMaybe, typeNothing } = require('./_allTypes')
 
 const testFunction = ctor => ctor === Function
@@ -8,15 +7,15 @@ const testSymbol = ctor => typeof ctor === 'function' && typeof ctor['@@type'] =
 const isSymbol = (ctor, value) => value != null && ctor['@@type'] === value['@@type']
 
 const testMaybe = ctor => typeof ctor === 'object' && typeof ctor['@@type'] === 'symbol' && ctor['@@type'] === typeMaybe
-const isMaybe = value => value != null && typeof value['@@type'] === 'symbol' && [typeJust, typeMaybe, typeNothing].includes(value['@@type'])
+const isMaybe = value => value != null && typeof value['@@type'] === 'symbol' && [ typeJust, typeMaybe, typeNothing ].includes(value['@@type'])
 
-const testType = (ctor) => typeof ctor === 'object' && typeof ctor['@@type'] === 'symbol'
+const testType = ctor => typeof ctor === 'object' && typeof ctor['@@type'] === 'symbol'
 const isType = (ctor, value) => value != null && ctor['@@type'] === value['@@type']
 
-const testPromise = (ctor) => ctor != null && ctor === Promise
+const testPromise = ctor => ctor != null && ctor === Promise
 const isPromise = value => value != null && isFunction(value.then)
 
-const defaultTest = (ctor, value) => value != null && value.constructor === ctor || (value != null && value instanceof ctor)
+const defaultTest = (ctor, value) => value != null && (value.constructor === ctor || (value != null && value instanceof ctor))
 
 const is = ctor => value =>
   testFunction(ctor) ? isFunction(value)

@@ -4,8 +4,8 @@ const isFunction = is(Function)
 
 const getIterator = iterable =>
   isFunction(iterable.next) ? iterable
-    : isFunction(iterable[Symbol.asyncIterator]) ? iterable[Symbol.asyncIterator]()
-    : iterable[Symbol.iterator]() // eslint-disable-line
+  : isFunction(iterable[Symbol.asyncIterator]) ? iterable[Symbol.asyncIterator]()
+  : iterable[Symbol.iterator]()
 
 const iterableSerialReduceWhile = async (
   predicate,
