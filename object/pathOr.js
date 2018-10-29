@@ -1,4 +1,4 @@
-const pathOr = fallback => path => (o) => {
+const pathOr = fallback => path => o => {
   if (!path.length) return fallback
 
   /* eslint-disable no-restricted-syntax */
