@@ -13,7 +13,7 @@ describe('core/ifError', () => {
     test('fail calls error', () => {
       const expected = new Error('888')
       const mockError = jest.fn()
-      ifError((x) => { throw new Error(x) })(mockError)(() => null)(888)
+      ifError(x => { throw new Error(x) })(mockError)(() => null)(888)
       const actual = mockError.mock.calls[0][0]
       expect(actual).toMatchObject(expected)
     })
@@ -26,7 +26,7 @@ describe('core/ifError', () => {
 
     test('fails returns error', () => {
       const expected = new Error('888')
-      const actual = ifError((x) => { throw new Error(x) })(x => x)(() => null)(888)
+      const actual = ifError(x => { throw new Error(x) })(x => x)(() => null)(888)
       expect(actual).toMatchObject(expected)
     })
   })
