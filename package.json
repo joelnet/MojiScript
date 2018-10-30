@@ -47,7 +47,8 @@
     "collectCoverageFrom": [
       "**/*.{js,jsx,mjs}",
       "!coverage/**",
-      "!examples/**"
+      "!examples/**",
+      "!_internal/debug/**"
     ],
     "coverageThreshold": {
       "global": {
