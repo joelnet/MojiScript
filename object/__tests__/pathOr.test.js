@@ -3,8 +3,7 @@ const pathOr = require('../pathOr')
 describe('object/pathOr', () => {
   test('empty', () => {
     const fallbackValue = 'fallback'
-    expect(pathOr(fallbackValue)([])({})).toBe(fallbackValue)
-    expect(pathOr(fallbackValue)([])({ a: 1 })).toBe(fallbackValue)
+    expect(pathOr(fallbackValue)([])({ a: 1 })).toStrictEqual({ a: 1 })
     expect(pathOr(fallbackValue)([ 'b' ])({})).toBe(fallbackValue)
   })
 

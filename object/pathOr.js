@@ -1,13 +1,9 @@
 const pathOr = fallback => path => o => {
-  if (!path.length) return fallback
-
-  /* eslint-disable no-restricted-syntax */
-  for (const key of path) {
+  for (const key of path) { // eslint-disable-line no-restricted-syntax
     if (!o || !Object.prototype.hasOwnProperty.call(o, key)) {
       return fallback
     }
-    // eslint-disable-next-line no-param-reassign
-    o = o[key]
+    o = o[key] // eslint-disable-line no-param-reassign
   }
   return o
 }
