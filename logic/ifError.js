@@ -1,6 +1,7 @@
-
+const signature = require('../_internal/debug/signature')
 const isThenable = require('../_internal/isThenable')
 
+// ifError :: Function -> Function -> Function -> Any -> Any
 const ifError = func => onError => onSuccess => value => {
   try {
     const result = func(value)
@@ -14,3 +15,9 @@ const ifError = func => onError => onSuccess => value => {
 }
 
 module.exports = ifError
+
+// Experimental debug code
+/* istanbul ignore next */
+if (process.env.MOJI_DEBUG === 'true') {
+  module.exports = signature('ifError :: Function -> Function -> Function -> Any -> Any')(ifError)
+}
