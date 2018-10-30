@@ -13,6 +13,7 @@ rules:
   indent:
   - error
   - 2
+  - { flatTernaryExpressions: true }
   linebreak-style:
   - error
   - unix
@@ -41,3 +42,4 @@ rules:
   import/no-extraneous-dependencies: warn
   import/prefer-default-export: off
   max-len: warn
+  arrow-parens: [error, as-needed]

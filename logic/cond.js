@@ -5,9 +5,8 @@ const isFunction = is(Function)
 
 const isPass = (test, value) => (isFunction(test) ? test(value) : test === value)
 
-const cond = pairs => (value) => {
-  /* eslint-disable no-restricted-syntax */
-  for (const pair of pairs) {
+const cond = pairs => value => {
+  for (const pair of pairs) { // eslint-disable-line no-restricted-syntax
     const [ predicate, transformer ] = pair
 
     if (isPass(predicate, value)) {

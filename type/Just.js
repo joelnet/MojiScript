@@ -5,7 +5,7 @@ const { typeJust } = require('./_allTypes')
 const isFunction = is(Function)
 
 const Just = value => Object.create(
-  prototype, // eslint-disable-line
+  prototype, // eslint-disable-line no-use-before-define
   {
     value: {
       value,
