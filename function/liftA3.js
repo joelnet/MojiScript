@@ -7,6 +7,7 @@ const liftA3 = func => m1 => m2 => m3 =>
 module.exports = liftA3
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature({ method: 'liftA2', args: [ 'Function', 'Apply', 'Apply', 'Apply' ], returnType: 'Apply' })(liftA3)
+  module.exports = signature('log :: Function -> Apply -> Apply -> Apply')(liftA3)
 }

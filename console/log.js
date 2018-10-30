@@ -7,6 +7,7 @@ const log = tap(x => console.log(x)) // eslint-disable-line no-console
 module.exports = log
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature({ method: 'log', args: [ 'a' ], returnType: 'a' })(log)
+  module.exports = signature('log :: a -> a')(log)
 }

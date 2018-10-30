@@ -1,5 +1,7 @@
+const signature = require('../_internal/debug/signature')
 const is = require('../type/is')
 
+// clone :: Any -> Any
 const clone = x => {
   if (is(Array)(x)) return [ ...x ]
   if (is(Function)(x)) return x.bind({})
@@ -14,3 +16,9 @@ const clone = x => {
 }
 
 module.exports = clone
+
+// Experimental debug code
+/* istanbul ignore next */
+if (process.env.MOJI_DEBUG === 'true') {
+  module.exports = signature('clone :: Any -> Any')(clone)
+}

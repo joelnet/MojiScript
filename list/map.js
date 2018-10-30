@@ -15,6 +15,7 @@ const map = func => mapable =>
 module.exports = map
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature({ method: 'map', args: [ 'Function', 'Mapable' ], returnType: 'Array' })(map)
+  module.exports = signature('map :: Function -> Mapable -> Array')(map)
 }

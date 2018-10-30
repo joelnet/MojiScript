@@ -1,7 +1,7 @@
 const signature = require('../_internal/debug/signature')
 const is = require('../type/is')
 
-// head :: [a] -> a
+// head :: Array -> Any
 const head = iterable => {
   if (is(Array)(iterable)) {
     return iterable[0]
@@ -15,6 +15,7 @@ const head = iterable => {
 module.exports = head
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature({ method: 'head', args: [ '[a]' ], returnType: 'a' })(head)
+  module.exports = signature('head :: Array -> Any')(head)
 }

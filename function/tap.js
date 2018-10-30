@@ -10,6 +10,7 @@ const tap = func => value => {
 module.exports = tap
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature({ method: 'tap', args: [ 'Function', 'Any' ], returnType: 'Any' })(tap)
+  module.exports = signature('tap :: Function -> Any -> Any')(tap)
 }

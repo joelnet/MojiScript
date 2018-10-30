@@ -7,6 +7,7 @@ const error = tap(x => console.error(x)) // eslint-disable-line no-console
 module.exports = error
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature({ method: 'error', args: [ 'a' ], returnType: 'a' })(error)
+  module.exports = signature('error :: a -> a')(error)
 }

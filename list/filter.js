@@ -11,6 +11,7 @@ const filter = predicate => iterable =>
 module.exports = filter
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature({ method: 'filter', args: [ 'Function', 'Filterable' ], returnType: 'Any' })(filter)
+  module.exports = signature('filter :: Function -> Filterable -> Array')(filter)
 }

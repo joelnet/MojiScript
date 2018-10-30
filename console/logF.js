@@ -7,6 +7,7 @@ const logF = func => tap(x => console.log(func(x))) // eslint-disable-line no-co
 module.exports = logF
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature({ method: 'logF', args: [ 'Function', 'a' ], returnType: 'a' })(logF)
+  module.exports = signature('logF :: Function -> a -> a')(logF)
 }

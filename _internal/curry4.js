@@ -6,6 +6,7 @@ const curry4 = func => a => b => c => d => func(a, b, c, d)
 module.exports = curry4
 
 // Experimental debug code
+/* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
   module.exports = signature({ method: 'curry', args: [ 'Function', 'Any', 'Any', 'Any', 'Any' ], returnType: 'Any' })(curry4)
 }
