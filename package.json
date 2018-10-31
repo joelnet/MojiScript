@@ -13,12 +13,12 @@
   },
   "homepage": "https://github.com/joelnet/MojiScript#readme",
   "scripts": {
-    "build": "eslint . --ext .js,.mjs",
+    "build": "moji build .",
     "test": "jest",
     "test:coverage": "jest --colors --coverage",
     "test:coveralls": "npm run test:coverage -- --coverageReporters=text-lcov | coveralls",
     "patch-readme": "node --experimental-modules --no-warnings bin/patch-readme/index.mjs",
-    "watch": "esw -w --fix --ext .js,.mjs",
+    "watch": "moji watch",
     "contributors:add": "all-contributors add",
     "contributors:check": "all-contributors check",
     "contributors:generate": "all-contributors generate"
@@ -29,15 +29,15 @@
     "axios": "^0.18.0",
     "coveralls": "^3.0.2",
     "eslint": "^5.5.0",
-    "eslint-config-mojiscript": "1.2.0",
     "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-mojiscript": "1.2.0",
     "eslint-plugin-better": "0.1.5",
     "eslint-plugin-fp": "2.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prefer-arrow": "1.1.3",
-    "eslint-watch": "^4.0.2",
     "husky": "^1.1.0",
     "jest": "^23.5.0",
+    "mojiscript-cli": "0.0.3",
     "sanctuary": "^0.15.0"
   },
   "peerDependencies": {
