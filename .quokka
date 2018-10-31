@@ -1,0 +1,7 @@
+{
+  "env": {
+    "params": {
+      "env": "MOJI_DEBUG=true"
+    }
+  }
+}

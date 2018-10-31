@@ -1,3 +1,4 @@
+const signature = require('../_internal/debug/signature')
 const { typeJust, typeMaybe, typeNothing } = require('./_allTypes')
 
 const testFunction = ctor => ctor === Function
@@ -17,6 +18,7 @@ const isPromise = value => value != null && isFunction(value.then)
 
 const defaultTest = (ctor, value) => value != null && (value.constructor === ctor || (value != null && value instanceof ctor))
 
+// is :: Type -> Any -> Boolean
 const is = ctor => value =>
   testFunction(ctor) ? isFunction(value)
   : testSymbol(ctor) ? isSymbol(ctor, value)
@@ -26,3 +28,9 @@ const is = ctor => value =>
   : defaultTest(ctor, value)
 
 module.exports = is
+
+// Experimental debug code
+/* istanbul ignore next */
+if (process.env.MOJI_DEBUG === 'true') {
+  module.exports = signature('is :: Type -> Any -> Boolean')(is)
+}

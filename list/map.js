@@ -1,3 +1,4 @@
+const signature = require('../_internal/debug/signature')
 const call = require('../_internal/call')
 const reduceWhile = require('./reduceWhile')
 const isIterable = require('../_internal/isIterable')
@@ -12,3 +13,9 @@ const map = func => mapable =>
   : (() => { throw new TypeError('Object is not mappable.') })()
 
 module.exports = map
+
+// Experimental debug code
+/* istanbul ignore next */
+if (process.env.MOJI_DEBUG === 'true') {
+  module.exports = signature('map :: Function -> Mapable -> Array')(map)
+}
