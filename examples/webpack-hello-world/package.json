@@ -1,0 +1,19 @@
+{
+  "name": "webpack-hello-world",
+  "version": "0.1.0",
+  "author": "Nazar Shimko",
+  "license": "MIT",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.dev.js --open --watch"
+  },
+  "dependencies": {
+    "mojiscript": "file:../.."
+  },
+  "devDependencies": {
+    "file-loader": "^2.0.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
