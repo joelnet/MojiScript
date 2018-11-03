@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const isThenable = require('../_internal/isThenable')
 
 // ifError :: Function -> Function -> Function -> Any -> Any
@@ -19,5 +19,5 @@ module.exports = ifError
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('ifError :: Function -> Function -> Function -> Any -> Any')(ifError)
+  module.exports = sign('ifError :: Function -> Function -> Function -> Any -> Any')(ifError)
 }

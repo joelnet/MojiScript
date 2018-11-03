@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const pathOr = require('./pathOr')
 
 // propOr :: Any -> String -> Object -> Any
@@ -9,5 +9,5 @@ module.exports = propOr
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('propOr :: Any -> String -> Object -> Any')(propOr)
+  module.exports = sign('propOr :: Any -> String -> Object -> Any')(propOr)
 }

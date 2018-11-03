@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const is = require('../type/is')
 const isThenable = require('../_internal/isThenable')
 const iterableSerialReduceWhile = require('../_internal/iterableSerialReduceWhile')
@@ -35,5 +35,5 @@ module.exports = reduceWhile
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('reduceWhile :: Function -> Function -> Any -> Iterable -> Any')(reduceWhile)
+  module.exports = sign('reduceWhile :: Function -> Function -> Any -> Iterable -> Any')(reduceWhile)
 }

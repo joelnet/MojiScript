@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const is = require('../type/is')
 
 // clone :: Any -> Any
@@ -20,5 +20,5 @@ module.exports = clone
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('clone :: Any -> Any')(clone)
+  module.exports = sign('clone :: Any -> Any')(clone)
 }

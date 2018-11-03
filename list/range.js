@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 
 // range :: Number -> Number -> Iterable
 const range = start => function* range(end) {
@@ -11,5 +11,5 @@ module.exports = range
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('range :: Number -> Number -> Iterable')(range)
+  module.exports = sign('range :: Number -> Number -> Iterable')(range)
 }

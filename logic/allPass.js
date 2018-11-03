@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 
 // allPass :: Function -> Any -> Boolean
 const allPass = predicates => value => {
@@ -16,5 +16,5 @@ module.exports = allPass
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('allPass :: Function -> Any -> Boolean')(allPass)
+  module.exports = sign('allPass :: Function -> Any -> Boolean')(allPass)
 }

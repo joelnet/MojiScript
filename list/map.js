@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const call = require('../_internal/call')
 const reduceWhile = require('./reduceWhile')
 const isIterable = require('../_internal/isIterable')
@@ -17,5 +17,5 @@ module.exports = map
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('map :: Function -> Mapable -> Array')(map)
+  module.exports = sign('map :: Function -> Mapable -> Array')(map)
 }

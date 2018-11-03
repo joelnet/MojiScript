@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const is = require('../type/is')
 
 // tail :: Array -> Array
@@ -18,5 +18,5 @@ module.exports = tail
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('tail :: Array -> Array')(tail)
+  module.exports = sign('tail :: Array -> Array')(tail)
 }

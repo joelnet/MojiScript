@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const call = require('../_internal/call')
 const reduceWhile = require('./reduceWhile')
 
@@ -13,5 +13,5 @@ module.exports = filter
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('filter :: Function -> Filterable -> Array')(filter)
+  module.exports = sign('filter :: Function -> Filterable -> Array')(filter)
 }

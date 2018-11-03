@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const is = require('./is')
 const Just = require('./Just')
 const Nothing = require('./Nothing')
@@ -24,7 +24,7 @@ module.exports.fromNullable = fromNullable
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
   module.exports['@@type'] = typeMaybe
-  module.exports.fromFalsy = signature('fromFalsy :: Any -> Maybe')(fromFalsy)
-  module.exports.fromMaybe = signature('fromMaybe :: Any -> Maybe -> Any')(fromMaybe)
-  module.exports.fromNullable = signature('fromNullable :: Any -> Maybe')(fromNullable)
+  module.exports.fromFalsy = sign('fromFalsy :: Any -> Maybe')(fromFalsy)
+  module.exports.fromMaybe = sign('fromMaybe :: Any -> Maybe -> Any')(fromMaybe)
+  module.exports.fromNullable = sign('fromNullable :: Any -> Maybe')(fromNullable)
 }

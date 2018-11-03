@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const tap = require('../function/tap')
 
 // error :: a -> a
@@ -9,5 +9,5 @@ module.exports = error
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('error :: a -> a')(error)
+  module.exports = sign('error :: a -> a')(error)
 }

@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 
 // pathOr :: Any -> [String] -> Object -> Any
 const pathOr = fallback => path => o => {
@@ -16,5 +16,5 @@ module.exports = pathOr
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('pathOr :: Any -> [String] -> Object -> Any')(pathOr)
+  module.exports = sign('pathOr :: Any -> [String] -> Object -> Any')(pathOr)
 }

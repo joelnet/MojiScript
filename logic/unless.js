@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const ifElse = require('./ifElse')
 const I = require('../combinators/I')
 
@@ -10,5 +10,5 @@ module.exports = unless
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('unless :: Function -> Function -> Any -> Any')(unless)
+  module.exports = sign('unless :: Function -> Function -> Any -> Any')(unless)
 }

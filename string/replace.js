@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const escapeRegExp = require('../_internal/escapeRegExp')
 
 // replace :: String -> String -> String -> String
@@ -10,5 +10,5 @@ module.exports = replace
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('replace :: String -> String -> String -> String')(replace)
+  module.exports = sign('replace :: String -> String -> String -> String')(replace)
 }

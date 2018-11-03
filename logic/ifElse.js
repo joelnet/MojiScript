@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 
 // ifElse :: Function -> Function -> Function -> Any -> Any
 const ifElse = condition => onTrue => onFalse => value =>
@@ -9,5 +9,5 @@ module.exports = ifElse
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('ifElse :: Function -> Function -> Function -> Any')(ifElse)
+  module.exports = sign('ifElse :: Function -> Function -> Function -> Any')(ifElse)
 }

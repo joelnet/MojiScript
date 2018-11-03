@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const { typeJust, typeMaybe, typeNothing } = require('./_allTypes')
 
 const testFunction = ctor => ctor === Function
@@ -32,5 +32,5 @@ module.exports = is
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('is :: Type -> Any -> Boolean')(is)
+  module.exports = sign('is :: Type -> Any -> Boolean')(is)
 }

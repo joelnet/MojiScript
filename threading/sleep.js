@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 
 // sleep :: Number -> Any -> Promise
 const sleep = milliseconds => value => new Promise(
@@ -10,5 +10,5 @@ module.exports = sleep
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('sleep :: Number -> Any -> Promise')(sleep)
+  module.exports = sign('sleep :: Number -> Any -> Promise')(sleep)
 }

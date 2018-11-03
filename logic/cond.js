@@ -1,4 +1,4 @@
-const signature = require('../_internal/debug/signature')
+const { sign } = require('../_internal/debug/notarize')
 const maybeExec = require('../_internal/maybeExec')
 const is = require('../type/is')
 
@@ -24,5 +24,5 @@ module.exports = cond
 // Experimental debug code
 /* istanbul ignore next */
 if (process.env.MOJI_DEBUG === 'true') {
-  module.exports = signature('cond :: Function -> Any -> Any')(cond)
+  module.exports = sign('cond :: Function -> Any -> Any')(cond)
 }
