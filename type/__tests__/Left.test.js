@@ -5,6 +5,22 @@ const double = x => x * 2
 const eitherDouble = x => x === Infinity ? Left('Cannot double Infinity') : Right(double(x))
 
 describe('type/Left', () => {
+  test('value prop is set to value', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = Left(888).value
+    expect(actual).toBe(expected)
+  })
+
+  test('is immutable', () => {
+    expect.assertions(1)
+    const expected = 888
+    const left = Left(888)
+    left.value = 666
+    const actual = left.value
+    expect(actual).toBe(expected)
+  })
+
   test('map', () => {
     expect.assertions(1)
     const expected = 'Left (123)'
@@ -12,17 +28,31 @@ describe('type/Left', () => {
     expect(actual).toBe(expected)
   })
 
+  test('flatMap With Number', () => {
+    expect.assertions(1)
+    const expected = 'Left (123)'
+    const actual = Left(123).flatMap(eitherDouble).inspect()
+    expect(actual).toBe(expected)
+  })
+
+  test('flatMap With String', () => {
+    expect.assertions(1)
+    const expected = 'Left ("abc")'
+    const actual = Left('abc').flatMap().inspect()
+    expect(actual).toBe(expected)
+  })
+
+  test('flatMap returns Left', () => {
+    expect.assertions(1)
+    const expected = 'Left (123)'
+    const actual = Left(123).flatMap(() => 888).inspect()
+    expect(actual).toBe(expected)
+  })
+
   test('leftMap', () => {
     expect.assertions(1)
     const expected = 'Left (246)'
     const actual = Left(123).leftMap(double).inspect()
-    expect(actual).toBe(expected)
-  })
-
-  test('flatMap', () => {
-    expect.assertions(1)
-    const expected = 'Left (123)'
-    const actual = Left(123).flatMap(eitherDouble).inspect()
     expect(actual).toBe(expected)
   })
 
@@ -37,6 +67,91 @@ describe('type/Left', () => {
     expect.assertions(1)
     const expected = 'Left ("Cannot double Infinity")'
     const actual = Left(Infinity).leftFlatMap(eitherDouble).inspect()
+    expect(actual).toBe(expected)
+  })
+
+  test('leftFlatMap with undefined', () => {
+    expect.assertions(1)
+    const expected = undefined
+    const actual = Left(Infinity).leftFlatMap(() => undefined)
+    expect(actual).toBe(expected)
+  })
+
+  test('fantasy-land/map', () => {
+    expect.assertions(1)
+    const expected = 'Left (123)'
+    const actual = Left(123)['fantasy-land/map'](double).inspect()
+    expect(actual).toBe(expected)
+  })
+
+  test('Left(888).toString', () => {
+    expect.assertions(1)
+    const expected = '888'
+    const actual = Left(888).toString()
+    expect(actual).toBe(expected)
+  })
+
+  test('Left(abc).toString', () => {
+    expect.assertions(1)
+    const expected = 'abc'
+    const actual = Left('abc').toString()
+    expect(actual).toBe(expected)
+  })
+
+  test('Left(abc).inspect', () => {
+    expect.assertions(1)
+    const expected = 'Left ("abc")'
+    const actual = Left('abc').inspect()
+    expect(actual).toEqual(expected)
+  })
+
+  test('Left(function()).inspect', () => {
+    expect.assertions(1)
+    const expected = 'Left (function ())'
+    const actual = Left(() => {}).inspect()
+    expect(actual).toEqual(expected)
+  })
+
+  test('Left(add()).inspect', () => {
+    expect.assertions(1)
+    const add = () => {}
+    const expected = 'Left (function add())'
+    const actual = Left(add).inspect()
+    expect(actual).toEqual(expected)
+  })
+
+  test('toJSON', () => {
+    expect.assertions(1)
+    const expected = '"abc"'
+    const actual = JSON.stringify(Left('abc'))
+    expect(actual).toEqual(expected)
+  })
+
+  test('@@type', () => {
+    expect.assertions(1)
+    const expected = Left['@@type']
+    const actual = Left(888)['@@type']
+    expect(actual).toBe(expected)
+  })
+
+  test('cast to string', () => {
+    expect.assertions(1)
+    const expected = 'a'
+    const actual = `${Left('a')}`
+    expect(actual).toBe(expected)
+  })
+
+  test('append strings', () => {
+    expect.assertions(1)
+    const expected = 'ab'
+    const actual = Left('a') + Left('b')
+    expect(actual).toBe(expected)
+  })
+
+  test('Number(Left()) returns number', () => {
+    expect.assertions(1)
+    const expected = 3
+    const actual = Number(Left(3))
     expect(actual).toBe(expected)
   })
 })

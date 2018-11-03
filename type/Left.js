@@ -1,5 +1,4 @@
 const is = require('./is')
-const Nothing = require('./Nothing')
 const { typeLeft } = require('./_allTypes')
 
 const isFunction = is(Function)
@@ -27,12 +26,12 @@ function flatMap() {
 
 function leftMap(func) {
   const value = func(this.value)
-  return value === undefined ? Nothing : Left(value)
+  return Left(value)
 }
 
 function leftFlatMap(func) {
   const value = func(this.value)
-  return value === undefined ? Nothing : value
+  return value
 }
 
 function ap() {
