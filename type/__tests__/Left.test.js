@@ -84,6 +84,13 @@ describe('type/Left', () => {
     expect(actual).toBe(expected)
   })
 
+  test('ap', () => {
+    expect.assertions(1)
+    const expected = 'Left (123)'
+    const actual = Left(123).ap().inspect()
+    expect(actual).toBe(expected)
+  })
+
   test('Left(888).toString', () => {
     expect.assertions(1)
     const expected = '888'
