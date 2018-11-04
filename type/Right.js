@@ -47,9 +47,7 @@ const prototype = {
   leftFlatMap,
   'fantasy-land/ap': ap,
   'fantasy-land/map': map,
-  toString() { return this.value.toString() },
-  inspect() { return `Right (${isFunction(this.value) ? `function ${this.value.name}()` : JSON.stringify(this.value)})` },
-  toJSON() { return this.value }
+  inspect() { return `Right (${isFunction(this.value) ? `function ${this.value.name}()` : JSON.stringify(this.value)})` }
 }
 
 Right['@@type'] = typeRight

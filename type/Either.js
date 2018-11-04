@@ -12,7 +12,7 @@ const fromFalsy = value => value ? Right(value) : Left(value)
 // fromMaybe :: Any -> Either -> Any
 const fromEither = def => either => isRight(either) ? either.value : def
 
-// fromNullable :: Any -> Maybe
+// fromNullable :: Any -> Either
 const fromNullable = value => value == null ? Left(value) : Right(value)
 
 module.exports['@@type'] = typeEither

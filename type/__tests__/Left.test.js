@@ -91,20 +91,6 @@ describe('type/Left', () => {
     expect(actual).toBe(expected)
   })
 
-  test('Left(888).toString', () => {
-    expect.assertions(1)
-    const expected = '888'
-    const actual = Left(888).toString()
-    expect(actual).toBe(expected)
-  })
-
-  test('Left(abc).toString', () => {
-    expect.assertions(1)
-    const expected = 'abc'
-    const actual = Left('abc').toString()
-    expect(actual).toBe(expected)
-  })
-
   test('Left(abc).inspect', () => {
     expect.assertions(1)
     const expected = 'Left ("abc")'
@@ -127,38 +113,10 @@ describe('type/Left', () => {
     expect(actual).toEqual(expected)
   })
 
-  test('toJSON', () => {
-    expect.assertions(1)
-    const expected = '"abc"'
-    const actual = JSON.stringify(Left('abc'))
-    expect(actual).toEqual(expected)
-  })
-
   test('@@type', () => {
     expect.assertions(1)
     const expected = Left['@@type']
     const actual = Left(888)['@@type']
-    expect(actual).toBe(expected)
-  })
-
-  test('cast to string', () => {
-    expect.assertions(1)
-    const expected = 'a'
-    const actual = `${Left('a')}`
-    expect(actual).toBe(expected)
-  })
-
-  test('append strings', () => {
-    expect.assertions(1)
-    const expected = 'ab'
-    const actual = Left('a') + Left('b')
-    expect(actual).toBe(expected)
-  })
-
-  test('Number(Left()) returns number', () => {
-    expect.assertions(1)
-    const expected = 3
-    const actual = Number(Left(3))
     expect(actual).toBe(expected)
   })
 })
