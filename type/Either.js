@@ -7,13 +7,13 @@ const { typeEither } = require('./_allTypes')
 const isRight = is(Right)
 
 // fromFalsy :: Any -> Either
-const fromFalsy = value => value ? Right(value) : Left
+const fromFalsy = value => value ? Right(value) : Left(value)
 
 // fromMaybe :: Any -> Either -> Any
 const fromEither = def => either => isRight(either) ? either.value : def
 
 // fromNullable :: Any -> Maybe
-const fromNullable = value => value == null ? Left : Right(value)
+const fromNullable = value => value == null ? Left(value) : Right(value)
 
 module.exports['@@type'] = typeEither
 module.exports.fromFalsy = fromFalsy

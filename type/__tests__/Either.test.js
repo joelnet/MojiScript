@@ -7,50 +7,50 @@ describe('Either', () => {
   describe('fromFalsy', () => {
     test('null is Left', () => {
       expect.assertions(1)
-      const expected = Left
-      const actual = fromFalsy(null)
+      const expected = true
+      const actual = is(Left)(fromFalsy(null))
       expect(actual).toBe(expected)
     })
 
     test('undefined is Left', () => {
       expect.assertions(1)
-      const expected = Left
-      const actual = fromFalsy(undefined)
+      const expected = true
+      const actual = is(Left)(fromFalsy(undefined))
       expect(actual).toBe(expected)
     })
 
     test('0 is Left', () => {
       expect.assertions(1)
-      const expected = Left
-      const actual = fromFalsy(0)
+      const expected = true
+      const actual = is(Left)(fromFalsy(0))
       expect(actual).toBe(expected)
     })
 
     test('false is Left', () => {
       expect.assertions(1)
-      const expected = Left
-      const actual = fromFalsy(false)
+      const expected = true
+      const actual = is(Left)(fromFalsy(false))
       expect(actual).toBe(expected)
     })
 
     test('empty string is Left', () => {
       expect.assertions(1)
-      const expected = Left
-      const actual = fromFalsy('')
+      const expected = true
+      const actual = is(Left)(fromFalsy(''))
       expect(actual).toBe(expected)
     })
 
     test('NaN is Left', () => {
       expect.assertions(1)
-      const expected = Left
-      const actual = fromFalsy(NaN)
+      const expected = true
+      const actual = is(Left)(fromFalsy(NaN))
       expect(actual).toBe(expected)
     })
 
     test('true is Right', () => {
       expect.assertions(1)
-      const expected = Right(true)
-      const actual = fromFalsy(true)
+      const expected = true
+      const actual = is(Right)(fromFalsy(true))
       expect(actual).toEqual(expected)
     })
   })
@@ -88,15 +88,15 @@ describe('Either', () => {
   describe('fromNullable', () => {
     test('null is Left', () => {
       expect.assertions(1)
-      const expected = Left
-      const actual = fromNullable(null)
+      const expected = true
+      const actual = is(Left)(fromNullable(null))
       expect(actual).toBe(expected)
     })
 
     test('undefined is Left', () => {
       expect.assertions(1)
-      const expected = Left
-      const actual = fromNullable(undefined)
+      const expected = true
+      const actual = is(Left)(fromNullable(undefined))
       expect(actual).toBe(expected)
     })
 
