@@ -17,8 +17,7 @@ const Just = value => Object.create(
 )
 
 function map(func) {
-  const value = func(this.value)
-  return value === undefined ? undefined : Just(value)
+  return Just(func(this.value))
 }
 
 function flatMap(func) {
