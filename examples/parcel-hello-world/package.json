@@ -6,7 +6,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "eslint . --ext .js,.mjs",
+    "build": "moji build .",
     "start": "npm run build && parcel index.html"
   },
   "keywords": [],
@@ -15,11 +15,12 @@
     "parcel": "^1.10.3"
   },
   "devDependencies": {
-    "eslint": "^5.5.0",
+    "eslint": "^5.8.0",
     "eslint-config-mojiscript": "1.2.0",
     "eslint-plugin-better": "0.1.5",
     "eslint-plugin-fp": "2.3.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prefer-arrow": "1.1.3"
+    "eslint-plugin-prefer-arrow": "1.1.3",
+    "mojiscript-cli": "0.0.3"
   }
 }
