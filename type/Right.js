@@ -27,11 +27,11 @@ function flatMap(func) {
 }
 
 function leftMap() {
-  return Right(this.value)
+  return this
 }
 
 function leftFlatMap() {
-  return Right(this.value)
+  return this
 }
 
 function ap(right) {

@@ -17,11 +17,11 @@ const Left = value => Object.create(
 )
 
 function map() {
-  return Left(this.value)
+  return this
 }
 
 function flatMap() {
-  return Left(this.value)
+  return this
 }
 
 function leftMap(func) {
@@ -35,7 +35,7 @@ function leftFlatMap(func) {
 }
 
 function ap() {
-  return Left(this.value)
+  return this
 }
 
 const prototype = {
