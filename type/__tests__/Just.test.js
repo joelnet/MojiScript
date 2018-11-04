@@ -138,10 +138,10 @@ describe('type/Just', () => {
     expect(actual).toBe(expected)
   })
 
-  test('when map returns undefined return Nothing', () => {
+  test('when map returns undefined return undefined', () => {
     expect.assertions(1)
-    const expected = Nothing
+    const expected = Just(undefined)
     const actual = Just(666).map(() => undefined)
-    expect(actual).toBe(expected)
+    expect(actual).toEqual(expected)
   })
 })
