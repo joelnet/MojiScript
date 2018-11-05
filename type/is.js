@@ -1,5 +1,7 @@
 const signature = require('../_internal/debug/signature')
-const { typeJust, typeMaybe, typeNothing } = require('./_allTypes')
+const {
+  typeJust, typeMaybe, typeNothing, typeEither, typeLeft, typeRight
+} = require('./_allTypes')
 
 const testFunction = ctor => ctor === Function
 const isFunction = value => typeof value === 'function'
@@ -9,6 +11,9 @@ const isSymbol = (ctor, value) => value != null && ctor['@@type'] === value['@@t
 
 const testMaybe = ctor => typeof ctor === 'object' && typeof ctor['@@type'] === 'symbol' && ctor['@@type'] === typeMaybe
 const isMaybe = value => value != null && typeof value['@@type'] === 'symbol' && [ typeJust, typeMaybe, typeNothing ].includes(value['@@type'])
+
+const testEither = ctor => typeof ctor === 'object' && typeof ctor['@@type'] === 'symbol' && ctor['@@type'] === typeEither
+const isEither = value => value != null && typeof value['@@type'] === 'symbol' && [ typeLeft, typeRight, typeEither ].includes(value['@@type'])
 
 const testType = ctor => typeof ctor === 'object' && typeof ctor['@@type'] === 'symbol'
 const isType = (ctor, value) => value != null && ctor['@@type'] === value['@@type']
@@ -23,6 +28,7 @@ const is = ctor => value =>
   testFunction(ctor) ? isFunction(value)
   : testSymbol(ctor) ? isSymbol(ctor, value)
   : testMaybe(ctor) ? isMaybe(value)
+  : testEither(ctor) ? isEither(value)
   : testType(ctor) ? isType(ctor, value)
   : testPromise(ctor) ? isPromise(value)
   : defaultTest(ctor, value)

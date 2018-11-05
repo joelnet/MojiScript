@@ -2,6 +2,9 @@ const is = require('../is')
 const Nothing = require('../Nothing')
 const Just = require('../Just')
 const Maybe = require('../Maybe')
+const Either = require('../Either')
+const Right = require('../Right')
+const Left = require('../Left')
 
 describe('types/is', () => {
   describe('Boolean', () => {
@@ -263,6 +266,117 @@ describe('types/is', () => {
     test('function is false', () => {
       const expected = false
       const actual = is(Maybe)(() => {})
+      expect(actual).toBe(expected)
+    })
+  })
+
+  describe('Left', () => {
+    test('Left', () => {
+      const expected = true
+      const left = Left
+      const actual = is(Left)(left)
+      expect(actual).toBe(expected)
+    })
+
+    test('null is false', () => {
+      const expected = false
+      const actual = is(Left)(null)
+      expect(actual).toBe(expected)
+    })
+
+    test('undefined is false', () => {
+      const expected = false
+      const actual = is(Left)(undefined)
+      expect(actual).toBe(expected)
+    })
+
+    test('{} is false', () => {
+      const expected = false
+      const actual = is(Left)({})
+      expect(actual).toBe(expected)
+    })
+
+    test('function is false', () => {
+      const expected = false
+      const actual = is(Left)(() => {})
+      expect(actual).toBe(expected)
+    })
+  })
+
+  describe('Right', () => {
+    test('Right', () => {
+      const expected = true
+      const right = Right(888)
+      const actual = is(Right)(right)
+      expect(actual).toBe(expected)
+    })
+
+    test('null is false', () => {
+      const expected = false
+      const actual = is(Right)(null)
+      expect(actual).toBe(expected)
+    })
+
+    test('undefined is false', () => {
+      const expected = false
+      const actual = is(Right)(undefined)
+      expect(actual).toBe(expected)
+    })
+
+    test('{} is false', () => {
+      const expected = false
+      const actual = is(Right)({})
+      expect(actual).toBe(expected)
+    })
+
+    test('function is false', () => {
+      const expected = false
+      const actual = is(Right)(() => {})
+      expect(actual).toBe(expected)
+    })
+  })
+
+  describe('Either', () => {
+    test('Either', () => {
+      const expected = true
+      const either = Either
+      const actual = is(Either)(either)
+      expect(actual).toBe(expected)
+    })
+
+    test('Right is Either', () => {
+      const expected = true
+      const actual = is(Either)(Right(888))
+      expect(actual).toBe(expected)
+    })
+
+    test('Left is Either', () => {
+      const expected = true
+      const actual = is(Either)(Left)
+      expect(actual).toBe(expected)
+    })
+
+    test('null is false', () => {
+      const expected = false
+      const actual = is(Either)(null)
+      expect(actual).toBe(expected)
+    })
+
+    test('undefined is false', () => {
+      const expected = false
+      const actual = is(Either)(undefined)
+      expect(actual).toBe(expected)
+    })
+
+    test('{} is false', () => {
+      const expected = false
+      const actual = is(Either)({})
+      expect(actual).toBe(expected)
+    })
+
+    test('function is false', () => {
+      const expected = false
+      const actual = is(Either)(() => {})
       expect(actual).toBe(expected)
     })
   })
