@@ -1,10 +1,53 @@
 ---
-name: MojiScript API
+name: MojiScript
 route: '/'
 ---
 
-# MojiScript API
+# MojiScript
 
 MojiScript is an Async First, opinionated, and functional language designed to have 100% compatibility with JavaScript engines. This will allow full access to JavaScript modules (NPM) and all tooling already available to JavaScript. This means that MojiScript language features can run in any JavaScript application and vice-versa.
 
 MojiScript's design is derived from Functional Programming concepts such as Currying, Partial Application, Function Composition, Category Theory, and Atomic Design.
+
+## Philosophy
+
+The MojiScript philosophy is to provide a functional-style application framework, making asynchronous tasks intuitive and easy.
+
+MojiScript is heavily opinionated and prevents code considered to be async-unfriendly like `for` loops and statement blocks.
+
+## Benefits
+
+- The Asynchronous-first design greatly simplifies writing and reasoning about Asynchronous code. Worry less about callbacks, promises, async, await, etc.
+- Atomic Design, function composition, and Pipes encourages maximum code re-use, testability and the ability to compose smaller functions into larger ones.
+- Compatibility with ECMAScript gives our applications full access to the JavaScript ecosystem. It also allows us to import elements from MojiScript into existing JavaScript applications.
+- A modular design allows for features to be imported on an as needed basis, keeping packages small.
+- Plays well with functional libraries. Check out the [Complementary Libraries](#complementary-libraries) section for libraries that can benefit your MojiScript applications.
+
+## Quickstart
+
+Clone the starter app.
+
+```bash
+git clone https://github.com/joelnet/mojiscript-starter-app.git
+cd mojiscript-starter-app
+```
+
+Install, build, and run
+
+```bash
+npm ci
+npm run build
+npm start
+```
+
+If everything works, you should see:
+
+```
+Hello World
+```
+
+If your editor does not format on save, you can run the following command:
+
+```bash
+npm run watch
+```

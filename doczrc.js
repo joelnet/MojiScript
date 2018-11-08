@@ -1,5 +1,5 @@
 export default {
-  title: 'MojiScript API',
+  title: 'MojiScript',
   dest: 'docs',
   base: '/MojiScript',
   codeSandbox: false,
