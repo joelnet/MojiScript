@@ -1,5 +1,5 @@
 {
-  "app.js": "/MojiScript/static/js/app.f5dd7002.js",
+  "app.js": "/MojiScript/static/js/app.648a3a94.js",
   "combinators-i.js": "/MojiScript/static/js/combinators-i.5de65734.js",
   "combinators-k.js": "/MojiScript/static/js/combinators-k.522e3b60.js",
   "combinators-s.js": "/MojiScript/static/js/combinators-s.8da6fd48.js",
@@ -29,7 +29,7 @@
   "logic-if-error.js": "/MojiScript/static/js/logic-if-error.ef530353.js",
   "logic-unless.js": "/MojiScript/static/js/logic-unless.e2def932.js",
   "logic-when.js": "/MojiScript/static/js/logic-when.e15491ef.js",
-  "runtime~app.js": "/MojiScript/static/js/runtime~app.b32a538467b6adb538a1.js",
+  "runtime~app.js": "/MojiScript/static/js/runtime~app.01b5b8097c34e0b4b714.js",
   "string-append.js": "/MojiScript/static/js/string-append.6c12f22b.js",
   "string-prepend.js": "/MojiScript/static/js/string-prepend.29c1fd4c.js",
   "string-replace.js": "/MojiScript/static/js/string-replace.cb92ee56.js",
