@@ -1,0 +1,31 @@
+---
+name: reduce
+menu: list
+---
+
+# list/reduce
+
+`reduce :: Function -> Any -> Iterable`
+
+Returns a single item by iterating through the list, successively calling the iterator function and passing it an accumulator value and the current value from the array, and then passing the result to the next call.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import range from 'mojiscript/list/range'
+import reduce from 'mojiscript/list/reduce'
+
+const add = x => y => x + y
+
+const main = pipe ([
+  range (1) (4),    //=> [ 1, 2, 3 ]
+  reduce (add) (0), //=> 6
+  log
+])
+
+run ({ main })
+//=> 6
+```

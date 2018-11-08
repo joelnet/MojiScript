@@ -1,0 +1,38 @@
+---
+name: tail
+menu: list
+---
+
+# list/tail
+
+`tail :: Iterable -> Array`
+
+Takes an `Iterable` and the tail of the `Iterable` as an `Array`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import tail from 'mojiscript/list/tail'
+
+const main = pipe ([
+  [ 1, 2, 3 ],
+  tail,
+  log
+])
+
+run ({ main })
+//=> [2, 3]
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| iterable | `Iterable`  | `Iterable` to get the tail from. |
+
+## Returns
+
+Returns the tail of `Iterable`

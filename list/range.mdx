@@ -1,0 +1,39 @@
+---
+name: range
+menu: list
+---
+
+# list/range
+
+`range :: Number -> Number -> Iterable`
+
+Creates an `Iterable` from `start` up to but not including the `end`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import map from 'mojiscript/list/map'
+import range from 'mojiscript/list/range'
+
+const main = pipe ([
+  range (0) (5),
+  map (log)
+])
+
+run ({ main })
+//=> [ 0, 1, 2, 3, 4 ]
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| start | `Number`  | Start `Number` of the range. |
+| end | `Number`  | End `Number` to increment up to (but not including) |
+
+## Returns
+
+Returns an `Iterable` starting at `start` and counting up to (but not including) `end`.

@@ -1,0 +1,44 @@
+---
+name: is
+menu: type
+---
+
+# type/is
+
+`is :: Any -> Any -> Boolean`
+
+Checks the type of an `Object`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import is from 'mojiscript/types/is'
+
+const main = pipe ([
+  () => log (is (Function) (x => x)),        //=> true
+  () => log (is (Object) ({})),              //=> true
+  () => log (is (Object) (new String (''))), //=> true
+  () => log (is (Boolean) (true)),           //=> true
+  () => log (is (Array) ([])),               //=> true
+  () => log (is (String) ('')),              //=> true
+  () => log (is (Number) (1)),               //=> true
+  () => log (is (Set) (new Set ())),         //=> true
+  () => log (is (Map) (new Map ())),         //=> true
+])
+
+run ({ main })
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ctor | `Object`  | A constructor. |
+| value | `Any`  | Value to test. |
+
+## Returns
+
+Returns `true` when the `value` is of the same type as the `Object` or `false` when it is not.

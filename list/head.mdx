@@ -1,0 +1,38 @@
+---
+name: head
+menu: list
+---
+
+# list/head
+
+`head :: Iterable -> Any`
+
+Takes an `Iterable` and returns the head of the `Iterable`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import head from 'mojiscript/list/head'
+
+const main = pipe ([
+  [ 1, 2, 3 ],
+  head,
+  log
+])
+
+run ({ main })
+//=> 1
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| iterable | `Iterable`  | `Iterable` to get the first value from. |
+
+## Returns
+
+Returns the head of `Iterable`

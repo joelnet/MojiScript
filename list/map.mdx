@@ -1,0 +1,41 @@
+---
+name: map
+menu: list
+---
+
+# list/map
+
+`map :: Function -> Iterable -> Array`
+
+Takes a function and an `Iterable` and returns an `Array` with the function applied to each value in the `Iterable`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import map from 'mojiscript/list/map'
+
+const double = num => num * 2
+
+const main = pipe ([
+  [ 1, 2, 3 ],
+  map (double),
+  log
+])
+
+run ({ main })
+//=> [ 2, 4, 6 ]
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| function | `Function`  | Function to apply to each item in the `Iterable`. |
+| iterable | `Iterable`  | `Iterable` to apply the function to. |
+
+## Returns
+
+Returns an `Array` with the function applied to each value in the `Iterable`.

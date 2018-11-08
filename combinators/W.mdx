@@ -1,0 +1,21 @@
+---
+name: W
+menu: Combinators
+---
+
+# W Combinator
+
+`W :: Function -> Any -> Any`
+
+`W` x y duplicates the argument y.
+
+```javascript
+import W from 'mojiscript/combinators/W'
+import pipe from 'mojiscript/core/pipe'
+
+const func = W (v1 => pipe ([
+  v2 => console.log (v1 === v2) //=> true
+]))
+
+func (888)
+```

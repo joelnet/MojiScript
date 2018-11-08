@@ -1,0 +1,72 @@
+---
+name: run
+menu: core
+---
+
+# core/run
+
+`run :: Any -> Any`
+
+Main entrypoint into your application. Runs your `main` pipe.
+
+## Examples
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+
+const main = pipe ([
+  () => log ('done')
+])
+
+run ({ main })
+//=> 'done'
+```
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+
+const state = 'Hello World'
+
+const main = pipe ([
+  log
+])
+
+run ({ state, main })
+//=> 'Hello World'
+```
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+
+const dependencies = {
+  log
+}
+
+const state = 'Hello World'
+
+const main = ({ log }) => pipe ([
+  log
+])
+
+run ({ dependencies, state, main })
+//=> 'Hello World'
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| options | `Object`  | run options. |
+| options.dependencies | `Object`  | Collection of dependencies. |
+| options.state | `Any`  | Parameter to send to `pipe`. |
+| options.main | `Function`  | Main `pipe` to run. |
+
+## Returns
+
+Returns a `Promise` containing the results of `main`.
