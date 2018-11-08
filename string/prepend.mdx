@@ -1,0 +1,40 @@
+---
+name: prepend
+menu: string
+---
+
+# string/prepend
+
+`prepend :: String -> String -> String`
+
+Prepends a `String` to another `String`
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log';
+import pipe from 'mojiscript/core/pipe';
+import run from 'mojiscript/core/run';
+import prepend from 'mojiscript/string/prepend';
+
+const state = 'Script'
+
+const main = pipe ([
+  prepend ('Moji'),
+  log
+])
+
+run ({ state, main })
+// => "MojiScript"
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pre | `String`  | `String` to be prepend to. |
+| post | `String`  | `String` to prepend to other `String` |
+
+## Returns
+
+Prepended `String`.

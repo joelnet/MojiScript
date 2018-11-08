@@ -1,0 +1,19 @@
+---
+name: S
+menu: Combinators
+---
+
+# S Combinator
+
+`S :: Function -> Function -> Any -> Any`
+
+`S` is a substitution operator. It takes three arguments and then returns the first argument applied to the third, which is then applied to the result of the second argument applied to the third.
+
+```javascript
+import S from './combinators/S'
+
+const add = x => y => x + y
+const multiply = x => y => x * y
+
+S (add) (multiply (3)) (10) //=> 40
+```

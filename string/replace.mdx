@@ -1,0 +1,41 @@
+---
+name: replace
+menu: string
+---
+
+# string/replace
+
+`replace :: String -> String -> String -> String`
+
+Replaces all instances of `pattern` with a  `replacement` in a `string`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import replace from 'mojiscript/string/replace'
+
+const state = 'JavaScript JavaScript JavaScript!'
+
+const main = pipe ([
+  replace ('Java') ('Moji'),
+  log
+])
+
+run ({ state, main })
+// => "MojiScript MojiScript MojiScript!"
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pattern | `String`  | Pattern to search for. |
+| replacement | `String`  | Replacement `String`. |
+| string | `String`  | `String` to to perform replacement. |
+
+## Returns
+
+Replaced `String`.

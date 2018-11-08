@@ -1,0 +1,21 @@
+---
+name: curry
+menu: function
+---
+
+# function/curry
+
+`curry :: Number -> Function -> Function`
+
+Returns a curried equivalent of the provided function, with the specified arity. This function is provided for JavaScript interop and should rarely be needed inside of MojiScript files.
+
+# Example
+
+```javascript
+import curry from 'mojiscript/function/curry'
+import fs from 'fs'
+
+const readFileSync = curry (2) (fs.readFileSync)
+
+const data = readFileSync ('file.txt') ('utf8')
+```

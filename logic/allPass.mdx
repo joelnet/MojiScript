@@ -1,0 +1,44 @@
+---
+name: allPass
+menu: logic
+---
+
+# logic/allPass
+
+`allPass :: [Function] -> Any -> Boolean`
+
+Takes an `Array` of `predicates` and returns `true` if all `predicates` are `true`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import map from 'mojiscript/list/map'
+import allPass from 'mojiscript/logic/allPass'
+
+const isFizz = num => num % 5 == 0
+const isBuzz = num => num % 3 == 0
+const isFizzBuzz = allPass ([ isFizz, isBuzz ])
+
+const main = pipe ([
+  [ 5, 10, 15 ],
+  map (isFizzBuzz),
+  log
+])
+
+run ({ main })
+//=> [ false, false, true ]
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| predicates | `[Function]`  | An `Array` of `predicates` to apply to each item in the `Iterable`. |
+| value | `Any`  | Value to test. |
+
+## Returns
+
+Returns `true` if all `predicates` are `true`, otherwise `false`.

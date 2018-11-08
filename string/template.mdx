@@ -1,0 +1,36 @@
+---
+name: template
+menu: string
+---
+
+# string/template
+
+`template :: Template -> Function -> String`
+
+Creates a template function that returns a `String`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import replace from 'mojiscript/string/replace'
+import $ from 'mojiscript/string/template'
+
+const state = { first: 'Luke', last: 'Skywalker' }
+
+const nameTemplate = $`${'first'} ${'last'}`
+
+const main = pipe ([
+  nameTemplate,
+  log
+])
+
+run ({ state, main })
+// => "Luke Skywalker"
+```
+
+## Returns
+
+Formatted string.

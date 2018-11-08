@@ -1,0 +1,45 @@
+---
+name: unless
+menu: logic
+---
+
+# logic/unless
+
+`unless :: Function -> Function -> Any -> Any`
+
+Executes `onFalse` when the `condition` returns a falsy value. Otherwise `value` is returned.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import unless from 'mojiscript/logic/unless'
+import is from 'mojiscript/types/is'
+
+const state = 1
+
+const isString = is (String)
+const toString = x => x.toString ()
+
+const main = pipe ([
+  unless (isString) (toString),
+  log
+])
+
+run ({ state, main })
+//=> '1'
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| condition | `Function`  | A predicate function. |
+| onFalse | `Function`  | Invoked when the predicate evaluates to a falsy value. |
+| value | `Any`  | Value to be passed to condition and `onFalse` if condition is falsy. |
+
+## Returns
+
+Returns the result of `onFalse` depending on the result of the `condition` or the `value`.

@@ -1,0 +1,50 @@
+---
+name: ifElse
+menu: logic
+---
+
+# logic/ifElse
+
+`ifElse :: Function -> Function -> Function -> Any -> Any`
+
+Encapsulates `if/else` logic.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import ifElse from 'mojiscript/logic/ifElse'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import $ from 'mojiscript/string/template'
+
+const dependencies = {
+  log
+}
+const state = 7
+
+const isEven = x => x % 2 == 0
+const yes = $`Yes, ${0} is even.`
+const no = $`NO, ${0} is not even.`
+
+const main = ({ log }) => pipe ([
+  ifElse (isEven) (yes) (no),
+  log
+])
+
+run({ dependencies, state, main })
+//=> 'NO, 7 is not even.'
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| condition | `Function`  | A predicate function. |
+| onTrue | `Function`  | Invoked when the predicate evaluates to a truthy value. |
+| onFalse | `Function`  | Invoked when the predicate evaluates to a falsy value. |
+| value | `Any`  | Value to be passed to condition and either `onTrue` or `onFalse` function. |
+
+## Returns
+
+Returns the result of either `onTrue` or `onFalse` depending on the result of the `condition`.

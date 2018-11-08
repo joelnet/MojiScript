@@ -1,0 +1,22 @@
+---
+name: logF
+menu: console
+---
+
+# console/log
+
+`logF :: Function -> a -> a`
+
+`logF` transforms the value and sends it to `console.log` and then returns the pre-transformed value value.
+
+```javascript
+import logF from 'mojiscript/console/logF'
+import pipe from 'mojiscript/core/pipe'
+
+const main = pipe ([
+  logF (x => x.toUpperCase ()), //=> "HELLO WORLD!"
+  value => console.log (value) //=> "Hello World!"
+])
+
+main ('Hello World!')
+```

@@ -1,0 +1,22 @@
+---
+name: log
+menu: console
+---
+
+# console/log
+
+`log :: a -> a`
+
+`log` sends value to `console.log` and then returns the value.
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+
+const main = pipe ([
+  log,
+  value => console.log (value) //=> "Hello World!"
+])
+
+main ('Hello World!')
+```
