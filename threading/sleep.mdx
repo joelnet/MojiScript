@@ -1,0 +1,46 @@
+---
+name: sleep
+menu: threading
+---
+
+# threading/sleep
+
+`sleep :: Number -> Any -> Any`
+
+`sleep` the application for a given number of `milliseconds`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import sleep from 'mojiscript/threading/sleep'
+
+const state = 4
+
+const double = x => x * 2
+
+const main = pipe ([
+  log,
+  sleep (1000),
+  double,
+  log
+])
+
+run ({ state, main })
+//=> 4
+//=> (pause for 1 second)
+//=> 8
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| milliseconds | `Number`  | `Number` of milliseconds to sleep. |
+| value | `Any`  | Value returned at the end of `sleep`. |
+
+## Returns
+
+Returns the `value` at the end of the sleep.

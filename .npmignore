@@ -1,7 +1,9 @@
+.docz/
 .lib/
 **/.vscode/
 bin/
 coverage/
+docs/
 examples/
 **/__tests__/
 **/node_modules/

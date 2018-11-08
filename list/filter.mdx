@@ -1,0 +1,41 @@
+---
+name: filter
+menu: list
+---
+
+# list/filter
+
+`filter :: Function -> Iterable -> Array`
+
+Takes a predicate and an `Iterable` and returns an `Array` of the same type containing the members of the given filterable which satisfy the given predicate.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import filter from 'mojiscript/list/filter'
+
+const isEven = num => num % 2 === 0
+
+const main = pipe ([
+  [ 1, 2, 3, 4, 5 ],
+  filter (isEven),
+  log
+])
+
+run ({ main })
+//=> [ 2, 4 ]
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| predicate | `Function`  | Function takes and input and returns a `Boolean` |
+| iterable | `Iterable`  | `Iterable` to apply the predicate to. |
+
+## Returns
+
+Returns an `Array` filtered by the `predicate`.

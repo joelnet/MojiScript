@@ -1,0 +1,52 @@
+---
+name: into
+menu: core
+---
+
+# core/pipe
+
+`into :: String -> Function -> Any`
+
+Executes `func(value)` and injects the return value into the `prop` of `value`.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import into from 'mojiscript/core/into'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import sleep from 'mojiscript/threading/sleep'
+
+const isEven = num => num % 2 === 0
+const isOdd = pipe ([
+  sleep (1000),
+  isEven,
+  value => !value
+])
+
+const state = {
+  value: 5
+}
+
+const main = pipe ([
+  into ('isEven') (isEven),
+  into ('isOdd') (isOdd),
+  log
+])
+
+run ({ state, main })
+// => { value: 5, isEven: false, isOdd: true }
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| prop | `String` | Property to set in `value`. |
+| func | `Function(a -> b)`  | A `Function` that takes `value` and returns the computed result |
+| value | `Object` | `Object` passed to `func` and `prop` is set into. |
+
+## Returns
+
+Returns the input `Object` with the addition of `prop` attached set to the return value of `func(value)`.

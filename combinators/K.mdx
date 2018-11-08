@@ -1,0 +1,18 @@
+---
+name: K
+menu: Combinators
+---
+
+# K Combinator
+
+`K :: a -> b -> a`
+
+`K`, when applied to any argument x, yields a one-argument constant function K (x), which, when applied to any argument, returns x
+
+```javascript
+import K from 'mojiscript/combinators/K'
+
+const always = K (888)
+
+always () //=> 888
+```

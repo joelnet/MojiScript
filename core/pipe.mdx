@@ -1,0 +1,38 @@
+---
+name: pipe
+menu: core
+---
+
+# core/pipe
+
+`pipe :: [(a -> b)] -> Any -> Any`
+
+Pipe is an asynchronous function composer.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import sleep from 'mojiscript/threading/sleep'
+import run from 'mojiscript/core/run'
+
+const main = pipe ([
+  sleep (1000),
+  () => log ('done')
+])
+
+run ({ main })
+//=> 'done'
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| funcs | `[(a -> b)]`  | Array of `Function`s that takes `value` and returns the computed result |
+| value | `Object` | `Object` passed to `func` and `prop` is set into. |
+
+## Returns
+
+Returns the result of the last function in the `pipe`.

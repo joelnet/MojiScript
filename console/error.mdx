@@ -1,0 +1,22 @@
+---
+name: error
+menu: console
+---
+
+# console/error
+
+`error :: a -> a`
+
+`error` sends value to `console.error` and then returns the value.
+
+```javascript
+import error from 'mojiscript/console/error'
+import pipe from 'mojiscript/core/pipe'
+
+const main = pipe ([
+  error,
+  value => console.log (value) //=> "uh oh"
+])
+
+main ('uh oh')
+```

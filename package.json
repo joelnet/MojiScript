@@ -21,13 +21,17 @@
     "watch": "moji watch",
     "contributors:add": "all-contributors add",
     "contributors:check": "all-contributors check",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate",
+    "docz:clean": "rm -rf docs",
+    "docz:dev": "docz dev",
+    "docz:build": "npm run docz:clean && docz build && cp .docz/dist docs"
   },
   "dependencies": {},
   "devDependencies": {
     "all-contributors-cli": "^5.4.1",
     "axios": "^0.18.0",
     "coveralls": "^3.0.2",
+    "docz": "^0.12.9",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-mojiscript": "1.2.0",
@@ -48,7 +52,10 @@
       "**/*.{js,jsx,mjs}",
       "!coverage/**",
       "!examples/**",
-      "!_internal/debug/**"
+      "!_internal/debug/**",
+      "!.docz/**",
+      "!docs/**",
+      "!doczrc.js"
     ],
     "coverageThreshold": {
       "global": {

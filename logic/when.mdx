@@ -1,0 +1,45 @@
+---
+name: when
+menu: logic
+---
+
+# logic/when
+
+`when :: Function -> Function -> Any -> Any`
+
+Executes `onTrue` when the `condition` returns a truthy value. Otherwise `value` is returned.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import when from 'mojiscript/logic/when'
+import is from 'mojiscript/types/is'
+
+const state = 'mojiscript'
+
+const isString = is (String)
+const toUpperCase = x => x.toUpperCase ()
+
+const main = pipe ([
+  when (isString) (toUpperCase),
+  log
+])
+
+run ({ state, main })
+// => "MOJISCRIPT"
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| condition | `Function`  | A predicate function. |
+| onTrue | `Function`  | Invoked when the predicate evaluates to a truthy value. |
+| value | `Any`  | Value to be passed to condition and `onTrue` if condition is truthy. |
+
+## Returns
+
+Returns the result of `onTrue` depending on the result of the `condition` or the `value`.

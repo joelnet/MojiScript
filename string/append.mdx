@@ -1,0 +1,40 @@
+---
+name: append
+menu: string
+---
+
+# string/append
+
+`append :: String -> String -> String`
+
+Appends a `String` to another `String`
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log';
+import pipe from 'mojiscript/core/pipe';
+import run from 'mojiscript/core/run';
+import append from 'mojiscript/string/append';
+
+const state = 'Moji'
+
+const main = pipe ([
+  append ('Script'),
+  log
+])
+
+run ({ state, main })
+// => "MojiScript"
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| post | `String`  | `String` to append to other `String` |
+| pre | `String`  | `String` to be appended to. |
+
+## Returns
+
+Appended `String`.

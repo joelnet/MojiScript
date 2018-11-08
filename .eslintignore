@@ -1,6 +1,5 @@
-#__tests__/
+.docz/
 coverage/
-interop/
 examples/
-#*.test.js
-#*.test.mjs
+docs/
+interop/

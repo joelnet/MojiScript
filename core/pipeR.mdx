@@ -1,0 +1,40 @@
+---
+name: pipeR
+menu: core
+---
+
+# core/pipeR
+
+`pipeR :: [Function] -> Any -> Any`
+
+Pipe is an asynchronous function composer for recursive functions.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipeR from 'mojiscript/core/pipeR'
+import run from 'mojiscript/core/run'
+import wait from 'mojiscript/threading/sleep'
+
+const state = 1
+
+const main = pipeR (next => [
+  log,
+  wait (1000),
+  x => next (x + 1)
+])
+
+run ({ state, main })
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| funcs | `[Function(a -> b)]`  | A `Function` that takes `value` and returns the computed result |
+| value | `Object` | `Object` passed to `func` and `prop` is set into. |
+
+## Returns
+
+Returns the result of the last function in the `pipeR`.

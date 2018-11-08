@@ -1,0 +1,32 @@
+---
+name: ifError
+menu: logic
+---
+
+# logic/ifError
+
+`ifError :: Function -> Function -> Function -> Any -> Any`
+
+Error handler executes `onError` if an error occurs, otherwise `onSuccess` is executed.
+
+## Example
+
+```javascript
+import log from 'mojiscript/console/log'
+import pipe from 'mojiscript/core/pipe'
+import run from 'mojiscript/core/run'
+import ifError from 'mojiscript/logic/ifError'
+import $ from 'mojiscript/string/template'
+
+const state = 1
+
+const toUpperCase = value => value.toUpperCase ()
+
+const main = pipe ([
+  ifError (toUpperCase) ($`OOPS: ${0}`) ($`Value: ${0}`),
+  log
+])
+
+run ({ state, main })
+// OOPS: TypeError: value.toUppercase is not a function
+```
