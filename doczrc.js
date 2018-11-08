@@ -1,4 +1,8 @@
 export default {
+  title: 'MojiScript',
+  dest: 'docs',
+  base: '/MojiScript',
+  codeSandbox: false,
   htmlContext: {
     head: {
       raw: `

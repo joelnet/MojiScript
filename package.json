@@ -24,7 +24,7 @@
     "contributors:generate": "all-contributors generate",
     "docz:clean": "rm -rf docs",
     "docz:dev": "docz dev",
-    "docz:build": "npm run docz:clean && docz build && cp .docz/dist docs"
+    "docz:build": "npm run docz:clean && docz build"
   },
   "dependencies": {},
   "devDependencies": {
