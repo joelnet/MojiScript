@@ -1,5 +1,5 @@
 {
-  "app.js": "/static/js/app.1be8e1ed.js",
+  "app.js": "/static/js/app.643f853a.js",
   "combinators-i.js": "/static/js/combinators-i.5306398d.js",
   "combinators-k.js": "/static/js/combinators-k.1ebf0eab.js",
   "combinators-s.js": "/static/js/combinators-s.917b0220.js",
@@ -29,7 +29,7 @@
   "logic-if-error.js": "/static/js/logic-if-error.ef530353.js",
   "logic-unless.js": "/static/js/logic-unless.e2def932.js",
   "logic-when.js": "/static/js/logic-when.e15491ef.js",
-  "runtime~app.js": "/static/js/runtime~app.b2d5088cf732d9df56cf.js",
+  "runtime~app.js": "/static/js/runtime~app.aab4255701c08b68aa10.js",
   "string-append.js": "/static/js/string-append.6c12f22b.js",
   "string-prepend.js": "/static/js/string-prepend.29c1fd4c.js",
   "string-replace.js": "/static/js/string-replace.cb92ee56.js",
