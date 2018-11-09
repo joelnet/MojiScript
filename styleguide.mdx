@@ -1,0 +1,118 @@
+---
+name: Style Guide
+order: 90
+---
+
+# Style Guide
+
+All values must be declared with `const`.
+
+```javascript
+// BAD
+let value = {}
+
+// GOOD
+const value = {}
+```
+
+Variables should be named in lower camel case.
+
+```javascript
+// BAD
+const AddNumbers = x => y => x + y
+
+// GOOD
+const addNumbers = x => y => x + y
+```
+
+Expressions or Pipes and their arguments should be separated with a space. Arguments should be surrounded with parentheses. Further discussed at [#438](https://github.com/sanctuary-js/sanctuary/issues/438).
+
+```javascript
+// BAD
+add(1)(2)
+
+// GOOD
+add (1) (2)
+```
+
+Prefer String Templates
+
+```javascript
+// BAD
+const func = x => `Value: ${x}`
+
+// GOOD
+const func = $`Value: ${0}`
+
+// BAD
+const func = ({ prop }) => `Prop: ${prop}`
+
+// GOOD
+const func = $`Prop: ${'prop'}`
+```
+
+Following Atomic Design principles, code should be broken down into Atoms. This maximizes reusability, testability, composability, and readability.
+
+```javascript
+// BAD
+const getOrdersText = ifElse (({ length }) => length > 0) ($`${0} orders`) ($`No Orders`)
+
+// GOOD
+const hasOrders = ({ length }) => length > 0
+const getOrdersText = ifElse (hasOrders) ($`${0} orders`) ($`No Orders`)
+
+// GOOD
+const hasOrders = ({ length }) => length > 0
+const ifHasOrders = ifElse (hasOrders)
+const getOrdersText = ifHasOrders ($`${0} orders`) ($`No Orders`)
+```
+
+`ifElse` and the condition should be on the same line. Longer statements can be broken out into multiple lines. If it is long, consider breaking it down further.
+
+```javascript
+// BAD
+ifElse
+  (lessThan0)
+  (Math.abs)
+  (Math.sqrt)
+
+// GOOD
+ifElse (lessThan0) (Math.abs) (Math.sqrt)
+
+// GOOD
+ifElse (lessThan0)
+  (Math.abs)
+  (Math.sqrt)
+```
+
+Pipes must be multi-line.
+
+```javascript
+// BAD
+const main = pipe ([ add ])
+
+// GOOD
+const main = pipe ([
+  add
+])
+```
+
+Arrays must have a space after the opening bracket and before the closing bracket.
+
+```javascript
+// BAD
+const array = [1, 2, 3]
+
+// GOOD
+const array = [ 1, 2, 3 ]
+```
+
+No semi-colons.
+
+```javascript
+// BAD
+const value = 888;
+
+// GOOD
+const value = 888
+```
