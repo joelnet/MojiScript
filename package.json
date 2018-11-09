@@ -22,9 +22,9 @@
     "contributors:add": "all-contributors add",
     "contributors:check": "all-contributors check",
     "contributors:generate": "all-contributors generate",
-    "docz:clean": "rm -rf docs",
+    "docz:clean": "rm -rf .docz/ static/ assets.json index.html",
     "docz:dev": "docz dev",
-    "docz:build": "npm run docz:clean && docz build && echo mojiscript.js.org > docs/CNAME"
+    "docz:build": "npm run docz:clean && docz build && mv .docz/dist/* ."
   },
   "dependencies": {},
   "devDependencies": {
@@ -54,7 +54,7 @@
       "!examples/**",
       "!_internal/debug/**",
       "!.docz/**",
-      "!docs/**",
+      "!static/**",
       "!doczrc.js"
     ],
     "coverageThreshold": {

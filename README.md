@@ -8,7 +8,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 
 **NEW: Join the discussion in the [MojiScript Discord chat](https://discord.gg/Gg7ptD5)!**
 
-[View the Documentation](https://joelnet.github.io/MojiScript/)
+[View the Documentation](https://mojiscript.js.org/)
 
 ## Table of Contents
 
@@ -25,7 +25,7 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
   * [map/filter/reduce](examples/map-filter-reduce)
   * [FizzBuzz](examples/fizz-buzz)
   * [Recursion](examples/recursion)
-- [API Documentation](https://joelnet.github.io/MojiScript/)
+- [API Documentation](https://mojiscript.js.org/)
 - [Style Guide](#style-guide)
 - [Complementary Libraries](#complementary-libraries)
 - [Variables](#variables)

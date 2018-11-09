@@ -1,6 +1,6 @@
 export default {
   title: 'MojiScript',
-  dest: 'docs',
+  //  dest: 'docs',
   base: '/',
   codeSandbox: false,
   htmlContext: {
