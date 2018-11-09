@@ -54,7 +54,7 @@
       "!examples/**",
       "!_internal/debug/**",
       "!.docz/**",
-      "!docs/**",
+      "!static/**",
       "!doczrc.js"
     ],
     "coverageThreshold": {
