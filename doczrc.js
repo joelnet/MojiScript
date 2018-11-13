@@ -3,6 +3,7 @@ export default {
   //  dest: 'docs',
   base: '/',
   codeSandbox: false,
+  hashRouter: true,
   htmlContext: {
     head: {
       raw: `

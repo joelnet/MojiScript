@@ -1,6 +1,6 @@
 {
   "name": "mojiscript",
-  "version": "0.11.11",
+  "version": "0.11.13",
   "description": "MojiScript is an Async First, opinionated, and functional language designed to have 100% compatibility with JavaScript engines.",
   "repository": {
     "type": "git",
