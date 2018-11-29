@@ -249,12 +249,19 @@ func ('fail') //=> then { err: [Error: Oops!] }
 func (1) //=> then { value: 1 }
 ```
 
-### Error Handling with Sanctuary
+### Error Handling with an Either
+
+Import the `Left` and `Right` from the `Either` type.
+
+```javascript
+import Left from 'mojiscript/type/Left'
+import Right from 'mojiscript/type/Right'
+```
 
 Sanctuary makes error handling easy with the [Either type](https://github.com/sanctuary-js/sanctuary#either-type).
 
 ```javascript
-const func = ifError (maybeThrowError) (S.Left) (S.Right)
+const func = ifError (maybeThrowError) (Left) (Right)
 
 func ('fail') //=> Left (new Error ("Oops!"))
 func (1) //=> Right (1)
