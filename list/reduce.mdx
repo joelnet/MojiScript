@@ -9,23 +9,45 @@ menu: list
 
 Returns a single item by iterating through the list, successively calling the iterator function and passing it an accumulator value and the current value from the array, and then passing the result to the next call.
 
-## Example
+An `Iterable` could be an `Array`, an `Iterator`, or `async Iterator`, or a `Functor`.
+
+## Array Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
+import range from 'mojiscript/list/range'
+import reduce from 'mojiscript/list/reduce'
+
+const add = x => y => x + y
+const array = [ 1, 2, 3 ]
+
+reduce (add) (0) (array) //=> 6
+```
+
+## Iterator Example
+
+```javascript
 import range from 'mojiscript/list/range'
 import reduce from 'mojiscript/list/reduce'
 
 const add = x => y => x + y
 
-const main = pipe ([
-  range (1) (4),    //=> [ 1, 2, 3 ]
-  reduce (add) (0), //=> 6
-  log
+reduce (add) (0) (range (1) (4)) //=> 6
+```
+
+# Async Example
+
+```javascript
+import pipe from 'mojiscript/core/pipe'
+import reduce from 'mojiscript/list/reduce'
+import sleep from 'mojiscript/threading/sleep'
+
+const add = x => y => x + y
+const asyncAdd = x => pipe ([
+  sleep (1000),
+  add (x)
 ])
 
-run ({ main })
-//=> 6
+const array = [ 1, 2, 3 ]
+
+reduce (asyncAdd) (0) (array) //=> Promise ([ 2, 4, 6 ])
 ```

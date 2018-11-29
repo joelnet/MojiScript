@@ -9,24 +9,47 @@ menu: list
 
 Takes a function and an `Iterable` and returns an `Array` with the function applied to each value in the `Iterable`.
 
-## Example
+An `Iterable` could be an `Array`, an `Iterator`, or `async Iterator`, or a `Functor`.
+
+## Array Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
 import map from 'mojiscript/list/map'
 
 const double = num => num * 2
+const array = [ 1, 2, 3 ]
 
-const main = pipe ([
-  [ 1, 2, 3 ],
-  map (double),
-  log
+map (double) (array) //=> [ 2, 4, 6 ]
+```
+
+## Iterator Example
+
+```javascript
+import map from 'mojiscript/list/map'
+import range from 'mojiscript/list/range'
+
+const double = num => num * 2
+
+const iterator = makeIterator()
+
+map (double) (range (1) (4)) //=> [ 2, 4, 6 ]
+```
+
+## Async Example
+
+```javascript
+import map from 'mojiscript/list/map'
+import pipe from 'mojiscript/core/pipe'
+import sleep from 'mojiscript/threading/sleep'
+
+const double = num => num * 2
+const asyncDouble = pipe ([
+  sleep (1000), // <-- async function!
+  double
 ])
+const array = [ 1, 2, 3 ]
 
-run ({ main })
-//=> [ 2, 4, 6 ]
+map (asyncDouble) (array) //=> Promise ([ 2, 4, 6 ])
 ```
 
 ## Parameters
