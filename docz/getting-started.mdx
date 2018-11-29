@@ -1,0 +1,261 @@
+---
+name: Getting Started
+order: 95
+---
+
+# Getting Started
+
+## Install
+
+Install the CLI
+
+```bash
+$ npm install -g mojiscript-cli
+```
+
+Clone the starter app.
+
+```bash
+$ git clone https://github.com/joelnet/mojiscript-starter-app.git
+$ cd mojiscript-starter-app
+```
+
+Install, build, and run just to make sure it all works.
+
+```bash
+$ npm ci
+$ npm run build
+$ npm start
+```
+
+If everything works, you should see:
+
+```
+Hello World
+```
+
+## Project Setup
+
+`src/index.mjs` will inject all dependencies and initial state into `src/main.mjs`.
+
+`src/main.mjs` is the entrypoint of the app.
+
+## Format on Save
+
+If you are using VSCODE, Format on Save should be enabled by default.
+
+You can run `moji watch` to enable Format on Save in other editors.
+
+## Variables
+
+All variables must be `const`. This differs from JavaScript that allows `var` or `let`. 
+
+```javascript
+const number = 888
+const string = 'hello'
+const object = {
+  x: 3,
+  y: 4
+}
+
+// INVALID
+var number = 666
+let number = 666
+```
+
+## String Templates
+
+String Templates make strings a joy to work with.
+
+```javascript
+import $ from 'mojiscript/string/template'
+
+const searchTemplate = $`Searching for: "${0}"`
+const nameTemplate = $`${'first'} ${'last'}`
+
+searchTemplate ('Skywalker') //=> 'Searching for: "Skywalker"'
+nameTemplate ({ first: 'Luke', last: 'Skywalker' }) //=> 'Luke Skywalker'
+```
+
+Have a look at the [Axios Example](https://github.com/joelnet/MojiScript/blob/master/examples/net-axios) for more on how String Templates can improve your code.
+
+## Functions
+
+There are two types of Functions, Expressions and Pipes.
+
+### Expressions
+
+Expressions are synchronous and must be curried.
+
+```javascript
+const increase = x => x + 1
+const add = x => y => x + y
+const add3 = x => y => z => x + y + z
+const getName = ({ first, last }) => `${first} ${last}`
+```
+
+Unlike JavaScript, multiple parameters and blocks are not permitted.
+
+```javascript
+const add = (x, y) => x + y
+// Error: Arrow function has too many parameters (2). Maximum allowed is 1.
+
+const add = x => y => {
+  return x + y
+}
+// Error: Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`.
+```
+
+### Pipes
+
+Pipes can be compared to an asynchronous function that takes an `Array` of `Functions` and returns an argument.
+
+A pipe can contain multiple Pipes or Expressions. A Pipe will return the result of the final Pipe or Expression.
+
+Think of a pipe as data flowing through a series of transformations. (illustration below)
+
+```javascript
+const main = pipe ([
+  //         |
+  //         | 4
+  //         ▼
+  /*-------------------*/
+  /**/  x => x + 5,  /**/
+  /*-------------------*/
+  //         |
+  //         | 9
+  //         ▼
+  /*-------------------*/
+  /**/  x => x * 2,  /**/
+  /*-------------------*/
+  //         |
+  //         | 18
+  //         ▼
+  /*-------------------*/
+  /**/      log,     /**/
+  /*-------------------*/
+  //         |
+  //         | 18
+  //         ▼
+])
+
+main (4) // => 18
+```
+
+#### Asynchronous Code
+
+Async code is easy. Just add it into the `pipe`.
+
+```javascript
+const main = pipe ([
+  x => x + 5,
+  sleep (1000),
+//------------
+//             \
+//       sleep is async! not a problem.
+  x => x * 2,
+  log,
+])
+```
+
+## Conditionals
+
+### Example 1: if/else conditional
+
+```javascript
+// isEven :: Number -> Boolean
+const isEven = x => x % 2 === 0
+
+// yesOrNo :: Boolean -> String
+const yesIfEven = ifElse (isEven) ($`Yes, ${0} is even.`) ($`NO, ${0} is not even.`)
+
+// main :: Number -> String
+const main = ({ log }) => pipe ([
+  yesIfEven,
+  log
+])
+
+main (3) //=> 'NO, 3 is not even.'
+main (4) //=> 'YES, 4 is even.'
+```
+
+### Example 2: switch case
+
+```javascript
+// dayName :: Number -> String
+const dayName = cond ([
+  [ 0, 'Sunday' ],
+  [ 1, 'Monday' ],
+  [ 2, 'Tuesday' ],
+  [ 3, 'Wednesday' ],
+  [ 4, 'Thursday' ],
+  [ 5, 'Friday' ],
+  [ 6, 'Saturday' ]
+])
+
+const main = ({ logF }) => pipe ([
+  dayName,
+  logF(day => `Today is ${day}.`)
+])
+
+main (5)  //=> 'Friday'
+```
+
+### Example 3: if/else/elseif
+
+```javascript
+// getTempInfo :: Number -> String
+const getTempInfo = cond ([
+  [ 0, 'water freezes at 0°C' ],
+  [ 100, 'water boils at 100°C' ],
+  [ () => true, $`nothing special happens at ${0}°C` ]
+])
+
+const main = ({ log }) => pipe ([
+  getTempInfo,
+  log
+])
+
+main (0) //=> 'water freezes at 0°C'
+main (100) //=> 'water boils at 100°C'
+main (50) //=> 'nothing special happens at 50°C'
+```
+
+## Error Handling
+
+```javascript
+import ifError from 'mojiscript/logic/ifError'
+```
+
+### Synchronous Error Handling
+
+```javascript
+const fail = err => ({ err })
+const pass = value => ({ value })
+const func = ifError (maybeThrowError) (fail) (pass)
+
+func ('fail') //=> { err: [Error: Oops!] }
+func (1) //=> { value: 1 }
+```
+
+### Asynchronous Error Handling
+
+Asynchronous error handling is no different than Synchronous error handling.
+
+```javascript
+const func = ifError (maybeThrowErrorAsync) (fail) (pass)
+
+func ('fail') //=> then { err: [Error: Oops!] }
+func (1) //=> then { value: 1 }
+```
+
+### Error Handling with Sanctuary
+
+Sanctuary makes error handling easy with the [Either type](https://github.com/sanctuary-js/sanctuary#either-type).
+
+```javascript
+const func = ifError (maybeThrowError) (S.Left) (S.Right)
+
+func ('fail') //=> Left (new Error ("Oops!"))
+func (1) //=> Right (1)
+```
