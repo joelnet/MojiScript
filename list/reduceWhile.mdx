@@ -52,5 +52,5 @@ const asyncAdd = x => pipe ([
 const array = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 const predicate = acc => x => x < 5
 
-reduceWhile (predicate) (asyncAdd) (0) (array) //=> 10
+reduceWhile (predicate) (asyncAdd) (0) (array) //=> Promise (10)
 ```
