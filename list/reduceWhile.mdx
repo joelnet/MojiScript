@@ -40,16 +40,17 @@ reduceWhile (predicate) (add) (0) (range (0) (Infinity)) //=> 10
 ## Async Example
 
 ```javascript
+import pipe from 'mojiscript/core/pipe'
 import reduceWhile from 'mojiscript/list/reduceWhile'
 import sleep from 'mojiscript/threading/sleep'
 
 const add = x => y => x + y
+const asyncAdd = x => pipe ([
+  sleep (1000),
+  add (x)
+])
 const array = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 const predicate = acc => x => x < 5
-const asyncPredicate = acc => pipe ([
-  sleep (1000),
-  predicate (acc)
-])
 
-reduceWhile (predicate) (add) (0) (array) //=> 10
+reduceWhile (predicate) (asyncAdd) (0) (array) //=> 10
 ```
