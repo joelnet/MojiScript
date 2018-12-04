@@ -1,0 +1,63 @@
+---
+name: flatMap
+menu: list
+---
+
+# list/flatMap
+
+`flatMap :: Function -> FlatMapable -> Any`
+
+Takes a function and a `FlatMapable` and returns an `Object`.
+
+A `FlatMapable` could be an `Array`, an `Iterator`, or `async Iterator`, or an object that implements 'flatMap'.
+
+## Array Example
+
+```javascript
+import flatMap from 'mojiscript/list/flatMap'
+
+const andTimesTen = num => [ num, num * 10 ]
+const array = [ 1, 2, 3 ]
+
+flatMap (andTimesTen) (array) //=> [ 1, 10, 2, 20, 3, 30 ]
+```
+
+## Iterator Example
+
+```javascript
+import map from 'mojiscript/list/map'
+import range from 'mojiscript/list/range'
+
+const andTimesTen = num => [ num, num * 10 ]
+const array = [ 1, 2, 3 ]
+
+flatMap (andTimesTen) (range (1) (4)) //=> [ 1, 10, 2, 20, 3, 30 ]
+```
+
+## Async Example
+
+```javascript
+import flatMap from 'mojiscript/list/flatMap'
+import pipe from 'mojiscript/core/pipe'
+import sleep from 'mojiscript/threading/sleep'
+
+const andTimesTen = num => [ num, num * 10 ]
+const asyncAndTimesTen = pipe ([
+  sleep (1000), // <-- async function!
+  andTimesTen
+])
+const array = [ 1, 2, 3 ]
+
+flatMap (asyncAndTimesTen) (array) //=> Promise ([ 1, 10, 2, 20, 3, 30 ]​​​​​)
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| function | `Function`  | Function to apply to each item in the `Iterable`. |
+| mappable | `FlatMapable`  | `FlatMapable` to apply the function to. |
+
+## Returns
+
+Returns an `Object` with the function applied to the `FlatMapable`.
