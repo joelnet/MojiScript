@@ -9,24 +9,46 @@ menu: list
 
 Takes a predicate and an `Iterable` and returns an `Array` of the same type containing the members of the given filterable which satisfy the given predicate.
 
-## Example
+An `Iterable` could be an `Array`, an `Iterator`, or `async Iterator`.
+
+## Array Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
 import filter from 'mojiscript/list/filter'
 
 const isEven = num => num % 2 === 0
+const array = [ 1, 2, 3, 4, 5 ]
 
-const main = pipe ([
-  [ 1, 2, 3, 4, 5 ],
-  filter (isEven),
-  log
+filter (isEven) (array) //=> [ 2, 4 ]
+```
+
+## Iterator Example
+
+```javascript
+import filter from 'mojiscript/list/filter'
+import range from 'mojiscript/list/range'
+
+const isEven = num => num % 2 === 0
+
+filter (isEven) (range (1) (6)) //=> [ 2, 4 ]
+```
+
+## Async Example
+
+```javascript
+import filter from 'mojiscript/list/filter'
+import pipe from 'mojiscript/core/pipe'
+import sleep from 'mojiscript/threading/sleep'
+
+const isEven = num => num % 2 === 0
+const asyncIsEven = pipe ([
+  sleep (1000),
+  isEven
 ])
 
-run ({ main })
-//=> [ 2, 4 ]
+const array = [ 1, 2, 3, 4, 5 ]
+
+filter (asyncIsEven) (array) //=> Promise ([ 2, 4, 6 ])
 ```
 
 ## Parameters

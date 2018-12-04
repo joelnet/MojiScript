@@ -9,28 +9,48 @@ menu: list
 
 Returns a single item by iterating through the list, successively calling the iterator function and passing it an accumulator value and the current value from the array, and then passing the result to the next call. For each iteration, check the predicate function. If the predicate is true, run the current iteration. If false, return the current accumulator.
 
-The predicate will be
+An `Iterable` could be an `Array`, an `Iterator`, or `async Iterator`, or a `Functor`.
 
-`predicate :: Any -> Any -> Boolean`
+The predicate will be `predicate :: Any -> Any -> Boolean`
 
-## Example
+## Array Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
+import reduceWhile from 'mojiscript/list/reduceWhile'
+
+const add = x => y => x + y
+const array = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+const predicate = acc => x => x < 5
+
+reduceWhile (predicate) (add) (0) (array) //=> 10
+```
+
+## Iterator Example
+
+```javascript
 import range from 'mojiscript/list/range'
 import reduceWhile from 'mojiscript/list/reduceWhile'
 
 const add = x => y => x + y
-const predicate = acc => x => acc <= 2
+const predicate = acc => x => x < 5
 
-const main = pipe ([
-  range (1) (Infinity),    //=> [ 1, 2, 3 ]
-  reduceWhile (predicate) (add) (0), //=> 3
-  log
+reduceWhile (predicate) (add) (0) (range (0) (Infinity)) //=> 10
+```
+
+## Async Example
+
+```javascript
+import pipe from 'mojiscript/core/pipe'
+import reduceWhile from 'mojiscript/list/reduceWhile'
+import sleep from 'mojiscript/threading/sleep'
+
+const add = x => y => x + y
+const asyncAdd = x => pipe ([
+  sleep (1000),
+  add (x)
 ])
+const array = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+const predicate = acc => x => x < 5
 
-run ({ main })
-//=> 3
+reduceWhile (predicate) (asyncAdd) (0) (array) //=> Promise (10)
 ```
