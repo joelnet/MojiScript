@@ -10,6 +10,10 @@ MojiScript's design is derived from Functional Programming concepts such as Curr
 
 [View the Documentation](https://mojiscript.js.org/)
 
+## Environment Support
+
+This library supports ES6. If you need to support ES5, you will need to transpile it with Babel.
+
 ## Table of Contents
 
 - [Philosophy](#philosophy)
