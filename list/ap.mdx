@@ -1,0 +1,46 @@
+---
+name: ap
+menu: list
+---
+
+# list/ap
+
+`ap :: Apply f => f (a -> b) -> f a -> f b`
+
+ap applies a list of functions to a list of values.
+
+## Array Example
+
+```javascript
+import ap from 'mojiscript/list/ap'
+
+const double = num => num * 2
+const array = [ 1, 2, 3 ]
+
+ap ([Math.sqrt, x => x * x]) ([1, 4, 9, 16, 25])
+//=> ​​​​​[ 1, 2, 3, 4, 5, 1, 16, 81, 256, 625 ]​​​​​
+```
+
+## Functor Example
+
+```javascript
+import ap from 'mojiscript/list/ap'
+import Just from 'mojiscript/type/Just'
+
+const sqrt = Just (Math.sqrt)
+const value = Just (64)
+
+ap (sqrt) (value)
+//=> Just (8)
+```
+
+## Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| func | `Apply`  | An `Apply` that contains a `Function`. |
+| value | `Iterable`  | An `Apply` that contains a value. |
+
+## Returns
+
+Returns an `Apply` with the function applied to the value.
