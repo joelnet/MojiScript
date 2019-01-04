@@ -1,17 +1,14 @@
 const signature = require('../_internal/debug/signature')
 const is = require('../type/is')
 
-// tail :: Array -> Array
-const tail = iterable => {
-  if (is(Array)(iterable)) {
-    return iterable.slice(1)
-  } if (iterable && iterable.next) {
-    const [ , ...rest ] = iterable
-    return rest
-  }
+const isArray = is(Array)
+const isFunction = is(Function)
 
-  return new Error(`type ${typeof iterable} not supported`)
-}
+// tail :: Array -> Array
+const tail = iterable =>
+  isArray(iterable) ? iterable.slice(1)
+  : iterable && isFunction(iterable.next) ? [ ...iterable ].slice(1)
+  : (() => { throw new Error(`type ${typeof iterable} is not supported`) })()
 
 module.exports = tail
 

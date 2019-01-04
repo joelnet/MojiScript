@@ -26,9 +26,9 @@ const reduceWhileIterator = (predicate, func, initial, iterable) => {
 
 // reduceWhile :: Function -> Function -> Any -> Iterable -> Any
 const reduceWhile = predicate => func => initial => iterable =>
-  (isFunction(iterable[Symbol.asyncIterator])
+  isFunction(iterable[Symbol.asyncIterator])
     ? iterableSerialReduceWhile(predicate, (a, b) => func(a)(b), initial, iterable)
-    : reduceWhileIterator(predicate, func, initial, iterable))
+    : reduceWhileIterator(predicate, func, initial, iterable)
 
 module.exports = reduceWhile
 
