@@ -1,0 +1,38 @@
+---
+name: liftP
+menu: function
+---
+
+# function/liftP
+
+Lift's a function into the `Promise` type.
+
+# Example 1
+
+```javascript
+import liftP from 'mojiscript/function/liftP'
+
+// add :: Number -> Number -> Number
+const add = x => y => x + y
+
+// addP :: Promise<Number> -> Promise<Number> -> Promise<Number>
+const addP = liftP (2) (add)
+
+const a = Promise.resolve(3)
+const b = Promise.resolve(4)
+
+addP (a) (b)
+// Promise (7)
+```
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| arity | `Number`  | Arity or number of arguments in the function. |
+| function | `Function`  | Function to lift into the `Promise` type. |
+| args | `Args` | N number of arguments matching the Arity. |
+
+##### Returns
+
+Returns a promise containing the return value of the function.
