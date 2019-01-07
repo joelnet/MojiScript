@@ -24,4 +24,11 @@ describe('liftP', () => {
     const actual = liftP(2)(add)(Promise.resolve(3))(Promise.resolve(4))
     return expect(actual).resolves.toBe(expected)
   })
+
+  test('liftP works without Promises too', () => {
+    expect.assertions(1)
+    const expected = 7
+    const actual = liftP(2)(add)(Promise.resolve(3))(4)
+    return expect(actual).resolves.toBe(expected)
+  })
 })
