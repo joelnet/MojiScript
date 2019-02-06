@@ -1,32 +1,52 @@
 const pipe = require('../pipe')
 
 describe('core/pipe', () => {
-  test('no arguments returns promise', () => {
+  test('no arguments returns undefined', () => {
     expect.assertions(1)
     const actual = pipe()()
-    const expected = Promise
-    return expect(actual).toBeInstanceOf(expected)
+    return expect(actual).toBeUndefined()
   })
 
-  test('argument is primitive returns value', () => {
+  test('async argument is primitive returns value', () => {
+    expect.assertions(1)
+    const actual = pipe([ Promise.resolve(888) ])(666)
+    const expected = 888
+    return expect(actual).resolves.toBe(expected)
+  })
+
+  test('sync argument is primitive returns value', () => {
     expect.assertions(1)
     const actual = pipe([ 888 ])(666)
     const expected = 888
+    return expect(actual).toBe(expected)
+  })
+
+  test('async argument returns last value', () => {
+    expect.assertions(1)
+    const actual = pipe([ Promise.resolve(666), 888 ])(-1)
+    const expected = 888
     return expect(actual).resolves.toBe(expected)
   })
 
-  test('argument returns last value', () => {
+  test('sync argument returns last value', () => {
     expect.assertions(1)
     const actual = pipe([ 666, 888 ])(-1)
     const expected = 888
+    return expect(actual).toBe(expected)
+  })
+
+  test('async executes function', () => {
+    expect.assertions(1)
+    const actual = pipe([ () => Promise.resolve(), () => 888 ])(-1)
+    const expected = 888
     return expect(actual).resolves.toBe(expected)
   })
 
-  test('executes function', () => {
+  test('sync executes function', () => {
     expect.assertions(1)
     const actual = pipe([ () => 888 ])(-1)
     const expected = 888
-    return expect(actual).resolves.toBe(expected)
+    return expect(actual).toBe(expected)
   })
 
   test('Promise as value', () => {
@@ -43,13 +63,23 @@ describe('core/pipe', () => {
     return expect(actual).resolves.toBe(expected)
   })
 
-  test('exceptions reject', () => {
+  test('async exception throws', () => {
     expect.assertions(1)
-    const actual = pipe([ () => {
+    const actual = pipe([
+      () => Promise.resolve(),
+      () => { throw Error('Catch me if you can!') }
+    ])(-1)
+    const expected = Error('Catch me if you can!')
+    return expect(actual).rejects.toThrow(expected)
+  })
+
+  test('sync exception rejects', () => {
+    expect.assertions(1)
+    const actual = () => pipe([ () => {
       throw Error('Catch me if you can!')
     } ])(-1)
     const expected = Error('Catch me if you can!')
-    return expect(actual).rejects.toThrow(expected)
+    return expect(actual).toThrow(expected)
   })
 
   test('reject value rejects', () => {
