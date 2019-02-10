@@ -1,10 +1,11 @@
 const pipeSync = require('../sync')
 
 describe('core/pipe', () => {
-  test('no arguments returns undefined', () => {
+  test('no arguments throws error', () => {
     expect.assertions(1)
-    const actual = pipeSync()()
-    return expect(actual).toBeUndefined()
+    const actual = () => pipeSync()
+    const expected = Error('pipe/sync requires at least one argument')
+    return expect(actual).toThrow(expected)
   })
 
   test('sync argument is primitive returns value', () => {
