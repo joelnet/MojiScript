@@ -168,6 +168,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "r10a",
+      "name": "Rohit",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/18303282?v=4",
+      "profile": "http://r10a.github.io",
+      "contributions": [
+        "doc"
+      ]
     }
   ]
 }
