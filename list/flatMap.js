@@ -7,7 +7,7 @@ const isFlatMapable = mapable => mapable && typeof mapable.flatMap === 'function
 const isFlFlatMapable = mapable => mapable && typeof mapable['fantasy-land/chain'] === 'function'
 
 const flatMap = func => mapable =>
-  isFlatMapable(mapable) ? mapable.flatMap(func)
+  isFlatMapable(mapable) && !Array.isArray(mapable) ? mapable.flatMap(func)
   : isFlFlatMapable(mapable) ? mapable['fantasy-land/chain'](func)
   : reduce(flatMapReducer(func))([])(mapable)
 
