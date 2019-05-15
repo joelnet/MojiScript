@@ -15,10 +15,20 @@ const fromEither = def => either => isRight(either) ? either.value : def
 // fromNullable :: Any -> Either
 const fromNullable = value => value == null ? Left(value) : Right(value)
 
+// try :: Thunk -> Maybe
+const maybeTry = thunk => {
+  try {
+    return Right(thunk())
+  } catch (err) {
+    return Left(err)
+  }
+}
+
 module.exports['@@type'] = typeEither
 module.exports.fromFalsy = fromFalsy
 module.exports.fromEither = fromEither
 module.exports.fromNullable = fromNullable
+module.exports.try = maybeTry
 
 // Experimental debug code
 /* istanbul ignore next */
