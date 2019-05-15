@@ -1,6 +1,7 @@
 const is = require('./is')
 const { typeRight } = require('./_allTypes')
 
+const isError = is(Error)
 const isFunction = is(Function)
 
 // Right :: Any -> Right
@@ -47,7 +48,14 @@ const prototype = {
   leftFlatMap,
   'fantasy-land/ap': ap,
   'fantasy-land/map': map,
-  inspect() { return `Right (${isFunction(this.value) ? `function ${this.value.name}()` : JSON.stringify(this.value)})` }
+  inspect() {
+    const value =
+      isFunction(this.value) ? `function ${this.value.name}()`
+      : isError(this.value) ? `[ Error: ${this.value.message} ]`
+      : JSON.stringify(this.value)
+
+    return `Right (${value})`
+  }
 }
 
 Right['@@type'] = typeRight

@@ -31,7 +31,7 @@ describe('type/Nothing', () => {
     expect.assertions(1)
     const expected = 'Just ("ABC")'
     const nothing = Nothing
-    const actual = nothing.leftMap(() => Just('ABC')).inspect()
+    const actual = nothing.leftMap(() => 'ABC').inspect()
     expect(actual).toBe(expected)
   })
 
@@ -39,7 +39,7 @@ describe('type/Nothing', () => {
     expect.assertions(1)
     const expected = Nothing
     const nothing = Nothing
-    const actual = nothing.leftMap(() => Nothing)
+    const actual = nothing.leftMap(() => Nothing).value
     expect(actual).toBe(expected)
   })
 

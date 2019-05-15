@@ -1,7 +1,8 @@
 const is = require('../is')
 const Right = require('../Right')
 const Left = require('../Left')
-const { fromFalsy, fromNullable, fromEither } = require('../Either')
+const Either = require('../Either')
+const { fromFalsy, fromNullable, fromEither } = Either
 
 describe('Either', () => {
   describe('fromFalsy', () => {
@@ -119,6 +120,20 @@ describe('Either', () => {
       const expected = 888
       const actual = fromNullable(expected).value
       expect(actual).toBe(expected)
+    })
+  })
+
+  describe('try', () => {
+    test('success returns Right', () => {
+      const expected = Right(123)
+      const actual = Either.try(() => 123)
+      expect(actual).toMatchObject(expected)
+    })
+
+    test('error returns Left', () => {
+      const expected = Left(Error('UH OH'))
+      const actual = Either.try(() => { throw Error('UH OH')})
+      expect(actual).toMatchObject(expected)
     })
   })
 })

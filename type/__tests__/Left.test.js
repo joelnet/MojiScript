@@ -105,6 +105,13 @@ describe('type/Left', () => {
     expect(actual).toEqual(expected)
   })
 
+  test('Left(Error).inspect', () => {
+    expect.assertions(1)
+    const expected = 'Left ([ Error: UH OH ])'
+    const actual = Left(Error('UH OH')).inspect()
+    expect(actual).toEqual(expected)
+  })
+
   test('Left(add()).inspect', () => {
     expect.assertions(1)
     const add = () => {}

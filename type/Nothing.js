@@ -1,9 +1,5 @@
 const { typeNothing } = require('./_allTypes')
-
-function leftMap(func) {
-  const value = func()
-  return value
-}
+const Just = require('./Just')
 
 const Nothing = Object.freeze(Object.create(
   {
@@ -12,7 +8,7 @@ const Nothing = Object.freeze(Object.create(
     inspect: () => 'Nothing',
     ap: () => Nothing,
     map: () => Nothing,
-    leftMap,
+    leftMap: func => Just(func()),
     flatMap: () => Nothing,
     'fantasy-land/map': () => Nothing,
     toJSON: () => null

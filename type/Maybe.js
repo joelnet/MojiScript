@@ -15,10 +15,15 @@ const fromMaybe = def => maybe => isJust(maybe) ? maybe.value : def
 // fromNullable :: Any -> Maybe
 const fromNullable = value => value == null ? Nothing : Just(value)
 
+// unlift :: Function -> Array -> Any
+const unlift = func => (...args) =>
+  func(...args.map(fromNullable)).value
+
 module.exports['@@type'] = typeMaybe
 module.exports.fromFalsy = fromFalsy
 module.exports.fromMaybe = fromMaybe
 module.exports.fromNullable = fromNullable
+module.exports.unlift = unlift
 
 // Experimental debug code
 /* istanbul ignore next */
