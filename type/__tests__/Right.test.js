@@ -84,6 +84,13 @@ describe('type/Right', () => {
     expect(actual).toEqual(expected)
   })
 
+  test('Right(function()).inspect', () => {
+    expect.assertions(1)
+    const expected = 'Right ([ Error: UH OH ])'
+    const actual = Right(Error('UH OH')).inspect()
+    expect(actual).toEqual(expected)
+  })
+
   test('Right(add()).inspect', () => {
     expect.assertions(1)
     const add = () => {}
