@@ -12,10 +12,7 @@ Pipe is an asynchronous function composer.
 ## Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import sleep from 'mojiscript/threading/sleep'
-import run from 'mojiscript/core/run'
+import { log, pipe, sleep, run } from 'mojiscript'
 
 const main = pipe ([
   sleep (1000),

@@ -2,6 +2,7 @@ const is = require('../is')
 const Right = require('../Right')
 const Left = require('../Left')
 const Either = require('../Either')
+
 const { fromFalsy, fromNullable, fromEither } = Either
 
 describe('Either', () => {
@@ -132,7 +133,7 @@ describe('Either', () => {
 
     test('error returns Left', () => {
       const expected = Left(Error('UH OH'))
-      const actual = Either.try(() => { throw Error('UH OH')})
+      const actual = Either.try(() => { throw Error('UH OH') })
       expect(actual).toMatchObject(expected)
     })
   })

@@ -14,7 +14,7 @@ A `FlatMapable` could be an `Array`, an `Iterator`, or `async Iterator`, or an o
 ## Array Example
 
 ```javascript
-import flatMap from 'mojiscript/list/flatMap'
+import { flatMap } from 'mojiscript'
 
 const andTimesTen = num => [ num, num * 10 ]
 const array = [ 1, 2, 3 ]
@@ -25,8 +25,7 @@ flatMap (andTimesTen) (array) //=> [ 1, 10, 2, 20, 3, 30 ]
 ## Iterator Example
 
 ```javascript
-import map from 'mojiscript/list/map'
-import range from 'mojiscript/list/range'
+import { map, range } from 'mojiscript'
 
 const andTimesTen = num => [ num, num * 10 ]
 const array = [ 1, 2, 3 ]
@@ -37,9 +36,7 @@ flatMap (andTimesTen) (range (1) (4)) //=> [ 1, 10, 2, 20, 3, 30 ]
 ## Async Example
 
 ```javascript
-import flatMap from 'mojiscript/list/flatMap'
-import pipe from 'mojiscript/core/pipe'
-import sleep from 'mojiscript/threading/sleep'
+import { flatMap, pipe, sleep } from 'mojiscript'
 
 const andTimesTen = num => [ num, num * 10 ]
 const asyncAndTimesTen = pipe ([

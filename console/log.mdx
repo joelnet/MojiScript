@@ -10,8 +10,7 @@ menu: console
 `log` sends value to `console.log` and then returns the value.
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
+import { log, pipe } from 'mojiscript'
 
 const main = pipe ([
   log,

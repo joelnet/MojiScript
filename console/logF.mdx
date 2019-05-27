@@ -10,8 +10,7 @@ menu: console
 `logF` transforms the value and sends it to `console.log` and then returns the pre-transformed value value.
 
 ```javascript
-import logF from 'mojiscript/console/logF'
-import pipe from 'mojiscript/core/pipe'
+import { logF, pipe } from 'mojiscript'
 
 const main = pipe ([
   logF (x => x.toUpperCase ()), //=> "HELLO WORLD!"

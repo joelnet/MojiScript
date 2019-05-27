@@ -12,7 +12,7 @@ ap applies a list of functions to a list of values.
 ## Array Example
 
 ```javascript
-import ap from 'mojiscript/list/ap'
+import { ap } from 'mojiscript'
 
 const double = num => num * 2
 const array = [ 1, 2, 3 ]
@@ -24,8 +24,7 @@ ap ([Math.sqrt, x => x * x]) ([1, 4, 9, 16, 25])
 ## Functor Example
 
 ```javascript
-import ap from 'mojiscript/list/ap'
-import Just from 'mojiscript/type/Just'
+import { ap, Just } from 'mojiscript'
 
 const sqrt = Just (Math.sqrt)
 const value = Just (64)

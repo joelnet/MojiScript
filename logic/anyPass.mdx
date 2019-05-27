@@ -12,11 +12,7 @@ Takes a list of `predicates` and returns `true` if one `predicates` is `true`.
 ## Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
-import map from 'mojiscript/list/map'
-import anyPass from 'mojiscript/logic/anyPass'
+import { log, pipe, run, map, anyPass } from 'mojiscript'
 
 const isFizz = num => num % 5 == 0
 const isBuzz = num => num % 3 == 0

@@ -12,11 +12,7 @@ Executes `func(value)` and injects the return value into the `prop` of `value`.
 ## Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import into from 'mojiscript/core/into'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
-import sleep from 'mojiscript/threading/sleep'
+import { log, into, pipe, run sleep } from 'mojiscript'
 
 const isEven = num => num % 2 === 0
 const isOdd = pipe ([

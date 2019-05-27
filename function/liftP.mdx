@@ -10,7 +10,7 @@ Lift's a function into the `Promise` type.
 # Basic Example
 
 ```javascript
-import liftP from 'mojiscript/function/liftP'
+import { liftP } from 'mojiscript'
 
 // add :: Number -> Number -> Number
 const add = x => y => x + y
@@ -33,7 +33,7 @@ This example makes 2 Ajax calls. The 2nd call depends on the results of the firs
 
 ```javascript
 import axios from 'axios'
-import liftP from 'mojiscript/function/liftP'
+import { liftP } from 'mojiscript'
 
 const fetchData = url =>
   axios.get (url)

@@ -1,5 +1,4 @@
 const Nothing = require('../Nothing')
-const Just = require('../Just')
 
 describe('type/Nothing', () => {
   test('is immutable', () => {

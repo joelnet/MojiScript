@@ -12,10 +12,7 @@ Encapsulates `if/else/elseif` logic.
 ## Examples
 
 ```javascript
-import logF from 'mojiscript/console/logF'
-import cond from 'mojiscript/logic/cond'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
+import { logF, cond, pipe, run } from 'mojiscript'
 
 const dependencies = {
   logF
@@ -42,11 +39,7 @@ run({ dependencies, state, main })
 ```
 
 ```javascript
-import log from 'mojiscript/console/log'
-import cond from 'mojiscript/logic/cond'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
-import $ from 'mojiscript/string/template'
+import { log, cond, pipe, run, $ } from 'mojiscript'
 
 const dependencies = {
   log

@@ -12,7 +12,7 @@ Returns a curried equivalent of the provided function, with the specified arity.
 # Example
 
 ```javascript
-import curry from 'mojiscript/function/curry'
+import { curry } from 'mojiscript'
 import fs from 'fs'
 
 const readFileSync = curry (2) (fs.readFileSync)

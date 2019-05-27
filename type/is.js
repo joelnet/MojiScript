@@ -21,7 +21,7 @@ const isType = (ctor, value) => value != null && ctor['@@type'] === value['@@typ
 const testPromise = ctor => ctor != null && ctor === Promise
 const isPromise = value => value != null && isFunction(value.then)
 
-const defaultTest = (ctor, value) => value != null && (value.constructor === ctor || (value != null && value instanceof ctor))
+const defaultTest = (ctor, value) => value != null && (value.constructor === ctor || (value != null && value instanceof ctor)) // eslint-ignore max-len
 
 // is :: Type -> Any -> Boolean
 const is = ctor => value =>

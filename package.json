@@ -1,17 +1,18 @@
 {
   "name": "mojiscript",
-  "version": "0.12.8",
+  "version": "0.13.0",
   "description": "MojiScript is an Async First, opinionated, and functional language designed to have 100% compatibility with JavaScript engines.",
+  "author": "Joel Thoms",
+  "license": "MIT",
+  "homepage": "https://mojiscript.js.org",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joelnet/MojiScript.git"
   },
-  "author": "Joel Thoms",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/joelnet/MojiScript/issues"
   },
-  "homepage": "https://github.com/joelnet/MojiScript#readme",
+  "main": "index.js",
   "scripts": {
     "build": "moji build .",
     "test": "jest",
@@ -55,7 +56,8 @@
       "!_internal/debug/**",
       "!.docz/**",
       "!static/**",
-      "!doczrc.js"
+      "!doczrc.js",
+      "!index.js"
     ],
     "coverageThreshold": {
       "global": {

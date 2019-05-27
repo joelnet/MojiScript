@@ -49,8 +49,7 @@ const prototype = {
   'fantasy-land/ap': ap,
   'fantasy-land/map': map,
   inspect() {
-    const value =
-      isFunction(this.value) ? `function ${this.value.name}()`
+    const value = isFunction(this.value) ? `function ${this.value.name}()`
       : isError(this.value) ? `[ Error: ${this.value.message} ]`
       : JSON.stringify(this.value)
     return `Left (${value})`
