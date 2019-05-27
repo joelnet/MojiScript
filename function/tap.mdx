@@ -12,10 +12,7 @@ Runs the given function with the supplied object, then returns the object. `tap`
 # Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
-import tap from 'mojiscript/function/tap'
+import { log, pipe, run, tap } from 'mojiscript'
 import axios from 'mojiscript/net/axios'
 
 const getUser = () => ({

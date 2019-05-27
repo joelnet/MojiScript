@@ -16,7 +16,7 @@ The predicate will be `predicate :: Any -> Any -> Boolean`
 ## Array Example
 
 ```javascript
-import reduceWhile from 'mojiscript/list/reduceWhile'
+import { reduceWhile } from 'mojiscript'
 
 const add = x => y => x + y
 const array = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -28,8 +28,7 @@ reduceWhile (predicate) (add) (0) (array) //=> 10
 ## Iterator Example
 
 ```javascript
-import range from 'mojiscript/list/range'
-import reduceWhile from 'mojiscript/list/reduceWhile'
+import { range, reduceWhile } from 'mojiscript'
 
 const add = x => y => x + y
 const predicate = acc => x => x < 5
@@ -40,9 +39,7 @@ reduceWhile (predicate) (add) (0) (range (0) (Infinity)) //=> 10
 ## Async Example
 
 ```javascript
-import pipe from 'mojiscript/core/pipe'
-import reduceWhile from 'mojiscript/list/reduceWhile'
-import sleep from 'mojiscript/threading/sleep'
+import { pipe, reduceWhile, sleep } from 'mojiscript'
 
 const add = x => y => x + y
 const asyncAdd = x => pipe ([

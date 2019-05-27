@@ -12,9 +12,7 @@ Main entrypoint into your application. Runs your `main` pipe.
 ## Examples
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
+import { log, pipe, run } from 'mojiscript'
 
 const main = pipe ([
   () => log ('done')
@@ -25,9 +23,7 @@ run ({ main })
 ```
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
+import { log, pipe, run } from 'mojiscript'
 
 const state = 'Hello World'
 
@@ -40,9 +36,7 @@ run ({ state, main })
 ```
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
+import { log, pipe, run } from 'mojiscript'
 
 const dependencies = {
   log

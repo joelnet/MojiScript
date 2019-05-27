@@ -14,7 +14,7 @@ An `Iterable` could be an `Array`, an `Iterator`, or `async Iterator`.
 ## Array Example
 
 ```javascript
-import filter from 'mojiscript/list/filter'
+import { filter } from 'mojiscript'
 
 const isEven = num => num % 2 === 0
 const array = [ 1, 2, 3, 4, 5 ]
@@ -25,8 +25,7 @@ filter (isEven) (array) //=> [ 2, 4 ]
 ## Iterator Example
 
 ```javascript
-import filter from 'mojiscript/list/filter'
-import range from 'mojiscript/list/range'
+import { filter, range } from 'mojiscript'
 
 const isEven = num => num % 2 === 0
 
@@ -36,9 +35,7 @@ filter (isEven) (range (1) (6)) //=> [ 2, 4 ]
 ## Async Example
 
 ```javascript
-import filter from 'mojiscript/list/filter'
-import pipe from 'mojiscript/core/pipe'
-import sleep from 'mojiscript/threading/sleep'
+import { filter, pipe, sleep } from 'mojiscript'
 
 const isEven = num => num % 2 === 0
 const asyncIsEven = pipe ([

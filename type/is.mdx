@@ -12,10 +12,7 @@ Checks the type of an `Object`.
 ## Example
 
 ```javascript
-import log from 'mojiscript/console/log'
-import pipe from 'mojiscript/core/pipe'
-import run from 'mojiscript/core/run'
-import is from 'mojiscript/type/is'
+import { log, pipe, run, is } from 'mojiscript'
 
 const main = pipe ([
   () => log (is (Function) (x => x)),        //=> true

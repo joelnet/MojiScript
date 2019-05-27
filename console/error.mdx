@@ -10,8 +10,7 @@ menu: console
 `error` sends value to `console.error` and then returns the value.
 
 ```javascript
-import error from 'mojiscript/console/error'
-import pipe from 'mojiscript/core/pipe'
+import { error, pipe } from 'mojiscript'
 
 const main = pipe ([
   error,

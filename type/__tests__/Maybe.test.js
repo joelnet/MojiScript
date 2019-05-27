@@ -1,6 +1,8 @@
 const is = require('../is')
 const Just = require('../Just')
-const { fromFalsy, fromNullable, fromMaybe, unlift } = require('../Maybe')
+const {
+  fromFalsy, fromNullable, fromMaybe, unlift
+} = require('../Maybe')
 const Nothing = require('../Nothing')
 
 const toStringMaybe = maybe => maybe.map(value => value.toUpperCase())
@@ -126,8 +128,8 @@ describe('Maybe', () => {
 
   describe('unlift', () => {
     test('Just', () => {
-      const expected = "ABC"
-      const actual = unlift(toStringMaybe)("abc")
+      const expected = 'ABC'
+      const actual = unlift(toStringMaybe)('abc')
       expect(actual).toBe(expected)
     })
 
