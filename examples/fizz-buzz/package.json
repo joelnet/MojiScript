@@ -12,12 +12,12 @@
     "mojiscript": "file:../.."
   },
   "devDependencies": {
-    "eslint": "^5.8.0",
+    "eslint": "^5.16.0",
     "eslint-config-mojiscript": "1.2.0",
     "eslint-plugin-better": "0.1.5",
     "eslint-plugin-fp": "2.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prefer-arrow": "1.1.3",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prefer-arrow": "1.1.5",
     "mojiscript-cli": "0.0.3"
   }
 }
