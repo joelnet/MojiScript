@@ -1,6 +1,6 @@
 {
   "name": "mojiscript",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "description": "MojiScript is an Async First, opinionated, and functional language designed to have 100% compatibility with JavaScript engines.",
   "author": "Joel Thoms",
   "license": "MIT",
