@@ -144,4 +144,12 @@ describe('type/Just', () => {
     const actual = Just(666).map(() => undefined)
     expect(actual).toEqual(expected)
   })
+
+  test('Just.ap', () => {
+    expect.assertions(1)
+    const expected = Just(888)
+    const double = x => x * 2
+    const actual = Just(double).ap(Just(444))
+    expect(actual).toMatchObject(expected)
+  })
 })

@@ -91,4 +91,12 @@ describe('type/Nothing', () => {
     const actual = Number(Nothing)
     expect(actual).toBe(expected)
   })
+
+  test('Nothing.ap returns Nothing', () => {
+    expect.assertions(1)
+    const expected = Nothing
+    const double = x => x * 2
+    const actual = Nothing.ap(double)
+    expect(actual).toBe(expected)
+  })
 })
