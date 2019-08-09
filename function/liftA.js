@@ -1,4 +1,5 @@
-const { map, ap } = require('..')
+const ap = require('../list/ap')
+const map = require('../list/map')
 
 const liftA = arity => {
   if (arity < 1) throw new Error('arity must be >= 1')
