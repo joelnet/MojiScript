@@ -8,6 +8,7 @@ const Nothing = Object.freeze(Object.create(
     inspect: () => 'Nothing',
     ap: () => Nothing,
     map: () => Nothing,
+    tap: () => Nothing,
     leftMap: func => Just(func()),
     flatMap: () => Nothing,
     'fantasy-land/map': () => Nothing,
