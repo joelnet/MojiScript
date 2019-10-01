@@ -23,8 +23,15 @@ describe('type/Right', () => {
 
   test('map', () => {
     expect.assertions(1)
-    const expected = 'Right (246)'
-    const actual = Right(123).map(double).inspect()
+    const expected = 246
+    const actual = Right(123).map(double).value
+    expect(actual).toBe(expected)
+  })
+
+  test('tap', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = Right(888).tap(double).value
     expect(actual).toBe(expected)
   })
 
