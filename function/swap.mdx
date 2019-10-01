@@ -1,0 +1,31 @@
+---
+name: swap
+menu: function
+---
+
+# function/swap
+
+`swap :: Function -> Function`
+
+Swaps the order of the first two arguments of a `Function`.
+
+# Example
+
+```javascript
+import { swap } from 'mojiscript'
+
+const append = a => b => `${a}${b}`
+const swapped = swap(append)
+
+swapped('A')('B') //=> 'BA'
+```
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| function | `Function`  | Function to swap arguments |
+
+##### Returns
+
+Returns the `Function` with the first two arguments swapped.
