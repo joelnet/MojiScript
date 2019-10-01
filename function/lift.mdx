@@ -7,7 +7,7 @@ menu: function
 
 Lift's a function into a `Thenable` (`Promise`) or `Mappable` (`Array`) type.
 
-# Simple Array Example
+## Simple Array Example
 
 ```javascript
 import { lift } from 'mojiscript'
@@ -27,7 +27,7 @@ const bP = [ 4 ]
 addP (aP) (bP) //=> [ 7 ]
 ```
 
-# Compound Array Example
+## Compound Array Example
 
 ```javascript
 import lift from './function/lift'
@@ -49,7 +49,7 @@ const deck = combineP (suits) (ranks)
  */
 ```
 
-# Promise Example
+## Promise Example
 
 ```javascript
 import { lift } from 'mojiscript'
@@ -69,7 +69,7 @@ const bP = Promise.resolve(4)
 addP (aP) (bP) //=> Promise (7)
 ```
 
-# Ajax Example
+## Ajax Example
 
 This example makes 2 Ajax calls. The 2nd call depends on the results of the first.
 
@@ -104,7 +104,7 @@ writeLog (message)
 //=> "Luke Skywalker's homeworld is Tatooine"
 ```
 
-##### Parameters
+### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
@@ -112,6 +112,6 @@ writeLog (message)
 | function | `Function`  | Function to lift into the `Promise` type. |
 | args | `Args` | N number of arguments matching the Arity. |
 
-##### Returns
+### Returns
 
 Returns a promise containing the return value of the function.
