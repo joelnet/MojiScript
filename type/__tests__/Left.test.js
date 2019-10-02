@@ -98,6 +98,13 @@ describe('type/Left', () => {
     expect(actual).toBe(expected)
   })
 
+  test('getOrElse', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = Left(123).getOrElse(expected)
+    expect(actual).toBe(expected)
+  })
+
   test('Left(abc).inspect', () => {
     expect.assertions(1)
     const expected = 'Left ("abc")'
