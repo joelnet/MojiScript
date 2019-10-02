@@ -28,6 +28,13 @@ describe('type/Left', () => {
     expect(actual).toBe(expected)
   })
 
+  test('tap', () => {
+    expect.assertions(1)
+    const expected = 'Left (123)'
+    const actual = Left(123).tap(double).inspect()
+    expect(actual).toBe(expected)
+  })
+
   test('flatMap With Number', () => {
     expect.assertions(1)
     const expected = 'Left (123)'

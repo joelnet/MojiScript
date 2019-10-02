@@ -20,6 +20,11 @@ function map(func) {
   return Just(func(this.value))
 }
 
+function tap(func) {
+  func(this.value)
+  return Just(this.value)
+}
+
 function flatMap(func) {
   return func(this.value)
 }
@@ -36,6 +41,7 @@ const prototype = {
   '@@type': typeJust,
   ap,
   map,
+  tap,
   flatMap,
   leftMap,
   'fantasy-land/ap': ap,

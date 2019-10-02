@@ -21,6 +21,10 @@ function map() {
   return this
 }
 
+function tap() {
+  return this
+}
+
 function flatMap() {
   return this
 }
@@ -43,6 +47,7 @@ const prototype = {
   '@@type': typeLeft,
   ap,
   map,
+  tap,
   flatMap,
   leftMap,
   leftFlatMap,

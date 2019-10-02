@@ -22,6 +22,12 @@ function map(func) {
   return Right(value)
 }
 
+function tap(func) {
+  func(this.value)
+  return Right(this.value)
+}
+
+
 function flatMap(func) {
   const value = func(this.value)
   return value
@@ -43,6 +49,7 @@ const prototype = {
   '@@type': typeRight,
   ap,
   map,
+  tap,
   flatMap,
   leftMap,
   leftFlatMap,

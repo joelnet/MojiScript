@@ -18,6 +18,14 @@ describe('type/Nothing', () => {
     expect(actual).toBe(expected)
   })
 
+  test('tap', () => {
+    expect.assertions(1)
+    const expected = Nothing
+    const nothing = Nothing
+    const actual = nothing.tap(x => x * 2)
+    expect(actual).toBe(expected)
+  })
+
   test('flatMap', () => {
     expect.assertions(1)
     const expected = Nothing

@@ -25,6 +25,13 @@ describe('type/Just', () => {
     expect(actual).toBe(expected)
   })
 
+  test('tap', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = Just(expected).tap(x => x * 2).value
+    expect(actual).toBe(expected)
+  })
+
   test('flatMap With String', () => {
     expect.assertions(1)
     const expected = 'Just ("ABC")'
