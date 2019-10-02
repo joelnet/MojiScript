@@ -50,6 +50,21 @@ describe('type/Nothing', () => {
     expect(actual).toBe(expected)
   })
 
+  test('getOrElse with Nothing', () => {
+    expect.assertions(1)
+    const expected = 888
+    const nothing = Nothing
+    const actual = nothing.getOrElse(888)
+    expect(actual).toBe(expected)
+  })
+
+  test('getValue', () => {
+    expect.assertions(1)
+    const expected = 'abc'
+    const actual = Nothing.getValue(() => expected, () => 123)
+    expect(actual).toBe(expected)
+  })
+
   test('fantasy-land/map', () => {
     expect.assertions(1)
     const expected = Nothing

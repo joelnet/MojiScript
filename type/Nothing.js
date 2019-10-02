@@ -1,6 +1,14 @@
 const { typeNothing } = require('./_allTypes')
 const Just = require('./Just')
 
+function getOrElse(defaultValue) {
+  return defaultValue
+}
+
+function getValue(errCallback) {
+  return errCallback()
+}
+
 const Nothing = Object.freeze(Object.create(
   {
     '@@type': typeNothing,
@@ -11,6 +19,8 @@ const Nothing = Object.freeze(Object.create(
     tap: () => Nothing,
     leftMap: func => Just(func()),
     flatMap: () => Nothing,
+    getOrElse,
+    getValue,
     'fantasy-land/map': () => Nothing,
     toJSON: () => null
   },
