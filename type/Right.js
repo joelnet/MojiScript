@@ -45,6 +45,10 @@ function ap(right) {
   return right.map(this.value)
 }
 
+function getOrElse() {
+  return this.value
+}
+
 const prototype = {
   '@@type': typeRight,
   ap,
@@ -53,6 +57,7 @@ const prototype = {
   flatMap,
   leftMap,
   leftFlatMap,
+  getOrElse,
   'fantasy-land/ap': ap,
   'fantasy-land/map': map,
   inspect() {
