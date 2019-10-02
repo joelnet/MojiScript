@@ -41,6 +41,10 @@ function getOrElse() {
   return this.value
 }
 
+function getValue(errCallback, dataCallback) {
+  return dataCallback(this.value)
+}
+
 const prototype = {
   '@@type': typeJust,
   ap,
@@ -49,6 +53,7 @@ const prototype = {
   flatMap,
   leftMap,
   getOrElse,
+  getValue,
   'fantasy-land/ap': ap,
   'fantasy-land/map': map,
   toString() { return this.value.toString() },

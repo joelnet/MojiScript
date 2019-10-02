@@ -105,6 +105,13 @@ describe('type/Left', () => {
     expect(actual).toBe(expected)
   })
 
+  test('getValue', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = Left(expected).getValue(err => err, () => 123)
+    expect(actual).toBe(expected)
+  })
+
   test('Left(abc).inspect', () => {
     expect.assertions(1)
     const expected = 'Left ("abc")'

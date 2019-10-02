@@ -74,6 +74,13 @@ describe('type/Just', () => {
     expect(actual).toBe(expected)
   })
 
+  test('getValue', () => {
+    expect.assertions(1)
+    const expected = 'abc'
+    const actual = Just('abc').getValue(() => 123, x => x)
+    expect(actual).toBe(expected)
+  })
+
   test('fantasy-land/map', () => {
     expect.assertions(1)
     const expected = 888

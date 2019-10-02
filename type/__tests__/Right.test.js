@@ -84,6 +84,13 @@ describe('type/Right', () => {
     expect(actual).toBe(expected)
   })
 
+  test('getValue', () => {
+    expect.assertions(1)
+    const expected = 888
+    const actual = Right(expected).getValue(() => 123, data => data)
+    expect(actual).toBe(expected)
+  })
+
   test('Right(abc).inspect', () => {
     expect.assertions(1)
     const expected = 'Right ("abc")'
