@@ -37,6 +37,10 @@ function ap(just) {
   return just.map(this.value)
 }
 
+function getOrElse() {
+  return this.value
+}
+
 const prototype = {
   '@@type': typeJust,
   ap,
@@ -44,6 +48,7 @@ const prototype = {
   tap,
   flatMap,
   leftMap,
+  getOrElse,
   'fantasy-land/ap': ap,
   'fantasy-land/map': map,
   toString() { return this.value.toString() },
