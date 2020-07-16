@@ -40,3 +40,4 @@ rules:
   import/prefer-default-export: off
   max-len: warn
   arrow-parens: [error, as-needed]
+  prefer-object-spread: off

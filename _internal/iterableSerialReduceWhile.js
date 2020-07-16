@@ -12,7 +12,7 @@ const iterableSerialReduceWhile = async (
   func,
   initial,
   iterable,
-  promise = Promise.resolve(initial),
+  promise = Promise.resolve(initial)
 ) => {
   const iterator = getIterator(iterable)
   const acc = await promise
@@ -24,7 +24,7 @@ const iterableSerialReduceWhile = async (
       func,
       initial,
       iterator,
-      promise.then(acc => func(acc, value)),
+      promise.then(acc => func(acc, value))
     )
 }
 

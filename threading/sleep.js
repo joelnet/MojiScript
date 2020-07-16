@@ -2,7 +2,7 @@ const signature = require('../_internal/debug/signature')
 
 // sleep :: Number -> Any -> Promise
 const sleep = milliseconds => value => new Promise(
-  resolve => setTimeout(() => resolve(value), milliseconds),
+  resolve => setTimeout(() => resolve(value), milliseconds)
 )
 
 module.exports = sleep

@@ -1,4 +1,4 @@
-const isThenable = require('../_internal/isThenable')
+const isThenable = require('./isThenable')
 
 /*
  * Takes a value or a Promise and applies func to it.

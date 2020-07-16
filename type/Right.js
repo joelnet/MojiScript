@@ -27,7 +27,6 @@ function tap(func) {
   return Right(this.value)
 }
 
-
 function flatMap(func) {
   const value = func(this.value)
   return value

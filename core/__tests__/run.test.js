@@ -31,7 +31,7 @@ describe('core/run', () => {
     const expected = 888
     const dependencies = expected
     const main = jest.fn().mockImplementation(
-      () => jest.fn().mockImplementation(() => Promise.resolve()),
+      () => jest.fn().mockImplementation(() => Promise.resolve())
     )
     run({ dependencies, main })
     const actual = main.mock.calls[0][0]
