@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "10.3.0"
+  - "10.14.2"
 
 addons:
   ssh_known_hosts:
@@ -15,18 +15,12 @@ stages:
 jobs:
   include:
     - stage: build
-      node_js:
-        - "10.3.0"
       script:
         - npm run build
     - stage: test
-      node_js:
-        - "10.3.0"
       script:
         - npm run test:coveralls
     - stage: deploy
-      node_js:
-        - "10.3.0"
       script:
         - echo -e "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN\n" > ~/.npmrc
         - echo -e "machine github.com\n  login $CI_USER\n  password $CI_USER_PASSWORD\n" > ~/.netrc
