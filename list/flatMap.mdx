@@ -25,12 +25,12 @@ flatMap (andTimesTen) (array) //=> [ 1, 10, 2, 20, 3, 30 ]
 ## Iterator Example
 
 ```javascript
-import { map, range } from 'mojiscript'
+import { flatMap } from 'mojiscript'
 
 const andTimesTen = num => [ num, num * 10 ]
 const array = [ 1, 2, 3 ]
 
-flatMap (andTimesTen) (range (1) (4)) //=> [ 1, 10, 2, 20, 3, 30 ]
+flatMap (andTimesTen) (array) //=> [ 1, 10, 2, 20, 3, 30 ]
 ```
 
 ## Async Example
@@ -45,7 +45,7 @@ const asyncAndTimesTen = pipe ([
 ])
 const array = [ 1, 2, 3 ]
 
-flatMap (asyncAndTimesTen) (array) //=> Promise ([ 1, 10, 2, 20, 3, 30 ]​​​​​)
+flatMap (asyncAndTimesTen) (array) //=> Promise ([ 1, 10, 2, 20, 3, 30 ])
 ```
 
 ## Parameters
