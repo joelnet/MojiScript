@@ -14,11 +14,8 @@ ap applies a list of functions to a list of values.
 ```javascript
 import { ap } from 'mojiscript'
 
-const double = num => num * 2
-const array = [ 1, 2, 3 ]
-
 ap ([Math.sqrt, x => x * x]) ([1, 4, 9, 16, 25])
-//=> ​​​​​[ 1, 2, 3, 4, 5, 1, 16, 81, 256, 625 ]​​​​​
+//=> [ 1, 2, 3, 4, 5, 1, 16, 81, 256, 625 ]
 ```
 
 ## Functor Example
