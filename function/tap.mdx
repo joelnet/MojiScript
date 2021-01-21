@@ -16,15 +16,15 @@ import { log, pipe, run, tap } from 'mojiscript'
 import axios from 'mojiscript/net/axios'
 
 const getUser = () => ({
-  name: "paul rudd",
-  movies: ["I Love You Man", "Role Models"]
+  name: 'paul rudd',
+  movies: ['I Love You Man', 'Role Models']
 })
 
 const main = pipe ([
   getUser,
   
   // the axios response is ignored and the user is returned.
-  tap (user => axios.post ('https://reqres.in/api/users') (user) (null)),
+  tap (user => axios.post ('https://reqres.in/api/users') (user) ()),
 
   log
 ])
