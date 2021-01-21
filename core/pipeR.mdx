@@ -12,13 +12,13 @@ Pipe is an asynchronous function composer for recursive functions.
 ## Example
 
 ```javascript
-import { log, pipeR, run, wait } from 'mojiscript'
+import { log, pipeR, run, sleep } from 'mojiscript'
 
 const state = 1
 
 const main = pipeR (next => [
   log,
-  wait (1000),
+  sleep (1000),
   x => next (x + 1)
 ])
 
