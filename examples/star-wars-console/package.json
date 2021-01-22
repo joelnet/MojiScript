@@ -9,7 +9,7 @@
     "start": "node --experimental-modules --no-warnings index.mjs"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "mojiscript": "file:../..",
     "mojiscript-cli": "0.0.3",
     "ramda": "^0.26.1"
