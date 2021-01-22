@@ -29,9 +29,9 @@ import { map, range } from 'mojiscript'
 
 const double = num => num * 2
 
-const iterator = makeIterator()
+const iterator = range (1) (4)
 
-map (double) (range (1) (4)) //=> [ 2, 4, 6 ]
+map (double) (iterator) //=> [ 2, 4, 6 ]
 ```
 
 ## Async Example
