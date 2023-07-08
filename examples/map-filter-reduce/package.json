@@ -22,7 +22,7 @@
     "eslint-plugin-fp": "2.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prefer-arrow": "1.1.5",
-    "jest": "^23.6.0",
+    "jest": "^29.6.1",
     "mojiscript-cli": "0.0.3"
   },
   "babel": {
